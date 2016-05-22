@@ -2,10 +2,13 @@
 
 class App{
 
+	//this is the default controller
 	protected $controller = 'home';
 
+	//this is the default method within the controller
 	protected $method = 'index';
 
+	//those are the parameters that will be passed to the method
 	protected $params = [];
 
 	public function __construct(){
@@ -33,6 +36,14 @@ class App{
 		call_user_func_array([$this->controller, $this->method], $this->params);
 	}
 
+	// This method parses the url and returns an array as follows:
+	//
+	// localhost/StoW/public/story/index/30 
+	// will be parsed to 
+	// Array ( [0] => story [1] => index [2] => 30 )
+	//
+	// (Note: this url will be rewritten to localhost/StoW/public/index.php?url=story/index/30 by the .htaccess file)
+	
 	protected function parseURL(){
 		if(isset($_GET['url'])){
 			

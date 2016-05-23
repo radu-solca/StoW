@@ -22,27 +22,26 @@
 			// $result = $stmt->fetchAll();
 
 
-			foreach($result as $key => $row) //fiecare row contine:
-			{
-					echo "
-					<tr>
-						<td>$row[ST_ID]
-						</td>
-						<td>$row[ST_TITLE]
-						</td>
-						<td>$row[ST_CONTENT]
-						</td>
-						<td>$row[ST_COVER]
-						</td>
-						<td>$row[ST_DATE_ADDED]
-						</td>
-						<td>
-						<a href=\"#\" title=\"EDIT\" onclick=\"editEntry($row[ST_ID])\" class=\"iconic pen_alt_stroke\"></a>
-						<a href=\"#\" title=\"DELETE\" onclick=\"deleteStoryEntry($row[ST_ID])\" class=\"iconic trash_stroke\"></a>
-						</td>
-					</tr>
-					";
-			}
+
+			// echo '<table style="border-collapse: collapse">';
+			// foreach($result as $key => $row) //fiecare row contine:
+			// {
+			// 		echo "
+			// 		<tr style=\"border: 1px solid black\">
+			// 			<td style=\"border: 1px solid black\">$row[ST_ID]
+			// 			</td>
+			// 			<td style=\"border: 1px solid black\">$row[ST_TITLE]
+			// 			</td>
+			// 			<td style=\"border: 1px solid black\">$row[ST_CONTENT]
+			// 			</td>
+			// 			<td style=\"border: 1px solid black\">$row[ST_COVER]
+			// 			</td>
+			// 			<td style=\"border: 1px solid black\">$row[ST_DATE_ADDED]
+			// 			</td>
+			// 		</tr>
+			// 		";
+			// }
+			// echo '</table>';
 			
 			//load a few views and pass some data for them to show to the user.
 			//$this->view('home/index', ['name' => $user->name]);

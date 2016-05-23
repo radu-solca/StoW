@@ -6,7 +6,7 @@
 
 			$stList = $this->model('StoryList');
 
-			$stList->getStories('story_467');
+			$stList->getStories(null, ['genre:porno','genre:fiction'], null, 'st_id', null);
 			$result = $stList->list;
 
 			$this->view('home/index');

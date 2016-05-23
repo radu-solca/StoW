@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
 
+	<script type="text/javascript" src="assets/js/mobile.js"></script>
+
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 </head>
@@ -17,13 +19,13 @@
 	<nav class="fullWidth">
 		<div class="navDeco"></div>
 		<div class="guide960">
-			<div class="flex navContent spaceBetween">
-				<div class="left flexStart">
+			<div id="navContent" class="flex centerV spaceBetween">
+				<div class="flex left centerV flexStart">
 					<a href="" class="iconic home"></a>
 					<a href="" class="iconic book"></a>
 					<a href="" class="iconic upload"></a>
 				</div>
-				<div class="right flexEnd">
+				<div class="flex right centerV flexEnd">
 					<a href="" class="iconic magnifying_glass"></a>
 					<a href="" class="iconic user"></a>
 				</div>
@@ -34,7 +36,7 @@
 	<div class="splash fullWidth">
 		<div class="guide960">
 			<div class="flex splashContent column">
-				<p class="title">Stories on the Web</p>
+				<h1 class="title">Stories on the Web</h1>
 				<p class="description">Description Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
 				<div class="flex row">
 					<section class="browseBtn">Browse</section>
@@ -60,6 +62,14 @@
 			</div>
 		</div>
 	</div>
+
+
+<script type="text/javascript">
+
+    alert(window.innerWidth);
+	alert(window.innerHeight);
+
+</script>
 
 </body>
 </html>

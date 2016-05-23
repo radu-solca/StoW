@@ -1,0 +1,239 @@
+/*****************************************
+****************** ICONS *****************
+*****************************************/
+@font-face {
+	font-family: 'IconicStroke';
+	src: url(../font/iconic_stroke.eot);
+	src: url(../font/iconic_stroke.eot?#iefix) format("embedded-opentype"), url(../font/iconic_stroke.ttf) format("truetype"), url(../font/iconic_stroke.svg#iconic) format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+.iconic {
+	font-family: 'IconicStroke';
+}
+
+.iconic:before {
+	padding-right: 7px;
+}
+
+/*icons:*/
+.home:before {
+	content: '\2302';
+}
+
+.book:before {
+	content: '\e069';
+}
+
+.upload:before {
+	content: '\e043';
+}
+
+.magnifying_glass:before {
+	content: '\e074';
+}
+
+.user:before {
+	content: '\e062';
+}
+
+/*****************************************
+************** COLOR CHART ***************
+******************************************
+
+light_brown			#7A6453
+medium_brown		#645446
+dark_brown			#584b3f
+main_blue			#76cace
+
+light_red			#fb9b97
+light_orange		#f4a328
+light_yellow		#f5c02c
+light_green			#aad05e
+light_blue			#9dd3d7
+
+dark_red			#de5652
+dark_orange			#ea8100
+dark_yellow			#ebae02
+dark_green			#8dc225
+dark_blue			#4dbdbc
+
+*/
+a {
+	text-decoration: none;
+	color: white;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: white;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.guide960 {
+	margin: 0 auto;
+	max-width: 960px;/*	background: rgba(255, 255, 255, 0.2);*/
+}
+
+.flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.row {
+	flex-flow: row wrap; /*^ una langa alta alta*/
+}
+
+.column {
+	flex-flow: column wrap; /*^ una sub alta*/
+}
+
+/*might be needed for forced arranging inside flex*/
+
+/*.item {
+	text-align: center;
+	margin: auto;
+}*/
+
+/*might be needed for forced centering*/
+.center {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.flexStart {
+	-webkit-box-align: flex-start;
+	-webkit-align-items: flex-start;
+	-moz-box-align: flex-start;
+	-ms-flex-align: flex-start;
+	align-items: flex-start;
+	-webkit-box-pack: flex-start;
+	-webkit-justify-content: flex-start;
+	-moz-box-pack: flex-start;
+	-ms-flex-pack: flex-start;
+	justify-content: flex-start;
+}
+
+.flexEnd {
+	-webkit-box-align: flex-end;
+	-webkit-align-items: flex-end;
+	-moz-box-align: flex-end;
+	-ms-flex-align: flex-end;
+	align-items: flex-end;
+	-webkit-box-pack: flex-end;
+	-webkit-justify-content: flex-end;
+	-moz-box-pack: flex-end;
+	-ms-flex-pack: flex-end;
+	justify-content: flex-end;
+}
+
+.spaceBetween {
+	-webkit-box-align: space-between;
+	-webkit-align-items: space-between;
+	-moz-box-align: space-between;
+	-ms-flex-align: space-between;
+	align-items: space-between;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+}
+
+.spaceAround {
+	-webkit-box-align: space-around;
+	-webkit-align-items: space-around;
+	-moz-box-align: space-around;
+	-ms-flex-align: space-around;
+	align-items: space-around;
+	-webkit-box-pack: space-around;
+	-webkit-justify-content: space-around;
+	-moz-box-pack: space-around;
+	-ms-flex-pack: space-around;
+	justify-content: space-around;
+}
+
+nav {
+	background-color: #7A6453;
+}
+
+nav a {
+	border-radius: 2px;
+	padding: 3px 10px;
+}
+
+nav a:after {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav a:hover {
+	background-color: #645446;
+}
+
+.navDeco {
+	height: 5px;
+	background-color: #584b3f;
+}
+
+.home::after {
+	content: "Home";
+}
+
+.book::after {
+	content: "Browse";
+}
+
+.upload::after {
+	content: "Upload";
+}
+
+.magnifying_glass::after {
+	content: "Search";
+}
+
+.user::after {
+	content: "Sign In";
+}
+
+.splash {
+	background-color: #76cace;
+}
+
+.splashContent .title {
+	font-family: 'Amatic SC', cursive;
+}
+
+.footer {
+	background: #7A6453;
+}
+
+.browseBtn {
+	background: rgba(0, 0, 0, 0.2);
+	flex: 0;
+}
+
+.uploadBtn {
+	background: rgba(0, 0, 0, 0.2);
+	flex: 0;
+}
+
+.recent {
+	background: white;
+}

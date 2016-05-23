@@ -1,0 +1,33 @@
+.iconic:before {
+	padding-right: 0px;
+}
+
+.home::after {
+	content: "";
+}
+
+.book::after {
+	content: "";
+}
+
+.upload::after {
+	content: "";
+}
+
+.magnifying_glass::after {
+	content: "";
+}
+
+.user::after {
+	content: "";
+}
+
+.uploadBtn {
+	width: 300px;
+	flex: 1 auto;
+}
+
+.browseBtn {
+	width: 300px;
+	flex: 1 auto;
+}

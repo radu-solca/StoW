@@ -4,19 +4,21 @@
 
 		public $list;
 
-		//This method populates $list with rows form the database representing stories.
-		//
-		//Parameters:
-		//$title - a string representing an SQL regex for the title
-		//$categories - an array of strings, formated like "<category_type>:<category_name>"
-		//$limit - an integer, representing how many rows should be returned at most
-		//$ordby - the name of the column by which the results should be ordered (note that they are ordered before $limit is applied)
-		//$ordtype - ASC or DESC
-		//
-		//If all parameters are left null, then all rows in the database will be returned
-		//
-		//usage example: getStories(null, ['genre:porno','genre:fiction'], null, 'st_id', 'DESC');
-		//this populates $list with all stories that are in the porno and fiction genres simultaneously, in descending order by id.
+		/**	
+			This method populates $list with rows form the database representing stories.
+		
+			Parameters:
+			$title - a string representing an SQL regex for the title
+			$categories - an array of strings, formated like "<category_type>:<category_name>"
+			$limit - an integer, representing how many rows should be returned at most
+			$ordby - the name of the column by which the results should be ordered (note that they are ordered before $limit is applied)
+			$ordtype - ASC or DESC
+			
+			If all parameters are left null, then all rows in the database will be returned
+			
+			usage example: getStories(null, ['genre:porno','genre:fiction'], null, 'st_id', 'DESC');
+			this populates $list with all stories that are in the porno and fiction genres simultaneously, in descending order by id.
+		**/
 		public function getStories($title = null, $categories = null, $limit = null, $ordby = null, $ordtype = null ){
 			$query = 'SELECT * FROM stories';
 
@@ -58,14 +60,7 @@
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
 
-			echo $query;
-			echo '</br>';
-			print_r($params);
-
 			$this->list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-			echo '</br>';
-			print_r($this->list);
 		}
 	}
 

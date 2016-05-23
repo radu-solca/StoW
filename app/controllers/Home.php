@@ -4,6 +4,7 @@
 
 		public function index($name = ''){
 			//get a user object
+
 			//$user = $this->model('User');
 			//give it a name
 			//$user->name = $name;
@@ -19,6 +20,7 @@
 			// $stmt->execute();
 
 			// $result = $stmt->fetchAll();
+
 
 			foreach($result as $key => $row) //fiecare row contine:
 			{

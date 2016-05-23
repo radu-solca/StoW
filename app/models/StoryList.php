@@ -28,6 +28,7 @@
 			//     $params[] = $lastname;
 			// }
 
+
 			if (count($cond)) {
 			    $query .= ' WHERE ' . implode(' AND ', $cond);
 			}
@@ -38,6 +39,7 @@
 			$stmt->execute($params);
 
 			$this->list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 		}
 	}

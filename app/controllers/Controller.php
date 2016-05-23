@@ -9,7 +9,7 @@ class Controller{
 		return new $model();
 	}
 
-	//This is a method that
+	//This is a method that loads a view and passes it some data
 	public function view($view, $data = []){
 		require_once '../app/views/'.$view.'.php';
 	}

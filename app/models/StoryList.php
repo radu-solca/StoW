@@ -31,11 +31,13 @@
 			    $params[] = $title;
 			}
 
-			foreach($categories as $category){
-				$category = explode(":",$category);
-				$cond[] = "st_scripts.st_in_category(st_id, ?, ?) = 1";
-				$params[] = $category[0];
-				$params[] = $category[1];
+			if(!is_null($categories)){
+				foreach($categories as $category){
+					$category = explode(":",$category);
+					$cond[] = "st_scripts.st_in_category(st_id, ?, ?) = 1";
+					$params[] = $category[0];
+					$params[] = $category[1];
+				}
 			}
 
 			if (count($cond)) {

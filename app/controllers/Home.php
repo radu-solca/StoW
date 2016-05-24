@@ -2,11 +2,12 @@
 
 	class Home extends Controller{
 
-		public function index($name = ''){
+		public function index(){
 
 			$stList = $this->model('StoryList');
 
-			$stList->getStories(null, ['genre:porno','genre:fiction'], null, 'st_id', null);
+			//get the newest 5 stories;
+			$stList->getStories(null, null, 5, 'st_date_added', null);
 			$result = $stList->list;
 
 			$this->view('home/index');

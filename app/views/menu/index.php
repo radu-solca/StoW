@@ -1,4 +1,4 @@
-	<nav class="fullWidth">
+	<nav class="fullWidth fixed">
 		<div class="navDeco"></div>
 		<div class="guide960">
 			<div id="navContent" class="flex centerV spaceBetween">

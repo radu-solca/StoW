@@ -1,2 +1,0 @@
-nav:
-- on small screen: removeClass spaceBetween, addClass spaceAround

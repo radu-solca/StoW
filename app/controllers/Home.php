@@ -10,7 +10,9 @@
 			$stList->getStories(null, null, 5, 'st_date_added', null);
 			$result = $stList->list;
 
+			$this->view('menu/index');
 			$this->view('home/index');
+
 		}
 	}
 

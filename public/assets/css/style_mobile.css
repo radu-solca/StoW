@@ -1,6 +1,6 @@
 .iconic:before {
 	padding-right: 0px;
-	margin: 0 10px;
+	margin: 0 11px;
 }
 
 nav a:hover {
@@ -19,7 +19,7 @@ nav a{
 .iconic{
 	border-radius: 9999px;
 	background: none;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .iconic:hover{

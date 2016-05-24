@@ -60,6 +60,12 @@ dark_green			#8dc225
 dark_blue			#4dbdbc
 
 */
+
+.fixed{
+	position: fixed;
+	top: 0;
+}
+
 a {
 	text-decoration: none;
 	color: white;
@@ -204,6 +210,7 @@ nav a:hover {
 
 .splash {
 	background-color: #76cace;
+	margin-top: 50px;
 }
 
 .splashContent h1{

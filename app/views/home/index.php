@@ -20,12 +20,12 @@
 		<div class="navDeco"></div>
 		<div class="guide960">
 			<div id="navContent" class="flex centerV spaceBetween">
-				<div class="flex left centerV flexStart">
+				<div id="left" class="flex centerV flexStart">
 					<a href="" class="iconic home"></a>
 					<a href="" class="iconic book"></a>
 					<a href="" class="iconic upload"></a>
 				</div>
-				<div class="flex right centerV flexEnd">
+				<div id="right" class="flex centerV flexEnd">
 					<a href="" class="iconic magnifying_glass"></a>
 					<a href="" class="iconic user"></a>
 				</div>
@@ -66,8 +66,23 @@
 
 <script type="text/javascript">
 
-    alert(window.innerWidth);
-	alert(window.innerHeight);
+
+	// var navigation = document.querySelector("#navContent");
+	// var left = document.querySelector("left");
+	// var right = document.querySelector("right");
+
+	// if(window.innerWidth<500)
+	// {
+	// 	navigation.classList.remove("spaceBetween");
+	// 	navigation.classList.add("spaceAround");
+
+	// }
+	// else
+	// {
+	// 	navigation.classList.remove("spaceAround");
+	// 	navigation.classList.add("spaceBetween");
+
+	// }
 
 </script>
 

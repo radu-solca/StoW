@@ -7,10 +7,19 @@ nav a:hover {
 	background: none;
 }
 
+nav a{
+	width: 36px;
+	height: 36px;
+	display: flex;
+	line-height: 36px;
+	padding: 0px; 
+	margin: 0 6px;
+}
+
 .iconic{
 	border-radius: 9999px;
 	background: none;
-	padding: 12px 4px 8px 4px; 
+	font-size: 26px;
 }
 
 .iconic:hover{

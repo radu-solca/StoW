@@ -46,15 +46,40 @@ nav a{
 	content: "";
 }
 
+.splashContent{
+	background: none;
+	min-height: 412px;
+}
+
+.splashContent h1{
+	text-align: left;
+	padding: 0 20px;
+}
+
+.splashContent .description{
+	padding: 0 20px;
+	max-width: none;
+}
+
+.splashButtons{
+	max-width: none;
+}
+
+.splashButtons *{
+	margin: 5px 20px;
+}
+
 .uploadBtn {
-	width: 300px;
+	width: 100%;
 	flex: 1 auto;
 }
 
 .browseBtn {
-	width: 300px;
+	width: 100%;
 	flex: 1 auto;
 }
+
 h1 {
 	text-align: center;
 }
+

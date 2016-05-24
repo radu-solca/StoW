@@ -6,7 +6,7 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -20,12 +20,15 @@
 <body>
 	<div class="splash fullWidth">
 		<div class="guide960">
-			<div class="flex splashContent column">
+			<div class="flex splashContent center2 column">
 				<h1 class="title">Stories on the Web</h1>
-				<p class="description">Description Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
-				<div class="flex row">
-					<section class="browseBtn">Browse</section>
-					<section class="uploadBtn">Upload</section>
+				<p class="description">
+					Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
+					Make an account to save your favorites!
+				</p> 
+				<div class="splashButtons flex row">
+					<a href="" class="browseBtn">Browse Stories</a>
+					<a href="" class="uploadBtn">Upload</a>
 				</div>
 			</div>
 		</div>
@@ -46,29 +49,6 @@
 			</div>
 		</div>
 	</div>
-
-
-<script type="text/javascript">
-
-
-	// var navigation = document.querySelector("#navContent");
-	// var left = document.querySelector("left");
-	// var right = document.querySelector("right");
-
-	// if(window.innerWidth<500)
-	// {
-	// 	navigation.classList.remove("spaceBetween");
-	// 	navigation.classList.add("spaceAround");
-
-	// }
-	// else
-	// {
-	// 	navigation.classList.remove("spaceAround");
-	// 	navigation.classList.add("spaceBetween");
-
-	// }
-
-</script>
 
 </body>
 </html>

@@ -43,8 +43,7 @@
 				<p class="description">Description Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
 				<div class="flex row">
 					<section class="browseBtn">Browse</section>
-					<section class="uploadBtn">Upload</section 
-					</div>
+					<section class="uploadBtn">Upload</section>
 				</div>
 			</div>
 		</div>

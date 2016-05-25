@@ -18,6 +18,7 @@
 
 </head>
 <body>
+
 	<div class="splash fullWidth">
 		<div class="guide960">
 			<div class="flex splashContent center2 column">
@@ -39,18 +40,32 @@
 			<div class="flex recentContent column">
 				<p>Recently added</p>
 				
-				<div class="flex recentData row">
+				<div class="flex recentData row centerV spaceBetween">
 
-					<?php 
-					// print_r($data['latestStories'][0]['ST_CONTENT']);
-
-					foreach($data['latestStories'] as $key => $story) //
+					<?php
+					foreach($data['latestStories'] as $key => $story)
 					{
-						// print_r($story);
-						echo $story['ST_TITLE'];
-						echo',';
-						echo $story['ST_COVER'];
-						echo '<br><br><br>';
+
+						echo "
+						<div class=\"storyThumbnail\">
+							<div class=\"container\">
+								<div class=\"overlay\">".
+									$story['TITLE']."
+									<div class=\"rating\">".
+										$story['RATING']."
+									</div>
+								</div>
+							<img src=\"assets/img/splash2.jpg\">
+							</div>
+						</div>
+						";
+
+						// echo $story['TITLE'];
+						// echo',';
+						// echo $story['COVER'];
+						// echo',';
+						// echo $story['RATING'];
+
 					}
 					?>
 
@@ -67,6 +82,8 @@
 		</div>
 	</div>
 
+	<script src="assets/js/mobile.js"></script>
+	
 </body>
 </html>
 

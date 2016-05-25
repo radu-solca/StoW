@@ -7,7 +7,7 @@
 			$stList = $this->model('StoryList');
 
 			//get the newest 5 stories;
-			$stList->getStories(null, null, 5, 'DATE_ADDED', 'DESC');
+			$stList->getStories(null, null, 5, 'ID', 'ASC');
 
 			$result = $stList->list;
 

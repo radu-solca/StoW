@@ -49,7 +49,9 @@ nav a{
 .splashContent{
 	background: none;
 	min-height: none;
-	padding: 0 20px;
+	max-height: none;
+	padding: 20px;
+	height: auto;
 }
 
 .splashContent h1{
@@ -82,4 +84,5 @@ nav a{
 .recentContent{
 	padding: 0 30px;
 }
+
 

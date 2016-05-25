@@ -1,15 +1,19 @@
 window.addEventListener("resize", resize);
+var recentData = document.querySelector('.recentData');
 
-  var recentOutput = document.querySelector('.recentContent');
+// function resize() {
+//     recentOutput.textContent = window.innerWidth;
+//     if (window.innerWidth < 500) {
+//         recentOutput.textContent = 'MOBILE';
+//     } else {
+//         recentOutput.textContent = 'DESKTOP';
+//     }
+// }
 
-  function resize() { 
-    recentOutput.textContent = window.innerWidth;
-
-    if(window.innerWidth < 500)
-    {
-    	recentOutput.textContent = 'MOBILE';
+function resize() {
+    if (window.innerWidth < 500) {
+        recentData.className = "recentData scrollH";
     } else {
-    	recentOutput.textContent = 'DESKTOP';
+        recentData.className = "flex recentData row centerV spaceBetween";
     }
-   
-  }
+}

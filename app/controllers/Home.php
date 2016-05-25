@@ -11,9 +11,8 @@
 
 			$result = $stList->list;
 
-			$this->view('menu/index');
-			$this->view('home/index',['latestStories'=>$result]);
-
+			$this->view('menu');
+			$this->view('home', ['latestStories'=>$result]);
 		}
 	}
 

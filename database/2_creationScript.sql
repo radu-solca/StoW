@@ -128,13 +128,13 @@ CREATE TABLE users(
 	usr_id NUMBER(10) NOT NULL,
 	usr_username VARCHAR2(32) NOT NULL,
 	usr_password VARCHAR2(32) NOT NULL,
-	usr_email VARCHAR2(32) NOT NULL,
+	usr_email VARCHAR2(255) NOT NULL,
 	usr_name VARCHAR2(32),
 	usr_surname VARCHAR2(32),
 	CONSTRAINT users_pk_usr_id PRIMARY KEY (usr_id),
 	CONSTRAINT users_unq_usr_username UNIQUE (usr_username),
 	CONSTRAINT users_unq_usr_email UNIQUE (usr_email),
-	CONSTRAINT users_usr_username_len CHECK (LENGTH(usr_username)>=6),
+	CONSTRAINT users_usr_username_len CHECK (LENGTH(usr_username)>=3),
 	CONSTRAINT users_usr_password_len CHECK (LENGTH(usr_password)>=6)
 );
 

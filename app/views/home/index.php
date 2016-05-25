@@ -55,7 +55,7 @@
 										$story['RATING']."
 									</div>
 								</div>
-							<img src=\"assets/img/splash2.jpg\">
+							<img src=\"assets/img/dummy.jpg\">
 							</div>
 						</div>
 						";

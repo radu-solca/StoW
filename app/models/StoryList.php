@@ -20,21 +20,21 @@
 			this populates $list with all stories that are in the porno and fiction genres simultaneously, in descending order by id.
 		**/
 		public function getStories($title = null, $categories = null, $limit = null, $ordby = null, $ordtype = null ){
-			$query = 'SELECT * FROM stories';
+			$query = 'SELECT * FROM stories_with_ratings';
 
 			$cond = array();
 			$params = array();
 
 			if (!is_null($title)) {
 				$title = "%".$title."%";
-			    $cond[] = "st_title LIKE ?";
+			    $cond[] = "TITLE LIKE ?";
 			    $params[] = $title;
 			}
 
 			if(!is_null($categories)){
 				foreach($categories as $category){
 					$category = explode(":",$category);
-					$cond[] = "st_scripts.st_in_category(st_id, ?, ?) = 1";
+					$cond[] = "st_scripts.st_in_category(ID, ?, ?) = 1";
 					$params[] = $category[0];
 					$params[] = $category[1];
 				}

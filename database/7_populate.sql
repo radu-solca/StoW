@@ -106,6 +106,15 @@ BEGIN
 		INTO characters (st_id, chr_name, chr_desc) VALUES (1,'gigianu','chars/gigi.xml')
 	SELECT 1 FROM DUAL;
 
+	INSERT ALL
+		INTO ratings VALUES (1,1,5)
+		INTO ratings VALUES (1,2,5)
+		INTO ratings VALUES (5,3,4)
+		INTO ratings VALUES (3,3,5)
+		INTO ratings VALUES (2,4,3)
+		INTO ratings VALUES (3,5,2)
+	SELECT 1 FROM DUAL;
+
 	COMMIT;
 END;
 /

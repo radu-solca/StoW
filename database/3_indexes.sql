@@ -1,5 +1,5 @@
 DROP INDEX st_date_index;
-DROP INDEX usr_usrn_pswd;
+DROP INDEX usr_name_surname;
 
 CREATE INDEX st_date_index ON stories(st_date_added);
 

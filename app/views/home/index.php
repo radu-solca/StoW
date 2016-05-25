@@ -36,8 +36,25 @@
 
 	<div class="recent fullWidth">
 		<div class="guide960">
-			<div class="flex recentContent">
-				Recently added
+			<div class="flex recentContent column">
+				<p>Recently added</p>
+				
+				<div class="flex recentData row">
+
+					<?php 
+					// print_r($data['latestStories'][0]['ST_CONTENT']);
+
+					foreach($data['latestStories'] as $key => $story) //
+					{
+						// print_r($story);
+						echo $story['ST_TITLE'];
+						echo',';
+						echo $story['ST_COVER'];
+						echo '<br><br><br>';
+					}
+					?>
+
+				</div>
 			</div>
 		</div>
 	</div>

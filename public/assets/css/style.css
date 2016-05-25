@@ -9,6 +9,11 @@
 	font-style: normal;
 }
 
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    width: 100%;
+}
+
 .iconic {
 	font-family: 'IconicStroke';
 }
@@ -76,7 +81,9 @@ body {
 	padding: 0;
 	font-family: 'Roboto Condensed', sans-serif;
 	color: white;
+	font-size: 18px;
 }
+
 
 .fullWidth {
 	width: 100%;
@@ -223,7 +230,6 @@ nav a:hover {
 .splashContent .description{
 	max-width: 320px;
 	margin-bottom: 30px;
-	font-size: 18px;
 }
 
 .splashContent h1{
@@ -239,7 +245,6 @@ nav a:hover {
 
 .splashButtons *{
 	font-weight: 700;
-	font-size: 18px;
 	background: white;
 	color: #76cace; 
 	padding: 10px;
@@ -254,8 +259,12 @@ nav a:hover {
 
 .recent {
 	background: none;
+	color: #7A6453;
 }
+
+
 
 .footer {
 	background: #7A6453;
 }
+

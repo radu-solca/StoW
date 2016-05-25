@@ -48,16 +48,15 @@ nav a{
 
 .splashContent{
 	background: none;
-	min-height: 412px;
+	min-height: none;
+	padding: 0 20px;
 }
 
 .splashContent h1{
 	text-align: left;
-	padding: 0 20px;
 }
 
 .splashContent .description{
-	padding: 0 20px;
 	max-width: none;
 }
 
@@ -66,7 +65,8 @@ nav a{
 }
 
 .splashButtons *{
-	margin: 5px 20px;
+	margin: 5px 0;
+	text-align: center;
 }
 
 .uploadBtn {
@@ -79,7 +79,7 @@ nav a{
 	flex: 1 auto;
 }
 
-h1 {
-	text-align: center;
+.recentContent{
+	padding: 0 30px;
 }
 

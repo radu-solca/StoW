@@ -7,11 +7,11 @@
 			$stList = $this->model('StoryList');
 
 			//get the newest 5 stories;
-			$stList->getStories(null, null, 5, 'st_date_added', null);
+			$stList->getStories(null, null, 5, 'st_date_added', 'DESC');
 			$result = $stList->list;
 
 			$this->view('menu/index');
-			$this->view('home/index');
+			$this->view('home/index',['latestStories'=>$result]);
 
 		}
 	}

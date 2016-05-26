@@ -15,7 +15,7 @@ class Test extends Controller{
 
 		$user = $this->model('User');
 
-		$result = $user->orderBy('ID')->limit(3)->find();
+		$result = $user->withUsername('user_1')->limit(3)->find();
 
 		foreach($result as $key => $user){
 			echo '<pre>'; print_r($user); echo '</pre>';

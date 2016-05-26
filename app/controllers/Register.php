@@ -15,7 +15,8 @@
 					'username' => [
 						'required' => true,
 						'maxlength' => 32,
-						'minlength' => 3
+						'minlength' => 3,
+						'usrUnique' => 'withUsername'
 					],
 					'password' => [
 						'required' => true,
@@ -28,7 +29,8 @@
 					'email' => [
 						'required' => true,
 						'maxlength' => 255,
-						'email' => true
+						'email' => true,
+						'usrUnique' => 'withEmail'
 					]
 				]);
 

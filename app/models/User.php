@@ -20,32 +20,32 @@ class User {
 			$cond = array();
 			$params = array();
 
-			if (!is_null($this->id)) {
+			if (!empty($this->id)) {
 			    $cond[] = "ID = ?";
 			    $params[] = $this->id;
 			}
 
-			if (!is_null($this->username)) {
+			if (!empty($this->username)) {
 			    $cond[] = "USERNAME = ?";
 			    $params[] = $this->username;
 			}
 
-			if (!is_null($this->password)) {
+			if (!empty($this->password)) {
 			    $cond[] = "PASSWORD = ?";
 			    $params[] = $this->md5(password);
 			}
 
-			if (!is_null($this->email)) {
+			if (!empty($this->email)) {
 			    $cond[] = "EMAIL = ?";
 			    $params[] = $this->email;
 			}
 
-			if (!is_null($this->name)) {
+			if (!empty($this->name)) {
 			    $cond[] = "NAME = ?";
 			    $params[] = $this->name;
 			}
 
-			if (!is_null($this->surname)) {
+			if (!empty($this->surname)) {
 			    $cond[] = "SURNAME = ?";
 			    $params[] = $this->surname;
 			}
@@ -61,14 +61,14 @@ class User {
 			    $query .= ' WHERE ' . implode(' AND ', $cond);
 			}
 			
-			if (!is_null($this->ordby)) {
-				if(is_null($this->ordtype)){
+			if (!empty($this->ordby)) {
+				if(empty($this->ordtype)){
 					$this->ordtype = 'ASC';
 				}
 			    $query .= " ORDER BY $this->ordby $this->ordtype";
 			}
 
-			if (!is_null($this->limit)) {
+			if (!empty($this->limit)) {
 			     $query = "SELECT * FROM ( " . $query . ") WHERE rownum <= ?";
 			     $params[] = $this->limit;
 			}

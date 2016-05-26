@@ -1,16 +1,21 @@
-window.addEventListener("resize", resize);
+
+window.addEventListener("resize", whenResize);
 var recentData = document.querySelector('.recentData');
 
-// function resize() {
-//     recentOutput.textContent = window.innerWidth;
-//     if (window.innerWidth < 500) {
-//         recentOutput.textContent = 'MOBILE';
-//     } else {
-//         recentOutput.textContent = 'DESKTOP';
-//     }
-// }
 
-function resize() {
+//== BROWSERS THAT DON'T TRIGGER RESIZING
+function whenMobileOnly() {
+    if(window.innerWidth < 500)
+    {
+        recentData.className = "recentData scrollH";
+    }
+}
+whenMobileOnly();
+
+
+//== LISTEN TO RESIZING
+//== ACCIDENTALY WORKS IN BROWSERS WITH NAV BAR
+function whenResize() {
     if (window.innerWidth < 500) {
         recentData.className = "recentData scrollH";
     } else {

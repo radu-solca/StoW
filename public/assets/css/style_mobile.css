@@ -47,11 +47,14 @@ nav a{
 }
 
 .splashContent{
-	background: none;
 	min-height: none;
 	max-height: none;
-	padding: 20px;
+	padding: 20px 0;
 	height: auto;
+}
+
+.splashImg{
+	background: none;
 }
 
 .splashContent h1{
@@ -79,10 +82,6 @@ nav a{
 .browseBtn {
 	width: 100%;
 	flex: 1 auto;
-}
-
-.recentContent{
-	padding: 0 20px;
 }
 
 .storyThumbnail{

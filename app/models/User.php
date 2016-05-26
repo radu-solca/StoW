@@ -14,6 +14,21 @@ class User {
 	protected $ordtype = null;
 	protected $limit = null;
 
+	public function register(){
+		$db = Connection::getConnection();
+
+		$query =   'DECLARE
+						v_id_output users.usr_id%type;
+					BEGIN
+						v_id_output := usr_utils.register(?,?,?,?,?);
+					END;'; 
+
+		$params = [$this->username, md5($this->password), $this->email, $this->name, $this->surname];
+
+		$stmt = $db->prepare($query);
+		$stmt->execute($params);
+	}
+
 	public function find(){
 			$query = 'SELECT * FROM users_view';
 

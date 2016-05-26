@@ -99,6 +99,7 @@ body {
 .guide960 {
 	margin: 0 auto;
 	max-width: 960px;
+	padding: 0 20px;
 }
 
 .flex {
@@ -229,8 +230,11 @@ nav a:hover {
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
-.splashContent{
+.splashImg{
 	background: url('../img/splash2.jpg') no-repeat 280px center;
+}
+
+.splashContent{
 	height: 369px;
 	max-height: 369px;
 }

@@ -19,6 +19,6 @@ function whenResize() {
     if (window.innerWidth < 500) {
         recentData.className = "recentData scrollH";
     } else {
-        recentData.className = "flex recentData row centerV flexStart";
+        recentData.className = "flex recentData row centerV spaceBetween";
     }
 }

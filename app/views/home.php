@@ -20,7 +20,7 @@
 <body>
 
 	<div class="splash fullWidth">
-		<div class="guide960">
+		<div class="guide960 splashImg">
 			<div class="flex splashContent center2 column">
 				<h1 class="title">Stories on the Web</h1>
 				<p class="description">

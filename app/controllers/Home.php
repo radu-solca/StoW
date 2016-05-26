@@ -4,12 +4,10 @@
 
 		public function index(){
 
-			$stList = $this->model('StoryList');
+			$storyList = $this->model('StoryList');
 
 			//get the newest 5 stories;
-			$stList->getStories(null, null, 5, 'ID', 'ASC');
-
-			$result = $stList->list;
+			$result = $storyList->orderBy('ID')->limit(5)->findStories();
 
 			$this->view('menu');
 			$this->view('home', ['latestStories'=>$result]);

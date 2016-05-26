@@ -4,7 +4,7 @@ class Validator{
 
 	protected $errorHandler;
 
-	protected $rules = ['required','maxlength','minlength','email','match'];
+	protected $rules = ['required','maxlength','minlength','email','match','usrUnique'];
 
 	protected $items;
 
@@ -16,7 +16,8 @@ class Validator{
 		'minlength' => 'The :field field must have at least :satisfier characters',
 		'maxlength' => 'The :field field must have at most :satisfier characters',
 		'email' => 'The :field field must be a valid email address',
-		'match' => 'The :field field must match the :satisfier field'
+		'match' => 'The :field field must match the :satisfier field',
+		'usrUnique' => 'The :field is already taken'
 	];
 
 	public function __construct(ErrorHandler $errorHandler){
@@ -94,6 +95,19 @@ class Validator{
 
 	protected function match($field, $value, $satisfier){
 		return $value === $this->items[$satisfier];
+	}
+
+	protected function usrUnique($field, $value, $satisfier){
+
+		if(empty($value)){
+			return true;
+		}
+
+		require_once '../app/models/User.php';
+		$user = new User;
+		$user = call_user_func_array([$user, $satisfier], [$value]);
+
+		return !$user->exists();
 	}
 
 }

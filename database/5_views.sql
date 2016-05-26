@@ -11,14 +11,16 @@ CREATE OR REPLACE VIEW stories_view AS
 /
 
 CREATE OR REPLACE VIEW users_view AS
-	SELECT 	u.usr_id									AS "ID", 
-			u.usr_username								AS "USERNAME", 
-			u.usr_password 								AS "PASSWORD", 
-			u.usr_email									AS "EMAIL", 
-			u.usr_name	 								AS "NAME", 
-			u.usr_surname 								AS "SURNAME",
-			usr_utils.usr_has_role(u.usr_id,'admin') 	AS "ADMIN"
-	FROM users u
+	SELECT 	u.usr_id		 		AS "ID", 
+			u.usr_username	AS "TITLE", 
+			u.usr_password 	AS "CONTENT", 
+			u.usr_email	AS "COVER", 
+			u.usr_name	 	AS "DATE_ADDED", 
+			u.usr_surname
+			AVG(r.rat_value) 	AS "RATING"
+	FROM stories s
+	LEFT OUTER JOIN ratings r ON s.st_id = r.st_id
+	GROUP BY s.st_id, s.st_title, s.st_content, s.st_cover, s.st_date_added
 /
 
 

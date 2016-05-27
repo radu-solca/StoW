@@ -65,28 +65,32 @@ dark_blue			#4dbdbc
 **************** GENERAL *****************
 *****************************************/
 
-html {
+html,
+body {
 	height: 100%;
 }
 
-body{
-	height: auto;
-	margin: 0;
-	padding: 0;
+.flexWrap {
+	min-height: 100%;
 }
 
-p{
+.flexWrap > div {
+	flex: 1 1 auto;
+}
+
+p {
 	width: 100%;
 }
 
 ::selection {
-  background: rgba(0,0,0,.1); /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: rgba(0,0,0,.1); /* Gecko Browsers */
+	background: rgba(0, 0, 0, .1); /* WebKit/Blink Browsers */
 }
 
-.fixed{
+::-moz-selection {
+	background: rgba(0, 0, 0, .1); /* Gecko Browsers */
+}
+
+.fixedTop {
 	position: fixed;
 	top: 0;
 }
@@ -104,22 +108,20 @@ body {
 	font-size: 18px;
 }
 
-
 .fullWidth {
 	width: 100%;
 }
 
 .guide960 {
+	flex-basis: 960px;
 	margin: 0 auto;
-	max-width: 960px;
-	/*padding: 0 20px;*/
 }
 
-.margin20{
+.margin20 {
 	margin: 0 20px;
 }
 
-.marginNeg{
+.marginNeg {
 	margin: 0 -20px;
 }
 
@@ -139,7 +141,7 @@ body {
 	flex-flow: column wrap; /*^ una sub alta*/
 }
 
-.center1{
+.center1 {
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	-moz-box-align: center;
@@ -206,13 +208,14 @@ nav a:hover {
 	background-color: #645446;
 }
 
-#navContent{
-	height: 50px;
+#navContent {
+	height: 58px;
+	margin-top: 8px;
 }
 
 .navDeco {
 	height: 8px;
-	background-color: #584B3F; 
+	background-color: #584B3F;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
@@ -236,78 +239,74 @@ nav a:hover {
 	content: "Sign In";
 }
 
-
 .footer {
 	background: #584B3F;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
-.footerContent{
+.footerContent {
 	padding: 10px 0;
 	color: white;
 	opacity: 0.5;
-	
 }
 
-.footerContent a{
+.footerContent a {
 	border-bottom: 1px dotted white;
 }
 
-.footerContent p{
+.footerContent p {
 	text-align: center;
 }
 
-#copyright::before{
+#copyright::before {
 	content: '\00A9';
 }
-
 
 /*****************************************
 ***************** HOME *******************
 *****************************************/
-
 .splash {
 	background-color: #76cace;
 	margin-top: 58px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
-.splashImg{
+.splashImg {
 	background: url('../img/splash2.jpg') no-repeat 280px center;
 }
 
-.splashContent{
+.splashContent {
 	height: 369px;
 	max-height: 369px;
 }
 
-.splashContent .description{
+.splashContent .description {
 	max-width: 320px;
 	margin-bottom: 30px;
 }
 
-.splashContent h1{
+.splashContent h1 {
 	font-family: 'Amatic SC', cursive;
 	font-size: 52px;
 	margin: 0;
 }
 
-.splashButtons{
+.splashButtons {
 	text-transform: uppercase;
 	max-width: 320px;
 }
 
-.splashButtons *{
+.splashButtons * {
 	font-weight: 700;
 	background: white;
-	color: #76cace; 
+	color: #76cace;
 	padding: 7px 15px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
 	margin-right: 10px;
 }
 
-.splashButtons *:hover{
+.splashButtons *:hover {
 	background: #F2F2F2;
 }
 
@@ -317,17 +316,17 @@ nav a:hover {
 	padding-bottom: 20px;
 }
 
-.recentData{
+.recentData {
 	height: 234px;
 	overflow: hidden;
 	padding: 0 20px;
 }
 
-.storyThumbnail .overlay{
+.storyThumbnail .overlay {
 	opacity: 0;
 }
 
-.storyThumbnail .container{
+.storyThumbnail .container {
 	color: white;
 	background-color: #fb9b97;
 	width: 150px;
@@ -339,24 +338,23 @@ nav a:hover {
 	margin-top: 2px;
 }
 
-
-.storyThumbnail .container a:hover > .overlay{
+.storyThumbnail .container a:hover > .overlay {
 	opacity: 1;
 	top: 0px;
 }
 
-.storyThumbnail .container a:hover > img{
+.storyThumbnail .container a:hover > img {
 	opacity: .1;
 }
 
-.storyThumbnail .container a img{
+.storyThumbnail .container a img {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 	width: 150px;
 	height: 224px;
 }
 
-.storyThumbnail .overlay{
+.storyThumbnail .overlay {
 	background-color: #de5652;
 	width: 100%;
 	height: auto;
@@ -368,37 +366,27 @@ nav a:hover {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-.overlay .title{
+.overlay .title {
 	font-family: 'Amatic SC', cursive;
-	padding: 0 8px; 
+	padding: 0 8px;
 	font-size: 32px;
 }
 
-.overlay .rating{
+.overlay .rating {
 	background-color: #fb9b97;
 	text-align: center;
 	padding: 5px;
 }
 
-
 /*****************************************
 *************** REGISTER *****************
 *****************************************/
-
-.form{
+.form {
 	background-color: #76cace;
 	margin-top: 58px;
 	padding: 20px 0;
 }
 
-form{
-	margin-bottom:0;
-}
-
-.fillSpace{
-	background-color: #584b3f;
-}
-
-.lalala > *{
-	flex:1;
+form {
+	margin-bottom: 0;
 }

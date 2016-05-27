@@ -1,4 +1,4 @@
-	<div class="footer fullWidth">
+	<div class="footer fullWidth flex center1 center2">
 		<div class="guide960">
 			<div class="margin20">
 				<div class="footerContent">

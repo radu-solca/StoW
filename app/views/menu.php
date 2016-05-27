@@ -1,5 +1,5 @@
-	<nav class="fullWidth fixed">
-		<div class="navDeco"></div>
+	<nav class="fullWidth fixedTop flex center1 center2">
+		<div class="navDeco fullWidth fixedTop flex center1 center2"></div>
 		<div class="guide960">
 			<div class="margin20">
 				<div id="navContent" class="flex center1 spaceBetween">

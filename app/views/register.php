@@ -18,6 +18,9 @@
 </head>
 <body>
 
+	<?php 
+		require_once '../app/views/menu.php';
+	 ?>
 
 	<div class="form fullWidth">
 		<div class="guide960">
@@ -92,6 +95,10 @@
 			</div>
 		</div>
 	</div>
+
+	<?php 
+		require_once '../app/views/footer.php';
+	 ?>
 
 	<script src="assets/js/mobile.js"></script>
 

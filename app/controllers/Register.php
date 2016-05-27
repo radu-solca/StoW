@@ -46,11 +46,10 @@
 							->withName($_POST['name'])
 							->withSurname($_POST['surname'])
 							->register();
-					App::redirect(home);
+					App::redirect();
 				}
 			}
 			else{ //if the form wasn't completed, give it to the user.
-				$this->view('menu');
 				$this->view('register');
 			}
 		}

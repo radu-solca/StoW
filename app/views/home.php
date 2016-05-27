@@ -21,54 +21,64 @@
 
 	<div class="splash fullWidth">
 		<div class="guide960 splashImg">
-			<div class="flex splashContent center2 column">
-				<h1 class="title">Stories on the Web</h1>
-				<p class="description">
-					Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
-					Make an account to save your favorites!
-				</p> 
-				<div class="splashButtons flex row">
-					<a href="" class="browseBtn">Browse Stories</a>
-					<a href="" class="uploadBtn">Upload</a>
+			<div class="margin20">
+				<div class="flex splashContent center2 column">
+					<h1 class="title">Stories on the Web</h1>
+					<p class="description">
+						Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
+						Make an account to save your favorites!
+					</p> 
+					<div class="splashButtons flex row">
+						<a href="" class="browseBtn">Browse Stories</a>
+						<a href="" class="uploadBtn">Upload</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+
+
 	<div class="recent fullWidth">
 		<div class="guide960">
-			<div class="flex recentContent column">
-				<p>Recently added</p>
-				
-				<div class="flex recentData row centerV spaceBetween">
+			<div class="margin20">
+				<div class="flex recentContent column">
+					<p>Recently added...</p>
+					
+					<div class="marginNeg">
+						<div class="flex recentData row centerV spaceBetween">
 
-					<?php
-					foreach($data['latestStories'] as $key => $story)
-					{
+							<?php
+							foreach($data['latestStories'] as $key => $story)
+							{
 
-						echo "
-						<div class=\"storyThumbnail\">
-							<div class=\"container\">
-								<div class=\"overlay\">".
-									$story['TITLE']."
-									<div class=\"rating\">".
-										$story['RATING']."
+								echo "
+								<div class=\"storyThumbnail\">
+									<div class=\"container\">
+										<div class=\"overlay\">
+											<div class=\"title\">".
+												$story['TITLE']."
+											</div>
+											<div class=\"rating\">".
+												$story['RATING']."
+											</div>
+										</div>
+									<img src=\"assets/img/dummy.jpg\">
 									</div>
 								</div>
-							<img src=\"assets/img/dummy.jpg\">
-							</div>
+								";
+
+								// echo $story['TITLE'];
+								// echo',';
+								// echo $story['COVER'];
+								// echo',';
+								// echo $story['RATING'];
+
+							}
+							?>
+
 						</div>
-						";
-
-						// echo $story['TITLE'];
-						// echo',';
-						// echo $story['COVER'];
-						// echo',';
-						// echo $story['RATING'];
-
-					}
-					?>
-
+					</div>
 				</div>
 			</div>
 		</div>
@@ -76,8 +86,10 @@
 
 	<div class="footer fullWidth">
 		<div class="guide960">
-			<div class="flex footerContent">
-				Credits info
+			<div class="margin20">
+				<div class="flex footerContent">
+					Credits info
+				</div>
 			</div>
 		</div>
 	</div>

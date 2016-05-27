@@ -50,6 +50,7 @@
 				}
 			}
 			else{ //if the form wasn't completed, give it to the user.
+				$this->view('menu');
 				$this->view('register');
 			}
 		}

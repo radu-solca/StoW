@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // Stories on the Web</title>
+	<title>StoW // Home</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -46,7 +46,7 @@
 					<p>Recently added...</p>
 					
 					<div class="marginNeg">
-						<div class="flex recentData row centerV spaceBetween">
+						<div class="flex recentData row spaceBetween">
 
 							<?php
 							foreach($data['latestStories'] as $key => $story)

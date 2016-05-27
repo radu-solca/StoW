@@ -66,6 +66,10 @@ dark_blue			#4dbdbc
 
 */
 
+/*****************************************
+**************** GENERAL *****************
+*****************************************/
+
 p{
 	width: 100%;
 }
@@ -129,15 +133,6 @@ body {
 .column {
 	flex-flow: column wrap; /*^ una sub alta*/
 }
-
-/*might be needed for forced arranging inside flex*/
-
-/*.item {
-	text-align: center;
-	margin: auto;
-}*/
-
-/*might be needed for forced centering*/
 
 .center1{
 	-webkit-box-align: center;
@@ -235,6 +230,36 @@ nav a:hover {
 .user::after {
 	content: "Sign In";
 }
+
+
+.footer {
+	background: #584B3F;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+}
+
+.footerContent{
+	padding: 10px 0;
+	color: white;
+	opacity: 0.5;
+	
+}
+
+.footerContent a{
+	border-bottom: 1px dotted white;
+}
+
+.footerContent p{
+	text-align: center;
+}
+
+#copyright::before{
+	content: '\00A9';
+}
+
+
+/*****************************************
+***************** HOME *******************
+*****************************************/
 
 .splash {
 	background-color: #76cace;
@@ -350,28 +375,17 @@ nav a:hover {
 	padding: 5px;
 }
 
-.footer {
-	background: #584B3F;
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+
+/*****************************************
+*************** REGISTER *****************
+*****************************************/
+
+.form{
+	background-color: #76cace;
+	margin-top: 58px;
+	padding: 20px 0;
 }
 
-.footerContent{
-	padding: 10px 0;
-	color: white;
-	opacity: 0.5;
-	
+form{
+	margin-bottom:0;
 }
-
-.footerContent a{
-	border-bottom: 1px dotted white;
-}
-
-.footerContent p{
-	text-align: center;
-}
-
-#copyright::before{
-	content: '\00A9';
-}
-
-

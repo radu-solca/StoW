@@ -55,15 +55,17 @@
 								echo "
 								<div class=\"storyThumbnail\">
 									<div class=\"container\">
-										<div class=\"overlay\">
-											<div class=\"title\">".
-												$story['TITLE']."
+										<a href=\"#\">
+											<div class=\"overlay\">
+												<div class=\"title\">".
+													$story['TITLE']."
+												</div>
+												<div class=\"rating\">".
+													$story['RATING']."
+												</div>
 											</div>
-											<div class=\"rating\">".
-												$story['RATING']."
-											</div>
-										</div>
-									<img src=\"assets/img/dummy.jpg\">
+											<img src=\"assets/img/dummy.jpg\">
+										</a>
 									</div>
 								</div>
 								";
@@ -87,8 +89,12 @@
 	<div class="footer fullWidth">
 		<div class="guide960">
 			<div class="margin20">
-				<div class="flex footerContent">
-					Credits info
+				<div class="footerContent">
+					<p>
+						<span id="copyright"></span> 
+						<span>2016 StoW Team. Illustrations designed by</span>
+						<a href='http://www.freepik.com/freepik-exclusive-vectors'>Freepik</a>
+					</p>
 				</div>
 			</div>
 		</div>

@@ -123,6 +123,8 @@ body {
 
 .marginNeg {
 	margin: 0 -20px;
+	background-color: green;
+	min-width: 0;
 }
 
 .flex {
@@ -266,6 +268,7 @@ nav a:hover {
 ***************** HOME *******************
 *****************************************/
 .splash {
+	max-height: 369px;
 	background-color: #76cace;
 	margin-top: 58px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
@@ -273,6 +276,7 @@ nav a:hover {
 
 .splashImg {
 	background: url('../img/splash2.jpg') no-repeat 280px center;
+	max-height: 369px;
 }
 
 .splashContent {
@@ -317,6 +321,7 @@ nav a:hover {
 }
 
 .recentData {
+	width: 100%;
 	height: 234px;
 	overflow: hidden;
 	padding: 0 20px;
@@ -352,6 +357,7 @@ nav a:hover {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 	width: 150px;
 	height: 224px;
+	opacity: 0;
 }
 
 .storyThumbnail .overlay {

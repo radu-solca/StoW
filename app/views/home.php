@@ -51,8 +51,8 @@
 					<div class="flex recentContent column">
 						<p>Recently added...</p>
 
-						<div class="marginNeg">
-							<div class="flex recentData row spaceBetween">
+						<div class="marginNeg flex center2">
+							<div class="flex recentData row spaceBetween center1 center2">
 
 								<?php
 								foreach($data['latestStories'] as $key => $story)
@@ -75,13 +75,6 @@
 									</div>
 									</div>
 									";
-
-								// echo $story['TITLE'];
-								// echo',';
-								// echo $story['COVER'];
-								// echo',';
-								// echo $story['RATING'];
-
 								}
 								?>
 

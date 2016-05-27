@@ -88,10 +88,16 @@ nav a{
 	margin-right: 20px;
 }
 
+.recentData{
+	padding: 0;
+}
+
+.recentData:first-child {
+	padding-left: 20px;
+}
+
 .scrollH{
-	background-color: purple;
 	overflow-y: hidden;
 	overflow-x: scroll;
 	white-space: nowrap;
-    opacity: 0.5;
 }

@@ -9,11 +9,6 @@
 	font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    display: inline-block;
-    width: 100%;
-}
-
 .iconic {
 	font-family: 'IconicStroke';
 }
@@ -69,6 +64,16 @@ dark_blue			#4dbdbc
 /*****************************************
 **************** GENERAL *****************
 *****************************************/
+
+html {
+	height: 100%;
+}
+
+body{
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
 
 p{
 	width: 100%;
@@ -388,4 +393,12 @@ nav a:hover {
 
 form{
 	margin-bottom:0;
+}
+
+.fillSpace{
+	background-color: #584b3f;
+}
+
+.lalala > *{
+	flex:1;
 }

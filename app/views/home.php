@@ -19,6 +19,10 @@
 </head>
 <body>
 
+	<?php 
+	require_once "../app/views/menu.php";
+	 ?>
+
 	<div class="splash fullWidth">
 		<div class="guide960 splashImg">
 			<div class="margin20">
@@ -86,19 +90,10 @@
 		</div>
 	</div>
 
-	<div class="footer fullWidth">
-		<div class="guide960">
-			<div class="margin20">
-				<div class="footerContent">
-					<p>
-						<span id="copyright"></span> 
-						<span>2016 StoW Team. Illustrations by</span>
-						<a href='http://www.freepik.com/freepik-exclusive-vectors'>Freepik</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php 
+	require_once "../app/views/footer.php";
+	 ?>
+
 
 	<script src="assets/js/mobile.js"></script>
 	

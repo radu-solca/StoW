@@ -46,6 +46,10 @@ nav a{
 	content: "";
 }
 
+.splash{
+	height: auto;
+}
+
 .splashContent{
 	padding-top: 40px;
 	padding-bottom: 20px;
@@ -85,7 +89,7 @@ nav a{
 
 .storyThumbnail{
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 20px; /*hardcoded*/
 }
 
 .recentData{
@@ -93,7 +97,7 @@ nav a{
 }
 
 .recentData:first-child {
-	padding-left: 20px;
+	padding-left: 20px; /*hardcoded*/
 }
 
 .scrollH{

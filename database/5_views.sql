@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW stories_with_ratings AS
+CREATE OR REPLACE VIEW stories_view AS
 	SELECT 	s.st_id		 		AS "ID", 
 			s.st_title	 		AS "TITLE", 
 			s.st_content	 	AS "CONTENT", 
@@ -8,6 +8,17 @@ CREATE OR REPLACE VIEW stories_with_ratings AS
 	FROM stories s
 	LEFT OUTER JOIN ratings r ON s.st_id = r.st_id
 	GROUP BY s.st_id, s.st_title, s.st_content, s.st_cover, s.st_date_added
+/
+
+CREATE OR REPLACE VIEW users_view AS
+	SELECT 	u.usr_id									AS "ID", 
+			u.usr_username								AS "USERNAME", 
+			u.usr_password 								AS "PASSWORD", 
+			u.usr_email									AS "EMAIL", 
+			u.usr_name	 								AS "NAME", 
+			u.usr_surname 								AS "SURNAME",
+			usr_utils.usr_has_role(u.usr_id,'admin') 	AS "ADMIN"
+	FROM users u
 /
 
 

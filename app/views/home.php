@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // Stories on the Web</title>
+	<title>StoW // Home</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -19,69 +19,84 @@
 </head>
 <body>
 
-	<div class="splash fullWidth">
-		<div class="guide960">
-			<div class="flex splashContent center2 column">
-				<h1 class="title">Stories on the Web</h1>
-				<p class="description">
-					Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
-					Make an account to save your favorites!
-				</p> 
-				<div class="splashButtons flex row">
-					<a href="" class="browseBtn">Browse Stories</a>
-					<a href="" class="uploadBtn">Upload</a>
+	<?php 
+	require_once "../app/views/menu.php";
+	?>
+
+	<div class="flexWrap flex column">
+
+		<div class="splash fullWidth flex center1 center2">
+			<div class="guide960 splashImg">
+				<div class="margin20">
+					<div class="flex splashContent center2 column">
+						<h1 class="title">Stories on the Web</h1>
+						<p class="description">
+							Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
+							Make an account to save your favorites!
+						</p> 
+						<div class="splashButtons flex row">
+							<a href="" class="browseBtn">Browse Stories</a>
+							<a href="" class="uploadBtn">Upload</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="recent fullWidth">
-		<div class="guide960">
-			<div class="flex recentContent column">
-				<p>Recently added</p>
-				
-				<div class="flex recentData row centerV spaceBetween">
 
-					<?php
-					foreach($data['latestStories'] as $key => $story)
-					{
 
-						echo "
-						<div class=\"storyThumbnail\">
-							<div class=\"container\">
-								<div class=\"overlay\">".
+		<div class="recent fullWidth flex center1 center2">
+			<div class="guide960">
+				<div class="margin20">
+					<div class="flex recentContent column">
+						<p>Recently added...</p>
+
+						<div class="marginNeg">
+							<div class="flex recentData row spaceBetween">
+
+								<?php
+								foreach($data['latestStories'] as $key => $story)
+								{
+
+									echo "
+									<div class=\"storyThumbnail\">
+									<div class=\"container\">
+									<a href=\"#\">
+									<div class=\"overlay\">
+									<div class=\"title\">".
 									$story['TITLE']."
-									<div class=\"rating\">".
-										$story['RATING']."
 									</div>
-								</div>
-							<img src=\"assets/img/dummy.jpg\">
+									<div class=\"rating\">".
+									$story['RATING']."
+									</div>
+									</div>
+									<img src=\"assets/img/dummy.jpg\">
+									</a>
+									</div>
+									</div>
+									";
+
+								// echo $story['TITLE'];
+								// echo',';
+								// echo $story['COVER'];
+								// echo',';
+								// echo $story['RATING'];
+
+								}
+								?>
+
 							</div>
 						</div>
-						";
-
-						// echo $story['TITLE'];
-						// echo',';
-						// echo $story['COVER'];
-						// echo',';
-						// echo $story['RATING'];
-
-					}
-					?>
-
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="footer fullWidth">
-		<div class="guide960">
-			<div class="flex footerContent">
-				Credits info
-			</div>
-		</div>
-	</div>
+		<?php 
+		require_once "../app/views/footer.php";
+		?>
 
+	</div>
 	<script src="assets/js/mobile.js"></script>
 	
 </body>

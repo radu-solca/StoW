@@ -50,6 +50,13 @@ class App{
 			return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
 		}
 	}
+
+	public static function redirect($path){
+		$host  = $_SERVER['HTTP_HOST'];
+		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		header("Location: http://$host$uri/../$path");
+		exit;
+	}
 }
 
  ?>

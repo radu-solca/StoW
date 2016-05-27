@@ -47,11 +47,14 @@ nav a{
 }
 
 .splashContent{
-	background: none;
 	min-height: none;
 	max-height: none;
-	padding: 20px;
+	padding: 20px 0;
 	height: auto;
+}
+
+.splashImg{
+	background: none;
 }
 
 .splashContent h1{
@@ -81,10 +84,6 @@ nav a{
 	flex: 1 auto;
 }
 
-.recentContent{
-	padding: 0 20px;
-}
-
 .storyThumbnail{
 	display: inline-block;
 	margin-right: 20px;
@@ -97,3 +96,8 @@ nav a{
 	overflow-y: hidden;
     white-space: nowrap;
 	/*-moz-scrollbars-horizontal;*/
+}
+
+.recentData{
+	box-sizing: border-box;
+}

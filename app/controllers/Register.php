@@ -36,7 +36,6 @@
 
 				if ($validation->failed()) { //if we have errors, reload the form and print the errors
 					//echo '<pre>' , print_r($validation->errors()->all()) , '</pre>';
-					$this->view('menu');
 					$this->view('register',['errors' => $validation->errors()]);
 				}
 				else{ //finish the registration if all is ok.
@@ -51,7 +50,6 @@
 				}
 			}
 			else{ //if the form wasn't completed, give it to the user.
-				$this->view('menu');
 				$this->view('register');
 			}
 		}

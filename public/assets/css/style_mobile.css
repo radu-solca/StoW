@@ -8,13 +8,14 @@ nav a:hover {
 }
 
 nav a{
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 	display: flex;
-	line-height: 36px;
-	padding: 0px; 
-	margin: 0 6px;
+	line-height: 40px;
+	padding: 0; 
+	margin: 0;
 }
+
 
 .iconic{
 	border-radius: 9999px;
@@ -48,12 +49,14 @@ nav a{
 
 .splash{
 	height: auto;
+	max-height: none;
 }
 
 .splashContent{
 	padding-top: 40px;
 	padding-bottom: 20px;
 	height: auto;
+	/*max-height: auto;*/
 }
 
 .splashImg{

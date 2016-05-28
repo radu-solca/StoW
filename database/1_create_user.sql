@@ -1,9 +1,9 @@
 conn / as sysdba;
 
-grant connect to StoW identified by StoW;
+grant connect to stow identified by stow;
 
-grant all privileges to StoW identified by StoW;
+grant all privileges to stow identified by stow;
 
-GRANT EXECUTE ON SYS.utl_file TO StoW;
+GRANT EXECUTE ON SYS.utl_file TO stow;
 
-conn StoW/StoW;
+conn stow/stow;

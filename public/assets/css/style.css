@@ -267,7 +267,8 @@ nav a:hover {
 ***************** HOME *******************
 *****************************************/
 .splash {
-	max-height: auto;
+	height: 369px;
+	max-height: 369px;
 	background-color: #76cace;
 	margin-top: 58px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
@@ -279,6 +280,7 @@ nav a:hover {
 
 .splashContent {
 	height: 369px;
+	max-height: none;
 }
 
 .splashContent .description {

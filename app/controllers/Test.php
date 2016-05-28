@@ -11,17 +11,43 @@ class Test extends Controller{
 		echo "test";
 	}
 
-	public function user(){
+	public function whoIs($username){
 
 		$user = $this->model('User');
 
-		$result = $user->withUsername('user_1')->limit(3)->find();
+		$result = $user->withUsername($username)->find();
 
 		foreach($result as $key => $user){
+			unset($user['PASSWORD']);
 			echo '<pre>'; print_r($user); echo '</pre>';
 		}
 	}
 
+	public function login(){
+		$user = $this->model('User');
+
+		$result = $user->withUsername('aleliua')->withPassword('aleliua')->login();
+	}
+
+	public function logout(){
+		$user = $this->model('User');
+
+		$user->logout();
+	}
+
+	public function whoAmI(){
+		if(isset($_SESSION['userData'])){
+			echo 'You are logged in as ' . $_SESSION['userData']['USERNAME'];
+			echo '</br>';
+			echo 'Aditional info:';
+			echo '</br> <pre>';
+			print_r($_SESSION['userData']);
+			echo '</pre>';
+		}
+		else{
+			echo 'You are not logged in';
+		}
+	}
 }
 
  ?>

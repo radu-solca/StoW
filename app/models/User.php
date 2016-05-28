@@ -46,8 +46,6 @@ class User {
 			$stmt->execute($params);
 
 		} catch (PDOException $e) {
-
-			echo $db->errorInfo()[1];
 		    switch($db->errorInfo()[1]){
 		    	case 20003:
 		    		$this->errorHandler->addError('This username is already taken', 'username');
@@ -62,7 +60,7 @@ class User {
 		    		$this->errorHandler->addError('Password too short', 'password');
 		    		break;
 		    	default:
-		    		echo 'An unknown error has occured';
+		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
 		}
 
@@ -103,7 +101,7 @@ class User {
 		    		$this->errorHandler->addError('Wrong password', 'password');
 		    		break;
 		    	default:
-		    		echo 'An unknown error has occured';
+		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
 		}
 

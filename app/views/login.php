@@ -27,28 +27,16 @@
 			<div class="margin20">
 				<div class="formContent flex">
 
-					<form action="login" class="flex column" method="post">
-						<div>
-							Username: <input type="text" name="username" value="<?php echo @$_POST['username']; ?>">
+					<form action="" class="flex column" method="post">
+						<div id="username">
+							Username: <input type="text" name="username">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('username');
-							}
-							?>
+						<div id="password">
+							Password: <input type="password" name="password">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							Password: <input type="password" name="password" value="<?php echo @$_POST['password']; ?>">
-						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('password');
-							}
-							?>
-						</div>
-						<input type="submit">
+						<input type="button" value="submit" onclick="submitLogin()" style="width:100px">
 					</form>
 
 				</div>
@@ -60,6 +48,30 @@
 		require_once '../app/views/footer.php';
 	 ?>
 
+	<script src="assets/js/global.js"></script>
 	<script src="assets/js/mobile.js"></script>
+	<script src="assets/js/ajax.js"></script>
+
+	<script type="text/javascript">
+		function submitLogin(){
+
+			var username = encodeURIComponent(document.querySelector("#username input").value),
+				password = encodeURIComponent(document.querySelector("#password input").value),
+				params = "username="+username+"&password="+password;
+
+			ajaxPost(	"login", 
+						params, 
+						function(responseText){
+							 var responseJSON = JSON.parse(responseText);
+	                        if(responseJSON["ok"] == true){
+	                            redirect("");
+	                        }
+	                        else{
+	                            document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
+	                            document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
+	                        }
+						});
+		}
+	</script>
 
 </body>

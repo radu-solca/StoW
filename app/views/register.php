@@ -12,8 +12,6 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
 
-	<script type="text/javascript" src="assets/js/mobile.js"></script>
-
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
@@ -65,7 +63,6 @@
 	 ?>
 
 	<script src="assets/js/global.js"></script>
-	<script src="assets/js/mobile.js"></script>
 	<script src="assets/js/ajax.js"></script>
 
 	<script type="text/javascript">
@@ -102,5 +99,7 @@
 						});
 		}
 	</script>
+
+	<script src="assets/js/nav.js"></script>
 
 </body>

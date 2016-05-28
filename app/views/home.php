@@ -12,15 +12,13 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
 
-	<script type="text/javascript" src="assets/js/mobile.js"></script>
-
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 </head>
 <body>
 
 	<?php 
-	require_once "../app/views/menu.php";
+	require "../app/views/menu.php";
 	?>
 
 	<div class="flexWrap flex column">
@@ -86,11 +84,13 @@
 		</div>
 
 		<?php 
-		require_once "../app/views/footer.php";
+		require "../app/views/footer.php";
 		?>
 
+		<script src="assets/js/nav.js"></script>
+		<script src="assets/js/home.js"></script>
+
 	</div>
-	<script src="assets/js/mobile.js"></script>
 	
 </body>
 </html>

@@ -21,6 +21,27 @@ class Test extends Controller{
 			echo '<pre>'; print_r($user); echo '</pre>';
 		}
 	}
+
+	public function login(){
+		$user = $this->model('User');
+
+		$result = $user->withUsername('aleliua')->withPassword('aleliua')->login();
+	}
+
+	public function logout(){
+		$user = $this->model('User');
+
+		$user->logout();
+	}
+
+	public function whoAmI(){
+		if(isset($_SESSION['userData'])){
+			echo 'You are logged in as ' . $_SESSION['userData']['USERNAME'];
+		}
+		else{
+			echo 'You are not logged in';
+		}
+	}
 }
 
  ?>

@@ -29,6 +29,36 @@ class User {
 		$stmt->execute($params);
 	}
 
+	public function login(){
+		$db = Connection::getConnection();
+
+		$query =   'SELECT * 
+					FROM users_view
+					WHERE ID =
+						(
+						SELECT usr_utils.login(?,?) 
+						AS "ID"
+						FROM dual
+						)
+					'; 
+
+		$params = [$this->username, md5($this->password)];
+
+		$stmt = $db->prepare($query);
+		$stmt->execute($params);
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		$userData = $result[0];
+		//do NOT store the password in session.
+		unset($userData['PASSWORD']);
+
+		$_SESSION["userData"] = $userData;
+	}
+
+	public function logout(){
+		unset($_SESSION['userData']);
+	}
+
 	public function find(){
 			$query = 'SELECT * FROM users_view';
 

@@ -55,33 +55,21 @@
 	<script>
 		function submitLogin(){
 
-			var request = new ajaxRequest();
-			request.onreadystatechange=function(){
-				if (request.readyState==4){
-					if (request.status==200 || window.location.href.indexOf("http")==-1){
-
-						var responseJSON = JSON.parse(request.responseText);
-						if(responseJSON["ok"] == true){
-							redirect("");
-						}
-						else{
-							document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
-							document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
-						}
-					}
-					else{
-						alert("An error has occured making the request");
-					}
-				}
-			}
-
 			var username=encodeURIComponent(document.querySelector("#username input").value);
 			var password=encodeURIComponent(document.querySelector("#password input").value);
-			var parameters="username="+username+"&password="+password;
 
-			request.open("POST", "login", true);
-			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			request.send(parameters);
+			ajaxPost(	"login", 
+						"username="+username+"&password="+password, 
+						function(responseText){
+							 var responseJSON = JSON.parse(responseText);
+	                        if(responseJSON["ok"] == true){
+	                            redirect("");
+	                        }
+	                        else{
+	                            document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
+	                            document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
+	                        }
+						});
 		}
 	</script>
 

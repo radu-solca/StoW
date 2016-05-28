@@ -16,6 +16,21 @@ function ajaxRequest(){
         return false;
 }
 
-function ajaxPost(){
-    
+function ajaxPost(target, parameters, callBackFn){
+
+    var request = new ajaxRequest();
+    request.onreadystatechange=function(){
+        if (request.readyState==4){
+            if (request.status==200 || window.location.href.indexOf("http")==-1){
+                callBackFn(request.responseText);
+            }
+            else{
+                alert("An error has occured");
+            }
+        }
+    }
+
+    request.open("POST", target, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(parameters);
 }

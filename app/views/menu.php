@@ -5,26 +5,52 @@
 
 				<div id="navContent" class="flex center1 spaceBetween" >
 					<div id="left" class="flex centerV flexStart">
-						<a href="" class="iconic home"></a>
-						<a href="" class="iconic book"></a>
-						<a href="" class="iconic upload"></a>
+						<a href="home" class="iconic home"></a>
+						<a href="browse" class="iconic book"></a>
+						<a href="upload" class="iconic upload"></a>
 					</div>
 					<div id="right" class="flex centerV flexEnd">
-						<a href="" class="iconic magnifying_glass"></a>
+						<div class="iconic magnifying_glass">
+							<div class="userExt">
+								<div class="content">
+									ayylmao pass the border cocaina
+								</div>
+							</div>
+						</div>
+
 						<?php 
-						echo "<a href=\"#\" data-attr=\"Welcome, ";
+						echo "<div data-attr=\"Welcome, ";
 						echo isset($_SESSION['userData'])?$_SESSION['userData']['USERNAME']:"visitor";
-						echo "\" class=\"iconic user\"></a>";
+						echo "\" class=\"iconic user\">";
 						?>
+							<div class="userExt">
+								<div class="content">
+									<?php ?>
+									
+									if(isset($_SESSION['userData'])?$_SESSION['userData'])
+
+									<a href="home" class="iconic home"></a>
+									<a href="browse" class="iconic book"></a>
+								</div>
+							</div>
+						</div>
+						
+						
 					</div>
 				</div>
 
 				<div id="navContentMobile" class="flex center1 spaceBetween">
-						<a href="" class="iconic home"></a>
-						<a href="" class="iconic book"></a>
-						<a href="" class="iconic upload"></a>
-						<a href="" class="iconic magnifying_glass"></a>
-						<a href="" class="iconic user"></a>					
+						<a href="home" class="iconic home"></a>
+						<a href="browse" class="iconic book"></a>
+						<a href="upload" class="iconic upload"></a>
+						<div class="iconic magnifying_glass">
+							<div class="searchExt"></div>
+						</div>
+						
+						<div class="iconic user">
+							<div class="userExt"></div>	
+						</div>	
+									
 				</div>
 
 			</div>

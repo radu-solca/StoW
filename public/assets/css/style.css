@@ -196,26 +196,26 @@ nav {
 	z-index: 9999;
 }
 
-nav a {
+nav a, nav #right > div {
+	cursor: pointer;
 	border-radius: 2px;
 	padding: 7px 8px 5px 8px;
+	position: relative;
 }
 
-nav a:after {
+nav a::after, nav #right > div::after {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-nav a:hover {
+nav a:hover, nav #right > div:hover{
 	background-color: #645446;
 }
 
-#navContent {
-	height: 58px;
-	margin-top: 8px;
+#navContent, #navContentMobile {
+	height: 48px;
 }
 
-#navContentMobile{
-	height: 48px;
+#navContent, #navContentMobile {
 	margin-top: 8px;
 }
 
@@ -249,13 +249,33 @@ nav a:hover {
 	content: attr(data-attr);
 }
 
-
 @media (max-width: 700px) {
 	.user::after {
 		content: "Account";
 	}
 }
 
+.searchExt, .userExt{
+	font-family: 'Roboto Condensed', sans-serif;
+	right: 0;
+	width: auto;
+	height: auto;
+	position: absolute;
+	display: none;
+}
+
+.searchExt .content, .userExt .content{
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+	background-color: #7A6453;
+	padding: 5px 10px;
+	margin-top: 11px;
+}
+
+nav #right > div:hover .searchExt, 
+nav #right > div:hover .userExt
+{
+	display: block;
+}
 
 .footer {
 	background: #584B3F;
@@ -287,7 +307,7 @@ nav a:hover {
 	height: 369px;
 	max-height: 369px;
 	background-color: #76cace;
-	margin-top: 58px;
+	margin-top: 48px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 

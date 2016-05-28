@@ -25,12 +25,21 @@
 						?>
 							<div class="userExt">
 								<div class="content">
-									<?php ?>
+									<?php 
 									
-									if(isset($_SESSION['userData'])?$_SESSION['userData'])
+									if(isset($_SESSION['userData'])){
+										echo "
+											<a href=\"profile\" class=\"iconic profile\"></a>
+											<a href=\"logout\" class=\"iconic signOut\"></a>
+										";
+									}
+									else
+										echo "
+											<a href=\"login\" class=\"iconic signIn\"></a>
+											<a href=\"register\" class=\"iconic register\"></a>
+										";
 
-									<a href="home" class="iconic home"></a>
-									<a href="browse" class="iconic book"></a>
+									?>									
 								</div>
 							</div>
 						</div>

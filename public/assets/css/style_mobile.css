@@ -3,15 +3,11 @@
 	margin: 0 11px;
 }
 
-nav a:hover {
+nav a:hover, nav #right > div:hover {
 	background: none;
 }
 
-nav a{
-	width: 40px;
-	height: 40px;
-	display: flex;
-	line-height: 40px;
+nav a, nav #right > div{
 	padding: 0; 
 	margin: 0;
 }
@@ -20,6 +16,9 @@ nav a{
 	border-radius: 9999px;
 	background: none;
 	font-size: 24px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 }
 
 .iconic:hover{

@@ -11,13 +11,14 @@ class Test extends Controller{
 		echo "test";
 	}
 
-	public function user(){
+	public function whoIs($username){
 
 		$user = $this->model('User');
 
-		$result = $user->withUsername('user_1')->limit(3)->find();
+		$result = $user->withUsername($username)->find();
 
 		foreach($result as $key => $user){
+			unset($user['PASSWORD']);
 			echo '<pre>'; print_r($user); echo '</pre>';
 		}
 	}

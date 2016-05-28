@@ -461,15 +461,22 @@ nav #right > div:hover .userExt
 	padding: 5px;
 }
 
+form {
+	margin-bottom: 0;
+}
+
+/*****************************************
+***************** LOGIN ******************
+*****************************************/
+
+.flexWrap .login{
+	background-color: #aad05e;
+}
+
 /*****************************************
 *************** REGISTER *****************
 *****************************************/
-.form {
-	background-color: #76cace;
-	margin-top: 58px;
-	padding: 20px 0;
-}
 
-form {
-	margin-bottom: 0;
+.flexWrap .register{
+	background-color: #aad05e;
 }

@@ -17,89 +17,102 @@
 <body>
 
 	<?php 
-		require_once '../app/views/menu.php';
-	 ?>
+	require_once '../app/views/menu.php';
+	?>
 
-	<div class="form fullWidth">
-		<div class="guide960">
-			<div class="margin20">
-				<div class="formContent flex">
+	<div class="flexWrap flex column">
 
-					<form action="" class="flex column" method="post">
-						<div id="username">
-							Username: <input type="text" name="username">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<div id="password">
-							Password: <input type="password" name="password">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<div id="repeat_password">
-							Repeat password: <input type="password" name="repeat_password">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<div id="email">
-							Email: <input type="text" name="email">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<div id="name">
-							Name: <input type="text" name="name">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<div id="surname">
-							Surname: <input type="text" name="surname">
-							<p class="error" style="display:inline"></p>
-						</div>
-						<input type="button" value="submit" onclick="submitRegister()" style="width:100px">
-					</form>
+		<div class="login fullWidth flex center1 center2">
+			<div class="guide960">
+				<div class="margin20">
+					<div class="flex loginContent center2 center1 column">
+						<!-- <h1 class="title">Stories on the Web</h1> -->
+						<!-- <p class="description">
+							Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
+							Make an account to save your favorites!
+						</p>  -->
 
+						<form action="" class="flex column" method="post">
+							<div id="username">
+								Username: <input type="text" name="username">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<div id="password">
+								Password: <input type="password" name="password">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<div id="repeat_password">
+								Repeat password: <input type="password" name="repeat_password">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<div id="email">
+								Email: <input type="text" name="email">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<div id="name">
+								Name: <input type="text" name="name">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<div id="surname">
+								Surname: <input type="text" name="surname">
+								<p class="error" style="display:inline"></p>
+							</div>
+							<input type="button" value="submit" onclick="submitRegister()" style="width:100px">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<?php 
+		require "../app/views/footer.php";
+		?>
+
+		<script src="assets/js/nav.js"></script>
+
 	</div>
 
-	<?php 
-		require_once '../app/views/footer.php';
-	 ?>
+	
+	
+
 
 	<script src="assets/js/global.js"></script>
 	<script src="assets/js/ajax.js"></script>
 
 	<script type="text/javascript">
-		function submitRegister(){
-			var username=encodeURIComponent(document.querySelector("#username input").value),
-				password=encodeURIComponent(document.querySelector("#password input").value),
-				repeat_password=encodeURIComponent(document.querySelector("#repeat_password input").value),
-				email=encodeURIComponent(document.querySelector("#email input").value),
-				name=encodeURIComponent(document.querySelector("#name input").value),
-				surname=encodeURIComponent(document.querySelector("#surname input").value),
+	function submitRegister(){
+		var username=encodeURIComponent(document.querySelector("#username input").value),
+		password=encodeURIComponent(document.querySelector("#password input").value),
+		repeat_password=encodeURIComponent(document.querySelector("#repeat_password input").value),
+		email=encodeURIComponent(document.querySelector("#email input").value),
+		name=encodeURIComponent(document.querySelector("#name input").value),
+		surname=encodeURIComponent(document.querySelector("#surname input").value),
 
-				params = "username="+username
-						+"&password="+password
-						+"&repeat_password="+repeat_password
-						+"&email="+email
-						+"&name="+name
-						+"&surname="+surname;
+		params = "username="+username
+		+"&password="+password
+		+"&repeat_password="+repeat_password
+		+"&email="+email
+		+"&name="+name
+		+"&surname="+surname;
 
-			ajaxPost(	"register", 
-						params, 
-						function(responseText){
-							var responseJSON = JSON.parse(responseText);
-	                        if(responseJSON["ok"] == true){
-	                            redirect("");
-	                        }
-	                        else{
-	                            document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
-	                            document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
-	                            document.querySelector("#repeat_password .error").innerHTML = responseJSON.hasOwnProperty('repeat_password') ? responseJSON["repeat_password"][0] : "";
-	                            document.querySelector("#email .error").innerHTML = responseJSON.hasOwnProperty('email') ? responseJSON["email"][0] : "";
-	                            document.querySelector("#name .error").innerHTML = responseJSON.hasOwnProperty('name') ? responseJSON["name"][0] : "";
-	                            document.querySelector("#surname .error").innerHTML = responseJSON.hasOwnProperty('surname') ? responseJSON["surname"][0] : "";
-	                        }
-						});
-		}
+		ajaxPost(	"register", 
+			params, 
+			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+				if(responseJSON["ok"] == true){
+					redirect("");
+				}
+				else{
+					document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
+					document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
+					document.querySelector("#repeat_password .error").innerHTML = responseJSON.hasOwnProperty('repeat_password') ? responseJSON["repeat_password"][0] : "";
+					document.querySelector("#email .error").innerHTML = responseJSON.hasOwnProperty('email') ? responseJSON["email"][0] : "";
+					document.querySelector("#name .error").innerHTML = responseJSON.hasOwnProperty('name') ? responseJSON["name"][0] : "";
+					document.querySelector("#surname .error").innerHTML = responseJSON.hasOwnProperty('surname') ? responseJSON["surname"][0] : "";
+				}
+			});
+	}
 	</script>
-
-	<script src="assets/js/nav.js"></script>
 
 </body>

@@ -12,8 +12,6 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
 
-	<script type="text/javascript" src="assets/js/mobile.js"></script>
-
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
@@ -27,68 +25,32 @@
 			<div class="margin20">
 				<div class="formContent flex">
 
-					<form action="register" class="flex column" method="post">
-						<div>
-							Username: <input type="text" name="username" value="<?php echo @$_POST['username']; ?>">
+					<form action="" class="flex column" method="post">
+						<div id="username">
+							Username: <input type="text" name="username">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('username');
-							}
-							?>
+						<div id="password">
+							Password: <input type="password" name="password">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							Password: <input type="password" name="password" value="<?php echo @$_POST['password']; ?>">
+						<div id="repeat_password">
+							Repeat password: <input type="password" name="repeat_password">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('password');
-							}
-							?>
+						<div id="email">
+							Email: <input type="text" name="email">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							Repeat password: <input type="password" name="repeat_password" value="<?php echo @$_POST['repeat_password']; ?>">
+						<div id="name">
+							Name: <input type="text" name="name">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('repeat_password');
-							}
-							?>
+						<div id="surname">
+							Surname: <input type="text" name="surname">
+							<p class="error" style="display:inline"></p>
 						</div>
-						<div>
-							Email: <input type="text" name="email" value="<?php echo @$_POST['email']; ?>">
-						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('email');
-							}
-							?>
-						</div>
-						<div>
-							Name: <input type="text" name="name" value="<?php echo @$_POST['name']; ?>">
-						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('name');
-							}
-							?>
-						</div>
-						<div>
-							Surname: <input type="text" name="surname" value="<?php echo @$_POST['surname']; ?>">
-						</div>
-						<div>
-							<?php 
-							if(isset($data['errors'])){
-								echo $data['errors']->first('surname');
-							}
-							?>
-						</div>
-						<input type="submit">
+						<input type="button" value="submit" onclick="submitRegister()" style="width:100px">
 					</form>
 
 				</div>
@@ -100,6 +62,44 @@
 		require_once '../app/views/footer.php';
 	 ?>
 
-	<script src="assets/js/mobile.js"></script>
+	<script src="assets/js/global.js"></script>
+	<script src="assets/js/ajax.js"></script>
+
+	<script type="text/javascript">
+		function submitRegister(){
+			var username=encodeURIComponent(document.querySelector("#username input").value),
+				password=encodeURIComponent(document.querySelector("#password input").value),
+				repeat_password=encodeURIComponent(document.querySelector("#repeat_password input").value),
+				email=encodeURIComponent(document.querySelector("#email input").value),
+				name=encodeURIComponent(document.querySelector("#name input").value),
+				surname=encodeURIComponent(document.querySelector("#surname input").value),
+
+				params = "username="+username
+						+"&password="+password
+						+"&repeat_password="+repeat_password
+						+"&email="+email
+						+"&name="+name
+						+"&surname="+surname;
+
+			ajaxPost(	"register", 
+						params, 
+						function(responseText){
+							var responseJSON = JSON.parse(responseText);
+	                        if(responseJSON["ok"] == true){
+	                            redirect("");
+	                        }
+	                        else{
+	                            document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
+	                            document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
+	                            document.querySelector("#repeat_password .error").innerHTML = responseJSON.hasOwnProperty('repeat_password') ? responseJSON["repeat_password"][0] : "";
+	                            document.querySelector("#email .error").innerHTML = responseJSON.hasOwnProperty('email') ? responseJSON["email"][0] : "";
+	                            document.querySelector("#name .error").innerHTML = responseJSON.hasOwnProperty('name') ? responseJSON["name"][0] : "";
+	                            document.querySelector("#surname .error").innerHTML = responseJSON.hasOwnProperty('surname') ? responseJSON["surname"][0] : "";
+	                        }
+						});
+		}
+	</script>
+
+	<script src="assets/js/nav.js"></script>
 
 </body>

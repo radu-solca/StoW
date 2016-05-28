@@ -24,8 +24,7 @@ CREATE TABLE stories(
 	--^URL
 	st_date_added DATE NOT NULL,
 	CONSTRAINT stories_pk_st_id PRIMARY KEY (st_id),
-	CONSTRAINT stories_unq_st_title UNIQUE (st_title),
-	CONSTRAINT stories_unq_st_content UNIQUE (st_content)
+	CONSTRAINT stories_unq_st_title UNIQUE (st_title)
 );
 
 --auto-increment on st_id--

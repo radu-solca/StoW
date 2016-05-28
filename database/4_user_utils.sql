@@ -13,10 +13,10 @@ CREATE OR REPLACE PACKAGE usr_exceptions AS
     PRAGMA EXCEPTION_INIT(preexisting_email, -20004);
 
     username_too_short EXCEPTION;
-    PRAGMA EXCEPTION_INIT(preexisting_email, -20005);
+    PRAGMA EXCEPTION_INIT(username_too_short, -20005);
 
     password_too_short EXCEPTION;
-    PRAGMA EXCEPTION_INIT(preexisting_email, -20006);
+    PRAGMA EXCEPTION_INIT(password_too_short, -20006);
 
     role_not_found EXCEPTION;
     PRAGMA EXCEPTION_INIT(role_not_found, -20007);

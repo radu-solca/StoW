@@ -214,10 +214,19 @@ nav a:hover {
 	margin-top: 8px;
 }
 
+#navContentMobile{
+	height: 58px;
+	margin-top: 8px;
+}
+
 .navDeco {
 	height: 8px;
 	background-color: #584B3F;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+}
+
+.hidden{
+	display: none;
 }
 
 .home::after {
@@ -237,8 +246,16 @@ nav a:hover {
 }
 
 .user::after {
-	content: "Sign In";
+	content: attr(data-attr);
 }
+
+
+@media (max-width: 700px) {
+	.user::after {
+		content: "Account";
+	}
+}
+
 
 .footer {
 	background: #584B3F;

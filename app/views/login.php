@@ -52,14 +52,15 @@
 	<script src="assets/js/mobile.js"></script>
 	<script src="assets/js/ajax.js"></script>
 
-	<script>
+	<script type="text/javascript">
 		function submitLogin(){
 
-			var username=encodeURIComponent(document.querySelector("#username input").value);
-			var password=encodeURIComponent(document.querySelector("#password input").value);
+			var username = encodeURIComponent(document.querySelector("#username input").value),
+				password = encodeURIComponent(document.querySelector("#password input").value),
+				params = "username="+username+"&password="+password;
 
 			ajaxPost(	"login", 
-						"username="+username+"&password="+password, 
+						params, 
 						function(responseText){
 							 var responseJSON = JSON.parse(responseText);
 	                        if(responseJSON["ok"] == true){

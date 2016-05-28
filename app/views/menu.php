@@ -20,7 +20,11 @@
 
 						<?php 
 						echo "<div data-attr=\"Welcome, ";
-						echo isset($_SESSION['userData'])?$_SESSION['userData']['USERNAME']:"visitor";
+						echo isset($_SESSION['userData'])
+						?
+						( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
+						:
+						"visitor";
 						echo "\" class=\"iconic user\">";
 						?>
 							<div class="userExt">

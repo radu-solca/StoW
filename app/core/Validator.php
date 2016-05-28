@@ -20,8 +20,9 @@ class Validator{
 		'usrUnique' => 'The :field is already taken'
 	];
 
-	public function __construct(ErrorHandler $errorHandler){
-		$this->errorHandler= $errorHandler;
+	public function __construct(){
+		require_once '../app/core/ErrorHandler.php';
+		$this->errorHandler= new ErrorHandler;
 	}
 
 	/**

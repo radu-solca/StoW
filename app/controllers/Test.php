@@ -37,6 +37,11 @@ class Test extends Controller{
 	public function whoAmI(){
 		if(isset($_SESSION['userData'])){
 			echo 'You are logged in as ' . $_SESSION['userData']['USERNAME'];
+			echo '</br>';
+			echo 'Aditional info:';
+			echo '</br> <pre>';
+			print_r($_SESSION['userData']);
+			echo '</pre>';
 		}
 		else{
 			echo 'You are not logged in';

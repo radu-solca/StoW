@@ -4,12 +4,10 @@
 
 		public function index(){
 
-			require_once '../app/core/ErrorHandler.php';
 			require_once '../app/core/Validator.php';
 
-			if(!empty($_POST)){ //if the form has been completed, validate it
-				$errorHandler = new ErrorHandler;
-				$validator = new Validator($errorHandler);
+			if(!empty($_POST)){ //the form was previously completed
+				$validator = new Validator();
 
 				$validation = $validator->check($_POST,[
 					'username' => [
@@ -34,11 +32,10 @@
 					]
 				]);
 
-				if ($validation->failed()) { //if we have errors, reload the form and print the errors
-					//echo '<pre>' , print_r($validation->errors()->all()) , '</pre>';
+				if ($validation->failed()) { //form validation failed
 					$this->view('register',['errors' => $validation->errors()]);
 				}
-				else{ //finish the registration if all is ok.
+				else{ //form validation succeeded
 					$user = $this->model('User');
 					$user 	->withUsername($_POST['username'])
 							->withEmail($_POST['email'])
@@ -46,10 +43,17 @@
 							->withName($_POST['name'])
 							->withSurname($_POST['surname'])
 							->register();
-					App::redirect();
+
+					if($user->failed()){ //database validation failed.
+						$this->view('register',['errors' => $user->errors()]);
+					}
+					else{ // all is good
+						$user->login();
+						App::redirect();
+					}
 				}
 			}
-			else{ //if the form wasn't completed, give it to the user.
+			else{ //the form hasn't been completed.
 				$this->view('register');
 			}
 		}

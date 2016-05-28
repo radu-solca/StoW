@@ -1,6 +1,7 @@
 <?php 
 
 class User {
+	protected $errorHandler;
 
 	protected $id = null;
 	protected $username = null;
@@ -14,49 +15,104 @@ class User {
 	protected $ordtype = null;
 	protected $limit = null;
 
+	public function __construct(){
+		require_once '../app/core/ErrorHandler.php';
+		$this->errorHandler = new ErrorHandler;
+	}
+
+	public function errors(){
+
+		return $this->errorHandler;
+	}
+
+	public function failed(){
+		
+		return $this->errorHandler->hasErrors();
+	}
+
 	public function register(){
-		$db = Connection::getConnection();
+		try{
+			$db = Connection::getConnection();
 
-		$query =   'DECLARE
-						v_id_output users.usr_id%type;
-					BEGIN
-						v_id_output := usr_utils.register(?,?,?,?,?);
-					END;'; 
+			$query =   'DECLARE
+							v_id_output users.usr_id%type;
+						BEGIN
+							v_id_output := usr_utils.register(?,?,?,?,?);
+						END;'; 
 
-		$params = [$this->username, md5($this->password), $this->email, $this->name, $this->surname];
+			$params = [$this->username, md5($this->password), $this->email, $this->name, $this->surname];
 
-		$stmt = $db->prepare($query);
-		$stmt->execute($params);
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
+
+		} catch (PDOException $e) {
+
+			echo $db->errorInfo()[1];
+		    switch($db->errorInfo()[1]){
+		    	case 20003:
+		    		$this->errorHandler->addError('This username is already taken', 'username');
+		    		break;
+		    	case 20004:
+		    		$this->errorHandler->addError('This email is already taken', 'email');
+		    		break;
+	    		case 20005:
+		    		$this->errorHandler->addError('Username too short', 'username');
+		    		break;
+	    		case 20006:
+		    		$this->errorHandler->addError('Password too short', 'password');
+		    		break;
+		    	default:
+		    		echo 'An unknown error has occured';
+		    }
+		}
+
+		return $this;
 	}
 
 	public function login(){
-		$db = Connection::getConnection();
+		try{
+			$db = Connection::getConnection();
 
-		$query =   'SELECT * 
-					FROM users_view
-					WHERE ID =
-						(
-						SELECT usr_utils.login(?,?) 
-						AS "ID"
-						FROM dual
-						)
-					'; 
+			$query =   'SELECT * 
+						FROM users_view
+						WHERE ID =
+							(
+							SELECT usr_utils.login(?,?) 
+							AS "ID"
+							FROM dual
+							)
+						'; 
 
-		$params = [$this->username, md5($this->password)];
+			$params = [$this->username, md5($this->password)];
 
-		$stmt = $db->prepare($query);
-		$stmt->execute($params);
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		$userData = $result[0];
-		//do NOT store the password in session.
-		unset($userData['PASSWORD']);
+			$userData = $result[0];
+			//do NOT store the password in session.
+			unset($userData['PASSWORD']);
 
-		$_SESSION["userData"] = $userData;
+			$_SESSION["userData"] = $userData;
+		} catch (PDOException $e) {
+		    switch($db->errorInfo()[1]){
+		    	case 20001:
+		    		$this->errorHandler->addError('Wrong username', 'username');
+		    		break;
+		    	case 20002:
+		    		$this->errorHandler->addError('Wrong password', 'password');
+		    		break;
+		    	default:
+		    		echo 'An unknown error has occured';
+		    }
+		}
+
+		return $this;
 	}
 
 	public function logout(){
 		unset($_SESSION['userData']);
+		return $this;
 	}
 
 	public function find(){

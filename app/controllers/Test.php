@@ -21,6 +21,7 @@ class Test extends Controller{
 			echo '<pre>'; print_r($user); echo '</pre>';
 		}
 	}
+
 }
 
  ?>

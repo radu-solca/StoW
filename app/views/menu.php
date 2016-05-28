@@ -11,7 +11,7 @@
 					</div>
 					<div id="right" class="flex centerV flexEnd">
 						<div class="iconic magnifying_glass">
-							<div class="userExt">
+							<div class="searchExt">
 								<div class="content">
 									ayylmao pass the border cocaina
 								</div>
@@ -19,12 +19,12 @@
 						</div>
 
 						<?php 
-						echo "<div data-attr=\"Welcome, ";
+						echo "<div data-attr=\"";
 						echo isset($_SESSION['userData'])
 						?
 						( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
 						:
-						"visitor";
+						"Account";
 						echo "\" class=\"iconic user\">";
 						?>
 							<div class="userExt">
@@ -33,14 +33,18 @@
 									
 									if(isset($_SESSION['userData'])){
 										echo "
-											<a href=\"profile\" class=\"iconic profile\"></a>
-											<a href=\"logout\" class=\"iconic signOut\"></a>
-										";
+											<a href=\"profile\" class=\"profile\"></a>
+											<a href=\"logout\" class=\"signOut\"></a>";
+											if($_SESSION['userData']['ADMIN'] == 1){
+												echo "
+												<a href=\"admin\" class=\"admin\"></a>
+												";
+											}										
 									}
 									else
 										echo "
-											<a href=\"login\" class=\"iconic signIn\"></a>
-											<a href=\"register\" class=\"iconic register\"></a>
+											<a href=\"login\" class=\"signIn\"></a>
+											<a href=\"register\" class=\"register\"></a>
 										";
 
 									?>									

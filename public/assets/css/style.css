@@ -248,16 +248,9 @@ nav a:hover, nav #right > div:hover{
 	content: attr(data-attr);
 }
 
-@media (max-width: 700px) {
-	.user::after {
-		content: "Account";
-	}
-}
-
 .searchExt, .userExt{
 	font-family: 'Roboto Condensed', sans-serif;
 	right: 0;
-	width: auto;
 	height: auto;
 	position: absolute;
 	/*display: none;*/
@@ -284,6 +277,14 @@ nav #right > div:hover .userExt
 	margin-top: 0px;
 }
 
+.searchExt{
+	width: 300px;
+}
+
+.userExt{
+	width: 100px;
+}
+
 .userExt .content *{
 	display: block;
 	text-align: center;
@@ -303,6 +304,10 @@ nav #right > div:hover .userExt
 
 .register::after {
 	content: "Sign Up";
+}
+
+.admin::after{
+	content: 'Admin';
 }
 
 

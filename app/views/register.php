@@ -33,27 +33,33 @@
 
 						<form action="" class="flex column center1" method="post">
 							<div id="username">
-								Username: <input type="text" name="username">
+								<span>Username</span>
+								<input type="text" name="username">
 								<p class="error"></p>
 							</div>
 							<div id="password">
-								Password: <input type="password" name="password">
+								<span>Password</span>
+								<input type="password" name="password">
 								<p class="error"></p>
 							</div>
 							<div id="repeat_password">
-								Repeat password: <input type="password" name="repeat_password">
+								<span>Repeat password</span>
+								<input type="password" name="repeat_password">
 								<p class="error"></p>
 							</div>
 							<div id="email">
-								Email: <input type="text" name="email">
+								<span>Email</span>
+								<input type="text" name="email">
 								<p class="error"></p>
 							</div>
 							<div id="name">
-								Name: <input type="text" name="name">
+								<span>Name</span>
+								<input type="text" name="name">
 								<p class="error"></p>
 							</div>
 							<div id="surname">
-								Surname: <input type="text" name="surname">
+								<span>Surname</span>
+								<input type="text" name="surname">
 								<p class="error"></p>
 							</div>
 							<input type="button" value="submit" onclick="submitRegister()">

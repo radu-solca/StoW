@@ -79,15 +79,28 @@
 									
 									<?php 
 
-									echo "<span>(";
-
 									echo isset($_SESSION['userData'])
 									?
-									( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
-									:
-									"visitor";
+									(	
+										"<span>".
 
-									echo ")</span>";
+									 	(
+											isset($_SESSION['userData']['NAME']) 
+											?
+											$_SESSION['userData']['NAME'] 
+											:
+											$_SESSION['userData']['USERNAME'] 
+										)
+
+										."</span>
+										<hr>
+										"
+
+									)
+									:
+									"";
+
+
 									
 									if(isset($_SESSION['userData'])){
 										echo "

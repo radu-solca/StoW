@@ -33,11 +33,13 @@
 
 						<form action="" class="flex column center1" method="post">
 							<div id="username">
-								Username: <input type="text" name="username">
+								<span>Username</span>
+								<input type="text" name="username">
 								<p class="error"></p>
 							</div>
 							<div id="password">
-								Password: <input type="password" name="password">
+								<span>Password</span>
+								<input type="password" name="password">
 								<p class="error"></p>
 							</div>
 							<input type="button" value="submit" onclick="submitLogin()">

@@ -134,3 +134,7 @@ nav .multi:hover .userExt
 	overflow-x: scroll;
 	white-space: nowrap;
 }
+
+.formContent {
+	padding: 20px;
+}

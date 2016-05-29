@@ -28,7 +28,7 @@
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sign Up</h1>
 						<p class="description">
-							With an account, you can add bookmarks, ratings, comments and more!
+							Join the fun! With an account, you can add bookmarks, ratings, comments and more!
 						</p> 
 
 						<form action="" class="flex column center1" method="post">

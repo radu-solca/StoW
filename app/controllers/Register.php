@@ -19,8 +19,9 @@
 				'username' => [
 					'required' => true,
 					'maxlength' => 32,
-					'minlength' => 3,
-					'usrUnique' => 'withUsername'
+					'usrUnique' => 'withUsername',
+					'alphaNumPlus' => true,
+					'minAlpha' => 3
 				],
 				'password' => [
 					'required' => true,
@@ -35,6 +36,12 @@
 					'maxlength' => 255,
 					'email' => true,
 					'usrUnique' => 'withEmail'
+				],
+				'name' => [
+					'alpha' => true
+				],
+				'surname' => [
+					'alpha' => true
 				]
 			]);
 

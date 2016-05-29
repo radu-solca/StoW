@@ -4,7 +4,7 @@ class Validator{
 
 	protected $errorHandler;
 
-	protected $rules = ['required','maxlength','minlength','email','match','usrUnique'];
+	protected $rules = ['required','maxlength','minlength','email','match','usrUnique','alpha','alphaNum','alphaNumPlus', 'minAlpha'];
 
 	protected $items;
 
@@ -17,7 +17,11 @@ class Validator{
 		'maxlength' => 'The :field field must have at most :satisfier characters',
 		'email' => 'The :field field must be a valid email address',
 		'match' => 'The :field field must match the :satisfier field',
-		'usrUnique' => 'The :field is already taken'
+		'usrUnique' => 'The :field is already taken',
+		'alpha' => 'The :field field can only contain letters',
+		'alphaNum' => 'The :field field can only contain letters and numbers',
+		'alphaNumPlus' => 'The :field field can only contain letters, numbers and (\'_\',\'-\',\'.\')',
+		'minAlpha' => 'The :field field must contain at least :satisfier letters'
 	];
 
 	public function __construct(){
@@ -79,22 +83,27 @@ class Validator{
 	}
 
 	protected function required($field, $value, $satisfier){
+
 		return !empty(trim($value)) || $satisfier === false;
 	}
 
 	protected function minlength($field, $value, $satisfier){
+
 		return mb_strlen($value) >= $satisfier;
 	}
 
 	protected function maxlength($field, $value, $satisfier){
+
 		return mb_strlen($value) <= $satisfier;
 	}
 
 	protected function email($field, $value, $satisfier){
+
 		return filter_var($value, FILTER_VALIDATE_EMAIL) || $satisfier === false;
 	}
 
 	protected function match($field, $value, $satisfier){
+
 		return $value === $this->items[$satisfier];
 	}
 
@@ -109,6 +118,42 @@ class Validator{
 		$user = call_user_func_array([$user, $satisfier], [$value]);
 
 		return !$user->exists();
+	}
+
+	protected function alpha($field, $value, $satisfier){
+
+		return ctype_alpha($value) || $satisfier === false || empty($value);
+	}
+
+	protected function alphaNum($field, $value, $satisfier){
+
+		return ctype_alnum($value) || $satisfier === false;
+	}
+
+	protected function alphaNumPlus($field, $value, $satisfier){
+		if(!empty($value)){
+			$accSpChrs = "-_.";
+			$value = str_split($value);
+			foreach($value as $character){
+				if(strpos($accSpChrs,$character) === false && !ctype_alnum($character)){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	protected function minAlpha($field, $value, $satisfier){
+		$counter = 0;
+		if(!empty($value)){
+			$value = str_split($value);
+			foreach($value as $character){
+				if(ctype_alnum($character)){
+					$counter++;
+				}
+			}
+		}
+		return $counter >= $satisfier ? true : false;
 	}
 
 }

@@ -67,8 +67,10 @@
 						<a href="upload" class="iconic upload"></a>
 						<div class="iconic magnifying_glass multi">
 							<div class="searchExt">
-								<div class="content">
-									ayylmao pass the border cocaina
+								<div class="content flex row">
+									<input type="text" placeholder="Search">
+									</input>
+									<input type="button" value="GO"></input>
 								</div>
 							</div>
 						</div>

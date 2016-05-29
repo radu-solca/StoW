@@ -53,7 +53,7 @@ light_yellow		#f5c02c
 light_green			#aad05e
 light_blue			#9dd3d7
 
-dark_red			#de5652
+dark_red			#E66464 old: #E66464
 dark_orange			#ea8100
 dark_yellow			#ebae02
 dark_green			#8dc225
@@ -70,7 +70,7 @@ dark_blue			#4dbdbc
 }
 
 .presetColorRed .overlay{
-	background-color: #de5652;
+	background-color: #E66464;
 }
 
 .presetColorOrange .container, .presetColorOrange .rating{
@@ -530,9 +530,10 @@ form p,
 form .error {
 	text-transform: uppercase;
 	font-size: 12px;
-	color: #de5652;
+	color: #E66464;
 	margin: 0;
 	height: 15px;
+	font-weight: 700;
 }
 
 input {
@@ -562,22 +563,22 @@ form * {
 
 .register #username span::after{
 	content: " *";
-	color: #de5652;
+	color: #E66464;
 }
 
 .register #password span::after{
 	content: " *";
-	color: #de5652;
+	color: #E66464;
 }
 
 .register #repeat_password span::after{
 	content: " *";
-	color: #de5652;
+	color: #E66464;
 }
 
 .register #email span::after{
 	content: " *";
-	color: #de5652;
+	color: #E66464;
 }
 /*****************************************
 *************** REGISTER *****************

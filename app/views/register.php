@@ -22,15 +22,14 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="login fullWidth flex center1 center2">
+		<div class="login fullWidth flex center1 center2 first">
 			<div class="guide960">
 				<div class="margin20">
 					<div class="flex loginContent center2 center1 column">
-						<!-- <h1 class="title">Stories on the Web</h1> -->
-						<!-- <p class="description">
-							Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
-							Make an account to save your favorites!
-						</p>  -->
+						<h1 class="title">Sign Up</h1>
+						<p class="description">
+							Bullshiticus lorem ipsum dolor sit amet.
+						</p> 
 
 						<form action="" class="flex column" method="post">
 							<div id="username">
@@ -69,12 +68,7 @@
 		require "../app/views/footer.php";
 		?>
 
-		<script src="assets/js/nav.js"></script>
-
 	</div>
-
-	
-	
 
 
 	<script src="assets/js/global.js"></script>
@@ -114,5 +108,7 @@
 			});
 	}
 	</script>
+
+	<script src="assets/js/nav.js"></script>
 
 </body>

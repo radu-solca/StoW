@@ -80,12 +80,12 @@ nav a, nav #right > div{
 
 .uploadBtn {
 	width: 100%;
-	flex: 1 auto;
+	flex: auto;
 }
 
 .browseBtn {
 	width: 100%;
-	flex: 1 auto;
+	flex: auto;
 }
 
 .storyThumbnail{

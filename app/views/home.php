@@ -23,7 +23,7 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="splash fullWidth flex center1 center2">
+		<div class="splash fullWidth flex center1 center2 first">
 			<div class="guide960 splashImg">
 				<div class="margin20">
 					<div class="flex splashContent center2 column">

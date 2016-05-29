@@ -18,6 +18,14 @@
 							</div>
 						</div> -->
 
+
+						<form action="" class="flex row center1">
+							<input type="text" placeholder="Search">
+							</input>
+							<button class="iconic magnifying_glass multi">
+							</button>
+						</form>
+
 						<?php 
 						echo "<div data-attr=\"";
 						echo isset($_SESSION['userData'])

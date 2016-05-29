@@ -49,6 +49,32 @@ nav .user::after {
 	background: #76cace;
 }
 
+
+nav .searchExt, nav .userExt{
+	right: 0;
+	position: fixed;
+	visibility: hidden;
+	opacity: 0;
+}
+
+nav .searchExt {
+	width: 100%;
+}
+
+nav .userExt{
+	max-width: 100%;
+}
+
+nav .multi:hover .searchExt, 
+nav .multi:hover .userExt
+{
+	/*display: block;*/
+	visibility: visible;
+	opacity: 1;
+	margin-top: -7px;
+}
+
+
 .splashContent{
 	padding-top: 20px;
 	padding-bottom: 20px;

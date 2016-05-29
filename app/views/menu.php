@@ -10,7 +10,7 @@
 						<a href="upload" class="iconic upload"></a>
 					</div>
 					<div id="right" class="flex centerV flexEnd">
-						<div class="iconic magnifying_glass">
+						<div class="iconic magnifying_glass multi">
 							<div class="searchExt">
 								<div class="content">
 									ayylmao pass the border cocaina
@@ -25,7 +25,7 @@
 						( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
 						:
 						"Account";
-						echo "\" class=\"iconic user\">";
+						echo "\" class=\"iconic user multi\">";
 						?>
 							<div class="userExt">
 								<div class="content">
@@ -33,13 +33,16 @@
 									
 									if(isset($_SESSION['userData'])){
 										echo "
-											<a href=\"profile\" class=\"profile\"></a>
-											<a href=\"logout\" class=\"signOut\"></a>";
-											if($_SESSION['userData']['ADMIN'] == 1){
+											<a href=\"profile\" class=\"profile\"></a>";
+
+										if($_SESSION['userData']['ADMIN'] == 1){
 												echo "
 												<a href=\"admin\" class=\"admin\"></a>
 												";
-											}										
+											}	
+
+										echo "
+											<a href=\"logout\" class=\"signOut\"></a>";									
 									}
 									else
 										echo "
@@ -60,12 +63,41 @@
 						<a href="home" class="iconic home"></a>
 						<a href="browse" class="iconic book"></a>
 						<a href="upload" class="iconic upload"></a>
-						<div class="iconic magnifying_glass">
-							<div class="searchExt"></div>
+						<div class="iconic magnifying_glass multi">
+							<div class="searchExt">
+								<div class="content">
+									ayylmao pass the border cocaina
+								</div>
+							</div>
 						</div>
 						
-						<div class="iconic user">
-							<div class="userExt"></div>	
+						<div class="iconic user multi">
+							<div class="userExt">
+								<div class="content">
+									<?php 
+									
+									if(isset($_SESSION['userData'])){
+										echo "
+											<a href=\"profile\" class=\"profile\"></a>";
+
+										if($_SESSION['userData']['ADMIN'] == 1){
+												echo "
+												<a href=\"admin\" class=\"admin\"></a>
+												";
+											}	
+
+										echo "
+											<a href=\"logout\" class=\"signOut\"></a>";											
+									}
+									else
+										echo "
+											<a href=\"login\" class=\"signIn\"></a>
+											<a href=\"register\" class=\"register\"></a>
+										";
+
+									?>									
+								</div>
+							</div>
 						</div>	
 									
 				</div>

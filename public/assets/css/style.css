@@ -254,8 +254,9 @@ nav .user::after {
 	content: attr(data-attr);
 }
 
-nav .searchExt, .userExt{
+nav .searchExt, nav .userExt{
 	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 18px;
 	right: 0;
 	height: auto;
 	position: absolute;
@@ -274,8 +275,8 @@ nav .searchExt .content, .userExt .content{
 	margin-top: 11px;
 }
 
-nav #right > div:hover .searchExt, 
-nav #right > div:hover .userExt
+nav .multi:hover .searchExt, 
+nav .multi:hover .userExt
 {
 	/*display: block;*/
 	visibility: visible;

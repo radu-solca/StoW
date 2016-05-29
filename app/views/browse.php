@@ -17,13 +17,44 @@
 </head>
 
 <body>
+	
+	<div class="flexWrap flex">
+		<?php 
+			require "../app/views/menu.php";
+		?>
+		<div class="left-container" style="color:black;margin-top:4%">
+			<div class="ageGroupContainer">
+				<p>ageGroup</p>
+				<?php
+					foreach($data['ageGroupes'] as $key => $ageGroup){
+						foreach ($ageGroup as $key => $value) {
+						echo "
+						<a class=\"ageGroup\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
+						}
+					}	
+				?>	
+				
+			</div>
+			<div class="genreContainer">
+				<p>Genre</p>
+				<?php
+					foreach($data['genres'] as $key => $genre){
+						foreach ($genre as $key => $value) {
+						echo "
+						<a class=\"genre\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
+						}
+					}	
+				?>	
+			</div>	
 
+		</div>
+		<div class="right-container">
+			
+		</div>
+	</div>
+		
 
-	<?php 
-	require "../app/views/menu.php";
-	?>
-
-			<script src="assets/js/nav.js"></script>
+	<script src="assets/js/nav.js"></script>
 
 
 </body>

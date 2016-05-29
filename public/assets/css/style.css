@@ -38,8 +38,6 @@
 	content: '\e062';
 }
 
-
-
 /*****************************************
 ************** COLOR CHART ***************
 ******************************************
@@ -204,22 +202,26 @@ nav {
 	z-index: 9999;
 }
 
-nav a, nav #right > div {
+nav a,
+nav #right > div {
 	cursor: pointer;
 	border-radius: 2px;
 	padding: 7px 8px 5px 8px;
 	position: relative;
 }
 
-nav a::after, nav #right > div::after {
+nav a::after,
+nav #right > div::after {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-nav a:hover, nav #right > div:hover{
+nav a:hover,
+nav #right > div:hover {
 	background-color: #645446;
 }
 
-#navContent, #navContentMobile {
+#navContent,
+#navContentMobile {
 	height: 48px;
 	margin-top: 8px;
 }
@@ -230,7 +232,7 @@ nav a:hover, nav #right > div:hover{
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
-.hidden{
+.hidden {
 	display: none;
 }
 
@@ -254,13 +256,13 @@ nav .user::after {
 	content: attr(data-attr);
 }
 
-nav .searchExt, nav .userExt{
+nav .searchExt,
+nav .userExt {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 18px;
 	right: 0;
 	height: auto;
-	position: absolute;
-	/*display: none;*/
+	position: absolute;	/*display: none;*/
 	visibility: hidden;
 	opacity: 0;
 	margin-top: -10px;
@@ -268,31 +270,34 @@ nav .searchExt, nav .userExt{
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-nav .searchExt .content, .userExt .content{
+nav .searchExt .content,
+nav .userExt .content {
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background-color: #7A6453;
 	padding: 7px 10px;
 	margin-top: 11px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
-nav .multi:hover .searchExt, 
-nav .multi:hover .userExt
-{
+nav .multi:hover .searchExt,
+nav .multi:hover .userExt {
+
 	/*display: block;*/
 	visibility: visible;
 	opacity: 1;
 	margin-top: 0px;
 }
 
-nav .searchExt{
+nav .searchExt {
 	width: 300px;
 }
 
-nav .userExt{
+nav .userExt {
 	width: 100px;
 }
 
-nav .userExt .content *{
+nav .userExt .content * {
 	display: block;
 	text-align: center;
 }
@@ -313,11 +318,11 @@ nav .register::after {
 	content: "Sign Up";
 }
 
-nav .admin::after{
+nav .admin::after {
 	content: 'Admin';
 }
 
-.first{
+.first {
 	margin-top: 48px;
 }
 
@@ -347,14 +352,13 @@ nav .admin::after{
 /*****************************************
 ***************** HOME *******************
 *****************************************/
-
 .splash {
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background: #76cace url('../img/splash.png') no-repeat;
-	background-position: calc(35% + 250px) calc(50% + 20px); 
+	background-position: calc(35% + 250px) calc(50% + 20px);
 }
 
-.splashContent{
+.splashContent {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -389,7 +393,7 @@ nav .admin::after{
 	padding-bottom: 20px;
 }
 
-.recentContent p{
+.recentContent p {
 	margin-bottom: 10px;
 }
 
@@ -400,7 +404,7 @@ nav .admin::after{
 	padding: 0 20px;
 }
 
-.storyThumbnail{
+.storyThumbnail {
 	margin-top: 15px;
 }
 
@@ -463,36 +467,53 @@ nav .admin::after{
 /***************************************** 
 ****************** FORM ******************
 *****************************************/
-
-form {
-	margin-bottom: 0;
+.formContent {
+	width: auto;
+	max-width: 300px;
 	background-color: white;
-	padding: 20px;
+	padding: 40px;
 	color: #7A6453;
 	border-radius: 3px;
+	margin: 40px 0;
+}
 
+form p,
+form .error {
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #de5652;
+	margin: 0;
+}
+
+input {
+	box-sizing: border-box;
+}
+
+input[type="button"]{
+	margin-top: 20px;
+	width: auto;
+}
+
+form {
+	width: 100%;
+}
+
+form * {
+	width: 100%;
 }
 
 /***************************************** 
 ***************** LOGIN ******************
 *****************************************/
-
-.flexWrap .login{
-	background-color: #aad05e;
-}
-
-.formContent p{
-	text-align: center;
-}
-
-.formContent{
-	/*background-color: red;*/
+.flexWrap .login {
+	background: #76cace url('../img/books1.png') no-repeat center center;
+	background-size: 70%;
 }
 
 /*****************************************
 *************** REGISTER *****************
 *****************************************/
-
-.flexWrap .register{
-	background-color: #f4a328;
+.flexWrap .register {
+	background: #76cace url('../img/books2.png') no-repeat center center;
+	background-size: 70%;
 }

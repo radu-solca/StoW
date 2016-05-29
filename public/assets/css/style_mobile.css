@@ -65,6 +65,11 @@ nav .userExt{
 	max-width: 100%;
 }
 
+nav .searchExt .content{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
 nav .multi:hover .searchExt, 
 nav .multi:hover .userExt
 {

@@ -234,27 +234,27 @@ nav a:hover, nav #right > div:hover{
 	display: none;
 }
 
-.home::after {
+nav .home::after {
 	content: "Home";
 }
 
-.book::after {
+nav .book::after {
 	content: "Browse";
 }
 
-.upload::after {
+nav .upload::after {
 	content: "Upload";
 }
 
-.magnifying_glass::after {
+nav .magnifying_glass::after {
 	content: "Search";
 }
 
-.user::after {
+nav .user::after {
 	content: attr(data-attr);
 }
 
-.searchExt, .userExt{
+nav .searchExt, .userExt{
 	font-family: 'Roboto Condensed', sans-serif;
 	right: 0;
 	height: auto;
@@ -267,7 +267,7 @@ nav a:hover, nav #right > div:hover{
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-.searchExt .content, .userExt .content{
+nav .searchExt .content, .userExt .content{
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background-color: #7A6453;
 	padding: 7px 10px;
@@ -283,36 +283,36 @@ nav #right > div:hover .userExt
 	margin-top: 0px;
 }
 
-.searchExt{
+nav .searchExt{
 	width: 300px;
 }
 
-.userExt{
+nav .userExt{
 	width: 100px;
 }
 
-.userExt .content *{
+nav .userExt .content *{
 	display: block;
 	text-align: center;
 }
 
-.profile::after {
+nav .profile::after {
 	content: "Profile";
 }
 
-.signOut::after {
+nav .signOut::after {
 	content: "Sign Out";
 }
 
-.signIn::after {
+nav .signIn::after {
 	content: "Sign In";
 }
 
-.register::after {
+nav .register::after {
 	content: "Sign Up";
 }
 
-.admin::after{
+nav .admin::after{
 	content: 'Admin';
 }
 
@@ -348,19 +348,14 @@ nav #right > div:hover .userExt
 *****************************************/
 
 .splash {
-	height: 369px;
-	max-height: 369px;
-	background-color: #76cace;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+	background: #76cace url('../img/splash.png') no-repeat;
+	background-position: calc(35% + 250px) calc(50% + 20px); 
 }
 
-.splashImg {
-	background: url('../img/splash2.jpg') no-repeat 280px center;
-}
-
-.splashContent {
-	height: 369px;
-	max-height: none;
+.splashContent{
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .splashContent .description {
@@ -485,11 +480,11 @@ form {
 	background-color: #aad05e;
 }
 
-.loginContent p{
+.formContent p{
 	text-align: center;
 }
 
-.loginContent{
+.formContent{
 	/*background-color: red;*/
 }
 
@@ -498,5 +493,5 @@ form {
 *****************************************/
 
 .flexWrap .register{
-	background-color: #aad05e;
+	background-color: #f4a328;
 }

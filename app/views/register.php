@@ -22,10 +22,10 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="login fullWidth flex center1 center2 first">
+		<div class="register fullWidth flex center1 center2 first">
 			<div class="guide960">
 				<div class="margin20">
-					<div class="flex loginContent center2 center1 column">
+					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sign Up</h1>
 						<p class="description">
 							Bullshiticus lorem ipsum dolor sit amet.

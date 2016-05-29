@@ -109,6 +109,16 @@ dark_blue			#4dbdbc
 **************** GENERAL *****************
 *****************************************/
 
+button{
+	background-color: rgba(0,0,0,0);
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 18px;
+}
+
 html,
 body {
 	height: 100%;
@@ -280,6 +290,10 @@ nav .multi a:hover
 	margin-top: 8px;
 }
 
+#navContentMobile .iconic{
+	cursor: pointer;
+}
+
 .navDeco {
 	height: 8px;
 	background-color: #584B3F;
@@ -303,7 +317,7 @@ nav .upload::after {
 }
 
 nav .magnifying_glass::after {
-	content: "Search";
+	content: "";
 }
 
 nav .user::after {
@@ -374,6 +388,57 @@ nav .register::after {
 
 nav .admin::after {
 	content: 'Admin';
+}
+
+nav form {
+	white-space: nowrap;
+	width: auto;
+	margin: 0;
+	margin-right: 5px;
+	flex-flow: row nowrap; 
+	background-color: rgba(100, 84, 70, 0.7);
+}
+
+nav form{;
+	border-radius: 2px;
+	padding: 7px 0px 5px 8px;
+}
+
+nav form:hover
+{
+	background-color: #645446;
+}
+
+nav form * {
+	width: auto;
+}
+
+nav form input{
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+ */
+	width: 55px;
+	max-width: auto;
+	color: white;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	border-bottom: none;
+}
+
+nav form input:hover{
+	border: none;
+}
+
+nav form input:focus {
+	border: none;
+	width: 150px;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+@media screen and (max-width: 700px) {
+    nav form input:focus {
+        width: 55px;
+    }
 }
 
 .first {
@@ -526,10 +591,11 @@ nav .admin::after {
 	color: #7A6453;
 	border-radius: 3px;
 	margin: 40px 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-form p,
-form .error {
+.formContent form p,
+.formContent form .error {
 	text-transform: uppercase;
 	font-size: 12px;
 	color: #E66464;
@@ -539,19 +605,46 @@ form .error {
 }
 
 input {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
 	box-sizing: border-box;
+	background-color: none;
+	border: none;
+	border-bottom: 2px rgba(0,0,0,.2) solid;
 }
 
-input[type="button"]{
-	margin-top: 20px;
+.formContent input:focus{
+	border-bottom: 2px #76cace solid;
+	outline: none;
+}
+
+.formContent input[type="button"]{
+	margin-top: 10px;
 	width: auto;
+	border: none;
+	background-color: #76cace;
+	padding: 5px 8px;
+	text-transform: uppercase; 
+	border-radius: 3px;
+	color: white;
+	letter-spacing: 2px;
+	opacity: 0.85;
 }
 
-form {
+.formContent input[type="button"]:hover{
+	opacity: 0.95;
+}
+
+.formContent input[type="button"]:active{
+	opacity: 1;
+	color: rgba(255,255,255,0.7);
+}
+
+.formContent form {
 	width: 100%;
 }
 
-form * {
+.formContent form * {
 	width: 100%;
 }
 
@@ -559,7 +652,15 @@ form * {
 ***************** LOGIN ******************
 *****************************************/
 .flexWrap .login {
-	background: #76cace url('../img/books1.png') no-repeat center center;
+	background: #76cace url('../img/books1.png') no-repeat fixed center center;
+	background-size: 70%;
+}
+
+/*****************************************
+*************** REGISTER *****************
+*****************************************/
+.flexWrap .register {
+	background: #76cace url('../img/books2.png') no-repeat fixed center center;
 	background-size: 70%;
 }
 
@@ -582,11 +683,3 @@ form * {
 	content: " *";
 	color: #E66464;
 }
-/*****************************************
-*************** REGISTER *****************
-*****************************************/
-.flexWrap .register {
-	background: #76cace url('../img/books2.png') no-repeat center center;
-	background-size: 70%;
-}
-

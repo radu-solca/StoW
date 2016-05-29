@@ -10,13 +10,13 @@
 						<a href="upload" class="iconic upload"></a>
 					</div>
 					<div id="right" class="flex centerV flexEnd">
-						<!-- <div class="iconic magnifying_glass multi">
-							<div class="searchExt">
-								<div class="content">
-									ayylmao pass the border cocaina
-								</div>
-							</div>
-						</div> -->
+
+						<form action="" class="flex row center1">
+							<input type="text" placeholder="Search">
+							</input>
+							<button class="iconic magnifying_glass multi">
+							</button>
+						</form>
 
 						<?php 
 						echo "<div data-attr=\"";

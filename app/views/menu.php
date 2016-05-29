@@ -59,6 +59,8 @@
 					</div>
 				</div>
 
+				<!-- ==================== MOBILE ======================= -->
+
 				<div id="navContentMobile" class="flex center1 spaceBetween">
 						<a href="home" class="iconic home"></a>
 						<a href="browse" class="iconic book"></a>
@@ -74,7 +76,18 @@
 						<div class="iconic user multi">
 							<div class="userExt">
 								<div class="content">
+									
 									<?php 
+
+									echo "<span>(";
+
+									echo isset($_SESSION['userData'])
+									?
+									( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
+									:
+									"visitor";
+
+									echo ")</span>";
 									
 									if(isset($_SESSION['userData'])){
 										echo "

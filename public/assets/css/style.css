@@ -268,7 +268,9 @@ nav #right > div::after {
 }
 
 nav a:hover,
-nav #right > div:hover {
+nav #right > div:hover,
+nav .multi a:hover 
+{
 	background-color: #645446;
 }
 
@@ -308,6 +310,15 @@ nav .user::after {
 	content: attr(data-attr);
 }
 
+nav .multi:hover .searchExt,
+nav .multi:hover .userExt {
+
+	/*display: block;*/
+	visibility: visible;
+	opacity: 1;
+	margin-top: 0px;
+}
+
 nav .searchExt,
 nav .userExt {
 	font-family: 'Roboto Condensed', sans-serif;
@@ -330,15 +341,6 @@ nav .userExt .content {
 	margin-top: 11px;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
-}
-
-nav .multi:hover .searchExt,
-nav .multi:hover .userExt {
-
-	/*display: block;*/
-	visibility: visible;
-	opacity: 1;
-	margin-top: 0px;
 }
 
 nav .searchExt {

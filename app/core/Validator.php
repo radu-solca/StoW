@@ -153,7 +153,7 @@ class Validator{
 				}
 			}
 		}
-		return $counter >= $satisfier ? true : false;
+		return ($counter >= $satisfier ? true : false) || empty($value);
 	}
 
 }

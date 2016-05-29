@@ -33,30 +33,30 @@
 
 						<form action="" class="flex column" method="post">
 							<div id="username">
-								Username: <input type="text" name="username">
+								Username: <input type="text" name="username" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
 							<div id="password">
-								Password: <input type="password" name="password">
+								Password: <input type="password" name="password" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
 							<div id="repeat_password">
-								Repeat password: <input type="password" name="repeat_password">
+								Repeat password: <input type="password" name="repeat_password" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
 							<div id="email">
-								Email: <input type="text" name="email">
+								Email: <input type="text" name="email" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
 							<div id="name">
-								Name: <input type="text" name="name">
+								Name: <input type="text" name="name" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
 							<div id="surname">
-								Surname: <input type="text" name="surname">
+								Surname: <input type="text" name="surname" onkeyup="submitRegister(false)">
 								<p class="error" style="display:inline"></p>
 							</div>
-							<input type="button" value="submit" onclick="submitRegister()" style="width:100px">
+							<input type="button" value="submit" onclick="submitRegister(true)" style="width:100px">
 						</form>
 					</div>
 				</div>
@@ -75,7 +75,8 @@
 	<script src="assets/js/ajax.js"></script>
 
 	<script type="text/javascript">
-	function submitRegister(){
+	function submitRegister(done){
+
 		var username=encodeURIComponent(document.querySelector("#username input").value),
 		password=encodeURIComponent(document.querySelector("#password input").value),
 		repeat_password=encodeURIComponent(document.querySelector("#repeat_password input").value),
@@ -90,22 +91,26 @@
 		+"&name="+name
 		+"&surname="+surname;
 
+		if(done == true){
+			params = params+"&done=true";
+		}
+
 		ajaxPost(	"register", 
-			params, 
-			function(responseText){
-				var responseJSON = JSON.parse(responseText);
-				if(responseJSON["ok"] == true){
-					redirect("");
-				}
-				else{
-					document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
-					document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
-					document.querySelector("#repeat_password .error").innerHTML = responseJSON.hasOwnProperty('repeat_password') ? responseJSON["repeat_password"][0] : "";
-					document.querySelector("#email .error").innerHTML = responseJSON.hasOwnProperty('email') ? responseJSON["email"][0] : "";
-					document.querySelector("#name .error").innerHTML = responseJSON.hasOwnProperty('name') ? responseJSON["name"][0] : "";
-					document.querySelector("#surname .error").innerHTML = responseJSON.hasOwnProperty('surname') ? responseJSON["surname"][0] : "";
-				}
-			});
+					params, 
+					function(responseText){
+						var responseJSON = JSON.parse(responseText);
+						if(responseJSON["success"] == true){
+							redirect("");
+						}
+						else{
+							document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";
+							document.querySelector("#password .error").innerHTML = responseJSON.hasOwnProperty('password') ? responseJSON["password"][0] : "";
+							document.querySelector("#repeat_password .error").innerHTML = responseJSON.hasOwnProperty('repeat_password') ? responseJSON["repeat_password"][0] : "";
+							document.querySelector("#email .error").innerHTML = responseJSON.hasOwnProperty('email') ? responseJSON["email"][0] : "";
+							document.querySelector("#name .error").innerHTML = responseJSON.hasOwnProperty('name') ? responseJSON["name"][0] : "";
+							document.querySelector("#surname .error").innerHTML = responseJSON.hasOwnProperty('surname') ? responseJSON["surname"][0] : "";
+						}
+					});
 	}
 	</script>
 

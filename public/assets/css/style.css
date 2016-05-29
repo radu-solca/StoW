@@ -38,8 +38,6 @@
 	content: '\e062';
 }
 
-
-
 /*****************************************
 ************** COLOR CHART ***************
 ******************************************
@@ -55,7 +53,7 @@ light_yellow		#f5c02c
 light_green			#aad05e
 light_blue			#9dd3d7
 
-dark_red			#de5652
+dark_red			#E66464 old: #E66464
 dark_orange			#ea8100
 dark_yellow			#ebae02
 dark_green			#8dc225
@@ -64,12 +62,74 @@ dark_blue			#4dbdbc
 */
 
 /*****************************************
+************ COVER COLORS ****************
+*****************************************/
+
+.presetColorRed .container, .presetColorRed .rating{
+	background-color: #fb9b97;
+}
+
+.presetColorRed .overlay{
+	background-color: #E66464;
+}
+
+.presetColorOrange .container, .presetColorOrange .rating{
+	background-color: #f4a328;
+}
+
+.presetColorOrange .overlay{
+	background-color: #ea8100;
+}
+
+.presetColorYellow .container, .presetColorYellow .rating{
+	background-color: #f5c02c;
+}
+
+.presetColorYellow .overlay{
+	background-color: #ebae02;
+}
+
+.presetColorGreen .container, .presetColorGreen .rating{
+	background-color: #aad05e;
+}
+
+.presetColorGreen .overlay{
+	background-color: #8dc225;
+}
+
+.presetColorBlue .container, .presetColorBlue .rating{
+	background-color: #9dd3d7;
+}
+
+.presetColorBlue .overlay{
+	background-color: #4dbdbc;
+}
+
+/*****************************************
 **************** GENERAL *****************
 *****************************************/
+
+button{
+	background-color: rgba(0,0,0,0);
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 18px;
+}
 
 html,
 body {
 	height: 100%;
+}
+
+hr{
+	margin: 0;
+	border: 0;
+	height: 2px;
+	background-color: rgba(255,255,255,.3);
+	border-radius: 5px;
 }
 
 .flexWrap {
@@ -204,24 +264,34 @@ nav {
 	z-index: 9999;
 }
 
-nav a, nav #right > div {
+nav a,
+nav #right > div {
 	cursor: pointer;
 	border-radius: 2px;
 	padding: 7px 8px 5px 8px;
 	position: relative;
 }
 
-nav a::after, nav #right > div::after {
+nav a::after,
+nav #right > div::after {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-nav a:hover, nav #right > div:hover{
+nav a:hover,
+nav #right > div:hover,
+nav .multi a:hover 
+{
 	background-color: #645446;
 }
 
-#navContent, #navContentMobile {
+#navContent,
+#navContentMobile {
 	height: 48px;
 	margin-top: 8px;
+}
+
+#navContentMobile .iconic{
+	cursor: pointer;
 }
 
 .navDeco {
@@ -230,7 +300,7 @@ nav a:hover, nav #right > div:hover{
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
-.hidden{
+.hidden {
 	display: none;
 }
 
@@ -247,20 +317,29 @@ nav .upload::after {
 }
 
 nav .magnifying_glass::after {
-	content: "Search";
+	content: "";
 }
 
 nav .user::after {
 	content: attr(data-attr);
 }
 
-nav .searchExt, nav .userExt{
+nav .multi:hover .searchExt,
+nav .multi:hover .userExt {
+
+	/*display: block;*/
+	visibility: visible;
+	opacity: 1;
+	margin-top: 0px;
+}
+
+nav .searchExt,
+nav .userExt {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 18px;
 	right: 0;
 	height: auto;
-	position: absolute;
-	/*display: none;*/
+	position: absolute;	/*display: none;*/
 	visibility: hidden;
 	opacity: 0;
 	margin-top: -10px;
@@ -268,31 +347,25 @@ nav .searchExt, nav .userExt{
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-nav .searchExt .content, .userExt .content{
+nav .searchExt .content,
+nav .userExt .content {
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background-color: #7A6453;
 	padding: 7px 10px;
 	margin-top: 11px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
-nav .multi:hover .searchExt, 
-nav .multi:hover .userExt
-{
-	/*display: block;*/
-	visibility: visible;
-	opacity: 1;
-	margin-top: 0px;
-}
-
-nav .searchExt{
+nav .searchExt {
 	width: 300px;
 }
 
-nav .userExt{
+nav .userExt {
 	width: 100px;
 }
 
-nav .userExt .content *{
+nav .userExt .content * {
 	display: block;
 	text-align: center;
 }
@@ -313,11 +386,62 @@ nav .register::after {
 	content: "Sign Up";
 }
 
-nav .admin::after{
+nav .admin::after {
 	content: 'Admin';
 }
 
-.first{
+nav form {
+	white-space: nowrap;
+	width: auto;
+	margin: 0;
+	margin-right: 5px;
+	flex-flow: row nowrap; 
+	background-color: rgba(100, 84, 70, 0.7);
+}
+
+nav form{;
+	border-radius: 2px;
+	padding: 7px 0px 5px 8px;
+}
+
+nav form:hover
+{
+	background-color: #645446;
+}
+
+nav form * {
+	width: auto;
+}
+
+nav form input{
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+ */
+	width: 55px;
+	max-width: auto;
+	color: white;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	border-bottom: none;
+}
+
+nav form input:hover{
+	border: none;
+}
+
+nav form input:focus {
+	border: none;
+	width: 150px;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+@media screen and (max-width: 700px) {
+    nav form input:focus {
+        width: 55px;
+    }
+}
+
+.first {
 	margin-top: 48px;
 }
 
@@ -347,14 +471,13 @@ nav .admin::after{
 /*****************************************
 ***************** HOME *******************
 *****************************************/
-
 .splash {
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background: #76cace url('../img/splash.png') no-repeat;
-	background-position: calc(35% + 250px) calc(50% + 20px); 
+	background-position: calc(35% + 250px) calc(50% + 20px);
 }
 
-.splashContent{
+.splashContent {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -389,7 +512,7 @@ nav .admin::after{
 	padding-bottom: 20px;
 }
 
-.recentContent p{
+.recentContent p {
 	margin-bottom: 10px;
 }
 
@@ -400,7 +523,7 @@ nav .admin::after{
 	padding: 0 20px;
 }
 
-.storyThumbnail{
+.storyThumbnail {
 	margin-top: 15px;
 }
 
@@ -410,7 +533,6 @@ nav .admin::after{
 
 .storyThumbnail .container {
 	color: white;
-	background-color: #fb9b97;
 	width: 150px;
 	height: 224px;
 	overflow: hidden;
@@ -437,7 +559,6 @@ nav .admin::after{
 }
 
 .storyThumbnail .overlay {
-	background-color: #de5652;
 	width: 100%;
 	height: auto;
 	position: absolute;
@@ -455,7 +576,6 @@ nav .admin::after{
 }
 
 .overlay .rating {
-	background-color: #fb9b97;
 	text-align: center;
 	padding: 5px;
 }
@@ -463,36 +583,103 @@ nav .admin::after{
 /***************************************** 
 ****************** FORM ******************
 *****************************************/
-
-form {
-	margin-bottom: 0;
+.formContent {
+	width: auto;
+	max-width: 400px;
 	background-color: white;
-	padding: 20px;
+	padding: 40px;
 	color: #7A6453;
 	border-radius: 3px;
+	margin: 40px 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
+.formContent form p,
+.formContent form .error {
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #E66464;
+	margin: 0;
+	height: 15px;
+	font-weight: 700;
+}
+
+input {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+	box-sizing: border-box;
+	background-color: none;
+	border: none;
+	border-bottom: 2px rgba(0,0,0,.2) solid;
+}
+
+.formContent input:focus{
+	border-bottom: 2px #76cace solid;
+	outline: none;
+}
+
+.formContent input[type="button"]{
+	margin-top: 10px;
+	width: auto;
+	border: none;
+	background-color: #76cace;
+	padding: 5px 8px;
+	text-transform: uppercase; 
+	border-radius: 3px;
+	color: white;
+	letter-spacing: 2px;
+	opacity: 0.85;
+}
+
+.formContent input[type="button"]:hover{
+	opacity: 0.95;
+}
+
+.formContent input[type="button"]:active{
+	opacity: 1;
+	color: rgba(255,255,255,0.7);
+}
+
+.formContent form {
+	width: 100%;
+}
+
+.formContent form * {
+	width: 100%;
 }
 
 /***************************************** 
 ***************** LOGIN ******************
 *****************************************/
-
-.flexWrap .login{
-	background-color: #aad05e;
-}
-
-.formContent p{
-	text-align: center;
-}
-
-.formContent{
-	/*background-color: red;*/
+.flexWrap .login {
+	background: #76cace url('../img/books1.png') no-repeat fixed center center;
+	background-size: 70%;
 }
 
 /*****************************************
 *************** REGISTER *****************
 *****************************************/
+.flexWrap .register {
+	background: #76cace url('../img/books2.png') no-repeat fixed center center;
+	background-size: 70%;
+}
 
-.flexWrap .register{
-	background-color: #f4a328;
+.register #username span::after{
+	content: " *";
+	color: #E66464;
+}
+
+.register #password span::after{
+	content: " *";
+	color: #E66464;
+}
+
+.register #repeat_password span::after{
+	content: " *";
+	color: #E66464;
+}
+
+.register #email span::after{
+	content: " *";
+	color: #E66464;
 }

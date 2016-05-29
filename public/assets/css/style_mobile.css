@@ -65,6 +65,11 @@ nav .userExt{
 	max-width: 100%;
 }
 
+nav .searchExt .content{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
 nav .multi:hover .searchExt, 
 nav .multi:hover .userExt
 {
@@ -120,8 +125,16 @@ nav .multi:hover .userExt
 	padding-left: 20px; /*hardcoded*/
 }
 
+.overlay .title{
+	white-space: normal;
+}
+
 .scrollH{
 	overflow-y: hidden;
 	overflow-x: scroll;
 	white-space: nowrap;
+}
+
+.formContent {
+	padding: 20px;
 }

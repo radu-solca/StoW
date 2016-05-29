@@ -24,23 +24,25 @@
 
 		<div class="login fullWidth flex center1 center2 first">
 			<div class="guide960">
-				<div class="margin20">
+				<div class="margin20 flex center2">
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sign In</h1>
 						<p class="description">
-							Welcome
+							Welcome back! :)
 						</p> 
 
-						<form action="" class="flex column" method="post">
+						<form action="" class="flex column center1" method="post">
 							<div id="username">
-								Username: <input type="text" name="username">
-								<p class="error" style="display:inline"></p>
+								<span>Username</span>
+								<input type="text" name="username">
+								<p class="error"></p>
 							</div>
 							<div id="password">
-								Password: <input type="password" name="password">
-								<p class="error" style="display:inline"></p>
+								<span>Password</span>
+								<input type="password" name="password">
+								<p class="error"></p>
 							</div>
-							<input type="button" value="submit" onclick="submitLogin()" style="width:100px">
+							<input type="button" value="submit" onclick="submitLogin()">
 						</form>
 					</div>
 				</div>

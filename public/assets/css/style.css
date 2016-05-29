@@ -290,6 +290,10 @@ nav .multi a:hover
 	margin-top: 8px;
 }
 
+#navContentMobile .iconic{
+	cursor: pointer;
+}
+
 .navDeco {
 	height: 8px;
 	background-color: #584B3F;
@@ -390,13 +394,14 @@ nav form {
 	white-space: nowrap;
 	width: auto;
 	margin: 0;
+	margin-right: 5px;
 	flex-flow: row nowrap; 
-	background-color: #645446;
+	background-color: rgba(100, 84, 70, 0.7);
 }
 
 nav form{;
 	border-radius: 2px;
-	padding: 7px 8px 5px 8px;
+	padding: 7px 0px 5px 8px;
 }
 
 nav form:hover

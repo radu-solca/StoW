@@ -6,29 +6,7 @@
 			require_once '../app/core/Validator.php';
 
 			if(!empty($_POST)){ //the form was previously completed
-
-				$errors = $this->validate(); //validate the form
-
-				if(!empty($errors)){
-					echo json_encode($errors);
-				}
-				else{
-
-					if(isset($_POST["done"])){ //if we recieve the ok, attempt to register the user
-						$errors = $this->registerAndLogin();
-
-						if(!empty($errors)){
-							echo json_encode($errors);
-						}
-						else{
-							echo json_encode(['success'=>true]);
-						}
-					}
-					else{
-						echo json_encode([]);
-					}
-				}
-
+				$this->validate();
 			}
 			else{ //the form hasn't been completed.
 				$this->view('register');
@@ -71,28 +49,30 @@
 			]);
 
 			if ($validation->failed()) { //form validation failed
-				return $validation->errors()->all();
+				echo json_encode($validation->errors()->all());
 			}
 			else{ //form validation succeeded
-				return [];
-			}
-		}
 
-		protected function registerAndLogin(){
-			$user = $this->model('User');
-			$user 	->withUsername($_POST['username'])
-					->withPassword($_POST['password'])
-					->withEmail($_POST['email'])
-					->withName($_POST['name'])
-					->withSurname($_POST['surname'])
-					->register();
+				if(isset($_POST['done'])){
+					$user = $this->model('User');
+					$user 	->withUsername($_POST['username'])
+							->withPassword($_POST['password'])
+							->withEmail($_POST['email'])
+							->withName($_POST['name'])
+							->withSurname($_POST['surname'])
+							->register();
 
-			if($user->failed()){ //database validation failed.
-				return $user->errors()->all();
-			}
-			else{ // all is good
-				$user->login();
-				return [];
+					if($user->failed()){ //database validation failed.
+						echo json_encode($user->errors()->all());
+					}
+					else{ // all is good
+						$user->login();
+						echo json_encode(['success'=>true]);
+					}
+				}
+				else{
+					echo json_encode([]);
+				}
 			}
 		}
 	}

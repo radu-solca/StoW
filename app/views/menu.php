@@ -10,13 +10,13 @@
 						<a href="upload" class="iconic upload"></a>
 					</div>
 					<div id="right" class="flex centerV flexEnd">
-						<div class="iconic magnifying_glass multi">
+						<!-- <div class="iconic magnifying_glass multi">
 							<div class="searchExt">
 								<div class="content">
 									ayylmao pass the border cocaina
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<?php 
 						echo "<div data-attr=\"";
@@ -79,15 +79,28 @@
 									
 									<?php 
 
-									echo "<span>(";
-
 									echo isset($_SESSION['userData'])
 									?
-									( isset($_SESSION['userData']['NAME']) ? $_SESSION['userData']['NAME'] : $_SESSION['userData']['USERNAME'] )
-									:
-									"visitor";
+									(	
+										"<span>".
 
-									echo ")</span>";
+									 	(
+											isset($_SESSION['userData']['NAME']) 
+											?
+											$_SESSION['userData']['NAME'] 
+											:
+											$_SESSION['userData']['USERNAME'] 
+										)
+
+										."</span>
+										<hr>
+										"
+
+									)
+									:
+									"";
+
+
 									
 									if(isset($_SESSION['userData'])){
 										echo "

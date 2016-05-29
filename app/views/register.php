@@ -24,39 +24,45 @@
 
 		<div class="register fullWidth flex center1 center2 first">
 			<div class="guide960">
-				<div class="margin20">
+				<div class="margin20 flex center2">
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sign Up</h1>
 						<p class="description">
-							Bullshiticus lorem ipsum dolor sit amet.
+							With an account, you can add bookmarks, ratings, comments and more!
 						</p> 
 
-						<form action="" class="flex column" method="post">
+						<form action="" class="flex column center1" method="post">
 							<div id="username">
-								Username: <input type="text" name="username" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Username</span>
+								<input type="text" name="username" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
 							<div id="password">
-								Password: <input type="password" name="password" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Password</span>
+								<input type="password" name="password" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
 							<div id="repeat_password">
-								Repeat password: <input type="password" name="repeat_password" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Repeat password</span>
+								<input type="password" name="repeat_password" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
 							<div id="email">
-								Email: <input type="text" name="email" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Email</span>
+								<input type="text" name="email" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
 							<div id="name">
-								Name: <input type="text" name="name" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Name</span>
+								<input type="text" name="name" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
 							<div id="surname">
-								Surname: <input type="text" name="surname" onkeyup="submitRegister(false)">
-								<p class="error" style="display:inline"></p>
+								<span>Surname</span>
+								<input type="text" name="surname" onkeyup="submitRegister(false)">
+								<p class="error"></p>
 							</div>
-							<input type="button" value="submit" onclick="submitRegister(true)" style="width:100px">
+							<input type="button" value="submit" onclick="submitRegister(true)">
 						</form>
 					</div>
 				</div>

@@ -18,10 +18,10 @@ class Story{
 								 ->withCategory('genre','fiction')
 								 ->orderBy('ID','DESC')
 								 ->limit(5)
-								 ->getStories();
+								 ->find();
 		this returns all stories that are in the porno and fiction genres simultaneously, in descending order by id.
 	**/
-	public function findStories(){
+	public function find(){
 		$query = 'SELECT * FROM stories_view';
 
 		$cond = array();
@@ -67,7 +67,7 @@ class Story{
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function like($title){
+	public function withTitleLike($title){
 		$this->title = $title;
 		return $this;
 	}

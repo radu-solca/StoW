@@ -23,8 +23,8 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="splash fullWidth flex center1 center2">
-			<div class="guide960 splashImg">
+		<div class="splash splashImg fullWidth flex center1 center2 first">
+			<div class="guide960">
 				<div class="margin20">
 					<div class="flex splashContent center2 column">
 						<h1 class="title">Stories on the Web</h1>

@@ -25,40 +25,59 @@ nav a, nav #right > div{
 	background-color: #645446;
 }
 
-.home::after {
+nav .home::after {
 	content: "";
 }
 
-.book::after {
+nav .book::after {
 	content: "";
 }
 
-.upload::after {
+nav .upload::after {
 	content: "";
 }
 
-.magnifying_glass::after {
+nav .magnifying_glass::after {
 	content: "";
 }
 
-.user::after {
+nav .user::after {
 	content: "";
 }
 
-.splash{
-	height: auto;
-	max-height: none;
+.splash {
+	background: #76cace;
 }
+
+
+nav .searchExt, nav .userExt{
+	right: 0;
+	position: fixed;
+	visibility: hidden;
+	opacity: 0;
+}
+
+nav .searchExt {
+	width: 100%;
+}
+
+nav .userExt{
+	max-width: 100%;
+}
+
+nav .multi:hover .searchExt, 
+nav .multi:hover .userExt
+{
+	/*display: block;*/
+	visibility: visible;
+	opacity: 1;
+	margin-top: -7px;
+}
+
 
 .splashContent{
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 20px;
-	height: auto;
-	/*max-height: auto;*/
-}
-
-.splashImg{
-	background: none;
 }
 
 .splashContent h1{
@@ -80,12 +99,12 @@ nav a, nav #right > div{
 
 .uploadBtn {
 	width: 100%;
-	flex: 1 auto;
+	flex: auto;
 }
 
 .browseBtn {
 	width: 100%;
-	flex: 1 auto;
+	flex: auto;
 }
 
 .storyThumbnail{

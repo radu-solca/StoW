@@ -77,7 +77,7 @@ body {
 }
 
 .flexWrap > div {
-	flex: 1 1 auto;
+	flex: 1;
 }
 
 p {
@@ -108,6 +108,12 @@ body {
 	font-family: 'Roboto Condensed', sans-serif;
 	color: white;
 	font-size: 18px;
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 52px;
+	margin: 0;
 }
 
 .fullWidth {
@@ -228,28 +234,29 @@ nav a:hover, nav #right > div:hover{
 	display: none;
 }
 
-.home::after {
+nav .home::after {
 	content: "Home";
 }
 
-.book::after {
+nav .book::after {
 	content: "Browse";
 }
 
-.upload::after {
+nav .upload::after {
 	content: "Upload";
 }
 
-.magnifying_glass::after {
+nav .magnifying_glass::after {
 	content: "Search";
 }
 
-.user::after {
+nav .user::after {
 	content: attr(data-attr);
 }
 
-.searchExt, .userExt{
+nav .searchExt, nav .userExt{
 	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 18px;
 	right: 0;
 	height: auto;
 	position: absolute;
@@ -261,15 +268,15 @@ nav a:hover, nav #right > div:hover{
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-.searchExt .content, .userExt .content{
+nav .searchExt .content, .userExt .content{
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 	background-color: #7A6453;
 	padding: 7px 10px;
 	margin-top: 11px;
 }
 
-nav #right > div:hover .searchExt, 
-nav #right > div:hover .userExt
+nav .multi:hover .searchExt, 
+nav .multi:hover .userExt
 {
 	/*display: block;*/
 	visibility: visible;
@@ -277,39 +284,42 @@ nav #right > div:hover .userExt
 	margin-top: 0px;
 }
 
-.searchExt{
+nav .searchExt{
 	width: 300px;
 }
 
-.userExt{
+nav .userExt{
 	width: 100px;
 }
 
-.userExt .content *{
+nav .userExt .content *{
 	display: block;
 	text-align: center;
 }
 
-.profile::after {
+nav .profile::after {
 	content: "Profile";
 }
 
-.signOut::after {
+nav .signOut::after {
 	content: "Sign Out";
 }
 
-.signIn::after {
+nav .signIn::after {
 	content: "Sign In";
 }
 
-.register::after {
+nav .register::after {
 	content: "Sign Up";
 }
 
-.admin::after{
+nav .admin::after{
 	content: 'Admin';
 }
 
+.first{
+	margin-top: 48px;
+}
 
 .footer {
 	background: #584B3F;
@@ -337,32 +347,21 @@ nav #right > div:hover .userExt
 /*****************************************
 ***************** HOME *******************
 *****************************************/
+
 .splash {
-	height: 369px;
-	max-height: 369px;
-	background-color: #76cace;
-	margin-top: 48px;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+	background: #76cace url('../img/splash.png') no-repeat;
+	background-position: calc(35% + 250px) calc(50% + 20px); 
 }
 
-.splashImg {
-	background: url('../img/splash2.jpg') no-repeat 280px center;
-}
-
-.splashContent {
-	height: 369px;
-	max-height: none;
+.splashContent{
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .splashContent .description {
 	max-width: 320px;
 	margin-bottom: 30px;
-}
-
-.splashContent h1 {
-	font-family: 'Amatic SC', cursive;
-	font-size: 52px;
-	margin: 0;
 }
 
 .splashButtons {
@@ -461,11 +460,20 @@ nav #right > div:hover .userExt
 	padding: 5px;
 }
 
+/***************************************** 
+****************** FORM ******************
+*****************************************/
+
 form {
 	margin-bottom: 0;
+	background-color: white;
+	padding: 20px;
+	color: #7A6453;
+	border-radius: 3px;
+
 }
 
-/*****************************************
+/***************************************** 
 ***************** LOGIN ******************
 *****************************************/
 
@@ -473,10 +481,18 @@ form {
 	background-color: #aad05e;
 }
 
+.formContent p{
+	text-align: center;
+}
+
+.formContent{
+	/*background-color: red;*/
+}
+
 /*****************************************
 *************** REGISTER *****************
 *****************************************/
 
 .flexWrap .register{
-	background-color: #aad05e;
+	background-color: #f4a328;
 }

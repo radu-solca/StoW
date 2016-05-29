@@ -22,15 +22,14 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="login fullWidth flex center1 center2">
+		<div class="login fullWidth flex center1 center2 first">
 			<div class="guide960">
 				<div class="margin20">
-					<div class="flex loginContent center2 center1 column">
-						<!-- <h1 class="title">Stories on the Web</h1> -->
-						<!-- <p class="description">
-							Welcome to our collection of online stories for kids of all ages, from preschoolers to highschoolers.
-							Make an account to save your favorites!
-						</p>  -->
+					<div class="flex formContent center2 center1 column">
+						<h1 class="title">Sign In</h1>
+						<p class="description">
+							Welcome
+						</p> 
 
 						<form action="" class="flex column" method="post">
 							<div id="username">
@@ -52,8 +51,6 @@
 		<?php 
 		require "../app/views/footer.php";
 		?>
-
-		<script src="assets/js/nav.js"></script>
 
 	</div>
 

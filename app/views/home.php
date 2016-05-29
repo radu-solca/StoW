@@ -58,19 +58,19 @@
 
 									echo "
 									<div class=\"storyThumbnail\">
-									<div class=\"container\">
-									<a href=\"#\">
-									<div class=\"overlay\">
-									<div class=\"title\">".
-									$story['TITLE']."
-									</div>
-									<div class=\"rating\">".
-									$story['RATING']."
-									</div>
-									</div>
-									<img alt=\"story cover\" src=\"assets/img/dummy.jpg\">
-									</a>
-									</div>
+										<div class=\"container\">
+											<a href=\"#\">
+												<div class=\"overlay\">
+													<div class=\"title\">".
+														$story['TITLE']."
+													</div>
+													<div class=\"rating\">".
+														$story['RATING']."
+													</div>
+												</div>
+												<img alt=\"story cover\" src=\"assets/img/alpha.png\">
+											</a>
+										</div>
 									</div>
 									";
 								}
@@ -89,6 +89,12 @@
 
 		<script src="assets/js/nav.js"></script>
 		<script src="assets/js/home.js"></script>
+
+		<script src="assets/js/global.js"></script>
+
+		<script>
+			assignColors();
+		</script>
 
 	</div>
 	

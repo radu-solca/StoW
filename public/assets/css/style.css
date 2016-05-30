@@ -782,6 +782,40 @@ nav form input:focus {
 	padding-right: 10px;
 }
 
+
+/***************************************** 
+**************** BROWSE ******************
+*****************************************/
+
+.flexWrap .browse{
+	color: #7A6453;
+}
+
+
+.flexWrap .browse #filterPanel{
+	flex: 1;
+}
+
+.flexWrap .browse #filteredResults{
+	flex: 2;	
+}
+
+.flexWrap .browse .vertical {
+	width: 2px;
+	height: 100%;
+
+	padding-top: 0;
+	padding-bottom: 0;
+
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+/***************************************** 
+****************** 700 *******************
+*****************************************/
+
 @media screen and (max-width:700px) {
 	nav form input:focus {
 		width: 55px;

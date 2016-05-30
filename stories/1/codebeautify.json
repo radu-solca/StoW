@@ -3,9 +3,7 @@
         "meta": {
             "title": "Little Red Riding Hood",
             "autors": ["Eminescu","Brandusi"],
-            "cover": {
-                "_src": "images/cover.jpg"
-            }
+            "cover": "images/cover.jpg"
         },
         "categories": [
             {
@@ -34,26 +32,32 @@
             "pages": [
                 {
                 	"id": "1",
-                	"type": "text",
                     "subtitle": "Capitol1",
                     "text": "Lorem ipsum dolor sit amet",
-                    "nextList": {
-                        "next": [
-                            "2","3"
-                        ]
-                    },
+                    "nextList": [
+                    	{
+	                        "id": "2",
+	                        "msg": "moare scufita"
+	                    },
+	                    {
+	                        "id": "3",
+	                        "msg": "moare lupu"
+	                    }
+                    ]
                 },
                 {
-                    "img": {
-                        "_src": ""
-                    },
-                    "nextList": {
-                        "next": {
-                            "_id": ""
-                        }
-                    },
-                    "_type": "img",
-                    "_id": ""
+                    "id": "2",
+                    "img":  "images/scufita.jpg",
+                    "nextList": [
+                        {
+	                        "id": "3"
+	                    }
+                    ]
+
+                },
+                {
+                    "id": "2",
+                    "img":  "images/lupu.jpg"
                 }
             ]
         }

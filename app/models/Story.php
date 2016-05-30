@@ -8,6 +8,13 @@ class Story{
 	protected $ordtype = null;
 	protected $limit = null;
 
+	protected $errorHandler;
+
+	public function __construct(){
+		require_once '../app/core/ErrorHandler.php';
+		$this->errorHandler = new ErrorHandler;
+	}
+
 	/**	
 		This method returns a list of rows form the database representing stories, according to the object's parameters.
 		
@@ -67,7 +74,76 @@ class Story{
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function insert($usrID, $content, $cover){
+		$db = Connection::getConnection();
+		$storyID = null;
+
+		//insert the story itself
+		try{
+			$query =   'DECLARE
+							v_id_output stories.st_id%type;
+						BEGIN
+							v_id_output := st_scripts.insert_story(?,?,?,?);
+						END;'; 
+
+			$params = [$usrID, $this->title, $content, $cover];
+
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
+
+
+			$query =   'SELECT st_id FROM stories WHERE st_title = ?';
+			$params = [$this->title];
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
+
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			print_r($result);
+			$storyID = $result[0]['ST_ID'];
+
+		} catch (PDOException $e) {
+		    switch($db->errorInfo()[1]){
+		    	case "20001":
+		    		$this->errorHandler->addError('A story with this title already exists');
+		    		break;
+		    	default:
+		    		$this->errorHandler->addError('An unknown error has occured');
+		    }
+		    print_r($this->errorHandler->all());
+		}
+
+		//add the categories
+		if(!empty($this->categories))
+		try{
+			$query =   'DECLARE
+							v_id_output stories.st_id%type;
+						BEGIN
+							v_id_output := st_scripts.add_cat_to_st(?,?,?);
+						END;'; 
+
+
+			foreach($this->categories as $category){
+				$category = explode(":",$category);
+				$params = [$storyID, $category[0], $category[1]];
+				$stmt = $db->prepare($query);
+				$stmt->execute($params);
+			}
+
+		} catch (PDOException $e) {
+		    switch($db->errorInfo()[1]){
+		    	default:
+		    		$this->errorHandler->addError('An unknown error has occured');
+		    }
+		}
+
+	}
+
 	public function withTitleLike($title){
+		$this->title = $title;
+		return $this;
+	}
+
+	public function withTitle($title){
 		$this->title = $title;
 		return $this;
 	}

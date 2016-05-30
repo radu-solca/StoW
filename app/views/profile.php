@@ -26,80 +26,81 @@
 			<div class="guide960">
 				<div class="margin20 flex center1 center2 column topBottom40">
 
-					<div id ="userViewEdit" class="flex formContent center2 center1 column">
-					
-						<h1 class="title">User</h1>
+					<div class="flex formContent column">
 
-						<form action="" class="flex column center1" method="post">
-							<div id="username">
-								<span>Username</span>
-								<?php 
-									echo "<input value=\"".$_SESSION["userData"]['USERNAME']."\" type=\"text\" name=\"username\" onkeyup=\"\">";
- 								?>
-								<p class="error"></p>
-							</div>
-							<div id="email">
-								<span>Email</span>
-								<?php 
-									echo "<input value=\"".$_SESSION["userData"]['EMAIL']."\" type=\"text\" name=\"email\" onkeyup=\"\">";
- 								?>
-								<p class="error"></p>
-							</div>
-							<div id="name">
-								<span>Name</span>
-								<?php 
-									echo "<input value=\"".$_SESSION["userData"]['NAME']."\" type=\"text\" name=\"name\" onkeyup=\"\">";
- 								?>
-								<p class="error"></p>
-							</div>
-							<div id="surname">
-								<span>Surname</span>
-								<?php 
-									echo "<input value=\"".$_SESSION["userData"]['SURNAME']."\" type=\"text\" name=\"surname\" onkeyup=\"\">";
- 								?>
-								<p class="error"></p>
-							</div>
-							<input type="button" value="save" onclick="submitRegister('all', true)">
-						</form>
+						<div id="firstHalf" class="flex row">
+							<section>			
+								<h1 class="title">Account</h1>
 
-					</div>
+								<form action="" class="flex column center1 sectionContent" method="post">
+									<div id="username">
+										<span>Username</span>
+										<?php 
+											echo "<span class=\"viewOnly\">".$_SESSION["userData"]['USERNAME']."</span>";
+		 								?>
+									</div>
+									<div id="email">
+										<span>Email</span>
+										<?php 
+											echo "<span class=\"viewOnly\">".$_SESSION["userData"]['EMAIL']."</span>";
+		 								?>
+									</div>
+									<div id="name">
+										<span>Name</span>
+										<?php 
+											echo "<span class=\"viewOnly\">".$_SESSION["userData"]['NAME']."</span>";
+		 								?>
+									</div>
+									<div id="surname">
+										<span>Surname</span>
+										<?php 
+											echo "<span class=\"viewOnly\">".$_SESSION["userData"]['SURNAME']."</span>";
+		 								?>
+								</form>
+							</section>	
 
-					<!--=============== SEP ==============-->
+							<hr class="vertical">	
 
-					<div id="bookmarksViewEdit" class="flex formContent center2 center1 column">
-					
-						<h1 class="title">Bookmarks</h1>
+							<section>	
+								<h1 class="title">Bookmarks</h1>
 
-						<form action="" class="flex column center1" method="post">
-						</form>
+								<form action="" class="flex column center1" method="post">
+									Lorem ipsum dolor sit amet, timeam oporteat duo ad, eum id audiam erroribus. Duo prima laoreet ei, ut has autem malorum. Ius eu prima etiam vocibus, cum dolore sapientem id. In dicit scaevola mel, mea epicurei erroribus instructior te.
+								</form>
+							</section>	
+						</div>
 
-					</div>
+						<hr>
 
-					<div id="favoritesViewEdit" class="flex formContent center2 center1 column">
-					
-						<h1 class="title">Favorites</h1>
+						<div id="secondHalf" class="flex row">
+							<section>
+							<h1 class="title">Favorites</h1>
 
-						<form action="" class="flex column center1" method="post">
-						</form>
+							<form action="" class="flex column center1" method="post">
+								Assum civibus at pri, te rebum persecuti eum, mel cu assentior consetetur disputationi. Detracto assentior eloquentiam ei vel, mea id nemore dolorem. An summo dicit eam, nostrum iracundia at per. Duo choro referrentur no. Ea sed denique conceptam, no eum lorem numquam utroque. His ad erant adolescens. Ornatus interpretaris ne est, facete eirmod te eos.
+							</form>
+							</section>
 
-					</div>
+							<hr class="vertical">	
+						
+							<section>
+							<h1 class="title">Ratings</h1>
 
+							<form action="" class="flex column center1" method="post">
+								Omnis viderer constituto eum ad, ei omnium regione has, ea sed rebum harum. Nec vocibus delicatissimi ad, pro eu nisl accommodare interpretaris, tantas nostrud no nec. Mel ad zril tollit, mei an audiam neglegentur, mei ea viris vocibus explicari. Eos cu suas veri referrentur, ut scripta accumsan pri, ius in dicat partem intellegat.
+							</form>
+							</section>
 
-					<div id="ratingsViewEdit" class="flex formContent center2 center1 column">
-					
-						<h1 class="title">Ratings</h1>
+							<hr class="vertical">	
 
-						<form action="" class="flex column center1" method="post">
-						</form>
+							<section>
+							<h1 class="title">Comments</h1>
 
-					</div>
-
-					<div id="commentsViewEdit" class="flex formContent center2 center1 column">
-					
-						<h1 class="title">Comments</h1>
-
-						<form action="" class="flex column center1" method="post">
-						</form>
+							<form action="" class="flex column center1" method="post">
+								Alia nostrud tractatos eos et, no brute consul eam. Solet volumus senserit te eam, cu rebum doming quo. Graece suscipiantur pro id, mea id nihil facilisis, vocibus abhorreant sea ei. At putant aperiri est, vix lorem signiferumque in, has odio scribentur et.
+							</form>
+							</section>
+						</div>
 
 					</div>
 
@@ -118,6 +119,8 @@
 	<script src="assets/js/global.js"></script>
 
 	<script src="assets/js/nav.js"></script>
+
+	<script src="assets/js/profile.js"></script>
 
 </body>
 </html>

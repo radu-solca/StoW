@@ -1,8 +1,8 @@
 {
     "story": {
         "meta": {
-            "title": "Little Red Riding Hood",
-            "autors": ["Eminescu","Brandusi"],
+            "title": "dsfsfds",
+            "authors": ["Eminescu","Brandusi"],
             "cover": "images/cover.jpg"
         },
         "categories": [
@@ -28,35 +28,32 @@
                 "img": "images/scufita.jpg"
             }
         ],
-        "content": {
+        "content":{
             "pages": [
                 {
-                	"id": "1",
                     "subtitle": "Capitol1",
                     "text": "Lorem ipsum dolor sit amet",
                     "nextList": [
                     	{
-	                        "id": "2",
+	                        "index": 2,
 	                        "msg": "moare scufita"
 	                    },
 	                    {
-	                        "id": "3",
+	                        "index": 3,
 	                        "msg": "moare lupu"
 	                    }
                     ]
                 },
                 {
-                    "id": "2",
                     "img":  "images/scufita.jpg",
                     "nextList": [
                         {
-	                        "id": "3"
+	                        "index": 3
 	                    }
                     ]
 
                 },
                 {
-                    "id": "2",
                     "img":  "images/lupu.jpg"
                 }
             ]

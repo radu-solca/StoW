@@ -41,10 +41,10 @@
 		  ajaxPost(	"upload", 
 			params, 
 			function(responseText){
+				//Errors handler'n shit
 			});
 
 		}
 	</script>
 	
-
 </body>

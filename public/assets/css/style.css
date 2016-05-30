@@ -195,7 +195,13 @@ h1 {
 }
 
 .margin20 {
-	margin: 0 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.topBottom40{
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .marginNeg {
@@ -601,7 +607,7 @@ nav form input:focus {
 }
 
 .storyThumbnail .container a:hover > img {
-	opacity: .1;
+	opacity: .2;
 }
 
 .storyThumbnail .container a .storyCover {
@@ -643,13 +649,13 @@ nav form input:focus {
 ****************** FORM ******************
 *****************************************/
 .formContent {
+	box-sizing: border-box;
 	width: auto;
 	max-width: 400px;
 	background-color: white;
 	padding: 40px;
 	color: #7A6453;
 	border-radius: 3px;
-	margin: 40px 0;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -749,4 +755,11 @@ nav form input:focus {
 .flexWrap .profile{
 	background: #76cace;
 }
+
+.flexWrap .profile .formContent{
+	margin-bottom: 10px;
+}
+
+
+
 

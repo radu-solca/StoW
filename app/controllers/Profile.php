@@ -4,9 +4,8 @@
 
 		public function index(){
 
-			$story = $this->model('Story');
+			$this->view('profile', ["userData"=>$_SESSION["userData"]] );
 
-			$this->view('profile');
 		}
 	}
 

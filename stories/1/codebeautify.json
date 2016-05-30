@@ -1,0 +1,61 @@
+{
+    "story": {
+        "meta": {
+            "title": "Little Red Riding Hood",
+            "autors": ["Eminescu","Brandusi"],
+            "cover": {
+                "_src": "images/cover.jpg"
+            }
+        },
+        "categories": [
+            {
+                "type": "genre",
+                "name": "fiction"
+            },
+            {
+                "type": "genre",
+                "name": "horror"
+            }
+        ],
+
+        "characters": [
+    		{
+                "name": "Lupu",
+                "description": "sgsgsg",
+                "img": "images/lupu.jpg"
+            },
+            {
+                "name": "Scufita",
+                "description": "sgsgsg",
+                "img": "images/scufita.jpg"
+            }
+        ],
+        "content": {
+            "pages": [
+                {
+                	"id": "1",
+                	"type": "text",
+                    "subtitle": "Capitol1",
+                    "text": "Lorem ipsum dolor sit amet",
+                    "nextList": {
+                        "next": [
+                            "2","3"
+                        ]
+                    },
+                },
+                {
+                    "img": {
+                        "_src": ""
+                    },
+                    "nextList": {
+                        "next": {
+                            "_id": ""
+                        }
+                    },
+                    "_type": "img",
+                    "_id": ""
+                }
+            ]
+        }
+    }
+}

@@ -196,6 +196,7 @@ class Story{
 		$storyContent = $path.'/index.json';
 
 		$stringJSON = file_get_contents($storyContent);
+
 		$JSON = json_decode($stringJSON);
 		$storyMeta = $JSON->story->meta;
 
@@ -206,7 +207,6 @@ class Story{
 		if(property_exists($storyMeta, 'authors')){
 			foreach($storyMeta->authors as $author){
 				$story = $story->withAuthor($author);
-
 			}
 		}
 
@@ -222,6 +222,8 @@ class Story{
 		$storyCover = $path.'/'.$storyCover;
 
 		$story->insert($userID, $storyContent, $storyCover);
+
+		print_r($story->errors()->all());
 	}
 }
 

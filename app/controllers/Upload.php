@@ -126,13 +126,22 @@ class Upload extends Controller{
 			if($this->validateJSON($target_file)){
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 				//todo:fac directorul
-				mkdir("../stories/$this->storyTitle");
+				
+				// $dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
+
+   	// 			$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
+
+   	// 			$dirPath = "../stories/".$dirPath;
+
+				$dirPath="../stories/$this->storyTitle";
+
+				mkdir($dirPath);
 				//unziping the file in directory with storyTitle
 
 				$zip = new ZipArchive;
 				$res = $zip->open($target_file);
 				if ($res === TRUE) {
-				  $zip->extractTo("../stories/$this->storyTitle");
+				  $zip->extractTo($dirPath);
 				  $zip->close();
 				} else {
 				  echo 'Error at unzipping file!';
@@ -140,7 +149,9 @@ class Upload extends Controller{
 
 				$this->model('Story');
 
-				Story::insertFromJSON($_SESSION['userData']['ID'],"../stories/$this->storyTitle");
+				echo $dirPath;
+
+				Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
 
 				unlink($target_file);
 			} else{

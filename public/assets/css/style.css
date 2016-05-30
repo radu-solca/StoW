@@ -711,7 +711,7 @@ nav form input:focus {
 ***************** LOGIN ******************
 *****************************************/
 .flexWrap .login {
-	background: #76cace url('../img/books1.png') no-repeat fixed center center;
+	background: #76cace url('../img/books1.png') no-repeat center center;
 	background-size: 70%;
 }
 
@@ -719,7 +719,7 @@ nav form input:focus {
 *************** REGISTER *****************
 *****************************************/
 .flexWrap .register {
-	background: #76cace url('../img/books2.png') no-repeat fixed center center;
+	background: #76cace url('../img/books2.png') no-repeat center center;
 	background-size: 70%;
 }
 

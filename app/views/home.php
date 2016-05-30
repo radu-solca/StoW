@@ -69,7 +69,7 @@
 													echo "
 													</div>
 												</div>
-												<img class=\"storyCover\" alt=\"story cover\" src=\"assets/img/alpha.png\">
+												<img class=\"storyCover\" alt=\"story cover\" src=\"assets/img/nocover.png\">
 											</a>
 										</div>
 									</div>

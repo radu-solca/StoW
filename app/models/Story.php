@@ -3,6 +3,7 @@
 class Story{
 
 	protected $title = null;
+	protected $authors = [];
 	protected $categories = [];
 	protected $ordby = null;
 	protected $ordtype = null;
@@ -40,6 +41,14 @@ class Story{
 		    $params[] = $titleRegex;
 		}
 
+		if(!empty($this->authors)){
+			foreach($this->authors as $author){
+				$authorRegex = "%".$author."%";
+				$cond[] = "AUTHORS LIKE ?";
+				$params[] = $authorRegex;
+			}
+		}
+
 		if(!empty($this->categories)){
 			foreach($this->categories as $category){
 				$category = explode(":",$category);
@@ -71,6 +80,9 @@ class Story{
 		$stmt = $db->prepare($query);
 		$stmt->execute($params);
 
+		echo $query;
+		print_r($params);
+
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
@@ -83,10 +95,10 @@ class Story{
 			$query =   'DECLARE
 							v_id_output stories.st_id%type;
 						BEGIN
-							v_id_output := st_scripts.insert_story(?,?,?,?);
+							v_id_output := st_scripts.insert_story(?,?,?,?,?);
 						END;'; 
 
-			$params = [$usrID, $this->title, $content, $cover];
+			$params = [$usrID, $this->title, implode(", ",$this->authors), $content, $cover];
 
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
@@ -110,6 +122,7 @@ class Story{
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
 		    print_r($this->errorHandler->all());
+		     print_r($db->errorInfo());
 		}
 
 		//add the categories
@@ -135,7 +148,6 @@ class Story{
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
 		}
-
 	}
 
 	public function withTitleLike($title){
@@ -145,6 +157,11 @@ class Story{
 
 	public function withTitle($title){
 		$this->title = $title;
+		return $this;
+	}
+
+	public function withAuthor($author){
+		$this->authors[] = $author;
 		return $this;
 	}
 
@@ -166,10 +183,17 @@ class Story{
 
 	public function reset(){
 		$this->title = null;
+		$this->authors = [];
 		$this->categories = [];
 		$this->ordby = null;
 		$this->ordtype = null;
 		$this->limit = null;
+	}
+
+	public static function insertFromJSON($path){
+		$stringJSON = file_get_contents($path);
+		$story = json_decode($stringJSON);
+
 	}
 }
 

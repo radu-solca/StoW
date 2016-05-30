@@ -4,6 +4,7 @@ CREATE OR REPLACE PACKAGE st_scripts IS
         p_usr_id    IN users.usr_id%type,
 
         p_title     IN stories.st_title%type,
+        p_authors   IN stories.st_authors%type,
         p_content   IN stories.st_content%type,
         p_cover     IN stories.st_cover%type
     )
@@ -42,6 +43,7 @@ CREATE OR REPLACE PACKAGE BODY st_scripts IS
         p_usr_id    IN users.usr_id%type,
 
         p_title     IN stories.st_title%type,
+        p_authors   IN stories.st_authors%type,
         p_content   IN stories.st_content%type,
         p_cover     IN stories.st_cover%type
     ) 
@@ -52,8 +54,8 @@ CREATE OR REPLACE PACKAGE BODY st_scripts IS
     BEGIN
 
         --INSERT STORY AND GET ITS GENERATED ID--
-        INSERT INTO stories (st_title, st_content, st_cover)
-                    VALUES  (p_title, p_content, p_cover);
+        INSERT INTO stories (st_title, st_authors, st_content, st_cover)
+                    VALUES  (p_title, p_authors, p_content, p_cover);
 
         SELECT st_id 
         INTO v_new_st_id

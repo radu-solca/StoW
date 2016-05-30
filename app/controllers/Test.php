@@ -49,13 +49,16 @@ class Test extends Controller{
 		}
 	}
 
-	public function insert($title = null, $content=null, $cover=null){
+	public function insert($title = null, $content="null", $cover="null"){
 		$title = $title === null ? 'Titlu generic' : $title;
 
 		if(isset($_SESSION['userData'])){
 			$story = $this->model('Story');
 
 			$story->withTitle($title)
+			->withAuthor('Bunelu')
+			->withAuthor('Bunica')
+			->withAuthor('Unchi-miu')
 			->withCategory('genre','porno')
 			->withCategory('genre','fiction')
 			->withCategory('genzscre','horror')
@@ -65,6 +68,23 @@ class Test extends Controller{
 		else{
 			echo 'You are not logged in';
 		}
+		
+	}
+
+	public function story_find(){
+		
+			$story = $this->model('Story');
+
+			$result = $story
+			->withAuthor('Bunelu')
+			->find();
+			print_r($result);
+		
+	}
+
+	public function json($path = "../stories/Little Red Riding Hood/codebeautify.json"){
+		$this->model('Story');
+		Story::insertFromJSON($path);
 		
 	}
 }

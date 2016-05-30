@@ -3,6 +3,7 @@
 class Story{
 
 	protected $title = null;
+	protected $authors = [];
 	protected $categories = [];
 	protected $ordby = null;
 	protected $ordtype = null;
@@ -13,6 +14,11 @@ class Story{
 	public function __construct(){
 		require_once '../app/core/ErrorHandler.php';
 		$this->errorHandler = new ErrorHandler;
+	}
+
+	public function errors(){
+
+		return $this->errorHandler;
 	}
 
 	/**	
@@ -40,6 +46,14 @@ class Story{
 		    $params[] = $titleRegex;
 		}
 
+		if(!empty($this->authors)){
+			foreach($this->authors as $author){
+				$authorRegex = "%".$author."%";
+				$cond[] = "AUTHORS LIKE ?";
+				$params[] = $authorRegex;
+			}
+		}
+
 		if(!empty($this->categories)){
 			foreach($this->categories as $category){
 				$category = explode(":",$category);
@@ -51,7 +65,6 @@ class Story{
 
 		if (count($cond)) {
 		    $query .= ' WHERE ' . implode(' AND ', $cond);
-		    //$query .= ' ORDER BY ' . $orderBy);
 		}
 
 		if (!is_null($this->ordby)) {
@@ -83,10 +96,10 @@ class Story{
 			$query =   'DECLARE
 							v_id_output stories.st_id%type;
 						BEGIN
-							v_id_output := st_scripts.insert_story(?,?,?,?);
+							v_id_output := st_scripts.insert_story(?,?,?,?,?);
 						END;'; 
 
-			$params = [$usrID, $this->title, $content, $cover];
+			$params = [$usrID, $this->title, implode(", ",$this->authors), $content, $cover];
 
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
@@ -98,7 +111,6 @@ class Story{
 			$stmt->execute($params);
 
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			print_r($result);
 			$storyID = $result[0]['ST_ID'];
 
 		} catch (PDOException $e) {
@@ -109,7 +121,8 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
-		    print_r($this->errorHandler->all());
+
+		    print_r($db->errorInfo());
 		}
 
 		//add the categories
@@ -134,8 +147,9 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
-		}
 
+		    print_r($db->errorInfo());
+		}
 	}
 
 	public function withTitleLike($title){
@@ -145,6 +159,11 @@ class Story{
 
 	public function withTitle($title){
 		$this->title = $title;
+		return $this;
+	}
+
+	public function withAuthor($author){
+		$this->authors[] = $author;
 		return $this;
 	}
 
@@ -166,10 +185,43 @@ class Story{
 
 	public function reset(){
 		$this->title = null;
+		$this->authors = [];
 		$this->categories = [];
 		$this->ordby = null;
 		$this->ordtype = null;
 		$this->limit = null;
+	}
+
+	public static function insertFromJSON($userID, $path){
+		$storyContent = $path.'/index.json';
+
+		$stringJSON = file_get_contents($storyContent);
+		$JSON = json_decode($stringJSON);
+		$storyMeta = $JSON->story->meta;
+
+		$story = new Story;
+
+		$story = $story->withTitle($storyMeta->title);
+
+		if(property_exists($storyMeta, 'authors')){
+			foreach($storyMeta->authors as $author){
+				$story = $story->withAuthor($author);
+
+			}
+		}
+
+		if(property_exists($JSON->story, 'categories')){
+			$storyCategories = $JSON->story->categories;
+
+			foreach($storyCategories as $category){
+				$story = $story->withCategory($category->type, $category->name);
+			}
+		}
+
+		$storyCover = property_exists($storyMeta, 'cover') ? $storyMeta->cover : null;
+		$storyCover = $path.'/'.$storyCover;
+
+		$story->insert($userID, $storyContent, $storyCover);
 	}
 }
 

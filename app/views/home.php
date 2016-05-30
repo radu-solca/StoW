@@ -64,11 +64,12 @@
 													<div class=\"title\">".
 														$story['TITLE']."
 													</div>
-													<div class=\"rating\">".
-														$story['RATING']."
+													<div class=\"rating\">";
+														require "../app/views/rating.php";
+													echo "
 													</div>
 												</div>
-												<img alt=\"story cover\" src=\"assets/img/alpha.png\">
+												<img class=\"storyCover\" alt=\"story cover\" src=\"assets/img/alpha.png\">
 											</a>
 										</div>
 									</div>

@@ -604,7 +604,7 @@ nav form input:focus {
 	opacity: .1;
 }
 
-.storyThumbnail .container a img {
+.storyThumbnail .container a .storyCover {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 	width: 150px;
@@ -631,6 +631,12 @@ nav form input:focus {
 .overlay .rating {
 	text-align: center;
 	padding: 5px;
+}
+
+.overlay .rating img{
+	width: 16px;
+	height: 16px;
+	margin: 0 2px;
 }
 
 /***************************************** 

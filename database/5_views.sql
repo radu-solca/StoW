@@ -1,13 +1,14 @@
 CREATE OR REPLACE VIEW stories_view AS
 	SELECT 	s.st_id		 		AS "ID", 
-			s.st_title	 		AS "TITLE", 
+			s.st_title	 		AS "TITLE",
+			s.st_authors		AS "AUTHORS",
 			s.st_content	 	AS "CONTENT", 
 			s.st_cover	 		AS "COVER", 
 			s.st_date_added	 	AS "DATE_ADDED", 
 			AVG(r.rat_value) 	AS "RATING"
 	FROM stories s
 	LEFT OUTER JOIN ratings r ON s.st_id = r.st_id
-	GROUP BY s.st_id, s.st_title, s.st_content, s.st_cover, s.st_date_added
+	GROUP BY s.st_id, s.st_title, s.st_authors, s.st_content, s.st_cover, s.st_date_added
 /
 
 CREATE OR REPLACE VIEW users_view AS

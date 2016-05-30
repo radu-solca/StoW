@@ -49,7 +49,7 @@ class Test extends Controller{
 		}
 	}
 
-	public function insert($title = null){
+	public function insert($title = null, $content=null, $cover=null){
 		$title = $title === null ? 'Titlu generic' : $title;
 
 		if(isset($_SESSION['userData'])){
@@ -60,7 +60,7 @@ class Test extends Controller{
 			->withCategory('genre','fiction')
 			->withCategory('genzscre','horror')
 			->withCategory('age_group','18+asd')
-			->insert($_SESSION['userData']['ID'], "null", "null");
+			->insert($_SESSION['userData']['ID'], $content, $cover);
 		}
 		else{
 			echo 'You are not logged in';

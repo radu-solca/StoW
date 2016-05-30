@@ -1,8 +1,8 @@
 {
     "story": {
         "meta": {
-            "title": "Little Red Riding Hood",
-            "autors": ["Eminescu","Brandusi"],
+            "title": "Sample story 2",
+            "authors": ["Eminescu","Brandusi"],
             "cover": "images/cover.jpg"
         },
         "categories": [
@@ -13,6 +13,10 @@
             {
                 "type": "genre",
                 "name": "horror"
+            },
+            {
+                "type": "genre",
+                "name": "porno"
             }
         ],
 

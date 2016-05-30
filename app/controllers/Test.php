@@ -82,9 +82,9 @@ class Test extends Controller{
 		
 	}
 
-	public function json($path = "../stories/Little Red Riding Hood/codebeautify.json"){
+	public function json($path = "../stories/Little Red Riding Hood"){
 		$this->model('Story');
-		Story::insertFromJSON($path);
+		Story::insertFromJSON(1,$path);
 		
 	}
 }

@@ -16,6 +16,11 @@ class Story{
 		$this->errorHandler = new ErrorHandler;
 	}
 
+	public function errors(){
+
+		return $this->errorHandler;
+	}
+
 	/**	
 		This method returns a list of rows form the database representing stories, according to the object's parameters.
 		
@@ -60,7 +65,6 @@ class Story{
 
 		if (count($cond)) {
 		    $query .= ' WHERE ' . implode(' AND ', $cond);
-		    //$query .= ' ORDER BY ' . $orderBy);
 		}
 
 		if (!is_null($this->ordby)) {
@@ -79,9 +83,6 @@ class Story{
 
 		$stmt = $db->prepare($query);
 		$stmt->execute($params);
-
-		echo $query;
-		print_r($params);
 
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -110,7 +111,6 @@ class Story{
 			$stmt->execute($params);
 
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			print_r($result);
 			$storyID = $result[0]['ST_ID'];
 
 		} catch (PDOException $e) {
@@ -121,8 +121,8 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
-		    print_r($this->errorHandler->all());
-		     print_r($db->errorInfo());
+
+		    print_r($db->errorInfo());
 		}
 
 		//add the categories
@@ -147,6 +147,8 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
+
+		    print_r($db->errorInfo());
 		}
 	}
 
@@ -190,10 +192,36 @@ class Story{
 		$this->limit = null;
 	}
 
-	public static function insertFromJSON($path){
-		$stringJSON = file_get_contents($path);
-		$story = json_decode($stringJSON);
+	public static function insertFromJSON($userID, $path){
+		$storyContent = $path.'/index.json';
 
+		$stringJSON = file_get_contents($storyContent);
+		$JSON = json_decode($stringJSON);
+		$storyMeta = $JSON->story->meta;
+
+		$story = new Story;
+
+		$story = $story->withTitle($storyMeta->title);
+
+		if(property_exists($storyMeta, 'authors')){
+			foreach($storyMeta->authors as $author){
+				$story = $story->withAuthor($author);
+
+			}
+		}
+
+		if(property_exists($JSON->story, 'categories')){
+			$storyCategories = $JSON->story->categories;
+
+			foreach($storyCategories as $category){
+				$story = $story->withCategory($category->type, $category->name);
+			}
+		}
+
+		$storyCover = property_exists($storyMeta, 'cover') ? $storyMeta->cover : null;
+		$storyCover = $path.'/'.$storyCover;
+
+		$story->insert($userID, $storyContent, $storyCover);
 	}
 }
 

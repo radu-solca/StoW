@@ -4,7 +4,7 @@ DROP TABLE comments;
 DROP TABLE ratings;
 
 DROP TABLE st_cat;
-DROP TABLE characters;
+-- DROP TABLE characters;
 DROP TABLE stories;
 DROP TABLE categories;
 
@@ -18,6 +18,7 @@ DROP TABLE roles;
 CREATE TABLE stories(
 	st_id NUMBER(10) NOT NULL,
 	st_title VARCHAR2(32) NOT NULL,
+	st_authors VARCHAR2(225),
 	st_content VARCHAR2(2083) NOT NULL, 
 	--^URL
 	st_cover VARCHAR2(2083),
@@ -92,33 +93,33 @@ CREATE TABLE st_cat(
 	CONSTRAINT st_cat_fk_cat_id FOREIGN KEY (cat_id) REFERENCES categories (cat_id)
 );
 
------------------------
---STORIES::CHARACTERS--
------------------------
-CREATE TABLE characters(
-	chr_id NUMBER(10) NOT NULL,
-	st_id NUMBER(10) NOT NULL,
-	chr_name VARCHAR2(32),
-	chr_desc VARCHAR2(2083) NOT NULL,
-	CONSTRAINT chr_pk_chr_id PRIMARY KEY (chr_id),
-	CONSTRAINT chr_fk_st_id FOREIGN KEY (st_id) REFERENCES stories (st_id),
-	CONSTRAINT chr_unq_st_name UNIQUE (st_id, chr_name)
-);
+-- -----------------------
+-- --STORIES::CHARACTERS--
+-- -----------------------
+-- CREATE TABLE characters(
+-- 	chr_id NUMBER(10) NOT NULL,
+-- 	st_id NUMBER(10) NOT NULL,
+-- 	chr_name VARCHAR2(32),
+-- 	chr_desc VARCHAR2(2083) NOT NULL,
+-- 	CONSTRAINT chr_pk_chr_id PRIMARY KEY (chr_id),
+-- 	CONSTRAINT chr_fk_st_id FOREIGN KEY (st_id) REFERENCES stories (st_id),
+-- 	CONSTRAINT chr_unq_st_name UNIQUE (st_id, chr_name)
+-- );
 
 
---auto-increment on chr_id--
-DROP SEQUENCE characters_id_seq;
-CREATE SEQUENCE characters_id_seq;
+-- --auto-increment on chr_id--
+-- DROP SEQUENCE characters_id_seq;
+-- CREATE SEQUENCE characters_id_seq;
 
-CREATE OR REPLACE TRIGGER characters_id_auto_inc
-BEFORE INSERT ON characters 
-FOR EACH ROW
-BEGIN
-  SELECT characters_id_seq.NEXTVAL
-  INTO   :new.chr_id
-  FROM   dual;
-END;
-/
+-- CREATE OR REPLACE TRIGGER characters_id_auto_inc
+-- BEFORE INSERT ON characters 
+-- FOR EACH ROW
+-- BEGIN
+--   SELECT characters_id_seq.NEXTVAL
+--   INTO   :new.chr_id
+--   FROM   dual;
+-- END;
+-- /
 
 ---------
 --USERS--
@@ -268,8 +269,8 @@ BEGIN
 	DELETE FROM st_cat
 	WHERE st_id = :old.st_id;
 
-	DELETE FROM characters
-	WHERE st_id = :old.st_id;
+	-- DELETE FROM characters
+	-- WHERE st_id = :old.st_id;
 
 	DELETE FROM favourites
 	WHERE st_id = :old.st_id;

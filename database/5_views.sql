@@ -63,8 +63,8 @@ END;
 /
 
 
-CREATE OR REPLACE VIEW characters_view AS
-	SELECT s.st_id, c.chr_name, c.chr_desc 
-	FROM stories s 
-	JOIN characters c ON s.st_id = c.st_id
-	ORDER BY s.st_id;
+-- CREATE OR REPLACE VIEW characters_view AS
+-- 	SELECT s.st_id, c.chr_name, c.chr_desc 
+-- 	FROM stories s 
+-- 	JOIN characters c ON s.st_id = c.st_id
+-- 	ORDER BY s.st_id;

@@ -133,6 +133,15 @@ nav .userExt .content {
 	white-space: normal;
 }
 
+.storyThumbnail .container .overlay {
+	opacity: 1;
+	top: 0px;
+}
+
+.storyThumbnail .container a > img {
+	opacity: .2;
+}
+
 .scrollH{
 	overflow-y: hidden;
 	overflow-x: scroll;

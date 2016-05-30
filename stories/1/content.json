@@ -1,7 +1,0 @@
-cover = images/cover.bmp
-
-page_1.content = <STOW/stories/1/> + images/page_1.bmp
-
-page_2.content = "a fost odata ca nishiodata"
-
-...

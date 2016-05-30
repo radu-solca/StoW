@@ -7,7 +7,7 @@
 			$story = $this->model('Story');
 
 			//get the newest 5 stories;
-			$result = $story->orderBy('ID')->limit(5)->find();
+			$result = $story->orderBy('ID','DESC')->limit(5)->find();
 
 			// $this->view('menu');
 			$this->view('home', ['latestStories'=>$result]);

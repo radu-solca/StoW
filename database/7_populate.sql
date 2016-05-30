@@ -132,10 +132,6 @@ BEGIN
 	SELECT 1 FROM DUAL;
 
 	INSERT ALL
-		INTO characters (st_id, chr_name, chr_desc) VALUES (1,'gigi','chars/gigi.xml')
-	SELECT 1 FROM DUAL;
-
-	INSERT ALL
 		INTO ratings VALUES (1,1,5)
 		INTO ratings VALUES (1,2,5)
 		INTO ratings VALUES (5,3,4)

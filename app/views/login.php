@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // Register</title>
+	<title>StoW // Login</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -85,3 +85,4 @@
 	<script src="assets/js/nav.js"></script>
 
 </body>
+</html>

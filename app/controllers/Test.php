@@ -48,6 +48,25 @@ class Test extends Controller{
 			echo 'You are not logged in';
 		}
 	}
+
+	public function insert($title = null){
+		$title = $title === null ? 'Titlu generic' : $title;
+
+		if(isset($_SESSION['userData'])){
+			$story = $this->model('Story');
+
+			$story->withTitle($title)
+			->withCategory('genre','porno')
+			->withCategory('genre','fiction')
+			->withCategory('genzscre','horror')
+			->withCategory('age_group','18+asd')
+			->insert($_SESSION['userData']['ID'], "null", "null");
+		}
+		else{
+			echo 'You are not logged in';
+		}
+		
+	}
 }
 
  ?>

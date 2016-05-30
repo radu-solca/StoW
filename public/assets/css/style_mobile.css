@@ -7,10 +7,6 @@ nav a:hover, nav #right > div:hover {
 	background: none;
 }
 
-nav a, nav #right > div{
-	padding: 0; 
-	margin: 0;
-}
 
 .iconic{
 	border-radius: 9999px;
@@ -73,10 +69,18 @@ nav .searchExt .content{
 nav .multi:hover .searchExt, 
 nav .multi:hover .userExt
 {
-	/*display: block;*/
 	visibility: visible;
 	opacity: 1;
 	margin-top: -7px;
+}
+
+nav .searchExt .content,
+nav .userExt .content {
+	padding: 7px 10px;
+}
+
+#navContentMobile > a {
+	padding: 0;
 }
 
 

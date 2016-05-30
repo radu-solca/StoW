@@ -13,8 +13,7 @@
 
 						<form action="" class="flex row center1">
 							<input type="text" placeholder="Search">
-							</input>
-							<button class="iconic magnifying_glass multi">
+							<button class="iconic magnifying_glass">
 							</button>
 						</form>
 
@@ -69,8 +68,7 @@
 							<div class="searchExt">
 								<div class="content flex row">
 									<input type="text" placeholder="Search">
-									</input>
-									<input type="button" value="GO"></input>
+									<input type="button" value="GO">
 								</div>
 							</div>
 						</div>

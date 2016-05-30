@@ -23,7 +23,7 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="splash splashImg fullWidth flex center1 center2 first">
+		<div class="splash fullWidth flex center1 center2 first">
 			<div class="guide960">
 				<div class="margin20">
 					<div class="flex splashContent center2 column">
@@ -61,15 +61,17 @@
 										<div class=\"container\">
 											<a href=\"#\">
 												<div class=\"overlay\">
-													<div class=\"title\">".
-														$story['TITLE']."
-													</div>
+													<div class=\"title\">".$story['TITLE']."</div>
+													<div class=\"authors\">".$story['AUTHORS']."</div>
 													<div class=\"rating\">";
 														require "../app/views/rating.php";
 													echo "
 													</div>
 												</div>
-												<img class=\"storyCover\" alt=\"story cover\" src=\"assets/img/nocover.png\">
+												<img class=\"storyCover\" alt=\"story cover\" src=\"";
+													$cover = isset($story['COVER']) ? $story['COVER'] : "assets/img/nocover.png";
+													echo $cover;
+												echo"\">
 											</a>
 										</div>
 									</div>
@@ -95,6 +97,8 @@
 
 		<script>
 			assignColors();
+			trailingText(".storyThumbnail .title",32);
+			trailingText(".storyThumbnail .authors",18);
 		</script>
 
 	</div>

@@ -623,9 +623,18 @@ nav form input:focus {
 	font-size: 32px;
 }
 
-.overlay .rating {
+.overlay .authors{
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+	padding: 0 30px;
+	font-size: 15px;
+}
+
+.overlay .rating, .overlay .authors{
+	padding: 5px 10px;
+}
+
+.overlay .rating{
 	text-align: center;
-	padding: 5px;
 }
 
 .overlay .rating img {
@@ -702,7 +711,7 @@ nav form input:focus {
 ***************** LOGIN ******************
 *****************************************/
 .flexWrap .login {
-	background: #76cace url('../img/books1.png') no-repeat fixed center center;
+	background: #76cace url('../img/books1.png') no-repeat center center;
 	background-size: 70%;
 }
 
@@ -710,7 +719,7 @@ nav form input:focus {
 *************** REGISTER *****************
 *****************************************/
 .flexWrap .register {
-	background: #76cace url('../img/books2.png') no-repeat fixed center center;
+	background: #76cace url('../img/books2.png') no-repeat center center;
 	background-size: 70%;
 }
 
@@ -772,6 +781,40 @@ nav form input:focus {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+
+/***************************************** 
+**************** BROWSE ******************
+*****************************************/
+
+.flexWrap .browse{
+	color: #7A6453;
+}
+
+
+.flexWrap .browse #filterPanel{
+	flex: 1;
+}
+
+.flexWrap .browse #filteredResults{
+	flex: 2;	
+}
+
+.flexWrap .browse .vertical {
+	width: 2px;
+	height: 100%;
+
+	padding-top: 0;
+	padding-bottom: 0;
+
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+/***************************************** 
+****************** 700 *******************
+*****************************************/
 
 @media screen and (max-width:700px) {
 	nav form input:focus {

@@ -132,8 +132,6 @@ class Upload extends Controller{
 
    				$dirPath = "../stories/".$dirPath;
 
-				$dirPath = "../stories/$this->storyTitle";
-
 				mkdir($dirPath);
 
 				//unziping the file in directory with storyTitle
@@ -150,7 +148,7 @@ class Upload extends Controller{
 
 				echo $dirPath;
 
-				//Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
+				Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
 
 				unlink($target_file);
 			} else{

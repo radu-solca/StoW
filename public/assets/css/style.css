@@ -146,6 +146,13 @@ hr {
 	border-radius: 5px;
 }
 
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+
 .flexWrap {
 	min-height: 100%;
 }
@@ -797,7 +804,7 @@ nav form input:focus {
 }
 
 .flexWrap .browse #filteredResults{
-	flex: 2;	
+	flex: 4;	
 }
 
 .flexWrap .browse .vertical {
@@ -809,6 +816,36 @@ nav form input:focus {
 
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+#filterPanel > p {
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+#filterPanel div p{
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+#filterPanel li{
+	text-transform: uppercase;
+	font-size: 16px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+#filterPanel li:hover{
+	background-color: rgba(0,0,0,0.05);
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+#filteredResults > p {
+	margin-top: 0;
+	margin-bottom: 3px;
 }
 
 

@@ -127,13 +127,13 @@ class Upload extends Controller{
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 				//todo:fac directorul
 				
-				// $dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
+				$dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
 
-   	// 			$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
+   				$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
 
-   	// 			$dirPath = "../stories/".$dirPath;
+   				$dirPath = "../stories/".$dirPath;
 
-				$dirPath="../stories/$this->storyTitle";
+				echo "ECHOOOOOOO  ", $dirPath, '<br><br><br>';
 
 				mkdir($dirPath);
 				//unziping the file in directory with storyTitle

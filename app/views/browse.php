@@ -10,8 +10,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
+<!-- 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" /> -->
 
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
@@ -27,7 +27,7 @@
 				<p>ageGroup</p>
 				<?php
 					foreach($data['ageGroups'] as $ageGroup){
-						echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\">". $ageGroup['CAT_NAME'] ."</a></br>";
+						echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\" onclick=\"addFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</a></br>";
 					}	
 				?>	
 				
@@ -36,15 +36,23 @@
 				<p>Genre</p>
 				<?php
 					foreach($data['genres'] as $genre){
-						echo "<a class=\"genre\" href=\"#\" style=\"color:black\">". $genre['CAT_NAME'] ."</a></br>";
+						echo "<a class=\"genre\" href=\"#\" style=\"color:black\" onclick=\"addFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</a></br>";
 					}	
 				?>
 			</div>	
 
-			<div id="filterList">
-				
+			<div id="filterView"></div>
 
-
+			<div id="storyView">
+				<?php
+					foreach($data['stories'] as $key => $story)
+					{
+						echo "<br>
+										<div class=\"title\">".$story['TITLE']."</div>
+										<div class=\"authors\">".$story['AUTHORS']."</div>
+						<br>";
+					}
+				?>
 			</div>
 
 		</div>
@@ -55,6 +63,8 @@
 		
 
 	<script src="assets/js/nav.js"></script>
+	<script src="assets/js/ajax.js"></script>
+	<script src="assets/js/browse.js"></script>
 
 
 </body>

@@ -1,6 +1,6 @@
 DECLARE
-	v_usr_count INTEGER := 500;
-	v_st_count INTEGER := 500;
+	v_usr_count INTEGER := 50;
+	v_st_count INTEGER := 50;
 BEGIN
 	
 	DELETE FROM USR_ROLE WHERE 1=1;

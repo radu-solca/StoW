@@ -146,6 +146,13 @@ hr {
 	border-radius: 5px;
 }
 
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+
 .flexWrap {
 	min-height: 100%;
 }
@@ -623,9 +630,18 @@ nav form input:focus {
 	font-size: 32px;
 }
 
-.overlay .rating {
+.overlay .authors{
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+	padding: 0 30px;
+	font-size: 15px;
+}
+
+.overlay .rating, .overlay .authors{
+	padding: 5px 10px;
+}
+
+.overlay .rating{
 	text-align: center;
-	padding: 5px;
 }
 
 .overlay .rating img {
@@ -702,7 +718,7 @@ nav form input:focus {
 ***************** LOGIN ******************
 *****************************************/
 .flexWrap .login {
-	background: #76cace url('../img/books1.png') no-repeat fixed center center;
+	background: #76cace url('../img/books1.png') no-repeat center center;
 	background-size: 70%;
 }
 
@@ -710,7 +726,7 @@ nav form input:focus {
 *************** REGISTER *****************
 *****************************************/
 .flexWrap .register {
-	background: #76cace url('../img/books2.png') no-repeat fixed center center;
+	background: #76cace url('../img/books2.png') no-repeat center center;
 	background-size: 70%;
 }
 
@@ -772,6 +788,70 @@ nav form input:focus {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+
+/***************************************** 
+**************** BROWSE ******************
+*****************************************/
+
+.flexWrap .browse{
+	color: #7A6453;
+}
+
+
+.flexWrap .browse #filterPanel{
+	flex: 1;
+}
+
+.flexWrap .browse #filteredResults{
+	flex: 4;	
+}
+
+.flexWrap .browse .vertical {
+	width: 2px;
+	height: 100%;
+
+	padding-top: 0;
+	padding-bottom: 0;
+
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#filterPanel > p {
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+#filterPanel div p{
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+#filterPanel li{
+	text-transform: uppercase;
+	font-size: 16px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+#filterPanel li:hover{
+	background-color: rgba(0,0,0,0.05);
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+#filteredResults > p {
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+
+/***************************************** 
+****************** 700 *******************
+*****************************************/
 
 @media screen and (max-width:700px) {
 	nav form input:focus {

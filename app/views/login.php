@@ -24,7 +24,7 @@
 
 		<div class="login fullWidth flex center1 center2 first">
 			<div class="guide960">
-				<div class="margin20 flex center2">
+				<div class="margin20 flex center2 topBottom40">
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sign In</h1>
 						<p class="description">

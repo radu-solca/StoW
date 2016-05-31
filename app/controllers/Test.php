@@ -87,6 +87,20 @@ class Test extends Controller{
 		Story::insertFromJSON(1,$path);
 		
 	}
+
+	public function storyInsert(){
+		$db = Connection::getConnection();
+
+        $query = 'INSERT INTO stories (st_title, st_authors, st_content, st_cover) VALUES (?,?,?,?)';
+
+        $params = ['title', 'Authors', 'content', 'cover'];
+
+        $stmt = $db->prepare($query);
+
+        echo "before <br>";
+        $stmt->execute($params);
+        echo "after <br>";
+	}
 }
 
  ?>

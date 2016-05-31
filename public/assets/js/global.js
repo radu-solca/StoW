@@ -17,23 +17,7 @@ function getColor(){
 	return colorList[random];
 }
 
-// document.onreadystatechange = function() { 
-//     if (document.readyState == "interactive") { 
-//         alert("results"); 
-//     }
-// }
-
-
 function assignColors(){
-
-	// var storyThumbnails = document.querySelector(".storyThumbnail");
-
-	// for (var i in storyThumbnails) {
-	// 	alert(i);
- //    	var className = getColor();
-
- //    	storyThumbnails[i].classList.add(className);
-	// }
 
 	var storyThumbnails = document.getElementsByClassName('storyThumbnail');
 
@@ -44,3 +28,26 @@ function assignColors(){
 	    storyThumbnails[i].classList.add(className);
 	}
 }
+
+function add3Dots(string, limit)
+{
+  var dots = "...";
+  if(string.length > limit)
+  {
+    string = string.substring(0,limit) + dots;
+  }
+
+    return string;
+}
+
+function trailingText(selectorPath, limit){
+
+	var vector = document.querySelectorAll(selectorPath);
+
+		for(var i=0; i< vector.length; i++){
+
+			var text = vector[i].innerHTML;		
+		    vector[i].innerHTML=add3Dots(text,limit);
+		}
+}
+

@@ -26,11 +26,8 @@
 			<div class="ageGroupContainer">
 				<p>ageGroup</p>
 				<?php
-					foreach($data['ageGroupes'] as $key => $ageGroup){
-						foreach ($ageGroup as $key => $value) {
-						echo "
-						<a class=\"ageGroup\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
-						}
+					foreach($data['ageGroups'] as $ageGroup){
+						echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\">". $ageGroup['CAT_NAME'] ."</a></br>";
 					}	
 				?>	
 				
@@ -38,14 +35,17 @@
 			<div class="genreContainer">
 				<p>Genre</p>
 				<?php
-					foreach($data['genres'] as $key => $genre){
-						foreach ($genre as $key => $value) {
-						echo "
-						<a class=\"genre\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
-						}
+					foreach($data['genres'] as $genre){
+						echo "<a class=\"genre\" href=\"#\" style=\"color:black\">". $genre['CAT_NAME'] ."</a></br>";
 					}	
-				?>	
+				?>
 			</div>	
+
+			<div id="filterList">
+				
+
+
+			</div>
 
 		</div>
 		<div class="right-container">

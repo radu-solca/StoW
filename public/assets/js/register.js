@@ -5,7 +5,7 @@ function submitRegister(field, done){
 	if(done == true){
 		params += "&done=true";
 	}
-	ajaxPost(	"register", 
+	ajaxGet(	"register", 
 				params, 
 				function(responseText){
 					var responseJSON = JSON.parse(responseText);

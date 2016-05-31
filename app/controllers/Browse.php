@@ -4,14 +4,14 @@
 
 		public function index(){
 
-			$categories = $this->model('Category');
+			$category = $this->model('Category');
 			$data = [];
 
-			$genres = $categories->getGenres();
-			$ageGroupes = $categories->getAgeGroupes();
+			$genres = $category->withType('genre')->orderBy('CAT_ID')->find();
+			$ageGroupes = $category->withType('age_group')->orderBy('CAT_ID')->find();
 
 			$data['genres'] = $genres;
-			$data['ageGroupes'] = $ageGroupes;
+			$data['ageGroups'] = $ageGroupes;
 
 			$this->view('browse',$data);
 

@@ -34,3 +34,21 @@ function ajaxPost(target, parameters, callBackFn){
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(parameters);
 }
+
+function ajaxGet(target, parameters, callBackFn){
+
+    var request = new ajaxRequest();
+    request.onreadystatechange=function(){
+        if (request.readyState==4){
+            if (request.status==200 || window.location.href.indexOf("http")==-1){
+                callBackFn(request.responseText);
+            }
+            else{
+                alert("An error has occured");
+            }
+        }
+    }
+
+    request.open("GET", target+"?"+parameters, true);
+    request.send(null);
+}

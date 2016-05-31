@@ -10,8 +10,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
+<!-- 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" /> -->
 
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
@@ -26,11 +26,8 @@
 			<div class="ageGroupContainer">
 				<p>ageGroup</p>
 				<?php
-					foreach($data['ageGroupes'] as $key => $ageGroup){
-						foreach ($ageGroup as $key => $value) {
-						echo "
-						<a class=\"ageGroup\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
-						}
+					foreach($data['ageGroups'] as $ageGroup){
+						echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\" onclick=\"addFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</a></br>";
 					}	
 				?>	
 				
@@ -38,14 +35,25 @@
 			<div class="genreContainer">
 				<p>Genre</p>
 				<?php
-					foreach($data['genres'] as $key => $genre){
-						foreach ($genre as $key => $value) {
-						echo "
-						<a class=\"genre\" href=\"#\" style=\"color:black\">". $value ."</a></br>";
-						}
+					foreach($data['genres'] as $genre){
+						echo "<a class=\"genre\" href=\"#\" style=\"color:black\" onclick=\"addFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</a></br>";
 					}	
-				?>	
+				?>
 			</div>	
+
+			<div id="filterView"></div>
+
+			<div id="storyView">
+				<?php
+					foreach($data['stories'] as $key => $story)
+					{
+						echo "<br>
+										<div class=\"title\">".$story['TITLE']."</div>
+										<div class=\"authors\">".$story['AUTHORS']."</div>
+						<br>";
+					}
+				?>
+			</div>
 
 		</div>
 		<div class="right-container">
@@ -55,6 +63,8 @@
 		
 
 	<script src="assets/js/nav.js"></script>
+	<script src="assets/js/ajax.js"></script>
+	<script src="assets/js/browse.js"></script>
 
 
 </body>

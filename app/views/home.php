@@ -9,8 +9,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
+	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/style.css"); ?>">
+	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
@@ -69,7 +69,7 @@
 													</div>
 												</div>
 												<img class=\"storyCover\" alt=\"story cover\" src=\"";
-													$cover = isset($story['COVER']) ? App::makeAbsolute($story['COVER']) : "assets/img/nocover.png";
+													$cover = isset($story['COVER']) ? App::makeAbsolute($story['COVER']) : App::makeAbsolute("assets/img/nocover.png");
 													echo $cover;
 												echo"\">
 											</a>
@@ -90,10 +90,10 @@
 		require "../app/views/footer.php";
 		?>
 
-		<script src="assets/js/nav.js"></script>
-		<script src="assets/js/home.js"></script>
+		<script src="<?php echo App::makeAbsolute("assets/js/nav.js"); ?>"></script>
+		<script src="<?php echo App::makeAbsolute("assets/js/home.js"); ?>"></script>
 
-		<script src="assets/js/global.js"></script>
+		<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 
 		<script>
 			assignColors();

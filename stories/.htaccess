@@ -1,7 +1,7 @@
-Options -Index
+Options -Indexes
 RewriteEngine On
 
-RewriteBase /Stow/stories
+RewriteBase /Stow/public
 
 
 RewriteCond %{REQUEST_FILENAME} !-d

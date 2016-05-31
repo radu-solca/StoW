@@ -69,7 +69,7 @@
 													</div>
 												</div>
 												<img class=\"storyCover\" alt=\"story cover\" src=\"";
-													$cover = isset($story['COVER']) ? $story['COVER'] : "assets/img/nocover.png";
+													$cover = isset($story['COVER']) ? App::makeAbsolute($story['COVER']) : "assets/img/nocover.png";
 													echo $cover;
 												echo"\">
 											</a>

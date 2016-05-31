@@ -57,6 +57,12 @@ class App{
 		header("Location: http://$host$uri/../$path");
 		exit;
 	}
+
+	public static function makeAbsolute($path){
+		$host  = $_SERVER['HTTP_HOST'];
+		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		return "http://$host$uri/$path";
+	}
 }
 
  ?>

@@ -17,15 +17,15 @@ DROP TABLE roles;
 -----------
 CREATE TABLE stories(
 	st_id NUMBER(10) NOT NULL,
-	st_title VARCHAR2(32) NOT NULL,
+	st_title VARCHAR2(64) NOT NULL,
 	st_authors VARCHAR2(225),
 	st_content VARCHAR2(2083) NOT NULL, 
 	--^URL
 	st_cover VARCHAR2(2083),
 	--^URL
 	st_date_added DATE NOT NULL,
-	CONSTRAINT stories_pk_st_id PRIMARY KEY (st_id)
-	--CONSTRAINT stories_unq_st_title UNIQUE (st_title)
+	CONSTRAINT stories_pk_st_id PRIMARY KEY (st_id),
+	CONSTRAINT stories_unq_st_title UNIQUE (st_title)
 );
 
 --auto-increment on st_id--

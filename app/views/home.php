@@ -12,10 +12,16 @@
 	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/style.css"); ?>">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo App::makeAbsolute("assets/img/favicon.ico"); ?>">
 
 </head>
 <body>
+
+
+	<!-- MAKE PATH ABSOLUTE (LOCALHOST) 
+	<?php echo App::makeAbsolute("something"); ?>
+	-->
+
 
 	<?php 
 	require "../app/views/menu.php";
@@ -33,8 +39,8 @@
 							Make an account to save your favorites!
 						</p> 
 						<div class="splashButtons flex row">
-							<a href="" class="browseBtn">Browse Stories</a>
-							<a href="" class="uploadBtn">Upload</a>
+							<a href="<?php echo App::makeAbsolute("browse"); ?>" class="browseBtn">Browse Stories</a>
+							<a href="<?php echo App::makeAbsolute("upload"); ?>" class="uploadBtn">Upload</a>
 						</div>
 					</div>
 				</div>

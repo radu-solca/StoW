@@ -9,10 +9,11 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" media="screen and (max-width:500px)" href="assets/css/style_mobile.css" />
+	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/style.css"); ?>">
+	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo App::makeAbsolute("assets/img/favicon.ico"); ?>">
+	
 </head>
 <body>
 

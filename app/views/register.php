@@ -31,7 +31,7 @@
 							Join the fun! With an account, you can add bookmarks, ratings, comments and more!
 						</p> 
 
-						<form action="" class="flex column center1" method="post">
+						<form onsubmit="return false;" action="" class="flex column center1" method="post">
 							<div id="username">
 								<span>Username</span>
 								<input type="text" name="username" onkeyup="submitRegister('username', false)">
@@ -62,7 +62,7 @@
 								<input type="text" name="surname" onkeyup="submitRegister('surname', false)">
 								<p class="error"></p>
 							</div>
-							<input type="button" value="submit" onclick="submitRegister('all', true)">
+							<input type="submit" value="submit" onclick="submitRegister('all', true)">
 						</form>
 					</div>
 				</div>

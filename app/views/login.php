@@ -31,7 +31,7 @@
 							Welcome back! :)
 						</p> 
 
-						<form action="" class="flex column center1" method="post">
+						<form onsubmit="return false;" action="" class="flex column center1" method="post">
 							<div id="username">
 								<span>Username</span>
 								<input type="text" name="username">
@@ -42,7 +42,7 @@
 								<input type="password" name="password">
 								<p class="error"></p>
 							</div>
-							<input type="button" value="submit" onclick="submitLogin()">
+							<input type="submit" value="submit" onclick="submitLogin()">
 						</form>
 					</div>
 				</div>

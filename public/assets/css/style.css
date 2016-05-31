@@ -684,7 +684,7 @@ nav form input:focus {
 	border-bottom: 2px #76cace solid;
 }
 
-.formContent input[type="button"] {
+.formContent input[type="submit"] {
 	margin-top: 10px;
 	width: auto;
 	border: none;
@@ -697,11 +697,11 @@ nav form input:focus {
 	opacity: 0.85;
 }
 
-.formContent input[type="button"]:hover {
+.formContent input[type="submit"]:hover {
 	opacity: 0.95;
 }
 
-.formContent input[type="button"]:active {
+.formContent input[type="submit"]:active {
 	opacity: 1;
 	color: rgba(255, 255, 255, 0.7);
 }

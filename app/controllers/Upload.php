@@ -125,19 +125,18 @@ class Upload extends Controller{
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			if($this->validateJSON($target_file)){
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-				//todo:fac directorul
 				
-				// $dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
+				$dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
 
-   	// 			$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
+   				$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
 
-   	// 			$dirPath = "../stories/".$dirPath;
+   				$dirPath = "../stories/".$dirPath;
 
-				$dirPath="../stories/$this->storyTitle";
+				$dirPath = "../stories/$this->storyTitle";
 
 				mkdir($dirPath);
-				//unziping the file in directory with storyTitle
 
+				//unziping the file in directory with storyTitle
 				$zip = new ZipArchive;
 				$res = $zip->open($target_file);
 				if ($res === TRUE) {
@@ -151,7 +150,7 @@ class Upload extends Controller{
 
 				echo $dirPath;
 
-				Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
+				//Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
 
 				unlink($target_file);
 			} else{

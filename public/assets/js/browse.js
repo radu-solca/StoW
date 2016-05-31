@@ -2,8 +2,6 @@ var filters = [];
 
 
 function addFilter(type, name){
-	//alert(type+" "+name);
-
 	var filter = {type:type, name:name};
 	if(!containsFilter(filter,filters)){
 		filters.push(filter);
@@ -59,7 +57,6 @@ function updateStories(){
 	ajaxPost("browse", 
 		parameters, 
 		function(responseText){
-			alert(responseText);
 			var responseJSON = JSON.parse(responseText);
 
 			var storyHTML = "";

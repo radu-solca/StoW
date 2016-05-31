@@ -5,9 +5,9 @@
 
 				<div id="navContent" class="flex center1 spaceBetween" >
 					<div id="left" class="flex centerV flexStart">
-						<a href="home" class="iconic home"></a>
-						<a href="browse" class="iconic book"></a>
-						<a href="upload" class="iconic upload"></a>
+						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic home"></a>
+						<a href="<?php echo App::makeAbsolute("browse"); ?>" class="iconic book"></a>
+						<a href="<?php echo App::makeAbsolute("upload"); ?>" class="iconic upload"></a>
 					</div>
 					<div id="right" class="flex centerV flexEnd">
 
@@ -32,21 +32,21 @@
 									
 									if(isset($_SESSION['userData'])){
 										echo "
-											<a href=\"profile\" class=\"profile\"></a>";
+											<a href=\"".App::makeAbsolute("profile")."\" class=\"profile\"></a>";
 
 										if($_SESSION['userData']['ADMIN'] == 1){
 												echo "
-												<a href=\"admin\" class=\"admin\"></a>
+												<a href=\"".App::makeAbsolute("admin")."\" class=\"admin\"></a>
 												";
 											}	
 
 										echo "
-											<a href=\"logout\" class=\"signOut\"></a>";									
+											<a href=\"".App::makeAbsolute("logout")."\" class=\"signOut\"></a>";									
 									}
 									else
 										echo "
-											<a href=\"login\" class=\"signIn\"></a>
-											<a href=\"register\" class=\"register\"></a>
+											<a href=\"".App::makeAbsolute("login")."\" class=\"signIn\"></a>
+											<a href=\"".App::makeAbsolute("register")."\" class=\"register\"></a>
 										";
 
 									?>									
@@ -61,14 +61,16 @@
 				<!-- ==================== MOBILE ======================= -->
 
 				<div id="navContentMobile" class="flex center1 spaceBetween">
-						<a href="home" class="iconic home"></a>
-						<a href="browse" class="iconic book"></a>
-						<a href="upload" class="iconic upload"></a>
+						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic home"></a>
+						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic book"></a>
+						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic upload"></a>
 						<div class="iconic magnifying_glass multi">
 							<div class="searchExt">
 								<div class="content flex row">
-									<input type="text" placeholder="Search">
-									<input type="button" value="GO">
+									<form onsubmit="return false;" action="" class="flex row">
+										<input type="text" placeholder="Search">
+										<input type="submit" value="GO">
+									</form>
 								</div>
 							</div>
 						</div>
@@ -104,21 +106,21 @@
 									
 									if(isset($_SESSION['userData'])){
 										echo "
-											<a href=\"profile\" class=\"profile\"></a>";
+											<a href=\"".App::makeAbsolute("profile")."\" class=\"profile\"></a>";
 
 										if($_SESSION['userData']['ADMIN'] == 1){
 												echo "
-												<a href=\"admin\" class=\"admin\"></a>
+												<a href=\"".App::makeAbsolute("admin")."\" class=\"admin\"></a>
 												";
 											}	
 
 										echo "
-											<a href=\"logout\" class=\"signOut\"></a>";											
+											<a href=\"".App::makeAbsolute("logout")."\" class=\"signOut\"></a>";											
 									}
 									else
 										echo "
-											<a href=\"login\" class=\"signIn\"></a>
-											<a href=\"register\" class=\"register\"></a>
+											<a href=\"".App::makeAbsolute("login")."\" class=\"signIn\"></a>
+											<a href=\"".App::makeAbsolute("register")."\" class=\"register\"></a>
 										";
 
 									?>									

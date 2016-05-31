@@ -102,6 +102,7 @@ class Story{
 			$params = [$usrID, $this->title, implode(", ",$this->authors), $content, $cover];
 
 			$stmt = $db->prepare($query);
+
 			$stmt->execute($params);
 
 

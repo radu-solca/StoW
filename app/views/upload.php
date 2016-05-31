@@ -28,23 +28,21 @@
 </form>
 
 	<script src="assets/js/nav.js"></script>
-
-	<script type="text/javascript">
-	var form = document.getElementById('file-form');
-	var fileSelect = document.getElementById('file-select');
-	var uploadButton = document.getElementById('upload-button');
-	var params = document.getElementById("file-select").value();
+<!-- 	<script src="assets/js/ajax.js"></script>
+ -->
+	<!-- <script type="text/javascript">
+	function submitUpload(){
+		var file = encodeURIComponent(document.getElementById('fileToUpload').value);
+		var params = "fileToUpload="+file;
 		
-		var gigi = function(event) {
-		  event.preventDefault();
+		//alert();
+	  	ajaxPost(	"upload", 
+					params, 
+					function(responseText){
+						alert(responseText);
+					});
 
-		  ajaxPost(	"upload", 
-			params, 
-			function(responseText){
-				//Errors handler'n shit
-			});
-
-		}
-	</script>
+	}
+	</scrip -->t>
 	
 </body>

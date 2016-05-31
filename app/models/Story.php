@@ -99,19 +99,23 @@ class Story{
 							v_id_output := st_scripts.insert_story(?,?,?,?,?);
 						END;'; 
 
-			$params = [$usrID, $this->title, implode(", ",$this->authors), $content, $cover];
+			$params = [$usrID, "titlu", implode(", ",$this->authors), $content, $cover];
+
+			echo $query, '<br>';
+			print_r($params);
 
 			$stmt = $db->prepare($query);
+
 			$stmt->execute($params);
 
 
-			$query =   'SELECT st_id FROM stories WHERE st_title = ?';
-			$params = [$this->title];
-			$stmt = $db->prepare($query);
-			$stmt->execute($params);
+			// $query =   'SELECT st_id FROM stories WHERE st_title = ?';
+			// $params = [$this->title];
+			// $stmt = $db->prepare($query);
+			// $stmt->execute($params);
 
-			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			$storyID = $result[0]['ST_ID'];
+			// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			// $storyID = $result[0]['ST_ID'];
 
 		} catch (PDOException $e) {
 		    switch($db->errorInfo()[1]){
@@ -126,30 +130,30 @@ class Story{
 		}
 
 		//add the categories
-		if(!empty($this->categories))
-		try{
-			$query =   'DECLARE
-							v_id_output stories.st_id%type;
-						BEGIN
-							v_id_output := st_scripts.add_cat_to_st(?,?,?);
-						END;'; 
+		// if(!empty($this->categories))
+		// try{
+		// 	$query =   'DECLARE
+		// 					v_id_output stories.st_id%type;
+		// 				BEGIN
+		// 					v_id_output := st_scripts.add_cat_to_st(?,?,?);
+		// 				END;'; 
 
 
-			foreach($this->categories as $category){
-				$category = explode(":",$category);
-				$params = [$storyID, $category[0], $category[1]];
-				$stmt = $db->prepare($query);
-				$stmt->execute($params);
-			}
+		// 	foreach($this->categories as $category){
+		// 		$category = explode(":",$category);
+		// 		$params = [$storyID, $category[0], $category[1]];
+		// 		$stmt = $db->prepare($query);
+		// 		$stmt->execute($params);
+		// 	}
 
-		} catch (PDOException $e) {
-		    switch($db->errorInfo()[1]){
-		    	default:
-		    		$this->errorHandler->addError('An unknown error has occured');
-		    }
+		// } catch (PDOException $e) {
+		//     switch($db->errorInfo()[1]){
+		//     	default:
+		//     		$this->errorHandler->addError('An unknown error has occured');
+		//     }
 
-		    print_r($db->errorInfo());
-		}
+		//     print_r($db->errorInfo());
+		// }
 	}
 
 	public function withTitleLike($title){
@@ -158,7 +162,10 @@ class Story{
 	}
 
 	public function withTitle($title){
-		$this->title = $title;
+		$this->title = "titlu";
+
+		echo var_dump($title === "titlu");
+
 		return $this;
 	}
 
@@ -202,7 +209,7 @@ class Story{
 
 		$story = new Story;
 
-		$story = $story->withTitle($storyMeta->title);
+		$story = $story->withTitle("titlu");
 
 		if(property_exists($storyMeta, 'authors')){
 			foreach($storyMeta->authors as $author){

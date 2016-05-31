@@ -17,7 +17,7 @@ DROP TABLE roles;
 -----------
 CREATE TABLE stories(
 	st_id NUMBER(10) NOT NULL,
-	st_title VARCHAR2(32) NOT NULL,
+	st_title VARCHAR2(64) NOT NULL,
 	st_authors VARCHAR2(225),
 	st_content VARCHAR2(2083) NOT NULL, 
 	--^URL

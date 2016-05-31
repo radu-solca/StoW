@@ -24,7 +24,7 @@
 <form action="upload" method="post" enctype="multipart/form-data">
     	Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="Upload zip" name="submit">
 </form>
 
 	<script src="assets/js/nav.js"></script>

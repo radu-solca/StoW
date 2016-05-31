@@ -82,33 +82,19 @@ class Upload extends Controller{
 
 	    }
 	
-
 	public function index(){
 		$this->view('upload');
-
+	}
+	public function uploadZip(){
+		
 		$validJSON = 1;
 		$target_dir = "../stories/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			// Check if image file is a actual image or fake image
-		if(isset($_POST["submit"])) {
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-			if($check !== false) {
-				echo "File is an image - " . $check["mime"] . ".";
-				$uploadOk = 0;
-			} else {
-				echo "File is a ZIP.";
-				$uploadOk = 1;
-			}
-		}
-			// Check if file already exists
-		if (file_exists($target_file)) {
-			echo "Sorry, file already exists.";
-			$uploadOk = 0;
-		}
+	
 			// Check file size
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
+		if ($_FILES["fileToUpload"]["size"] > 50000000) {
 			echo "Sorry, your file is too large.";
 			$uploadOk = 0;
 		}
@@ -125,32 +111,38 @@ class Upload extends Controller{
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			if($this->validateJSON($target_file)){
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-				
+				//create the directory path we want to create
 				$dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
 
    				$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
 
    				$dirPath = "../stories/".$dirPath;
 
-				mkdir($dirPath);
+   				//check if the directory with story's title allready exists
+   				if (file_exists($dirPath)) {
+					echo "Sorry, story already exists.";
+				} else{
+	   				//create the directory
+					mkdir($dirPath);
 
-				//unziping the file in directory with storyTitle
-				$zip = new ZipArchive;
-				$res = $zip->open($target_file);
-				if ($res === TRUE) {
-				  $zip->extractTo($dirPath);
-				  $zip->close();
-				} else {
-				  echo 'Error at unzipping file!';
-				}
+					//unziping the file in directory
+					$zip = new ZipArchive;
+					$res = $zip->open($target_file);
+					if ($res === TRUE) {
+					  $zip->extractTo($dirPath);
+					  $zip->close();
+					} else {
+					  echo 'Error at unzipping file!';
+					}
 
-				$this->model('Story');
+					$this->model('Story');
 
-				echo $dirPath;
+					echo $dirPath;
 
-				Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
-
-				unlink($target_file);
+					Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
+					//delete zip file
+					unlink($target_file);
+					}
 			} else{
 				unlink($target_file);
 			}

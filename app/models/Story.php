@@ -122,8 +122,6 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
-
-		    print_r($db->errorInfo());
 		}
 
 		//add the categories
@@ -148,8 +146,6 @@ class Story{
 		    	default:
 		    		$this->errorHandler->addError('An unknown error has occured');
 		    }
-
-		    print_r($db->errorInfo());
 		}
 	}
 
@@ -224,7 +220,7 @@ class Story{
 
 		$story->insert($userID, $storyContent, $storyCover);
 
-		print_r($story->errors()->all());
+		return $story->errors();
 	}
 }
 

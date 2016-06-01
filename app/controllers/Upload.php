@@ -144,7 +144,10 @@ class Upload extends Controller{
 
 							$this->model('Story');
 
-							Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
+							$storyErrors = Story::insertFromJSON($_SESSION['userData']['ID'],$dirPath);
+							if($storyErrors->hasErrors()){
+								$this->errorHandler->addError("There was a problem inserting into the database");
+							}
 
 							unlink($target_file);
 						}

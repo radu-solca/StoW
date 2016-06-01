@@ -53,7 +53,7 @@ light_yellow		#f5c02c
 light_green			#aad05e
 light_blue			#9dd3d7
 
-dark_red			#E66464 old: #E66464
+dark_red			#E66464
 dark_orange			#ea8100
 dark_yellow			#ebae02
 dark_green			#8dc225
@@ -901,7 +901,7 @@ nav form input:focus {
 	border-radius: 3px;
 	color: #7A6453;
 	width: auto;
-	max-width: 200px;
+	max-width: 300px;
 	height: auto;
 	text-align: center;
 	overflow: hidden;
@@ -920,6 +920,11 @@ nav form input:focus {
 
 .fileUpload input:focus{
 	border: none;
+}
+
+.fileUpload span{
+	color: #E66464;
+	font-weight: 700;
 }
 
 /***************************************** 

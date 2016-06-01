@@ -29,15 +29,24 @@
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Upload</h1>
 						<p class="description">
+
 							Select .zip file to be uploaded.
 						</p> 
 
 						<form action="upload" method="post" enctype="multipart/form-data" class="flex column center1">
 							<div class="fileUpload">
-								<input type="file" name="fileToUpload" id="fileToUpload" accept=".zip">
-								<label id="fileToUploadLabel" for="file">
-									No file selected.
-								</label>
+
+								<?php
+									if (!isset($_SESSION['userData']))
+										echo "  <label id=\"fileToUploadLabel\" for=\"file\">
+												<span>You are not logged in!</span>
+												</label>";
+									else
+										echo "  <input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\" accept=\".zip\">
+												<label id=\"fileToUploadLabel\" for=\"file\">
+													Click here to select file.
+												</label>";
+								?>
 
 							</div>
 							<input type="submit" value="Submit" name="submit">

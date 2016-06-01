@@ -32,48 +32,11 @@
 					<section id="filterPanel" class="left-container">
 							 <p>Filter stories</p>
 
-							<!--
-							<div class="ageGroup">
-								<p>Age group</p>
-								<ul>
-									<li>0-3</li>
-									<li>3-5</li>
-									<li>5-7</li>
-									<li>7-12</li>
-									<li>12-15</li>
-									<li>15-18</li>
-									<li>18+</li>
-								</ul>
-							</div>
-
-							<div class="genre">
-								<p>Genre</p>
-								<ul>
-									<li>drama</li>
-									<li>classic</li>
-									<li>comic</li>
-									<li>crime</li>
-									<li>fable</li>
-									<li>fairy tale</li>
-									<li>biography</li>
-									<li>autobiography</li>
-									<li>memoir</li>
-									<li>fantasy</li>
-									<li>folklore</li>
-									<li>historical</li>
-									<li>poetry</li>
-									<li>horror</li>
-									<li>legend</li>
-									<li>mystery</li>
-									<li>mythology</li>
-								</ul>
-							</div> -->
-
 							<div class="ageGroupContainer">
 								<p>ageGroup</p>
 								<?php
 								foreach($data['ageGroups'] as $ageGroup){
-									echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\" onclick=\"addFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</a></br>";
+									echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\" onclick=\"addCategoryFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</a></br>";
 								}	
 								?>	
 
@@ -82,7 +45,7 @@
 								<p>Genre</p>
 								<?php
 								foreach($data['genres'] as $genre){
-									echo "<a class=\"genre\" href=\"#\" style=\"color:black\" onclick=\"addFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</a></br>";
+									echo "<a class=\"genre\" href=\"#\" style=\"color:black\" onclick=\"addCategoryFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</a></br>";
 								}	
 								?>
 							</div>	
@@ -97,16 +60,19 @@
 
 							<div id="filterView"></div>
 
+							<div id="order">
+								<select onchange="updateOrdBy(this)">
+									<option value="RATING">Rating</option>
+									<option value="DATE_ADDED">Date added</option>
+									<option value="TITLE">Alphabetic</option>
+								</select> 
+								<select onchange="updateOrdType(this)">
+									<option value="ASC">Ascending</option>
+									<option value="DESC">Descending</option>
+								</select>
+							</div>
+
 							<div id="storyView">
-								<?php
-								foreach($data['stories'] as $key => $story)
-								{
-									echo "<br>
-									<div class=\"title\">".$story['TITLE']."</div>
-									<div class=\"authors\">".$story['AUTHORS']."</div>
-									<br>";
-								}
-								?>
 							</div>
 							
 						</section>	

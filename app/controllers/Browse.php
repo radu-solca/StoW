@@ -25,14 +25,19 @@
 		}
 
 		protected function getFilteredStories(){
-			// print_r($_POST);
+			//print_r($_POST);
 			//echo json_encode($_POST);
 			$story = $this->model('Story');
-			$filters = json_decode($_POST['filters']);
 
-		    foreach($filters as $filter){
-				$story = $story->withCategory($filter->type,$filter->name);
+			$categories = json_decode($_POST['categories']);
+			if(!empty($categories)){
+			    foreach($categories as $category){
+					$story->withCategory($category->type, $category->name);
+				}
 			}
+
+			$order = json_decode($_POST['order']);
+			$story->orderBy($order->ordBy, $order->ordType);
 			
 
 			echo json_encode($story->find());

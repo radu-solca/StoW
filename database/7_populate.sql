@@ -78,12 +78,11 @@ BEGIN
 	   INTO categories (cat_type, cat_name) VALUES ('approval', 'pending')
 	   INTO categories (cat_type, cat_name) VALUES ('approval', 'approved')
 
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '0-3')
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '3-5')
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '5-7')
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '7-12')
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '12-15')
-	   INTO categories (cat_type, cat_name) VALUES ('age_group', '15-18')
+	   INTO categories (cat_type, cat_name) VALUES ('age_group', '3+')
+	   INTO categories (cat_type, cat_name) VALUES ('age_group', '5+')
+	   INTO categories (cat_type, cat_name) VALUES ('age_group', '7+')
+	   INTO categories (cat_type, cat_name) VALUES ('age_group', '12+')
+	   INTO categories (cat_type, cat_name) VALUES ('age_group', '15+')
 	   INTO categories (cat_type, cat_name) VALUES ('age_group', '18+')
 
 	   INTO categories (cat_type, cat_name) VALUES ('genre', 'horror')
@@ -114,21 +113,21 @@ BEGIN
 		INTO st_cat VALUES (1,4)
 		INTO st_cat VALUES (1,10)
 		INTO st_cat VALUES (1,11)
-		INTO st_cat VALUES (1,14)
+		INTO st_cat VALUES (1,13)
 
 		INTO st_cat VALUES (2,5)
 		INTO st_cat VALUES (2,3)
 		INTO st_cat VALUES (2,4)
 		INTO st_cat VALUES (2,10)
 		INTO st_cat VALUES (2,11)
-		INTO st_cat VALUES (2,14)
+		INTO st_cat VALUES (2,13)
 
 		INTO st_cat VALUES (3,5)
 		INTO st_cat VALUES (3,3)
 		INTO st_cat VALUES (3,4)
 		INTO st_cat VALUES (3,10)
 		INTO st_cat VALUES (3,11)
-		INTO st_cat VALUES (3,14)
+		INTO st_cat VALUES (3,13)
 	SELECT 1 FROM DUAL;
 
 	INSERT ALL

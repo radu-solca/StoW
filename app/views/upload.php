@@ -37,15 +37,13 @@
 							<div class="fileUpload">
 
 								<?php
-									if (!isset($_SESSION['userData']))
-										echo "  <label id=\"fileToUploadLabel\" for=\"file\">
-												<span>You are not logged in!</span>
-												</label>";
-									else
-										echo "  <input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\" accept=\".zip\">
-												<label id=\"fileToUploadLabel\" for=\"file\">
-													Click here to select file.
-												</label>";
+									echo "  <input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\" accept=\".zip\">
+											<label id=\"fileToUploadLabel\" for=\"file\">
+												Click here to select file.
+											</label>";
+									if(isset($data['errors'])){
+										print_r($data['errors'][0]);
+									}
 								?>
 
 							</div>

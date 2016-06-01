@@ -62,8 +62,8 @@
 
 				<div id="navContentMobile" class="flex center1 spaceBetween">
 						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic home"></a>
-						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic book"></a>
-						<a href="<?php echo App::makeAbsolute("home"); ?>" class="iconic upload"></a>
+						<a href="<?php echo App::makeAbsolute("browse"); ?>" class="iconic book"></a>
+						<a href="<?php echo App::makeAbsolute("upload"); ?>" class="iconic upload"></a>
 						<div class="iconic magnifying_glass multi">
 							<div class="searchExt">
 								<div class="content flex row">

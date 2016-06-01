@@ -47,8 +47,8 @@
 							<p class="error">
 								<?php 
 									if(isset($data['errors'])){
-											print_r($data['errors'][0]);
-										}
+										print_r($data['errors'][0]);
+									}
 								?>
 							</p>
 							<input type="submit" value="Submit" name="submit">

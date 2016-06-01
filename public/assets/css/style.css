@@ -38,6 +38,14 @@
 	content: '\e062';
 }
 
+.x:after {
+	content: '\2717';
+	font-family: 'IconicStroke';
+	margin-left: 5px;
+	font-size: 12px;
+	vertical-align: 1px;
+}
+
 /*****************************************
 ************** COLOR CHART ***************
 ******************************************
@@ -801,7 +809,7 @@ nav form input:focus {
 }
 
 .flexWrap .profile .formContent section {
-	flex: 1;	/*background-color: yellow;*/
+	flex: 1;
 }
 
 .flexWrap .profile .formContent .viewOnly {
@@ -886,12 +894,32 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
+#filteredResults #filterView li{
+	text-transform: uppercase;
+	font-size: 16px;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+	padding: 1px 8px;
+	border-radius: 3px;
+	margin-right: 5px;
+	text-align: center;
+	margin-bottom: 5px;
+	opacity: 0.8;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+#filteredResults #filterView li:hover{
+	opacity: 0.5;
+}
+
 /***************************************** 
 **************** UPLOAD ******************
 *****************************************/
 
 .uploadForm {
 	background: #76cace;
+	text-align: center;
 }
 
 .uploadForm .fileUpload {
@@ -925,6 +953,19 @@ nav form input:focus {
 .fileUpload span{
 	color: #E66464;
 	font-weight: 700;
+}
+
+
+/***************************************** 
+************** NOT LOGGED ****************
+*****************************************/
+
+.notLogged {
+	background: #76cace;
+}
+
+.notLogged *{
+	text-align: center;
 }
 
 /***************************************** 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // Login</title>
+	<title>StoW // Not logged in</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -23,13 +23,12 @@
 
 	<div class="flexWrap flex column">
 
-		<div class="uploadForm fullWidth flex center1 center2 first">
+		<div class="notLogged fullWidth flex center1 center2 first">
 			<div class="guide960">
 				<div class="margin20 flex center2 topBottom40">
 					<div class="flex formContent center2 center1 column">
 						<h1 class="title">Sorry!</h1>
 						<p class="description">
-
 							You need to be signed in to access this feature.
 							Please sign in or sign up below!
 						</p> 

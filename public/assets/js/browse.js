@@ -24,7 +24,7 @@ function removeFilter(type, name){
 function updateRemoveButtons(){
 	var buttonsHTML = "";
 	for (x = 0; x < filters.length; x++) {
-		buttonsHTML += "<a class=\"remove\" href=\"#\" style=\"color:black\" onclick=\"removeFilter('"+filters[x].type+"', '"+filters[x].name+"')\">"+filters[x].name+"</a></br>";
+		buttonsHTML += "<li class=\"remove x\" onclick=\"removeFilter('"+filters[x].type+"', '"+filters[x].name+"')\">"+filters[x].name+"</li>";
     }
     document.getElementById("filterView").innerHTML = buttonsHTML;
 }

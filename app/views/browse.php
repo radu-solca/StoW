@@ -30,7 +30,7 @@
 				<div class="browseContent margin20 flex flexStart center2 row topBottom40">
 
 					<section id="filterPanel" class="left-container">
-							 <p>Filter stories</p>
+						<p>Filter stories</p>
 
 							<!--
 							<div class="ageGroup">
@@ -70,22 +70,35 @@
 							</div> -->
 
 							<div class="ageGroupContainer">
-								<p>ageGroup</p>
-								<?php
-								foreach($data['ageGroups'] as $ageGroup){
-									echo "<a class=\"ageGroup\" href=\"#\" style=\"color:black\" onclick=\"addFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</a></br>";
-								}	
-								?>	
+								<div class="ageGroup">
+									<p>Age group</p>
+									<ul>
 
+										<?php
+										foreach($data['ageGroups'] as $ageGroup){
+											echo "<li class=\"ageGroup\" onclick=\"addFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</li>";
+										}	
+										?>	
+
+									</ul>
+
+								</div>
 							</div>
+
 							<div class="genreContainer">
-								<p>Genre</p>
-								<?php
-								foreach($data['genres'] as $genre){
-									echo "<a class=\"genre\" href=\"#\" style=\"color:black\" onclick=\"addFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</a></br>";
-								}	
-								?>
-							</div>	
+								<div class="genre">
+									<p>Genre</p>
+									<ul>
+
+										<?php
+										foreach($data['genres'] as $genre){
+											echo "<li class=\"genre\" onclick=\"addFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</li>";
+										}	
+										?>
+
+									</ul>
+								</div>	
+							</div>
 
 
 						</section>	
@@ -95,7 +108,7 @@
 						<section id="filteredResults" class="right-container">	
 							<p>Filtered results</p>
 
-							<div id="filterView"></div>
+							<ul id="filterView" class="flex row"></ul>
 
 							<div id="storyView">
 								<?php
@@ -108,7 +121,7 @@
 								}
 								?>
 							</div>
-							
+
 						</section>	
 					</div>
 

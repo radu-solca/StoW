@@ -134,3 +134,5 @@
 		</div>
 	</nav>
 
+	<script src="<?php echo App::makeAbsolute("assets/js/nav.js"); ?>"></script>
+

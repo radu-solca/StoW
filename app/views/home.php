@@ -104,7 +104,6 @@
 		require "../app/views/footer.php";
 		?>
 
-		<script src="<?php echo App::makeAbsolute("assets/js/nav.js"); ?>"></script>
 		<script src="<?php echo App::makeAbsolute("assets/js/home.js"); ?>"></script>
 
 		<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>

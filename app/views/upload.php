@@ -67,7 +67,6 @@
 
 	<script src="assets/js/global.js"></script>
 	<script src="assets/js/ajax.js"></script>
-	<script src="assets/js/nav.js"></script>
 	<script src="assets/js/upload_filename.js"></script>
 
 	<!--

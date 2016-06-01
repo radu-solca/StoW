@@ -78,12 +78,9 @@
 	</div>
 
 
-	<script src="assets/js/global.js"></script>
-	<script src="assets/js/ajax.js"></script>
-
-	<script src="assets/js/register.js"></script>
-
-	<script src="assets/js/nav.js"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/register.js"); ?>"></script>
 
 </body>
 </html>

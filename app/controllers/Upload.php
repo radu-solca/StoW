@@ -97,6 +97,9 @@ class Upload extends Controller{
 	    }
 	
 	public function index(){
+		if(!App::userSignedIn()){
+			App::redirect('notloggedin');
+		}
 		if(!empty($_POST)){ //the form was previously completed
 			echo "RESPONSE";
 

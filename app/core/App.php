@@ -63,6 +63,10 @@ class App{
 		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		return "http://$host$uri/$path";
 	}
+
+	public static function userSignedIn(){
+		return isset($_SESSION['userData']);
+	}
 }
 
  ?>

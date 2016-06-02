@@ -118,7 +118,7 @@ class Upload extends Controller{
 			} else {
 				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 					if($this->validateJSON($target_file)){
-						$this->errorHandler->addError("The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.");
+						//$this->errorHandler->addError("The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.");
 						
 						$dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
 
@@ -129,6 +129,8 @@ class Upload extends Controller{
 		   				//check if the directory with story's title allready exists
 		   				if (file_exists($dirPath)) {
 							$this->errorHandler->addError('Sorry, story already exists.');
+							unlink($target_file);
+
 						} else{
 							mkdir($dirPath);
 							//unziping the file in directory with storyTitle
@@ -153,7 +155,7 @@ class Upload extends Controller{
 						}
 					} else{
 						unlink($target_file);
-					}
+						}	
 				} else {
 					$this->errorHandler->addError("Sorry, there was an error uploading your file.");
 				}

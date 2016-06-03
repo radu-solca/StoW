@@ -121,6 +121,20 @@ dark_blue			#4dbdbc
 /*****************************************
 **************** GENERAL *****************
 *****************************************/
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: white;
+	font-size: 18px;
+}
+
+
 button {
 	background-color: rgba(0, 0, 0, 0);
 	margin: 0;
@@ -145,17 +159,26 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-html,
-body {
-	height: 100%;
-}
-
 hr {
 	margin: 0;
 	border: 0;
 	height: 2px;
 	background-color: rgba(255, 255, 255, .3);
 	border-radius: 5px;
+}
+
+select{
+	outline: none;
+	border: none;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+select option:checked {
+  box-shadow: inset 0 0 20px 20px #76cace;
+} 
+
+select option:hover {
+  box-shadow: inset 0 0 20px 20px #76cace;
 }
 
 ul {
@@ -192,14 +215,6 @@ p {
 a {
 	text-decoration: none;
 	color: white;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto Condensed', sans-serif;
-	color: white;
-	font-size: 18px;
 }
 
 h1 {
@@ -892,7 +907,8 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
-#filteredResults #filterView li {
+#filteredResults #filterView li, #filteredResults select {
+	color: #7A6453;
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
@@ -905,6 +921,15 @@ nav form input:focus {
 	opacity: 0.8;
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+#filteredResults select {
+	text-align: left;
+	padding: 0 5px;
+}
+
+#filteredResults option:focus{
+	background-color: #76cace;
 }
 
 #filteredResults #filterView li:hover {

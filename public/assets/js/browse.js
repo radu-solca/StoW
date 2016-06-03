@@ -43,7 +43,7 @@ function removeCategoryFilter(type, name){
 function updateRemoveButtons(){
 	var buttonsHTML = "";
 	for (x = 0; x < categories.length; x++) {
-		buttonsHTML += "<li class=\"remove x\" style=\"color:black\" onclick=\"removeCategoryFilter('"+categories[x].type+"', '"+categories[x].name+"')\">"+categories[x].name+"</li>";
+		buttonsHTML += "<li class=\"remove x\" onclick=\"removeCategoryFilter('"+categories[x].type+"', '"+categories[x].name+"')\">"+categories[x].name+"</li>";
     }
     document.getElementById("filterView").innerHTML = buttonsHTML;
 }

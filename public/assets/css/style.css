@@ -141,7 +141,7 @@ input {
 	color: #584b3f;
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	cursor: pointer;
 }
 
@@ -158,12 +158,11 @@ hr {
 	border-radius: 5px;
 }
 
-ul{
+ul {
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
 }
-
 
 .flexWrap {
 	min-height: 100%;
@@ -397,36 +396,30 @@ nav .userExt .content {
 	border-bottom-right-radius: 3px;
 }
 
-
 /*****************************************
 ************ MOBILE SEARCH ***************
 *****************************************/
-
-nav #navContentMobile form{
+nav #navContentMobile form {
 	padding: 0;
 	margin: 0;
 	background: none;
-	width: 100%; 
+	width: 100%;
 }
 
-nav #navContentMobile .searchExt .content{
+nav #navContentMobile .searchExt .content {
 	padding: 7px 20px;
 }
-
 
 /*****************************************
 ********* searchExt MOBILE ONLY **********
 *****************************************/
-
 nav .multi:hover .searchExt {
 	visibility: visible;
 	opacity: 1;
 	margin-top: 0px;
 }
 
-
-
-.searchExt{
+.searchExt {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+ */
 	visibility: hidden;
@@ -541,7 +534,6 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-
 .first {
 	margin-top: 56px;
 }
@@ -590,10 +582,12 @@ nav form input:focus {
 
 .splashButtons {
 	text-transform: uppercase;
+	width: auto;
 	max-width: 320px;
 }
 
 .splashButtons * {
+	font-size: 18px;
 	font-weight: 700;
 	background: white;
 	color: #76cace;
@@ -601,10 +595,15 @@ nav form input:focus {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
 	margin-right: 10px;
+	border: none;
 }
 
 .splashButtons *:hover {
 	background: #F2F2F2;
+}
+
+.splashButtons *:active {
+	background: #E2E2E2;
 }
 
 .recent {
@@ -676,17 +675,18 @@ nav form input:focus {
 	font-size: 32px;
 }
 
-.overlay .authors{
+.overlay .authors {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 	padding: 0 30px;
 	font-size: 15px;
 }
 
-.overlay .rating, .overlay .authors{
+.overlay .rating,
+.overlay .authors {
 	padding: 5px 10px;
 }
 
-.overlay .rating{
+.overlay .rating {
 	text-align: center;
 }
 
@@ -731,25 +731,30 @@ nav form input:focus {
 }
 
 .formContent input[type="submit"] {
-	margin-top: 10px;
-	width: auto;
-	border: none;
-	background-color: #76cace;
-	padding: 5px 8px;
 	text-transform: uppercase;
-	border-radius: 3px;
+	width: auto;
+	max-width: 320px;
+}
+
+.formContent input[type="submit"] {
+	font-size: 18px;
 	color: white;
-	letter-spacing: 2px;
-	opacity: 0.85;
+	background-color: #76cace;
+	padding: 5px 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	margin-right: 10px;
+	border: none;
 }
 
 .formContent input[type="submit"]:hover {
-	opacity: 0.95;
+	opacity: 0.8;
 }
 
-.formContent input[type="submit"]:active {
-	opacity: 1;
-	color: rgba(255, 255, 255, 0.7);
+.formContent input[type="submit"]:active,
+.formContent input[type="submit"]:focus {
+	opacity: 0.9;
+	border: none;
 }
 
 .formContent form {
@@ -827,39 +832,32 @@ nav form input:focus {
 .flexWrap .profile .formContent .vertical {
 	width: 2px;
 	height: 100%;
-
 	padding-top: 0;
 	padding-bottom: 0;
-
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-
 /***************************************** 
 **************** BROWSE ******************
 *****************************************/
-
-.flexWrap .browse{
+.flexWrap .browse {
 	color: #7A6453;
 }
 
-
-.flexWrap .browse #filterPanel{
+.flexWrap .browse #filterPanel {
 	flex: 1;
 }
 
-.flexWrap .browse #filteredResults{
-	flex: 4;	
+.flexWrap .browse #filteredResults {
+	flex: 4;
 }
 
 .flexWrap .browse .vertical {
 	width: 2px;
 	height: 100%;
-
 	padding-top: 0;
 	padding-bottom: 0;
-
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -869,22 +867,22 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
-#filterPanel div p{
+#filterPanel div p {
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 3px;
 	margin-top: 3px;
 }
 
-#filterPanel li{
+#filterPanel li {
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
 	margin-right: 20px;
 }
 
-#filterPanel li:hover{
-	background-color: rgba(0,0,0,0.05);
+#filterPanel li:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
@@ -894,11 +892,11 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
-#filteredResults #filterView li{
+#filteredResults #filterView li {
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	padding: 1px 8px;
 	border-radius: 3px;
 	margin-right: 5px;
@@ -909,21 +907,20 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-#filteredResults #filterView li:hover{
+#filteredResults #filterView li:hover {
 	opacity: 0.5;
 }
 
 /***************************************** 
 **************** UPLOAD ******************
 *****************************************/
-
 .uploadForm {
 	background: #76cace;
 	text-align: center;
 }
 
 .uploadForm .fileUpload {
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	border: 0;
 	padding: 7px 10px;
 	border-radius: 3px;
@@ -946,38 +943,51 @@ nav form input:focus {
 	overflow: hidden;
 }
 
-.fileUpload input:focus{
+.fileUpload input:focus {
 	border: none;
 }
 
-.fileUpload span{
+.fileUpload span {
 	color: #E66464;
 	font-weight: 700;
 }
 
-
 /***************************************** 
 ************** NOT LOGGED ****************
 *****************************************/
-
 .notLogged {
 	background: #76cace;
 }
 
-.notLogged *{
+.notLogged * {
 	text-align: center;
+}
+
+.notLogged .splashButtons * {
+	font-weight: 500;
+	color: white;
+	background-color: #76cace;
+}
+
+.notLogged .splashButtons *:hover {
+	opacity: 0.8;
+	background-color: #76cace;
+}
+
+.notLogged .splashButtons *:active {
+	opacity: 0.9;
+	background-color: #76cace;
 }
 
 /***************************************** 
 ****************** 700 *******************
 *****************************************/
-
 @media screen and (max-width:700px) {
 	nav form input:focus {
 		width: 55px;
 	}
 
-	.flexWrap .profile .formContent .vertical{
+	.flexWrap .profile .formContent .vertical {
 		width: 0;
 		height: 0;
 		padding: 0;

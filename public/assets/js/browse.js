@@ -79,15 +79,19 @@ function updateStories(){
 		parameters, 
 		function(responseText){
 			//console.log(responseText);
-			var responseJSON = JSON.parse(responseText);
+			// var responseJSON = JSON.parse(responseText);
 
-			var storyHTML = "";
-			for (var i = 0; i < responseJSON.length; i++) {
-			    var story = responseJSON[i];
-			    storyHTML += "<div class=\"title\">"+story.TITLE+"</div>"
-			}
+			var storyHTML = responseText;
+			// for (var i = 0; i < responseJSON.length; i++) {
+			//     var story = responseJSON[i];
+			//     storyHTML += "<div class=\"title\">"+story.TITLE+"</div>"
+			// }
 
 			document.getElementById("storyView").innerHTML = storyHTML;
+
+			assignColors();
+			trailingText(".storyThumbnail .title",32);
+			trailingText(".storyThumbnail .authors",18);
 		}
 	);
 }

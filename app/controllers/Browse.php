@@ -44,7 +44,11 @@
 				$story->withTitleLike($searchBarInput);
 			}
 
-			echo json_encode($story->find());
+			foreach($story->find() as $key => $story)
+			{
+
+				Story::printThumbnail($story);
+			}
 
 		}
 	}

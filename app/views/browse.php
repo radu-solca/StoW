@@ -84,6 +84,9 @@
 							</div>
 
 							<div id="storyView">
+							
+
+
 							</div>
 
 						</section>	
@@ -99,6 +102,7 @@
 
 		</div>	
 
+		<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 		<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 		<script src="<?php echo App::makeAbsolute("assets/js/browse.js"); ?>"></script>
 		<script type="text/javascript">
@@ -108,6 +112,12 @@
 				}
 			 ?>
 			updateStories();
+		</script>
+
+		<script>
+			assignColors();
+			trailingText(".storyThumbnail .title",32);
+			trailingText(".storyThumbnail .authors",18);
 		</script>
 
 	</body>

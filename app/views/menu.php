@@ -66,8 +66,8 @@
 						<div class="iconic magnifying_glass multi">
 							<div class="searchExt">
 								<div class="content flex row">
-									<form onsubmit="return false;" action="" class="flex row">
-										<input type="text" placeholder="Search">
+									<form id="searchBar" action="browse" method="post" class="flex row">
+										<input id="searchBarInput" name="searchBarInput" type="text" placeholder="Search">
 										<input type="submit" value="GO">
 									</form>
 								</div>

@@ -88,6 +88,11 @@ function updateStories(){
 			// }
 
 			document.getElementById("storyView").innerHTML = storyHTML;
+			
+
+			/*FILL REMAINING SPACE*/
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
 
 			assignColors();
 			trailingText(".storyThumbnail .title",32);

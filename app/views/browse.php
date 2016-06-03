@@ -83,7 +83,7 @@
 								</select>
 							</div>
 
-							<div id="storyView">
+							<div id="storyView" class="flex row spaceBetween">
 							
 
 

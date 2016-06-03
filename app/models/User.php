@@ -125,7 +125,7 @@ class User {
 		}
 
 		if (!empty($this->username)) {
-		    $cond[] = "USERNAME = ?";
+		    $cond[] = "UPPER(USERNAME) = UPPER(?)";
 		    $params[] = $this->username;
 		}
 

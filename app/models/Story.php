@@ -42,14 +42,14 @@ class Story{
 
 		if (!is_null($this->title)) {
 			$titleRegex = "%".$this->title."%";
-		    $cond[] = "TITLE LIKE ?";
+		    $cond[] = "UPPER(TITLE) LIKE UPPER(?)";
 		    $params[] = $titleRegex;
 		}
 
 		if(!empty($this->authors)){
 			foreach($this->authors as $author){
 				$authorRegex = "%".$author."%";
-				$cond[] = "AUTHORS LIKE ?";
+				$cond[] = "UPPER(AUTHORS) LIKE UPPER(?)";
 				$params[] = $authorRegex;
 			}
 		}

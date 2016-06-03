@@ -31,94 +31,95 @@
 
 					<section id="filterPanel" class="left-container">
 						<p>Filter stories</p>
-
-							<div class="ageGroupContainer">
-								<div class="ageGroup">
-									<p>Age group</p>
-									<ul>
-
-										<?php
-										foreach($data['ageGroups'] as $ageGroup){
-											echo "<li class=\"ageGroup\" onclick=\"addCategoryFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</li>";
-										}	
-										?>	
-
-									</ul>
-								</div>
-							</div>
-
-							<div class="genreContainer">
-								<div class="genre">
-									<p>Genre</p>
-									<ul>
-
-										<?php
-										foreach($data['genres'] as $genre){
-											echo "<li class=\"genre\" onclick=\"addCategoryFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</li>";
-										}	
-										?>
-
-									</ul>
-								</div>	
-							</div>
-
-						</section>	
-
-						<hr class="vertical">	
-
-						<section id="filteredResults" class="right-container">	
-							<p>Filtered results</p>
-
-							<ul id="filterView" class="flex row"></ul>
-
-							<div id="order">
-								<select onchange="updateOrdBy(this)">
-									<option value="RATING">Rating</option>
-									<option value="DATE_ADDED">Date added</option>
-									<option value="TITLE">Alphabetic</option>
-								</select> 
-								<select onchange="updateOrdType(this)">
-									<option value="ASC">Ascending</option>
-									<option value="DESC">Descending</option>
-								</select>
-							</div>
-
-							<div id="storyView" class="flex row spaceBetween">
 							
+						<div class="ageGroupContainer">
+							<div class="ageGroup">
+								<p>Age group</p>
+								<ul>
 
+									<?php
+									foreach($data['ageGroups'] as $ageGroup){
+										echo "<li class=\"ageGroup\" onclick=\"addCategoryFilter('age_group', '". $ageGroup['CAT_NAME']."')\">". $ageGroup['CAT_NAME'] ."</li>";
+									}	
+									?>	
 
+								</ul>
 							</div>
+						</div>
 
-						</section>	
-					</div>
+						<div class="genreContainer">
+							<div class="genre">
+								<p>Genre</p>
+								<ul>
 
+									<?php
+									foreach($data['genres'] as $genre){
+										echo "<li class=\"genre\" onclick=\"addCategoryFilter('genre', '". $genre['CAT_NAME']."')\">". $genre['CAT_NAME'] ."</li>";
+									}	
+									?>
+
+								</ul>
+							</div>	
+						</div>
+
+					</section>	
+
+					<hr class="vertical">	
+
+					<section id="filteredResults" class="right-container">	
+						<p>Filtered results</p>
+
+						<ul id="filterView" class="flex row"></ul>
+
+						<div id="order">
+							<select onchange="updateOrdBy(this)">
+								<option value="RATING">Rating</option>
+								<option value="DATE_ADDED">Date added</option>
+								<option value="TITLE">Alphabetic</option>
+							</select> 
+							<select onchange="updateOrdType(this)">
+								<option value="ASC">Ascending</option>
+								<option value="DESC">Descending</option>
+							</select>
+						</div>
+
+						<div id="pageControl">
+						</div>
+
+						<div id="storyView" class="flex row spaceBetween">
+						</div>
+
+					</section>	
 				</div>
+
 			</div>
+		</div>
 
 
-			<?php 
-			require "../app/views/footer.php";
-			?>	
+		<?php 
+		require "../app/views/footer.php";
+		?>	
 
-		</div>	
+	</div>	
 
-		<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
-		<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
-		<script src="<?php echo App::makeAbsolute("assets/js/browse.js"); ?>"></script>
-		<script type="text/javascript">
-			<?php 
-				if (isset($_POST['searchBarInput'])) {
-					echo "searchBarInput = \"".$_POST['searchBarInput']."\";";
-				}
-			 ?>
-			updateStories();
-		</script>
+	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/browse.js"); ?>"></script>
+	<script type="text/javascript">
+		<?php 
+			if (isset($_POST['searchBarInput'])) {
+				echo "searchBarInput = \"".$_POST['searchBarInput']."\";";
+			}
+		 ?>
+		updateStories();
+		updatePaginationControl();
+	</script>
 
-		<script>
-			assignColors();
-			trailingText(".storyThumbnail .title",32);
-			trailingText(".storyThumbnail .authors",18);
-		</script>
+	<script>
+		assignColors();
+		trailingText(".storyThumbnail .title",32);
+		trailingText(".storyThumbnail .authors",18);
+	</script>
 
-	</body>
-	</html>
+</body>
+</html>

@@ -2,6 +2,9 @@ var categories = [];
 var order = {"ordBy":"RATING","ordType":"ASC"};
 var searchBarInput = null;
 
+var page = 1;
+var rowsPerPage = 10;
+
 document.getElementById("searchBar").addEventListener("submit", function(event){
 	event.preventDefault();
 	var value = document.getElementById("searchBarInput").value;
@@ -70,22 +73,57 @@ function removeFilterFromList(obj, list) {
     }
 }
 
+function updatePaginationControl(){
+	// # first page
+
+	var paginationControlHtml = "";
+	// if($currentPageNumber <= 1)
+	// 	echo "<span>&laquo; first</span> <span>&lsaquo; prev</span> | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+
+	// // # last page
+	// elseif($currentPageNumber >= $pages)
+	// 	echo "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> | <span>next &rsaquo;</span> <span>last &raquo;</span>";
+
+	// // # in lastRowNumberInPage
+	paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	 document.getElementById("pageControl").innerHTML = paginationControlHtml;
+}
+
+function gotoFirst(){
+	page = 1;
+	updateStories();
+	updatePaginationControl();
+}
+
+function gotoPrev(){
+	page = page - 1;
+	updateStories();
+	updatePaginationControl();
+}
+
+function gotoNext(){
+	page = page + 1;
+	updateStories();
+	updatePaginationControl();
+}
+
+function gotoLast(){
+	page = 1;
+	updateStories();
+	updatePaginationControl();
+}
+
 function updateStories(){
 	var parameters = "categories="+JSON.stringify(categories)
 					+"&order="+JSON.stringify(order)
-					+"&searchBarInput="+JSON.stringify(searchBarInput);
+					+"&searchBarInput="+JSON.stringify(searchBarInput)
+					+"&page="+JSON.stringify(page)
+					+"&rowsPerPage="+JSON.stringify(rowsPerPage);
 
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
-			//console.log(responseText);
-			// var responseJSON = JSON.parse(responseText);
-
 			var storyHTML = responseText;
-			// for (var i = 0; i < responseJSON.length; i++) {
-			//     var story = responseJSON[i];
-			//     storyHTML += "<div class=\"title\">"+story.TITLE+"</div>"
-			// }
 
 			document.getElementById("storyView").innerHTML = storyHTML;
 			

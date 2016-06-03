@@ -75,7 +75,7 @@ class Story{
 			if(is_null($this->ordtype)){
 				$this->ordtype = 'ASC';
 			}
-		    $query .= " ORDER BY $this->ordby $this->ordtype";
+		    $query .= " ORDER BY UPPER($this->ordby) $this->ordtype";
 		}
 
 		if (!is_null($this->limit)) {
@@ -83,7 +83,24 @@ class Story{
 		     $params[] = $this->limit;
 		}
 
+		if (!is_null($this->rowsPerPage)){
+			$query = "SELECT * FROM (select results.*, ROWNUM rnum FROM (" . $query . ") results WHERE ROWNUM<=?) WHERE rnum >= ?";
+
+			$lastRowNumberInPage  = $this->rowsPerPage * ($this->page - 1);
+
+			$sum = $lastRowNumberInPage+$this->rowsPerPage;
+			$lastRowNumberInPage = $lastRowNumberInPage+1; //60 => 61 on next page
+
+			$params[] = $sum;
+			$params[] = $lastRowNumberInPage;
+		}
+
 		$db = Connection::getConnection();
+
+		// echo $query;
+		// print_r($params);
+
+		// echo '<br>';
 
 		$stmt = $db->prepare($query);
 		$stmt->execute($params);
@@ -181,6 +198,13 @@ class Story{
 
 	public function limit($limit){
 		$this->limit = $limit;
+		return $this;
+	}
+
+	public function withPagination($rowsPerPage, $page = 1){
+
+		$this->rowsPerPage = $rowsPerPage;
+		$this->page = $page;
 		return $this;
 	}
 

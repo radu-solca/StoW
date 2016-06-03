@@ -5,7 +5,12 @@ CREATE OR REPLACE VIEW stories_view AS
 			s.st_content	 	AS "CONTENT", 
 			s.st_cover	 		AS "COVER", 
 			s.st_date_added	 	AS "DATE_ADDED", 
-			AVG(r.rat_value) 	AS "RATING"
+			CASE 
+				WHEN AVG(r.rat_value) IS null 
+				THEN 0 
+				ELSE AVG(r.rat_value) 
+			END  				
+								AS "RATING"
 	FROM stories s
 	LEFT OUTER JOIN ratings r ON s.st_id = r.st_id
 	GROUP BY s.st_id, s.st_title, s.st_authors, s.st_content, s.st_cover, s.st_date_added

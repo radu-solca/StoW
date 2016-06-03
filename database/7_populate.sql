@@ -66,7 +66,7 @@ BEGIN
 
 	insert into stories (st_title, st_content, st_cover)
 		
-			select 	'generic story with very long title i am a long title '||rownum, 
+			select 	rownum || ' story', 
 					'placeholder',
 					'placeholder'
 			from dual

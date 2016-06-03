@@ -11,10 +11,9 @@
 					</div>
 					<div id="right" class="flex centerV flexEnd">
 
-						<form action="" class="flex row center1">
-							<input type="text" placeholder="Search">
-							<button class="iconic magnifying_glass">
-							</button>
+						<form id="searchBar" class="flex row center1" action="browse" method="post">
+							<input id="searchBarInput" name="searchBarInput" type="text" placeholder="Search">
+							<button class="iconic magnifying_glass"></button>
 						</form>
 
 						<?php 

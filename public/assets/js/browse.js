@@ -1,5 +1,14 @@
 var categories = [];
 var order = {"ordBy":"RATING","ordType":"ASC"};
+var searchBarInput = null;
+
+document.getElementById("searchBar").addEventListener("submit", function(event){
+	event.preventDefault();
+	var value = document.getElementById("searchBarInput").value;
+	console.log("submitted "+value);
+	searchBarInput = value;
+	updateStories();
+});
 
 function updateOrdBy(select){
 	order.ordBy = select.value;
@@ -63,11 +72,13 @@ function removeFilterFromList(obj, list) {
 
 function updateStories(){
 	var parameters = "categories="+JSON.stringify(categories)
-					+"&order="+JSON.stringify(order);
+					+"&order="+JSON.stringify(order)
+					+"&searchBarInput="+JSON.stringify(searchBarInput);
 
-	ajaxPost("browse", 
+	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
+			//console.log(responseText);
 			var responseJSON = JSON.parse(responseText);
 
 			var storyHTML = "";
@@ -81,4 +92,4 @@ function updateStories(){
 	);
 }
 
-updateStories();
+//updateStories();

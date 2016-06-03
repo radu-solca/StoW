@@ -116,16 +116,16 @@ nav .userExt .content {
 	flex: auto;
 }
 
-.storyThumbnail{
+.recent .storyThumbnail{
 	display: inline-block;
 	margin-right: 20px; /*hardcoded*/
 }
 
-.recentData{
+.recent .recentData{
 	padding: 0;
 }
 
-.recentData:first-child {
+.recent .recentData:first-child {
 	padding-left: 20px; /*hardcoded*/
 }
 
@@ -150,4 +150,14 @@ nav .userExt .content {
 
 .formContent {
 	padding: 20px;
+}
+
+.flexWrap .browse .vertical {
+	width: 0;
+	height: 0;
+	padding: 0;
+}
+
+.flexWrap .browse select{
+	width: 100%;
 }

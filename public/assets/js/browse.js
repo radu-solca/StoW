@@ -102,3 +102,25 @@ function updateStories(){
 }
 
 //updateStories();
+
+//MOBILE VER.
+
+window.addEventListener("resize", resizeBrowseContent);
+
+var browseContent = document.querySelector('.browseContent');
+
+/*========================================================*/
+function resizeBrowseContent() {
+    if (window.innerWidth < 500) {
+
+        browseContent.classList.remove("row");
+        browseContent.classList.add("column");
+
+    } else {
+
+    	browseContent.classList.remove("column");
+        browseContent.classList.add("row");
+    }
+}
+
+resizeBrowseContent();

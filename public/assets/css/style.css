@@ -873,8 +873,9 @@ nav form input:focus {
 	height: 100%;
 	padding-top: 0;
 	padding-bottom: 0;
-	padding-left: 10px;
+	padding-left: 15px;
 	padding-right: 10px;
+	background-color: yellow;
 }
 
 #filterPanel > p {
@@ -889,13 +890,6 @@ nav form input:focus {
 	margin-top: 3px;
 }
 
-#filterPanel li {
-	text-transform: uppercase;
-	font-size: 16px;
-	cursor: pointer;
-	margin-right: 20px;
-}
-
 #filterPanel li:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
@@ -907,15 +901,18 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
-#filteredResults #filterView li, #filteredResults select {
+#filteredResults > p{
+	margin-bottom: 30px;
+}
+
+#filteredResults #filterView li,#filterPanel li, #filteredResults select {
 	color: #7A6453;
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.1);
-	padding: 1px 8px;
+	padding: 7px 8px;
 	border-radius: 3px;
-	margin-right: 5px;
 	text-align: center;
 	margin-bottom: 5px;
 	opacity: 0.8;
@@ -923,9 +920,13 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
+#filteredResults #filterView li{
+	margin-right: 4px;
+}
+
 #filteredResults select {
 	text-align: left;
-	padding: 0 5px;
+	padding: 5px 5px;
 }
 
 #filteredResults option:focus{

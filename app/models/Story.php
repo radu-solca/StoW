@@ -8,6 +8,7 @@ class Story{
 	protected $ordby = null;
 	protected $ordtype = null;
 	protected $limit = null;
+	protected $id = null;
 
 	protected $errorHandler;
 
@@ -77,6 +78,11 @@ class Story{
 		if (!is_null($this->limit)) {
 		     $query = "SELECT * FROM ( " . $query . ") WHERE rownum <= ?";
 		     $params[] = $this->limit;
+		}
+
+		if (!is_null($this->id)) {
+		     $query = "SELECT * FROM ( " . $query . ") WHERE id = ?";
+		     $params[] = $this->id;
 		}
 
 		$db = Connection::getConnection();
@@ -180,6 +186,11 @@ class Story{
 		return $this;
 	}
 
+	public function withId($id){
+		$this->id = $id;
+		return $this;
+	}
+
 	public function reset(){
 		$this->title = null;
 		$this->authors = [];
@@ -253,8 +264,25 @@ class Story{
 				</div>
 			</div>
 		";
+	}	
+
+	public function getStoryRating($storyId){
+		$query = "SELECT rat_value from ratings WHERE st_id=$storyId";
+		$db = Connection::getConnection();
+
+		$stmt = $db->prepare($query);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		if($result == null){
+			$result = 0;
+		} else{
+			$result = $result[0]['RAT_VALUE'];
+		}
+		return $result;
 	}
-	
 }
+
 
  ?>

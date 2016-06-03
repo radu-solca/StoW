@@ -17,7 +17,13 @@
 </head>
 <body>
 
+
 	<?php
 		print_r($data['rating']);
+		$json = json_decode($data['json']);
+
+		print_r($json['title']);
 	?>
 </body>
+
+</html>

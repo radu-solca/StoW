@@ -15,9 +15,9 @@
 
 			$indexJsonContents = file_get_contents($storyPath);
 
-			$json = json_decode($indexJsonContents);
+			//$json = json_decode($indexJsonContents);
 
-			$data['json'] = $json;
+			$data['json'] = $indexJsonContents;
 			$data['rating'] = $rating; 
 			
 			$this->view("storyRead",$data);

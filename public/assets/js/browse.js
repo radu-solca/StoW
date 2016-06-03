@@ -46,7 +46,7 @@ function removeCategoryFilter(type, name){
 function updateRemoveButtons(){
 	var buttonsHTML = "";
 	for (x = 0; x < categories.length; x++) {
-		buttonsHTML += "<li class=\"remove x\" style=\"color:black\" onclick=\"removeCategoryFilter('"+categories[x].type+"', '"+categories[x].name+"')\">"+categories[x].name+"</li>";
+		buttonsHTML += "<li class=\"remove x\" onclick=\"removeCategoryFilter('"+categories[x].type+"', '"+categories[x].name+"')\">"+categories[x].name+"</li>";
     }
     document.getElementById("filterView").innerHTML = buttonsHTML;
 }
@@ -126,6 +126,11 @@ function updateStories(){
 			var storyHTML = responseText;
 
 			document.getElementById("storyView").innerHTML = storyHTML;
+			
+
+			/*FILL REMAINING SPACE*/
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
 
 			assignColors();
 			trailingText(".storyThumbnail .title",32);
@@ -135,3 +140,25 @@ function updateStories(){
 }
 
 //updateStories();
+
+//MOBILE VER.
+
+window.addEventListener("resize", resizeBrowseContent);
+
+var browseContent = document.querySelector('.browseContent');
+
+/*========================================================*/
+function resizeBrowseContent() {
+    if (window.innerWidth < 500) {
+
+        browseContent.classList.remove("row");
+        browseContent.classList.add("column");
+
+    } else {
+
+    	browseContent.classList.remove("column");
+        browseContent.classList.add("row");
+    }
+}
+
+resizeBrowseContent();

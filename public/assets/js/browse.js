@@ -1,6 +1,8 @@
 var categories = [];
 var order = {"ordBy":"RATING","ordType":"ASC"};
 var searchBarInput = null;
+var page = 1;
+var rowsPerPage = 10;
 
 document.getElementById("searchBar").addEventListener("submit", function(event){
 	event.preventDefault();
@@ -73,7 +75,9 @@ function removeFilterFromList(obj, list) {
 function updateStories(){
 	var parameters = "categories="+JSON.stringify(categories)
 					+"&order="+JSON.stringify(order)
-					+"&searchBarInput="+JSON.stringify(searchBarInput);
+					+"&searchBarInput="+JSON.stringify(searchBarInput)
+					+"&page="+JSON.stringify(page)
+					+"&rowsPerPage="+JSON.stringify(rowsPerPage);
 
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 

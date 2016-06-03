@@ -44,9 +44,18 @@
 				$story->withTitleLike($searchBarInput);
 			}
 
+			$totalStories = count($story->find());
+			$totalPages  = ceil($totalStories / $_POST["rowsPerPage"]);
+			$page = $_POST["page"];
+
+			echo $totalStories;
+			echo '<br>';
+			echo $totalPages;
+			echo '<br>';
+			echo $page;
+
 			foreach($story->find() as $key => $story)
 			{
-
 				Story::printThumbnail($story);
 			}
 

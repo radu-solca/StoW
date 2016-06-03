@@ -9,6 +9,10 @@ class Story{
 	protected $ordtype = null;
 	protected $limit = null;
 
+	protected $page = 1;
+	protected $rowsPerPage = null;
+	
+
 	protected $errorHandler;
 
 	public function __construct(){

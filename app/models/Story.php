@@ -45,6 +45,11 @@ class Story{
 		$cond = array();
 		$params = array();
 
+		if (!is_null($this->id)) {
+		     $cond[] = "ID = ?";
+		    $params[] = $this->id;
+		 }
+
 		if (!is_null($this->title)) {
 			$titleRegex = "%".$this->title."%";
 		    $cond[] = "UPPER(TITLE) LIKE UPPER(?)";
@@ -84,10 +89,7 @@ class Story{
 		     $params[] = $this->limit;
 		}
 
-		if (!is_null($this->id)) {
-		     $query = "SELECT * FROM ( " . $query . ") WHERE id = ?";
-		     $params[] = $this->id;
-		 }
+		
 		 
 		if (!is_null($this->rowsPerPage)){
 			$query = "SELECT * FROM (select results.*, ROWNUM rnum FROM (" . $query . ") results WHERE ROWNUM<=?) WHERE rnum >= ?";

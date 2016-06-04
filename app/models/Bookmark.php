@@ -1,39 +1,64 @@
 <?php
 
-	class Bookmark extends Model{
+	class Bookmark{
 
-		protected storyId = null;
-		protected userId = null;
-		protected pageId = null;
+		protected $storyId = null;
+		protected $userId = null;
+		protected $pageId = null;
 
 
-			public function find(){
-				$query = 'SELECT * FROM stories_view';
+		public function find(){
+			$query = 'SELECT * FROM bookmarks';
 
-				$cond = array();
-				$params = array();
+			$cond = array();
+			$params = array();
 
-				if (!is_null($this->storyId)) {
-				     $query = "SELECT * FROM ( " . $query . ") WHERE id = ?";
-				     $params[] = $this->storyId;
-				 }
+			if (!is_null($this->userId)) {
+			    $cond[] = "USR_ID = ?";
+		    	$params[] = $this->userId;	
+			 }
 
-				 if (!is_null($this->userId)) {
-				     $query = "SELECT * FROM ( " . $query . ") WHERE id = ?";
-				     $params[] = $this->userId;
-				 }
+			if (!is_null($this->storyId)) {
+			     $cond[] = "ST_ID = ?";
+		    	$params[] = $this->storyId;
+			 }
 
-				 if (!is_null($this->pageId)) {
-				     $query = "SELECT * FROM ( " . $query . ") WHERE id = ?";
-				     $params[] = $this->pageId;
-				 }
+			 if (!is_null($this->pageId)) {
+			     $cond[] = "PAGE_ID = ?";
+		    	$params[] = $this->pageId;
+			 }
 
-				 $db = Connection::getConnection();
+			 if (count($cond)) {
+			    $query .= ' WHERE ' . implode(' AND ', $cond);
+			}
 
-				$stmt = $db->prepare($query);
-				$stmt->execute($params);
+			 $db = Connection::getConnection();
 
-				return $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
+
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+
+		public function insert(){
+			$query = 'CALL st_scripts.bookmark(?,?,?)';
+
+			if (!is_null($this->userId)) {
+			     $params[] = $this->userId;
+			 }
+
+			if (!is_null($this->storyId)) {
+			     $params[] = $this->storyId;
+			 }
+
+			 if (!is_null($this->pageId)) {
+			     $params[] = $this->pageId;
+			 }
+
+			 $db = Connection::getConnection();
+
+			$stmt = $db->prepare($query);
+			$stmt->execute($params);
 
 		}
 

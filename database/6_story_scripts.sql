@@ -35,9 +35,9 @@ CREATE OR REPLACE PACKAGE st_scripts IS
     RETURN INTEGER;
 
     PROCEDURE bookmark(
+        p_usr_id  IN users.usr_id%type,
         p_st_id     IN stories.st_id%type,
 
-        p_usr_id  IN users.usr_id%type,
         p_page_id IN INTEGER
     );
 
@@ -187,9 +187,9 @@ CREATE OR REPLACE PACKAGE BODY st_scripts IS
     END;
 
     PROCEDURE bookmark(
+        p_usr_id  IN users.usr_id%type,
         p_st_id     IN stories.st_id%type,
 
-        p_usr_id  IN users.usr_id%type,
         p_page_id IN INTEGER
     )
     IS

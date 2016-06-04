@@ -29,7 +29,7 @@ function loadPage(pageNumber){
 
 }
 
-function init(jsonEncoded,path,Id){
+function init(jsonEncoded,path,Id,bookmarkId){
 	json = JSON.parse(jsonEncoded);
 	numberOfPages = json['story']['content']['pages'].length;
 	pages = json['story']['content']['pages'];
@@ -37,7 +37,8 @@ function init(jsonEncoded,path,Id){
 	storyId = Id;
 	//storyPath = storyPath.replace(/\./g,'');
 
-	gotoPage(0);
+	leftPage = bookmarkId - bookmarkId % 2;
+	gotoPage(bookmarkId);
 
 
 }
@@ -67,8 +68,8 @@ function gotoPage(pageNo){
  	var html = "";
 
  	pages[pageNumber].nextList.forEach(function(nextItem){
- 		html += "<span class=\"clickable\" onclick=\"gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span>";
- 		leftPage = nextItem.index;
+ 		html += "<span class=\"clickable\" onclick=\"leftPage = "+(nextItem.index - (nextItem.index % 2))+"; gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span>";
+ 		//leftPage = nextItem.index;
  	}); 
 
  	return html;

@@ -8,6 +8,7 @@ class Story{
 	protected $ordby = null;
 	protected $ordtype = null;
 	protected $limit = null;
+	protected $id = null;
 
 	protected $page = 1;
 	protected $rowsPerPage = null;
@@ -43,6 +44,11 @@ class Story{
 
 		$cond = array();
 		$params = array();
+
+		if (!is_null($this->id)) {
+		     $cond[] = "ID = ?";
+		    $params[] = $this->id;
+		 }
 
 		if (!is_null($this->title)) {
 			$titleRegex = "%".$this->title."%";
@@ -83,6 +89,8 @@ class Story{
 		     $params[] = $this->limit;
 		}
 
+		
+		 
 		if (!is_null($this->rowsPerPage)){
 			$query = "SELECT * FROM (select results.*, ROWNUM rnum FROM (" . $query . ") results WHERE ROWNUM<=?) WHERE rnum >= ?";
 
@@ -201,6 +209,10 @@ class Story{
 		return $this;
 	}
 
+	public function withId($id){
+		$this->id = $id;
+		return $this;
+	}
 	public function withPagination($rowsPerPage, $page = 1){
 
 		$this->rowsPerPage = $rowsPerPage;
@@ -246,7 +258,7 @@ class Story{
 		$storyCover = property_exists($storyMeta, 'cover') ? $storyMeta->cover : null;
 		$storyCover = $path.'/'.$storyCover;
 
-		$story->insert($userID, $storyContent, $storyCover);
+		$story->insert($userID, $path, $storyCover);
 
 		return $story->errors();
 	}
@@ -281,8 +293,25 @@ class Story{
 				</div>
 			</div>
 		";
+	}	
+
+	public function getStoryRating($storyId){
+		$query = "SELECT rat_value from ratings WHERE st_id=$storyId";
+		$db = Connection::getConnection();
+
+		$stmt = $db->prepare($query);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		if($result == null){
+			$result = 0;
+		} else{
+			$result = $result[0]['RAT_VALUE'];
+		}
+		return $result;
 	}
-	
 }
+
 
  ?>

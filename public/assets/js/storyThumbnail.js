@@ -7,17 +7,17 @@ function getRatingStars(rating){
 	// Add full stars:
 	var i = 1;
 	while (i <= stars - 1) {
-	    resultHTML += "<img src=\""+makeAbsolute("StoW/assets/img/star_f.png")+"\" />";
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_f.png")+"\" />";
 	    i += 2;
 	}
 	// Add half star if needed:
 	if ( stars % 2 != 0 ) {
-	    resultHTML += "<img src=\""+makeAbsolute("StoW/assets/img/star_h.png")+"\" />";
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_h.png")+"\" />";
 		i += 2;
 	}
 	// Add empty stars if needed
 	while (i <= 10){
-	    resultHTML += "<img src=\""+makeAbsolute("StoW/assets/img/star_e.png")+"\" />";
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_e.png")+"\" />";
 	    i += 2;
 	}
 
@@ -26,6 +26,8 @@ function getRatingStars(rating){
 
 function getStoryThumbnail(story){
 
+	console.log(makeAbsolute(story['COVER']));
+
 	var cover = fileExists(makeAbsolute(story['COVER'])) ? makeAbsolute(story['COVER']) : makeAbsolute("StoW/public/assets/img/nocover.png");
 
 	var authors = story['AUTHORS'] != null ? "<div class=\"authors\">"+story['AUTHORS']+"</div>" : "";
@@ -33,7 +35,7 @@ function getStoryThumbnail(story){
 	var thumbnailHTML = 
 	"<div class=\"storyThumbnail\">"+
 	"	<div class=\"container\">"+
-	"		<a href=\"storyView/"+story['ID']+"\">"+
+	"		<a href=\"storyRead/"+story['ID']+"\">"+
 	"			<div class=\"overlay\">"+
 	"				<div class=\"title\">"+story['TITLE']+"</div>"+
 					authors+

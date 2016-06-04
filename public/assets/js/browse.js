@@ -147,6 +147,7 @@ function updateStories(){
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
+			console.log(responseText);
 			var responseJSON = JSON.parse(responseText);
 
 			totalPages = responseJSON.totalPages;

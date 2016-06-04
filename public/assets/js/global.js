@@ -5,7 +5,7 @@ window.redirect = function redirect(path){
 
 window.makeAbsolute = function makeAbsolute(path){
 	var absPath = window.location.protocol + "//" + window.location.host;
-	absPath += "/"+path;
+	absPath += "/Stow/public/"+path;
 	return absPath;
 }
 

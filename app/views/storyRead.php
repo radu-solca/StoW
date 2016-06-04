@@ -24,19 +24,21 @@
 	<div id="rightPage">
 	</div>
 
+	<span class="clickable" id="prev">Prev</span>
+	<span class="clickable" id="next">Next</span>
+
+	<span class="clickable" id="bookmark">Bookmark here</span>
+
+
+	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 
 	<?php
-		$json = json_decode($data['json']);
-
-
 
 		echo '<script src="../assets/js/storyRead.js"></script>'	
-	   ,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ') </script>';
+	   ,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' ) </script>';
  
 	?>
-
-	<a href="#" id="next">Next</a>
 
 
 </body>

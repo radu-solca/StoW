@@ -3,8 +3,8 @@
 
 	class StoryRead extends Controller{
 
-		public function index($storyId){
-
+		public function index(){
+			$storyId = 56;
 
 			$storyModel = $this->model('Story');
 
@@ -20,10 +20,16 @@
 			$data['json'] = $indexJsonContents;
 			$data['rating'] = $rating;
 			$data['path'] = $storyPath;
-			
+			$data['storyId'] = $storyId;
+
+
 			$this->view("storyRead",$data);
 
 			
+		}
+
+		public function addBookmark(){
+			print_r($_POST);
 		}
 	}
 ?>

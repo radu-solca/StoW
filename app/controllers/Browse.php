@@ -54,13 +54,13 @@
 			// echo '<br>';
 			// echo $page;
 
-			foreach($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find() as $key => $story)
-			{
-				//Story::printThumbnail($story);
-				require "../app/views/storyThumbnail.php";
-			}
-			// foreach($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find() as $key => $story)
+			//  foreach($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find() as $key => $story)
+			// {foreach($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find() as $key => $story)
 			// {
+			// 	//Story::printThumbnail($story);
+			// 	require "../app/views/storyThumbnail.php";
+			// }
+			// //
 			// 	//Story::printThumbnail($story);
 			// 	echo json_encode($story);
 			// }

@@ -9,6 +9,11 @@
 	font-style: normal;
 }
 
+.clickable:hover { 
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 .iconic {
 	font-family: 'IconicStroke';
 }

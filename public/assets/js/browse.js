@@ -3,24 +3,27 @@ var order = {"ordBy":"RATING","ordType":"ASC"};
 var searchBarInput = null;
 
 var page = 1;
-var rowsPerPage = 10;
-var totalPages = null;
+var rowsPerPage = 12;
+var totalPages = 1;
 
 document.getElementById("searchBar").addEventListener("submit", function(event){
 	event.preventDefault();
 	var value = document.getElementById("searchBarInput").value;
 	console.log("submitted "+value);
 	searchBarInput = value;
+	page = 1;
 	updateStories();
 });
 
 function updateOrdBy(select){
 	order.ordBy = select.value;
+	page = 1;
 	updateStories();
 }
 
 function updateOrdType(select){
 	order.ordType = select.value;
+	page = 1;
 	updateStories();
 }
 
@@ -30,6 +33,7 @@ function addCategoryFilter(type, name){
 		categories.push(filter);
 	}
 
+	page = 1;
 	updateStories();
 	updateRemoveButtons();
 	
@@ -39,6 +43,8 @@ function removeCategoryFilter(type, name){
 
 	var filter = {type:type, name:name};
 	removeFilterFromList(filter,categories);
+
+	page = 1;
 
 	updateStories();
 	updateRemoveButtons();
@@ -75,18 +81,27 @@ function removeFilterFromList(obj, list) {
 }
 
 function updatePaginationControl(){
-	// # first page
-
 	var paginationControlHtml = "";
-	// if($currentPageNumber <= 1)
-	// 	echo "<span>&laquo; first</span> <span>&lsaquo; prev</span> | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
 
-	// // # last page
-	// elseif($currentPageNumber >= $pages)
-	// 	echo "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> | <span>next &rsaquo;</span> <span>last &raquo;</span>";
+	if(page <= 1){
+		paginationControlHtml += "<span>&laquo; first</span> <span>&lsaquo; prev</span>  ";
+	}
+	else{
+		paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span>  ";
+	}
 
-	// // # in lastRowNumberInPage
-	paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> |  "+page+"/"+totalPages+"  | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
+	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
+	paginationControlHtml += page;
+	paginationControlHtml += "/"+totalPages;
+
+	if(page >= totalPages){
+		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";
+	}
+	else{
+		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	}
+
 	 document.getElementById("pageControl").innerHTML = paginationControlHtml;
 }
 
@@ -109,7 +124,14 @@ function gotoNext(){
 }
 
 function gotoLast(){
-	page = 1;
+	page = totalPages;
+	updateStories();
+	updatePaginationControl();
+}
+
+function gotoPage(pageNo){
+	page = parseInt(pageNo);
+	console.log(page);
 	updateStories();
 	updatePaginationControl();
 }
@@ -124,12 +146,15 @@ function updateStories(){
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
-			console.log(responseText);
 			var responseJSON = JSON.parse(responseText);
+
+			totalPages = responseJSON.totalPages;
+
+			updatePaginationControl();
 
 			document.getElementById("storyView").innerHTML = "";
 
-			responseJSON.forEach(function(entry){
+			responseJSON.page.forEach(function(entry){
 				var storyHTML = getStoryThumbnail(entry);
 				document.getElementById("storyView").innerHTML += storyHTML;
 			});

@@ -60,7 +60,12 @@
 			// 	echo json_encode($story);
 			// }
 
-			echo json_encode($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find());
+			$response = [
+				'totalPages'=>$totalPages,
+				'page'=>$story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find()
+			];
+
+			echo json_encode($response);
 
 		}
 	}

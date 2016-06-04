@@ -34,6 +34,13 @@ CREATE OR REPLACE PACKAGE st_scripts IS
     )
     RETURN INTEGER;
 
+    PROCEDURE bookmark(
+        p_st_id     IN stories.st_id%type,
+
+        p_usr_id  IN users.usr_id%type,
+        p_page_id IN INTEGER
+    );
+
 END st_scripts;
 /
 
@@ -177,6 +184,32 @@ CREATE OR REPLACE PACKAGE BODY st_scripts IS
     EXCEPTION
         WHEN OTHERS 
         THEN RAISE_APPLICATION_ERROR(-20099,'An error occured: '||sqlerrm);
+    END;
+
+    PROCEDURE bookmark(
+        p_st_id     IN stories.st_id%type,
+
+        p_usr_id  IN users.usr_id%type,
+        p_page_id IN INTEGER
+    )
+    IS
+        v_exists INTEGER;
+    BEGIN
+        SELECT COUNT(*)
+        INTO v_exists
+        FROM bookmarks b
+        WHERE usr_id = p_usr_id
+        AND st_id = p_st_id;
+
+        IF v_exists >=1
+        THEN
+            UPDATE bookmarks
+            SET page_id = p_page_id
+            WHERE usr_id = p_usr_id
+            AND st_id = p_st_id;
+        ELSE
+            INSERT INTO bookmarks VALUES (p_usr_id,p_st_id,p_page_id);
+        END IF;
     END;
 
 

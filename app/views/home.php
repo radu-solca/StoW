@@ -62,7 +62,8 @@
 								foreach($data['latestStories'] as $key => $story)
 								{
 
-									Story::printThumbnail($story);
+									//Story::printThumbnail($story);
+									require "../app/views/storyThumbnail.php";
 								}
 								?>
 

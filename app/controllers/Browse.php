@@ -56,7 +56,8 @@
 
 			foreach($story->withPagination($_POST["rowsPerPage"], $_POST["page"])->find() as $key => $story)
 			{
-				Story::printThumbnail($story);
+				//Story::printThumbnail($story);
+				require "../app/views/storyThumbnail.php";
 			}
 
 		}

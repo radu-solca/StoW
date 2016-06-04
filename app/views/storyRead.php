@@ -17,13 +17,22 @@
 </head>
 <body>
 
+	<div id="leftPage">
+
+	</div>
+
+	<div class="rightPage">
+	</div>
 
 	<?php
-		print_r($data['rating']);
 		$json = json_decode($data['json']);
 
-		print_r($json['title']);
+		echo '<script src="../assets/js/storyRead.js"></script>'	
+	   ,'<script> init(' . json_encode($data['json']) .') </script>';
+
 	?>
+
+	<a href="#">Next</a>
 </body>
 
 </html>

@@ -15,7 +15,7 @@
 
 			$indexJsonContents = file_get_contents($storyPath);
 
-			//$json = json_decode($indexJsonContents);
+			$json = json_decode($indexJsonContents);
 
 			$data['json'] = $indexJsonContents;
 			$data['rating'] = $rating; 

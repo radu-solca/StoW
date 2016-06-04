@@ -102,7 +102,7 @@ class Upload extends Controller{
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 		
 				// Check file size
-			if ($_FILES["fileToUpload"]["size"] > 500000) {
+			if ($_FILES["fileToUpload"]["size"] > 500000000) {
 				$this->errorHandler->addError("Sorry, your file is too large.");
 				$uploadOk = 0;
 			}

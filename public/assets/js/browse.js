@@ -92,8 +92,8 @@ function updatePaginationControl(){
 
 	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
 	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
-	paginationControlHtml += page;
-	paginationControlHtml += "/"+totalPages;
+	paginationControlHtml += "<span>" +page;
+	paginationControlHtml += "/"+totalPages + "</span>";
 
 	if(page >= totalPages){
 		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";
@@ -102,7 +102,7 @@ function updatePaginationControl(){
 		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
 	}
 
-	 document.getElementById("pageControlTop").innerHTML = paginationControlHtml;
+	 // document.getElementById("pageControlTop").innerHTML = paginationControlHtml;
 	 document.getElementById("pageControlBottom").innerHTML = paginationControlHtml;
 }
 
@@ -163,8 +163,8 @@ function updateStories(){
 			
 
 			/*FILL REMAINING SPACE*/
-			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
-			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail\" style=\"opacity: 0;\"><div class=\"container\" style=\"height: 0;\"></div></div>";
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail filler\"><div class=\"container\"></div></div>";
+			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail filler\"><div class=\"container\"></div></div>";
 
 			assignColors();
 			trailingText(".storyThumbnail .title",32);

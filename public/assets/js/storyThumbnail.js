@@ -51,3 +51,33 @@ function getStoryThumbnail(story){
 
 	return thumbnailHTML;
 }
+
+function getAdminStoryThumbnail(story){
+
+	var cover = fileExists(makeAbsolute(story['COVER'])) ? makeAbsolute(story['COVER']) : makeAbsolute("StoW/public/assets/img/nocover.png");
+
+	var authors = story['AUTHORS'] != null ? "<div class=\"authors\">"+story['AUTHORS']+"</div>" : "";
+
+	var thumbnailHTML = 
+	"<div class=\"storyThumbnail\">"+
+	"	<div class=\"container\">"+
+	"		<div class=\"adminOverlay\">"+
+	"			<span class=\"approve\">APPROVE</span>"+
+	"			<span class=\"remove\">REMOVE</span>"+
+	"		</div>"+
+	"		<a href=\"storyView/"+story['ID']+"\">"+
+	"			<div class=\"overlay\">"+
+	"				<div class=\"title\">"+story['TITLE']+"</div>"+
+					authors+
+	"				<div class=\"rating\">"+
+						getRatingStars(story["RATING"])+
+	"				</div>"+
+	"			</div>"+
+	"			<img class=\"storyCover\" alt=\"story cover\" src=\""+cover+"\""+
+	"			/>"+
+	"		</a>"+
+	"	</div>"+
+	"</div>";
+
+	return thumbnailHTML;
+}

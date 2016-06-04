@@ -256,7 +256,7 @@ class Story{
 		$storyCover = property_exists($storyMeta, 'cover') ? $storyMeta->cover : null;
 		$storyCover = $path.'/'.$storyCover;
 
-		$story->insert($userID, $storyContent, $storyCover);
+		$story->insert($userID, $path, $storyCover);
 
 		return $story->errors();
 	}

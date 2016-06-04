@@ -21,18 +21,24 @@
 
 	</div>
 
-	<div class="rightPage">
+	<div id="rightPage">
 	</div>
+
+	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 
 	<?php
 		$json = json_decode($data['json']);
 
-		echo '<script src="../assets/js/storyRead.js"></script>'	
-	   ,'<script> init(' . json_encode($data['json']) .') </script>';
 
+
+		echo '<script src="../assets/js/storyRead.js"></script>'	
+	   ,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ') </script>';
+ 
 	?>
 
-	<a href="#">Next</a>
+	<a href="#" id="next">Next</a>
+
+
 </body>
 
 </html>

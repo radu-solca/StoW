@@ -58,23 +58,7 @@
 						<div class="marginNeg flex center2">
 							<div id="storyView" class="flex recentData row spaceBetween center1 center2">
 
-								<!-- <?php
-								// foreach($data['latestStories'] as $key => $story)
-								// {
-
-									//Story::printThumbnail($story);
-									require "../app/views/storyThumbnail.php";
-								}
-								?>
-								// 	//Story::printThumbnail($story);
-
-								// 	// echo "<script>";
-
-								// 	// getStoryThumbnail($story);
-
-								// 	// "</script>";
-								// }
-								?>-->
+						
 
 							</div>
 						</div>

@@ -56,15 +56,21 @@
 						<p>Recently added...</p>
 
 						<div class="marginNeg flex center2">
-							<div class="flex recentData row spaceBetween center1 center2">
+							<div id="storyView" class="flex recentData row spaceBetween center1 center2">
 
-								<?php
-								foreach($data['latestStories'] as $key => $story)
-								{
+								<!-- <?php
+								// foreach($data['latestStories'] as $key => $story)
+								// {
 
-									Story::printThumbnail($story);
-								}
-								?>
+								// 	//Story::printThumbnail($story);
+
+								// 	// echo "<script>";
+
+								// 	// getStoryThumbnail($story);
+
+								// 	// "</script>";
+								// }
+								?>-->
 
 							</div>
 						</div>
@@ -77,9 +83,23 @@
 		require "../app/views/footer.php";
 		?>
 
+		<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
+
 		<script src="<?php echo App::makeAbsolute("assets/js/home.js"); ?>"></script>
 
 		<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+
+		
+
+		<script>
+
+		var stories = <?php echo $data['latestStories']; ?>;
+
+		stories.forEach(function(entry) {
+		    document.getElementById("storyView").innerHTML += getStoryThumbnail(entry);
+		});
+
+		</script>
 
 		<script>
 			assignColors();

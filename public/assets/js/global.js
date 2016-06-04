@@ -1,6 +1,23 @@
 
-function redirect(path){
+window.redirect = function redirect(path){
 	window.location = "/StoW/"+path;
+}
+
+window.makeAbsolute = function makeAbsolute(path){
+	var absPath = window.location.protocol + "//" + window.location.host;
+	absPath += "/"+path;
+	return absPath;
+}
+
+window.fileExists = function fileExists(url){
+
+    var http = new XMLHttpRequest();
+
+    http.open('HEAD', url, false);
+    http.send();
+
+    return http.status != 404;
+
 }
 
 var colorList = [

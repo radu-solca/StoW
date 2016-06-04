@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // Browse 2</title>
+	<title>StoW // Browse</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -83,8 +83,8 @@
 							</select>
 						</div>
 
-						<div id="pageControlTop">
-						</div>
+						<!-- <div id="pageControlTop">
+						</div> -->
 
 						<div id="storyView" class="flex row spaceBetween">
 						</div>

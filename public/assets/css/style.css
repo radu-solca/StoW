@@ -28,6 +28,7 @@
 
 .upload:before {
 	content: '\e043';
+	padding-left: 2px;
 }
 
 .magnifying_glass:before {
@@ -36,6 +37,7 @@
 
 .user:before {
 	content: '\e062';
+	padding-left: 2px;
 }
 
 .x:after {
@@ -164,7 +166,6 @@ hr {
 	border: 0;
 	height: 2px;
 	background-color: rgba(255, 255, 255, .3);
-	border-radius: 5px;
 }
 
 select{
@@ -440,6 +441,7 @@ nav .multi:hover .searchExt {
 	visibility: hidden;
 	opacity: 0;
 	margin-top: -10px;
+	box-sizing: border-box;
 }
 
 nav .userExt .content * {
@@ -456,7 +458,7 @@ nav .userExt .content {
 	box-sizing: border-box;
 	flex-flow: row nowrap;
 	flex: 1;
-	height: 55px;
+	height: auto;
 }
 
 .searchExt input[type="text"] {
@@ -471,7 +473,7 @@ nav .userExt .content {
 }
 
 .searchExt input[type="submit"] {
-	width: 100%;
+	width: 30px;
 	flex: 1;
 	margin: 0;
 	cursor: pointer;
@@ -845,6 +847,71 @@ nav form input:focus {
 }
 
 .flexWrap .profile .formContent .vertical {
+	width: 2px;
+	height: 100%;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/***************************************** 
+*************** STORY VIEW ***************
+*****************************************/
+
+.flexWrap .storyById .storyByIdContent {
+	max-width: none;
+	box-sizing: border-box;
+	width: auto;
+	background-color: white;
+	color: #7A6453;
+	border-radius: 3px;
+}
+
+.flexWrap .storyByIdContent > *{
+	width: 100%;
+	color: white;
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+#storyDetails{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.23);
+	z-index: 1;
+}
+
+#storyDetails #left{
+	flex: 6;
+}
+
+#storyDetails #left p{
+	margin: 0;
+}
+
+#storyDetails #right{
+	flex: 1;
+}
+
+#storyAndProgress{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	z-index: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.flexWrap .storyById .storyByIdContent hr {
+	background-color: rgba(0,0,0,0);
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.flexWrap .storyById .storyByIdContent .vertical {
 	width: 2px;
 	height: 100%;
 	padding-top: 0;

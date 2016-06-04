@@ -102,7 +102,8 @@ function updatePaginationControl(){
 		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
 	}
 
-	 document.getElementById("pageControl").innerHTML = paginationControlHtml;
+	 document.getElementById("pageControlTop").innerHTML = paginationControlHtml;
+	 document.getElementById("pageControlBottom").innerHTML = paginationControlHtml;
 }
 
 function gotoFirst(){

@@ -124,9 +124,15 @@ function updateStories(){
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
-			var storyHTML = responseText;
+			console.log(responseText);
+			var responseJSON = JSON.parse(responseText);
 
-			document.getElementById("storyView").innerHTML = storyHTML;
+			document.getElementById("storyView").innerHTML = "";
+
+			responseJSON.forEach(function(entry){
+				var storyHTML = getStoryThumbnail(entry);
+				document.getElementById("storyView").innerHTML += storyHTML;
+			});
 			
 
 			/*FILL REMAINING SPACE*/

@@ -105,6 +105,7 @@
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/browse.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
 	<script type="text/javascript">
 		<?php 
 			if (isset($_POST['searchBarInput'])) {

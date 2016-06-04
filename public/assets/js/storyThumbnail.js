@@ -33,7 +33,7 @@ function getStoryThumbnail(story){
 	var thumbnailHTML = 
 	"<div class=\"storyThumbnail\">"+
 	"	<div class=\"container\">"+
-	"		<a href=\"#\">"+
+	"		<a href=\"storyView/"+story['ID']+"\">"+
 	"			<div class=\"overlay\">"+
 	"				<div class=\"title\">"+story['TITLE']+"</div>"+
 					authors+

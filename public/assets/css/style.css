@@ -49,6 +49,14 @@
 	vertical-align: 1px;
 }
 
+.comment_alt2_stroke:before {
+	content: '\e004';
+}
+
+.heart_stroke:before {
+	content: '\2764';
+}
+
 /*****************************************
 ************** COLOR CHART ***************
 ******************************************
@@ -338,6 +346,8 @@ nav a:hover,
 nav #right > div:hover,
 nav .multi a:hover {
 	background-color: #645446;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
 #navContent,
@@ -458,6 +468,7 @@ nav .userExt .content {
 	box-sizing: border-box;
 	flex-flow: row nowrap;
 	flex: 1;
+	min-height: 55px;
 	height: auto;
 }
 
@@ -884,7 +895,7 @@ nav form input:focus {
 }
 
 #storyDetails #left {
-	flex: 6;
+	flex: 7;
 }
 
 #storyDetails #left p {
@@ -892,7 +903,8 @@ nav form input:focus {
 }
 
 #storyDetails #right {
-	flex: 1;
+	text-align: right;
+	
 }
 
 #storyAndProgress {
@@ -901,7 +913,7 @@ nav form input:focus {
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	z-index: 0;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .flexWrap .storyById .storyByIdContent hr {
@@ -910,7 +922,7 @@ nav form input:focus {
 	padding-bottom: 10px;
 }
 
-.flexWrap .storyById .storyByIdContent .vertical {
+.flexWrap .vertical {
 	width: 2px;
 	height: 100%;
 	padding-top: 0;
@@ -918,6 +930,32 @@ nav form input:focus {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+.flexWrap .storyById .storyByIdContent .iconic{
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 9999px;
+	font-size: 25px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	background: rgba(0,0,0,0.05);
+	border: 2px rgba(255,255,255,0) solid;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+.flexWrap .storyById .storyByIdContent .iconic::before {
+	margin: 16px;
+}
+
+.flexWrap .storyById .storyByIdContent .iconic:hover{
+	background: none;
+	border: 2px rgba(0,0,0,0.05) solid;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
 
 /***************************************** 
 **************** BROWSE ******************

@@ -25,7 +25,7 @@
 
 		<div class="storyById fullWidth flex center1 center2 first">
 			<div class="guide960">
-				<div id="story" class="margin20 storyByIdContent presetColorGreen flex center1 center2 column topBottom40">
+				<div id="story" class="margin20 storyByIdContent flex center1 center2 column topBottom40">
 
 					<div id="storyDetails" class="flex row overlay">
 						<section id="left">
@@ -36,10 +36,13 @@
 
 						<hr class="vertical">
 
-						<section id="right">ayy dreapta</section>
+						<section id="right" class="flex column">
+							<a href="" class="iconic comment_alt2_stroke"></a>
+							<a href="" class="iconic heart_stroke"></a>
+						</section>
 					</div>
 
-					<div id="storyAndProgress" class="flex row">
+					<div id="storyAndProgress">
 						AYYLMAO I AM GONNA HAB DETAILS
 					</div>
 
@@ -58,6 +61,9 @@
 
 
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+	<script>
+		assignColors("storyByIdContent");
+	</script>
 
 </body>
 </html>

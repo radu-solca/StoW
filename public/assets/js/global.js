@@ -34,15 +34,15 @@ function getColor(){
 	return colorList[random];
 }
 
-function assignColors(){
+function assignColors(target){
 
-	var storyThumbnails = document.getElementsByClassName('storyThumbnail');
+	var targets = document.getElementsByClassName(target);
 
-	for(var i=0; i< storyThumbnails.length; i++){
+	for(var i=0; i< targets.length; i++){
 
 		// alert(i);
     	var className = getColor();		
-	    storyThumbnails[i].classList.add(className);
+	    targets[i].classList.add(className);
 	}
 }
 

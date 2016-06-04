@@ -120,7 +120,7 @@
 	</script>
 
 	<script>
-		assignColors();
+		assignColors("storyThumbnail");
 		trailingText(".storyThumbnail .title",32);
 		trailingText(".storyThumbnail .authors",18);
 	</script>

@@ -165,7 +165,7 @@ function updateStories(){
 			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail filler\"><div class=\"container\"></div></div>";
 			document.getElementById("storyView").innerHTML += "<div class=\"storyThumbnail filler\"><div class=\"container\"></div></div>";
 
-			assignColors();
+			assignColors("storyThumbnail");
 			trailingText(".storyThumbnail .title",32);
 			trailingText(".storyThumbnail .authors",18);
 		}

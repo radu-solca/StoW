@@ -9,10 +9,6 @@
 	font-style: normal;
 }
 
-.clickable:hover { 
-	cursor: pointer;
-	text-decoration: underline;
-}
 
 .iconic {
 	font-family: 'IconicStroke';
@@ -141,7 +137,6 @@ body {
 	font-size: 18px;
 }
 
-
 button {
 	background-color: rgba(0, 0, 0, 0);
 	margin: 0;
@@ -173,18 +168,18 @@ hr {
 	background-color: rgba(255, 255, 255, .3);
 }
 
-select{
+select {
 	outline: none;
 	border: none;
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
 select option:checked {
-  box-shadow: inset 0 0 20px 20px #76cace;
-} 
+	box-shadow: inset 0 0 20px 20px #76cace;
+}
 
 select option:hover {
-  box-shadow: inset 0 0 20px 20px #76cace;
+	box-shadow: inset 0 0 20px 20px #76cace;
 }
 
 ul {
@@ -863,7 +858,6 @@ nav form input:focus {
 /***************************************** 
 *************** STORY VIEW ***************
 *****************************************/
-
 .flexWrap .storyById .storyByIdContent {
 	max-width: none;
 	box-sizing: border-box;
@@ -873,14 +867,14 @@ nav form input:focus {
 	border-radius: 3px;
 }
 
-.flexWrap .storyByIdContent > *{
+.flexWrap .storyByIdContent > * {
 	width: 100%;
 	color: white;
 	box-sizing: border-box;
 	padding: 40px;
 }
 
-#storyDetails{
+#storyDetails {
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 	border-bottom-left-radius: 0;
@@ -889,19 +883,19 @@ nav form input:focus {
 	z-index: 1;
 }
 
-#storyDetails #left{
+#storyDetails #left {
 	flex: 6;
 }
 
-#storyDetails #left p{
+#storyDetails #left p {
 	margin: 0;
 }
 
-#storyDetails #right{
+#storyDetails #right {
 	flex: 1;
 }
 
-#storyAndProgress{
+#storyAndProgress {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-left-radius: 3px;
@@ -911,7 +905,7 @@ nav form input:focus {
 }
 
 .flexWrap .storyById .storyByIdContent hr {
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0, 0, 0, 0);
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -947,7 +941,6 @@ nav form input:focus {
 	padding-bottom: 0;
 	padding-left: 15px;
 	padding-right: 10px;
-	background-color: yellow;
 }
 
 #filterPanel > p {
@@ -973,11 +966,13 @@ nav form input:focus {
 	margin-bottom: 3px;
 }
 
-#filteredResults > p{
+#filteredResults > p {
 	margin-bottom: 30px;
 }
 
-#filteredResults #filterView li,#filterPanel li, #filteredResults select {
+#filteredResults #filterView li,
+#filterPanel li,
+#filteredResults select{
 	color: #7A6453;
 	text-transform: uppercase;
 	font-size: 16px;
@@ -992,7 +987,7 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-#filteredResults #filterView li{
+#filteredResults #filterView li {
 	margin-right: 4px;
 }
 
@@ -1001,14 +996,13 @@ nav form input:focus {
 	padding: 5px 5px;
 }
 
-#filteredResults option:focus{
+#filteredResults option:focus {
 	background-color: #76cace;
 }
 
 #filteredResults #filterView li:hover {
 	opacity: 0.5;
 }
-
 
 /***************************************** 
 **************** UPLOAD ******************
@@ -1076,6 +1070,89 @@ nav form input:focus {
 .notLogged .splashButtons *:active {
 	opacity: 0.9;
 	background-color: #76cace;
+}
+
+
+/***************************************** 
+***************** ADMIN ******************
+*****************************************/
+
+.storyThumbnail .adminOverlay {
+	padding: 5px 0;
+	position: absolute;
+	background-color: white;
+	width: 100%;
+	height: auto;
+	bottom: -20px;
+	opacity: 0;
+	text-align: center;
+	box-sizing: border-box;
+	z-index: 5555;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+.storyThumbnail .container:hover > .adminOverlay {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	opacity: 1;
+	bottom: 0;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+.storyThumbnail .adminOverlay span {
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 9px;
+	font-weight: 700;
+	cursor: pointer;
+	color: rgba(122,100,83,0.8);
+}
+
+
+.storyThumbnail .adminOverlay .approve:hover {
+	color: #8dc225;
+}
+
+.storyThumbnail .adminOverlay .remove:hover {
+	color: #E66464;
+}
+
+.filler {
+	margin: 0;
+	opacity: 0;
+}
+
+.filler .container{
+	height: 0;
+	margin-top: 5px;
+}
+
+/***************************************** 
+*************** PAGINATION ***************
+*****************************************/
+#pageControlBottom {
+	text-align: center;
+	color: rgba(122,100,83,0.5);
+}
+
+#pageControlBottom span {
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 7px 8px;
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 3px;
+	text-align: center;
+	margin-bottom: 5px;
+	opacity: 0.8;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+.clickable{
+	cursor: pointer;
+	color: #7A6453;
+
 }
 
 /***************************************** 

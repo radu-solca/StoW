@@ -58,7 +58,6 @@
 
 
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
-	<script src="<?php echo App::makeAbsolute("assets/js/profile.js"); ?>"></script>
 
 </body>
 </html>

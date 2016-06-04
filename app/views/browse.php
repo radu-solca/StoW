@@ -83,8 +83,8 @@
 							</select>
 						</div>
 
-						<div id="pageControlTop">
-						</div>
+						<!-- <div id="pageControlTop">
+						</div> -->
 
 						<div id="storyView" class="flex row spaceBetween">
 						</div>

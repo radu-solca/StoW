@@ -10,7 +10,7 @@
 			$result = $story->orderBy('ID','DESC')->limit(5)->find();
 
 			// $this->view('menu');
-			$this->view('home', ['latestStories'=>$result]);
+			$this->view('home', ['latestStories'=>json_encode($result)]);
 		}
 	}
 

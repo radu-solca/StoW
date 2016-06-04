@@ -4,6 +4,7 @@ var searchBarInput = null;
 
 var page = 1;
 var rowsPerPage = 10;
+var totalPages = null;
 
 document.getElementById("searchBar").addEventListener("submit", function(event){
 	event.preventDefault();
@@ -85,7 +86,7 @@ function updatePaginationControl(){
 	// 	echo "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> | <span>next &rsaquo;</span> <span>last &raquo;</span>";
 
 	// // # in lastRowNumberInPage
-	paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span> |  "+page+"/"+totalPages+"  | <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
 	 document.getElementById("pageControl").innerHTML = paginationControlHtml;
 }
 
@@ -123,9 +124,15 @@ function updateStories(){
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
-			var storyHTML = responseText;
+			console.log(responseText);
+			var responseJSON = JSON.parse(responseText);
 
-			document.getElementById("storyView").innerHTML = storyHTML;
+			document.getElementById("storyView").innerHTML = "";
+
+			responseJSON.forEach(function(entry){
+				var storyHTML = getStoryThumbnail(entry);
+				document.getElementById("storyView").innerHTML += storyHTML;
+			});
 			
 
 			/*FILL REMAINING SPACE*/

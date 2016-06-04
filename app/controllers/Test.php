@@ -101,6 +101,10 @@ class Test extends Controller{
         $stmt->execute($params);
         echo "after <br>";
 	}
+
+	public function starTest(){
+		$this->view("startest");
+	}
 }
 
  ?>

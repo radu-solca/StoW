@@ -79,19 +79,20 @@
 		public function addFavourite(){
 			$favouriteModel = $this->model('Favorite');
 
-			$result = $favouriteModel->withStoryId($_POST['storyId'])->withUserId($_SESSION['userData']['ID'])->find();
 
 				if(App::userSignedIn()){
+					$result = $favouriteModel->withStoryId($_POST['storyId'])->withUserId($_SESSION['userData']['ID'])->find();
+
 					if(!$result){
 						$favouriteModel->withStoryId($_POST['storyId'])
 										->withUserId($_SESSION['userData']['ID'])
 										->insert();
-						echo json_encode([]);
+						echo json_encode(["inserted"=>"true"]);
 					} else{
 						$favouriteModel->withStoryId($_POST['storyId'])
 										->withUserId($_SESSION['userData']['ID'])
-										->delete();
-						echo json_encode([]);
+										->remove();
+						echo json_encode(["removed"=>"true"]);
 					}
 
 				} else{

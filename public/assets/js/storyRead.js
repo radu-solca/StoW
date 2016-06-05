@@ -4,6 +4,7 @@ var numberOfPages;
 var storyPath;
 var leftPage = 0;
 var storyId;
+var isAddedToFavourite = false;
 
 function loadPage(pageNumber){
 	var html = "";
@@ -213,12 +214,19 @@ function addToFavourites(){
 				var responseJSON = JSON.parse(responseText);
 
 				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					console.log(responseJSON);
 					redirect("notLoggedIn");
 				}
 				else{
-					alert("merge");
-					//colorate heart iconita
+						if(responseJSON.hasOwnProperty('inserted')){
+							isAddedToFavourite = true;
+						} else{
+							if(responseJSON.hasOwnProperty('removed')){
+								isAddedToFavourite = false;
+							}
+						}
 				}
+
 			});
 }
 

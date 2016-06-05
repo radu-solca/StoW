@@ -81,10 +81,10 @@
 
 					</div>
 					
-					<div id="commentSectionWrap" class="flex column">
+					<div class="flex column formContent">
 						<form onsubmit="return false;">
 							<input id="comment" type="text" name="comment">
-							<input type="button" value="submit" onclick="submitComment()">
+							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
 						<ul id="commentSection" class="flex column">
 						</ul>

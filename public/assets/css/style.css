@@ -1052,10 +1052,14 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-#commentSectionWrap{
-	background-color: rgba(0,0,0,0.1);
-	border-radius: 3px;
+
+.flexWrap .storyById .storyByIdContent .formContent {
 	margin-top: 40px;
+	width: 100%;
+	max-width: none;
+	color: #7A6453;
+	box-shadow: none;
+	background-color: rgba(0,0,0,0.05); 
 }
 
 /***************************************** 

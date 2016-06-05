@@ -177,6 +177,42 @@ class Story{
 		}
 	}
 
+	public function approve(){
+		$query = "delete from categories_view where st_id = ? and cat_type='approval' and cat_name='pending'";
+
+		$db = Connection::getConnection();
+
+		$stmt = $db->prepare($query);
+		$stmt->execute([$this->id]);
+
+		$query = "insert into categories_view values (?,'approval','approved')";
+
+		$stmt = $db->prepare($query);
+		$stmt->execute([$this->id]);
+	}
+
+	public function remove(){
+		$query = 'DELETE FROM stories';
+
+		if (!is_null($this->id)) {
+		    $cond[] = "ST_ID = ?";
+		    $params[] = $this->id;
+		}
+
+		if (count($cond)) {
+		    $query .= ' WHERE ' . implode(' AND ', $cond);
+		}
+
+		$db = Connection::getConnection();
+
+		// echo $query;
+		// echo '<br>';
+		// print_r($params);
+
+		$stmt = $db->prepare($query);
+		$stmt->execute($params);
+	}
+
 	public function withTitleLike($title){
 		$this->title = $title;
 		return $this;

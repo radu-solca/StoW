@@ -53,9 +53,8 @@ function getStoryThumbnail(story){
 	return thumbnailHTML;
 }
 
-function getAdminStoryThumbnail(story){
+function getAdminStoryThumbnail(story, storyID){
 
-	var cover = fileExists(makeAbsolute(story['COVER'])) ? makeAbsolute(story['COVER']) : makeAbsolute("StoW/public/assets/img/nocover.png");
 
 	var authors = story['AUTHORS'] != null ? "<div class=\"authors\">"+story['AUTHORS']+"</div>" : "";
 
@@ -63,8 +62,8 @@ function getAdminStoryThumbnail(story){
 	"<div class=\"storyThumbnail\">"+
 	"	<div class=\"container\">"+
 	"		<div class=\"adminOverlay\">"+
-	"			<span class=\"approve\">APPROVE</span>"+
-	"			<span class=\"remove\">REMOVE</span>"+
+	"			<span class=\"approve\" onclick=\"approveStory("+storyID+")\">APPROVE</span>"+
+	"			<span class=\"remove\" onclick=\"removeStory("+storyID+")\">REMOVE</span>"+
 	"		</div>"+
 	"		<a href=\"storyView/"+story['ID']+"\">"+
 	"			<div class=\"overlay\">"+
@@ -74,8 +73,7 @@ function getAdminStoryThumbnail(story){
 						getRatingStars(story["RATING"])+
 	"				</div>"+
 	"			</div>"+
-	"			<img class=\"storyCover\" alt=\"story cover\" src=\""+cover+"\""+
-	"			/>"+
+	"			<img class=\"storyCover\" alt=\"story cover\" src=\""+makeAbsolute(story['COVER'])+"\" "+"onerror=\"checkImage(this);\"/>"+
 	"		</a>"+
 	"	</div>"+
 	"</div>";

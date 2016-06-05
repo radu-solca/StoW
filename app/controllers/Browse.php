@@ -25,6 +25,7 @@
 			//print_r($_POST);
 			//echo json_encode($_POST);
 			$story = $this->model('Story');
+			$story->withCategory('approval','approved');
 
 			if(isset($_POST['categories'])){
 				$categories = json_decode($_POST['categories']);

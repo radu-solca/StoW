@@ -44,6 +44,7 @@
 									
 								?>
 							</p>
+							<div id="rating"></div>
 						</section>
 
 						<hr class="vertical">
@@ -105,6 +106,7 @@
 
 	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
 	<script>
 		assignColors("storyByIdContent");
 	</script>
@@ -114,6 +116,7 @@
 	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
 
 	?>
+	<script type="text/javascript">document.getElementById('rating').innerHTML = getRatingStars(<?php echo $data['rating'] ?>);</script>
 
 </body>
 </html>

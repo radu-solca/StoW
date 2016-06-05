@@ -88,7 +88,6 @@ function gotoPage(pageNo){
  	ajaxPost("addBookmark", 
 			params, 
 			function(responseText){
-				alert(responseText);
 			});
 
  });

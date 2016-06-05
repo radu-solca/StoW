@@ -697,12 +697,8 @@ nav form input:focus {
 .storyThumbnail .container a .storyCover {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-    position:absolute; 
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	width: 150px;
+	height: 224px;
 }
 
 .storyThumbnail .overlay {
@@ -1052,10 +1048,14 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-#commentSectionWrap{
-	background-color: rgba(0,0,0,0.1);
-	border-radius: 3px;
+
+.flexWrap .storyById .storyByIdContent .formContent {
 	margin-top: 40px;
+	width: 100%;
+	max-width: none;
+	color: #7A6453;
+	box-shadow: none;
+	background-color: rgba(0,0,0,0.05); 
 }
 
 /***************************************** 

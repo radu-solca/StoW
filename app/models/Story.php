@@ -178,7 +178,17 @@ class Story{
 	}
 
 	public function approve(){
+		$query = "delete from categories_view where st_id = ? and cat_type='approval' and cat_name='pending'";
 
+		$db = Connection::getConnection();
+
+		$stmt = $db->prepare($query);
+		$stmt->execute([$this->id]);
+
+		$query = "insert into categories_view values (?,'approval','approved')";
+
+		$stmt = $db->prepare($query);
+		$stmt->execute([$this->id]);
 	}
 
 	public function remove(){
@@ -195,9 +205,9 @@ class Story{
 
 		$db = Connection::getConnection();
 
-		echo $query;
-		echo '<br>';
-		print_r($params);
+		// echo $query;
+		// echo '<br>';
+		// print_r($params);
 
 		$stmt = $db->prepare($query);
 		$stmt->execute($params);

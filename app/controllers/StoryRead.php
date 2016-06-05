@@ -21,6 +21,9 @@
 			$data['path'] = $storyPath;
 			$data['storyId'] = $storyId;
 
+
+			
+
 			if(App::userSignedIn()){
 				$bookmark = $this->model('Bookmark');
 
@@ -41,12 +44,26 @@
 		}
 
 		public function addBookmark(){
-			print_r($_POST);
+			//print_r($_POST);
 			$bookmark = $this->model('Bookmark');
 
 			$bookmark->withUserId($_SESSION['userData']['ID'])
 					->withStoryId($_POST['storyId'])
 					->withPageId($_POST['pageId'])
+					->insert();
+
+		}
+
+		public function getComments(){
+			$comment = $this->model('Comment'); 
+			echo json_encode($comment->withStoryId($_POST['storyId'])->find());
+		}
+
+		public function addComments(){
+			$comment = $this->model('Comment'); 
+			$comment->withStoryId($_POST['storyId'])
+					->withUserId($_POST['storyId'])
+					->withContent($_POST['content'])
 					->insert();
 
 		}

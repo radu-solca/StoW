@@ -82,28 +82,16 @@ class Test extends Controller{
 		
 	}
 
-	public function json($path = "../stories/Little Red Riding Hood"){
-		$this->model('Story');
-		Story::insertFromJSON(1,$path);
-		
-	}
-
-	public function storyInsert(){
-		$db = Connection::getConnection();
-
-        $query = 'INSERT INTO stories (st_title, st_authors, st_content, st_cover) VALUES (?,?,?,?)';
-
-        $params = ['title', 'Authors', 'content', 'cover'];
-
-        $stmt = $db->prepare($query);
-
-        echo "before <br>";
-        $stmt->execute($params);
-        echo "after <br>";
-	}
-
 	public function starTest(){
 		$this->view("startest");
+	}
+
+	public function commentFind(){
+		$comment = $this->model('Comment');
+
+		echo '<pre>';
+		print_r($comment->find());
+		echo '</pre>';
 	}
 }
 

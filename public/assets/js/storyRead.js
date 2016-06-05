@@ -159,3 +159,20 @@ function resizeStoryPages() {
 
 resizeStoryPages();
 
+
+
+/********COMMENTS********/
+
+function updateCommentSection(){
+	var params = "storyId="+storyId;
+
+	ajaxPost(	"storyRead/getComments", 
+				params, 
+				function(responseText){
+					alert(responseText);
+				});
+
+}
+
+updateCommentSection();
+

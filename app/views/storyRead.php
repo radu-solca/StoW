@@ -57,6 +57,9 @@
 						<div id="pageControlBottom" class="flex row">
 						</div>
 
+						<div id="commentSection" class="flex row">
+						</div>
+
 					</div>
 
 				</div>

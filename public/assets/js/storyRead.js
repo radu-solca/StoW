@@ -45,11 +45,10 @@ function init(jsonEncoded,path,Id,bookmarkId){
 	gotoPage(bookmarkId);
 
 	updatePaginationControl()
+	updateCommentSection();
 }
 
 function updatePaginationControl(){
-
-	console.log("im doing stuff");
 	var paginationControlHtml = "";
 
 	if(leftPage <= 0){
@@ -160,14 +159,48 @@ resizeStoryPages();
 
 function updateCommentSection(){
 	var params = "storyId="+storyId;
-
-	ajaxPost(	"storyRead/getComments", 
+	ajaxPost(	"getComments", 
 				params, 
 				function(responseText){
 					alert(responseText);
+					var html = "";
+
+					var responseJSON = JSON.parse(responseText);
+					responseJSON.forEach(function(comment){
+						html += "<li>"
+									+"<span class=\"username\">"+comment.USERNAME+"</span>"
+									//+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"</br>"
+									+"<span class=\"content\">"+comment.CONTENT+"</span>"
+								+"</li>";
+					});
+					document.getElementById("commentSection").innerHTML = html;
 				});
 
 }
 
-updateCommentSection();
+
+function submitComment(){
+
+	var content = document.getElementById("comment").value;
+
+	console.log(content);
+
+	var params = "storyId="+storyId
+				+"&content="+content;
+
+	ajaxPost(	"addComments", 
+				params, 
+				function(responseText){
+					alert(responseText);
+					var responseJSON = JSON.parse(responseText);
+					if(responseJSON.hasOwnProperty('notLoggedIn')){
+						redirect("notLoggedIn");
+					}
+					else{
+						updateCommentSection();
+					}
+				});
+}
+
 

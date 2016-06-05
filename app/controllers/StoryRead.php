@@ -56,15 +56,23 @@
 
 		public function getComments(){
 			$comment = $this->model('Comment'); 
-			echo json_encode($comment->withStoryId($_POST['storyId'])->find());
+			echo json_encode($comment->withStoryId($_POST['storyId'])->orderBy("DATE_ADDED", "DESC")->find());
 		}
 
 		public function addComments(){
-			$comment = $this->model('Comment'); 
-			$comment->withStoryId($_POST['storyId'])
-					->withUserId($_POST['storyId'])
-					->withContent($_POST['content'])
-					->insert();
+
+			if(App::userSignedIn()){
+				$comment = $this->model('Comment'); 
+				$comment->withStoryId($_POST['storyId'])
+						->withUserId($_SESSION['userData']['ID'])
+						->withContent($_POST['content'])
+						->insert();
+				echo json_encode([]);
+			}
+			else{
+				echo json_encode(["notLoggedIn"=>"true"]);
+			}
+			
 
 		}
 	}

@@ -58,7 +58,13 @@
 						<div id="pageControlBottom" class="flex row">
 						</div>
 
-						<div id="commentSection" class="flex row">
+						<div>
+							<form onsubmit="return false;">
+								<input id="comment" type="text" name="comment">
+								<input type="button" value="submit" onclick="submitComment()">
+							</form>
+							<ul id="commentSection" class="flex row">
+							</ul>
 						</div>
 
 					</div>

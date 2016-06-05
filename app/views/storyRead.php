@@ -114,7 +114,7 @@
 	<?php
 	$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
 	echo '<script src="../assets/js/storyRead.js"></script>'	
-	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
+	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .','.$data['isFavourite'].' ) </script>';
 
 	?>
 	<script type="text/javascript">document.getElementById('rating').innerHTML = getRatingStars(<?php echo $data['rating'] ?>);</script>

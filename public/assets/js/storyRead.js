@@ -4,7 +4,7 @@ var numberOfPages;
 var storyPath;
 var leftPage = 0;
 var storyId;
-var isAddedToFavourite = false;
+var isAddedToFavourite;
 
 function loadPage(pageNumber){
 	var html = "";
@@ -33,12 +33,13 @@ function loadPage(pageNumber){
 
 }
 
-function init(jsonEncoded,path,Id,bookmarkId){
+function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	json = JSON.parse(jsonEncoded);
 	numberOfPages = json['story']['content']['pages'].length;
 	pages = json['story']['content']['pages'];
 	storyPath = path;
 	storyId = Id;
+	isAddedToFavourite = isFavourite == 1 ? true:false;
 	//storyPath = storyPath.replace(/\./g,'');
 
 	leftPage = bookmarkId - bookmarkId % 2;

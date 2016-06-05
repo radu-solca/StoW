@@ -75,7 +75,11 @@
 					$story = $this->model('Story');
 					$story->withID($_POST["ID"])->remove();
 
-					echo "sdkf skjdfhsijhfkjshfsdf";
+					$dirPath = str_replace(' ', '', $_POST["TITLE"]); // Replaces all spaces with hyphens.
+	   				$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
+	   				$dirPath = "../stories/".$dirPath;
+
+	   				unlink($dirPath);
 				}
 			}
 		}

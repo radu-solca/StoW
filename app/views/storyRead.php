@@ -56,17 +56,6 @@
 							<span class="clickable" id="prev">Prev</span>
 							<span class="clickable" id="next">Next</span>
 							<span class="clickable" id="bookmark">Bookmark</span>
-
-
-
-						<?php
-						$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
-						echo $bookmarkPage;
-						echo '<script src="../assets/js/storyRead.js"></script>'	
-						,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
-
-						?>
-
 						</div>
 
 					</div>
@@ -89,6 +78,13 @@
 	<script>
 	assignColors("storyByIdContent");
 	</script>
+	<?php
+		$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
+		echo $bookmarkPage;
+		echo '<script src="../assets/js/storyRead.js"></script>'	
+		,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
+
+	?>
 
 </body>
 </html>

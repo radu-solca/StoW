@@ -917,12 +917,32 @@ nav form input:focus {
 }
 
 #storyAndProgress {
+	color: #7A6453;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	z-index: 0;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#storyAndProgress :first-child {
+/*	background-color: grey;*/
+}
+
+#storyAndProgress #leftPage{
+	background-color: yellow;
+		flex: 1;
+}
+
+#storyAndProgress #rightPage{
+	background-color: violet;
+		flex: 1;
+}
+
+#storyAndProgress img {
+	width: 100px;
+	height: auto;
 }
 
 .flexWrap .storyById .storyByIdContent hr {

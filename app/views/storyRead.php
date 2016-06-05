@@ -42,17 +42,21 @@
 						</section>
 					</div>
 
-					<div id="storyAndProgress">
-						<div id="leftPage">
+					<div id="storyAndProgress" class="flex column">
+						
+						<div class="flex row">
+							<div id="leftPage">
+							</div>
+
+							<div id="rightPage">
+							</div>
 						</div>
 
-						<div id="rightPage">
-						</div>
+						<div class="flex row">
+							<span class="clickable" id="prev">Prev</span>
+							<span class="clickable" id="next">Next</span>
+							<span class="clickable" id="bookmark">Bookmark</span>
 
-						<span class="clickable" id="prev">Prev</span>
-						<span class="clickable" id="next">Next</span>
-
-						<span class="clickable" id="bookmark">Bookmark</span>
 
 
 						<?php
@@ -62,6 +66,8 @@
 						,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
 
 						?>
+
+						</div>
 
 					</div>
 

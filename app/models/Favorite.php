@@ -58,5 +58,9 @@
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
 		}
+
+		public function delete(){
+			
+		}
 	}
 ?>

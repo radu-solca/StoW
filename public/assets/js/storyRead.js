@@ -5,7 +5,6 @@ var storyPath;
 var leftPage = 0;
 var storyId;
 
-
 function loadPage(pageNumber){
 	var html = "";
 

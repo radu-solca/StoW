@@ -697,12 +697,8 @@ nav form input:focus {
 .storyThumbnail .container a .storyCover {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-    position:absolute; 
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	width: 150px;
+	height: 224px;
 }
 
 .storyThumbnail .overlay {

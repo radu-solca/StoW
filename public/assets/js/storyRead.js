@@ -5,6 +5,7 @@ var storyPath;
 var leftPage = 0;
 var storyId;
 
+
 function loadPage(pageNumber){
 	var html = "";
 
@@ -104,17 +105,6 @@ function gotoPage(pageNo){
  	updatePaginationControl();
 }
 
- document.getElementById("next").addEventListener("click",function(){
- 	leftPage += 2;
-
- 	gotoPage(leftPage);
- });
-
- document.getElementById("prev").addEventListener("click",function(){
- 	leftPage -= 2;
-
- 	gotoPage(leftPage);
- });
 
  function createInteractiveButtons(pageNumber){
  	var html = "";
@@ -126,6 +116,8 @@ function gotoPage(pageNo){
 
  	return html;
  }
+
+
 
  document.getElementById("bookmark").addEventListener("click",function(){
 
@@ -140,8 +132,11 @@ function gotoPage(pageNo){
 
  });
 
+
+
 window.addEventListener("resize", resizeStoryPages);
 var bothPages = document.querySelector('#bothStoryPages');
+
 
 function resizeStoryPages() {
     if (window.innerWidth < 500) {

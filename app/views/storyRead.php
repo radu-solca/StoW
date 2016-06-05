@@ -45,6 +45,7 @@
 					<div id="storyAndProgress" class="flex column">
 						
 						<div id="bothStoryPages" class="flex row">
+							<div id="bookmark"></div>
 							<div id="leftPage" class="flex column spaceBetween">
 							</div>
 

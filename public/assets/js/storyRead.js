@@ -90,7 +90,7 @@ function gotoNext(){
 }
 
 function gotoLast(){
-	leftPage = numberOfPages;
+	leftPage = numberOfPages - numberOfPages%2;
 	gotoPage(leftPage);
 }
 

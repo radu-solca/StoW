@@ -44,21 +44,27 @@
 									
 								?>
 							</p>
-							<p>[rating...]</p>
 						</section>
 
 						<hr class="vertical">
 
 						<section id="right" class="flex column">
-							<a href="" class="iconic comment_alt2_stroke"></a>
-							<a href="" class="iconic heart_stroke"></a>
+							<a href="" class="iconic comment_alt2_stroke">
+								<div class="tooltip">comment</div>
+							</a>
+							<a href="" class="iconic heart_stroke">
+								<div class="tooltip">favourite</div>
+							</a>
+							<a href="" id="bookmark" class="iconic book_alt2">
+								<div class="tooltip">bookmark</div>
+							</a>
 						</section>
 					</div>
 
-					<div id="storyAndProgress" class="flex column center1">
+					<div id="storyAndProgress" class="flex column">
 						
 						<div id="bothStoryPages" class="flex row">
-							<div id="bookmark"></div>
+							
 							<div id="leftPage" class="flex column spaceBetween">
 							</div>
 
@@ -68,7 +74,7 @@
 							</div>
 						</div>
 
-						<div id="pageControlBottom" class="flex row">
+						<div id="pageControlBottom" class="flex row center2">
 						</div>
 
 						<div>

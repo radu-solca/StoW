@@ -1,3 +1,14 @@
+CREATE OR REPLACE VIEW comments_view AS
+	SELECT  c.cmt_id AS "ID",
+			c.usr_id AS "USER_ID",
+			u.usr_username AS "USERNAME",
+			c.st_id AS "STORY_ID",
+			c.cmt_date_added AS "DATE_ADDED",
+			c.cmt_content AS "CONTENT"
+	FROM comments c
+	JOIN users u ON c.usr_id = u.usr_id;
+/
+
 CREATE OR REPLACE VIEW stories_view AS
 	SELECT 	s.st_id		 		AS "ID", 
 			s.st_title	 		AS "TITLE",

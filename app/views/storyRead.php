@@ -52,10 +52,7 @@
 							</div>
 						</div>
 
-						<div class="flex row">
-							<span class="clickable" id="prev">Prev</span>
-							<span class="clickable" id="next">Next</span>
-							<span class="clickable" id="bookmark">Bookmark</span>
+						<div id="pageControlBottom" class="flex row">
 						</div>
 
 					</div>

@@ -9,9 +9,10 @@
 			}
 
 			$bookmarkModel = $this->model('Bookmark');
-			$story = $this->model('Story');
-			$data = null;
+			$storyModel = $this->model('Story');
+			$ratingModel = $this->model('Rating');
 
+			$data = null;
 
 			$bookmarkResult = $bookmarkModel->withUserId($_SESSION['userData']['ID'])->find();
 
@@ -21,13 +22,30 @@
 				$storyId = $value['ST_ID'];
 				$pageId = $value['PAGE_ID'];
 
-				$storyResult = $story->withId($storyId)->find();
+				$storyResult = $storyModel->withId($storyId)->find();
 
-				$storyTitle = $storyResult[$key]['TITLE'];
+				$storyTitle = $storyResult[0]['TITLE'];
 
-				$data[$key]['storyTitle'] = $storyTitle;
-				$data[$key]['bookmarkId'] = $pageId;
-				$data[$key]['storyId'] = $storyId;
+				$data['bookmark'][$key]['storyTitle'] = $storyTitle;
+				$data['bookmark'][$key]['bookmarkId'] = $pageId;
+				$data['bookmark'][$key]['storyId'] = $storyId;
+
+			}
+
+			$ratingResult = $ratingModel->withUserId($_SESSION['userData']['ID'])->find();
+			foreach ($ratingResult as $key => $value) {
+				
+				$ratingValue = $value['RAT_VALUE'];
+
+				$storyId = $value['ST_ID'];
+
+				$storyResult = $storyModel->withId($storyId)->find();
+
+				$storyTitle = $storyResult[0]['TITLE'];
+
+				$data['rating'][$key]['storyTitle'] = $storyTitle;
+				$data['rating'][$key]['ratingValue'] = $ratingValue;
+				$data['rating'][$key]['storyId'] = $storyId;
 
 			}
 

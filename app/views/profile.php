@@ -13,7 +13,7 @@
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo App::makeAbsolute("assets/img/favicon.ico"); ?>">
-	
+
 </head>
 <body>
 
@@ -67,8 +67,8 @@
 
 								<form action="" class="flex column center1" method="post">
 									<?php
-										foreach ($data as $key => $value) {
-											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'->'.$value['bookmarkId'].'</a>'; 
+										foreach ($data['bookmark'] as $key => $value) {
+											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-> bookmark at page '.$value['bookmarkId'].'</a>'; 
 										}
 									?>
 								</form>
@@ -92,7 +92,12 @@
 							<h1 class="title">Ratings</h1>
 
 							<form action="" class="flex column center1" method="post">
-								Omnis viderer constituto eum ad, ei omnium regione has, ea sed rebum harum. Nec vocibus delicatissimi ad, pro eu nisl accommodare interpretaris, tantas nostrud no nec. Mel ad zril tollit, mei an audiam neglegentur, mei ea viris vocibus explicari. Eos cu suas veri referrentur, ut scripta accumsan pri, ius in dicat partem intellegat.
+								<?php
+										foreach ($data['rating'] as $key => $value) {
+											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-><div id="'.$value['storyId'].'" ></div>
+											<script>setRatingStars('.$value['ratingValue'].','.$value['storyId'].')</script></a>'; 
+										}
+								?>
 							</form>
 							</section>
 
@@ -123,6 +128,8 @@
 
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/profile.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
+
 
 </body>
 </html>

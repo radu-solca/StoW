@@ -57,11 +57,11 @@ BEGIN
 
 
 	INSERT ALL
-	   INTO stories (st_title, st_content, st_cover) VALUES ('Little Red Riding Hood', 'placeholder', 'placeholder')
-	   INTO stories (st_title, st_content, st_cover) VALUES ('The Little Mermaid', 'placeholder', 'placeholder')
-	   INTO stories (st_title, st_content, st_cover) VALUES ('The Boy Who Cried Wolf', 'placeholder', 'placeholder')
-	   INTO stories (st_title, st_content, st_cover) VALUES ('Alladin', 'placeholder', 'placeholder')
-	   INTO stories (st_title, st_content, st_cover) VALUES ('Ali baba and the Forty Thieves', 'placeholder', 'placeholder')
+	   INTO stories (st_title, st_content, st_cover) VALUES ('Little Red Riding Hood', '../stories/LittleRedRidingHood', '../stories/LittleRedRidingHood/images/cover.jpg')
+	   INTO stories (st_title, st_content, st_cover) VALUES ('The Little Mermaid', '../stories/TheLittleMermaid', '../stories/TheLittleMermaid/images/cover.jpg')
+	   INTO stories (st_title, st_content, st_cover) VALUES ('The Boy Who Cried Wolf', '../stories/TheBoyWhoCriedWolf', '../stories/TheBoyWhoCriedWolf/images/cover.jpg')
+	   INTO stories (st_title, st_content, st_cover) VALUES ('Alladin', '../stories/Alladin', '../stories/Alladin/images/cover.jpg')
+	   INTO stories (st_title, st_content, st_cover) VALUES ('Ali baba and the Forty Thieves', '../stories/AliBabaAndTheFortyThieves', '../stories/AliBabaAndTheFortyThieves/images/cover.jpg')
 	SELECT 1 FROM DUAL;
 
 	insert into stories (st_title, st_content, st_cover)
@@ -137,6 +137,15 @@ BEGIN
 		INTO ratings VALUES (3,3,5)
 		INTO ratings VALUES (2,4,3)
 		INTO ratings VALUES (3,5,2)
+	SELECT 1 FROM DUAL;
+
+
+	INSERT ALL
+	   INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, 'nice story')
+	   INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, '10/10')
+	   INTO comments (usr_id, st_id, cmt_content) VALUES (2, 1, 'Hitler brought people together')
+	   INTO comments (usr_id, st_id, cmt_content) VALUES (5, 1, 'Anusii sunt scumpi')
+	   INTO comments (usr_id, st_id, cmt_content) VALUES (6, 1, 'Whats up doc?')
 	SELECT 1 FROM DUAL;
 
 	COMMIT;

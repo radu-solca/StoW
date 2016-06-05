@@ -95,10 +95,12 @@ function gotoLast(){
 }
 
 function gotoPage(pageNo){
-	if (pageNo % 2 != 0) {
-		pageNo -= 1;
-	}
 
+		if (pageNo % 2 != 0) {
+			pageNo -= 1;
+		}
+
+		
 	document.getElementById("leftPage").innerHTML = loadPage(pageNo);
  	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
  	updatePaginationControl();
@@ -163,11 +165,12 @@ function updateCommentSection(){
 				function(responseText){
 					var html = "";
 
+					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
 						html += "<li>"
 									+"<span class=\"username\">"+comment.USERNAME+"</span>"
-									//+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
 									+"</br>"
 									+"<span class=\"content\">"+comment.CONTENT+"</span>"
 								+"</li>";
@@ -200,6 +203,24 @@ function submitComment(){
 						updateCommentSection();
 					}
 				});
+}
+
+function addToFavourites(){
+	var params = "storyId=" + storyId;
+
+	ajaxPost("addFavourite", 
+			params, 
+			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+
+				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					redirect("notLoggedIn");
+				}
+				else{
+					alert("merge");
+					//colorate heart iconita
+				}
+			});
 }
 
 

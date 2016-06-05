@@ -77,18 +77,27 @@
 		}
 
 		public function addFavourite(){
+			$favouriteModel = $this->model('Favorite');
 
-			if(App::userSignedIn()){
-				$favouriteModel = $this->model('Favorite');
 
-				$favouriteModel->withStoryId($_POST['storyId'])
-								->withUserId($_SESSION['userData']['ID'])
-								->insert();
-				echo json_encode([]);
+				if(App::userSignedIn()){
+					$result = $favouriteModel->withStoryId($_POST['storyId'])->withUserId($_SESSION['userData']['ID'])->find();
 
-			} else{
-				echo json_encode(["notLoggedIn"=>"true"]);
-			}
-		}
+					if(!$result){
+						$favouriteModel->withStoryId($_POST['storyId'])
+										->withUserId($_SESSION['userData']['ID'])
+										->insert();
+						echo json_encode(["inserted"=>"true"]);
+					} else{
+						$favouriteModel->withStoryId($_POST['storyId'])
+										->withUserId($_SESSION['userData']['ID'])
+										->remove();
+						echo json_encode(["removed"=>"true"]);
+					}
+
+				} else{
+					echo json_encode(["notLoggedIn"=>"true"]);
+				}
+	}
 	}
 ?>

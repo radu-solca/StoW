@@ -26,9 +26,7 @@
 			    $query .= ' WHERE ' . implode(' AND ', $cond);
 			}
 
-			echo $query;
-			print_r($params);
-			 $db = Connection::getConnection();
+			$db = Connection::getConnection();
 
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
@@ -51,12 +49,38 @@
 
 			$params = [$this->userId, $this->storyId];
 			
-			print_r($params);
-
 			$db = Connection::getConnection();
 
 			$stmt = $db->prepare($query);
 			$stmt->execute($params);
+		}
+
+		public function remove(){
+		$query = 'DELETE FROM favourites';
+
+		if (!is_null($this->storyId)) {
+		    $cond[] = "ST_ID = ?";
+		    $params[] = $this->storyId;
+		}
+
+		if (!is_null($this->userId)) {
+		    $cond[] = "USR_ID = ?";
+		    $params[] = $this->userId;
+		}
+
+
+		if (count($cond)) {
+		    $query .= ' WHERE ' . implode(' AND ', $cond);
+		}
+
+		$db = Connection::getConnection();
+
+		// echo $query;
+		// echo '<br>';
+		// print_r($params);
+
+		$stmt = $db->prepare($query);
+		$stmt->execute($params);
 		}
 	}
 ?>

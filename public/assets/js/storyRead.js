@@ -95,10 +95,12 @@ function gotoLast(){
 }
 
 function gotoPage(pageNo){
-	if (pageNo % 2 != 0) {
-		pageNo -= 1;
-	}
 
+		if (pageNo % 2 != 0) {
+			pageNo -= 1;
+		}
+
+		
 	document.getElementById("leftPage").innerHTML = loadPage(pageNo);
  	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
  	updatePaginationControl();
@@ -201,6 +203,24 @@ function submitComment(){
 						updateCommentSection();
 					}
 				});
+}
+
+function addToFavourites(){
+	var params = "storyId=" + storyId;
+
+	ajaxPost("addFavourite", 
+			params, 
+			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+
+				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					redirect("notLoggedIn");
+				}
+				else{
+					alert("merge");
+					//colorate heart iconita
+				}
+			});
 }
 
 

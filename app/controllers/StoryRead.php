@@ -75,5 +75,20 @@
 			
 
 		}
+
+		public function addFavourite(){
+
+			if(App::userSignedIn()){
+				$favouriteModel = $this->model('Favorite');
+
+				$favouriteModel->withStoryId($_POST['storyId'])
+								->withUserId($_SESSION['userData']['ID'])
+								->insert();
+				echo json_encode([]);
+
+			} else{
+				echo json_encode(["notLoggedIn"=>"true"]);
+			}
+		}
 	}
 ?>

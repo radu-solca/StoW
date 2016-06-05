@@ -163,11 +163,12 @@ function updateCommentSection(){
 				function(responseText){
 					var html = "";
 
+					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
 						html += "<li>"
 									+"<span class=\"username\">"+comment.USERNAME+"</span>"
-									//+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
 									+"</br>"
 									+"<span class=\"content\">"+comment.CONTENT+"</span>"
 								+"</li>";

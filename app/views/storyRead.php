@@ -77,15 +77,15 @@
 						<div id="pageControlBottom" class="flex row center2">
 						</div>
 
-						<div>
-							<form onsubmit="return false;">
-								<input id="comment" type="text" name="comment">
-								<input type="button" value="submit" onclick="submitComment()">
-							</form>
-							<ul id="commentSection" class="flex row">
-							</ul>
-						</div>
-
+					</div>
+					
+					<div id="commentSectionWrap" class="flex column">
+						<form onsubmit="return false;">
+							<input id="comment" type="text" name="comment">
+							<input type="button" value="submit" onclick="submitComment()">
+						</form>
+						<ul id="commentSection" class="flex column">
+						</ul>
 					</div>
 
 				</div>

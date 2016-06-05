@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>StoW // <?php echo "Dynamic page title pls" ?></title>
+
+	<?php $json=json_decode($data['json']); ?>
+	<title>StoW // <?php print_r( $json->story->meta->title);?></title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -29,8 +31,19 @@
 
 					<div id="storyDetails" class="flex row overlay">
 						<section id="left">
-							<h1>Ayylmao story title</h1>
-							<p>Author Lalala</p>
+							<h1>
+								<?php
+									print_r( $json->story->meta->title);
+								?>
+							</h1>
+							<p>
+								<?php
+
+								$authors = $json->story->meta->authors;
+								echo implode($authors, ', ');
+									
+								?>
+							</p>
 							<p>[rating...]</p>
 						</section>
 
@@ -42,7 +55,7 @@
 						</section>
 					</div>
 
-					<div id="storyAndProgress" class="flex column">
+					<div id="storyAndProgress" class="flex column center1">
 						
 						<div id="bothStoryPages" class="flex row">
 							<div id="bookmark"></div>

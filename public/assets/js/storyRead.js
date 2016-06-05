@@ -126,7 +126,6 @@ function gotoPage(pageNo){
  	ajaxPost("addBookmark", 
 			params, 
 			function(responseText){
-				alert(responseText);
 			});
 
  });
@@ -162,7 +161,6 @@ function updateCommentSection(){
 	ajaxPost(	"getComments", 
 				params, 
 				function(responseText){
-					alert(responseText);
 					var html = "";
 
 					var responseJSON = JSON.parse(responseText);
@@ -192,7 +190,6 @@ function submitComment(){
 	ajaxPost(	"addComments", 
 				params, 
 				function(responseText){
-					alert(responseText);
 					var responseJSON = JSON.parse(responseText);
 					if(responseJSON.hasOwnProperty('notLoggedIn')){
 						redirect("notLoggedIn");

@@ -43,7 +43,55 @@ function init(jsonEncoded,path,Id,bookmarkId){
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);
 
+	updatePaginationControl()
+}
 
+function updatePaginationControl(){
+
+	console.log("im doing stuff");
+	var paginationControlHtml = "";
+
+	if(leftPage <= 0){
+		paginationControlHtml += "<span>&laquo; first</span> <span>&lsaquo; prev</span>  ";
+	}
+	else{
+		paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span>  ";
+	}
+
+	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
+	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
+	paginationControlHtml += "<span>" +(leftPage/2+1);
+	paginationControlHtml += "/"+(((numberOfPages - numberOfPages%2)/2)+1) + "</span>";
+
+	if(leftPage >= (numberOfPages - numberOfPages % 2)){
+		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";
+	}
+	else{
+		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	}
+
+	 // document.getElementById("pageControlTop").innerHTML = paginationControlHtml;
+	 document.getElementById("pageControlBottom").innerHTML = paginationControlHtml;
+}
+
+function gotoFirst(){
+	leftPage = 0;
+	gotoPage(leftPage);
+}
+
+function gotoPrev(){
+	leftPage -= 2;
+	gotoPage(leftPage);
+}
+
+function gotoNext(){
+	leftPage += 2;
+	gotoPage(leftPage);
+}
+
+function gotoLast(){
+	leftPage = numberOfPages;
+	gotoPage(leftPage);
 }
 
 function gotoPage(pageNo){
@@ -53,6 +101,7 @@ function gotoPage(pageNo){
 
 	document.getElementById("leftPage").innerHTML = loadPage(pageNo);
  	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
+ 	updatePaginationControl();
 }
 
  document.getElementById("next").addEventListener("click",function(){
@@ -91,13 +140,9 @@ function gotoPage(pageNo){
 
  });
 
-
-
-
 window.addEventListener("resize", resizeStoryPages);
 var bothPages = document.querySelector('#bothStoryPages');
 
- /*========================================================*/
 function resizeStoryPages() {
     if (window.innerWidth < 500) {
 
@@ -113,5 +158,4 @@ function resizeStoryPages() {
 }
 
 resizeStoryPages();
-
 

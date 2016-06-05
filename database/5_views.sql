@@ -1,7 +1,8 @@
 CREATE OR REPLACE VIEW comments_view AS
 	SELECT  c.cmt_id AS "ID",
+			c.usr_id AS "USER_ID",
 			u.usr_username AS "USERNAME",
-			c.st_id AS "STORY",
+			c.st_id AS "STORY_ID",
 			c.cmt_date_added AS "DATE_ADDED",
 			c.cmt_content AS "CONTENT"
 	FROM comments c

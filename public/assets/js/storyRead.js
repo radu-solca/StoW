@@ -55,7 +55,7 @@ function updatePaginationControl(){
 		paginationControlHtml += "<span>&laquo; first</span> <span>&lsaquo; prev</span>  ";
 	}
 	else{
-		paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span>  ";
+		paginationControlHtml += "<span class=\"clickable brownText\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable brownText\" onclick=\"gotoPrev()\">&lsaquo; prev</span>  ";
 	}
 
 	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
@@ -67,7 +67,7 @@ function updatePaginationControl(){
 		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";
 	}
 	else{
-		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+		paginationControlHtml += "  <span class=\"clickable brownText\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable brownText\" onclick=\"gotoLast()\">last &raquo;</span>";
 	}
 
 	 // document.getElementById("pageControlTop").innerHTML = paginationControlHtml;

@@ -210,9 +210,10 @@ function approveStory(ID){
 	);
 }
 
-function removeStory(ID){
+function removeStory(ID, TITLE){
 
-	parameters = "ID="+ID;
+	parameters = "ID="+ID
+				+"&TITLE="+TITLE;
 
 	ajaxPost("admin/remove", 
 		parameters, 

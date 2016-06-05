@@ -177,6 +177,32 @@ class Story{
 		}
 	}
 
+	public function approve(){
+
+	}
+
+	public function remove(){
+		$query = 'DELETE FROM stories';
+
+		if (!is_null($this->id)) {
+		    $cond[] = "ST_ID = ?";
+		    $params[] = $this->id;
+		}
+
+		if (count($cond)) {
+		    $query .= ' WHERE ' . implode(' AND ', $cond);
+		}
+
+		$db = Connection::getConnection();
+
+		echo $query;
+		echo '<br>';
+		print_r($params);
+
+		$stmt = $db->prepare($query);
+		$stmt->execute($params);
+	}
+
 	public function withTitleLike($title){
 		$this->title = $title;
 		return $this;

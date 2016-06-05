@@ -886,6 +886,15 @@ nav form input:focus {
 	padding-right: 10px;
 }
 
+.flexWrap .profile a{
+	color: #7A6453;
+	opacity: 0.9;
+}
+
+.flexWrap .profile a:hover{
+	opacity: 0.7;
+}
+
 /***************************************** 
 *************** STORY VIEW ***************
 *****************************************/

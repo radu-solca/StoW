@@ -9,17 +9,6 @@ window.makeAbsolute = function makeAbsolute(path){
 	return absPath;
 }
 
-window.fileExists = function fileExists(url){
-
-    var http = new XMLHttpRequest();
-
-    http.open('HEAD', url, false);
-    http.send();
-
-    return http.status != 404;
-
-}
-
 var colorList = [
 "presetColorRed",
 "presetColorOrange",

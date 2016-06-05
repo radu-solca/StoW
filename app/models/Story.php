@@ -106,9 +106,8 @@ class Story{
 		$db = Connection::getConnection();
 
 		// echo $query;
-		// print_r($params);
-
 		// echo '<br>';
+		// print_r($params);
 
 		$stmt = $db->prepare($query);
 		$stmt->execute($params);

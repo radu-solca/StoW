@@ -24,11 +24,13 @@ function getRatingStars(rating){
 	return resultHTML;
 }
 
+function checkImage(image) {
+    image.onerror = "";
+    image.src = makeAbsolute("assets/img/nocover.png");
+    return true;
+}
+
 function getStoryThumbnail(story){
-
-	console.log(makeAbsolute(story['COVER']));
-
-	var cover = fileExists(makeAbsolute(story['COVER'])) ? makeAbsolute(story['COVER']) : makeAbsolute("StoW/public/assets/img/nocover.png");
 
 	var authors = story['AUTHORS'] != null ? "<div class=\"authors\">"+story['AUTHORS']+"</div>" : "";
 
@@ -43,8 +45,7 @@ function getStoryThumbnail(story){
 						getRatingStars(story["RATING"])+
 	"				</div>"+
 	"			</div>"+
-	"			<img class=\"storyCover\" alt=\"story cover\" src=\""+cover+"\""+
-	"			/>"+
+	"			<img class=\"storyCover\" alt=\"story cover\" src=\""+makeAbsolute(story['COVER'])+"\" "+"onerror=\"checkImage(this);\"/>"+
 	"		</a>"+
 	"	</div>"+
 	"</div>";

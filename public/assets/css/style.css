@@ -670,6 +670,12 @@ nav form input:focus {
 	margin-top: 2px;
 }
 
+.storyThumbnail .container a{;
+	overflow: hidden;
+	width: 150px;
+	height: 224px;
+}
+
 .storyThumbnail .container a:hover > .overlay {
 	opacity: 1;
 	top: 0px;
@@ -682,8 +688,12 @@ nav form input:focus {
 .storyThumbnail .container a .storyCover {
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-	width: 150px;
-	height: 224px;
+    position:absolute; 
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .storyThumbnail .overlay {
@@ -704,7 +714,7 @@ nav form input:focus {
 }
 
 .overlay .authors {
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	padding: 0 30px;
 	font-size: 15px;
 }
@@ -771,7 +781,6 @@ nav form input:focus {
 	padding: 5px 10px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
-	margin-right: 10px;
 	border: none;
 }
 
@@ -935,10 +944,10 @@ nav form input:focus {
 	margin-top: 10px;
 	text-align: center;
 	border-radius: 9999px;
-	font-size: 25px;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
+	font-size: 18px;
+	width: 40px;
+	height: 40px;
+	line-height: 43px;
 	background: rgba(0,0,0,0.05);
 	border: 2px rgba(255,255,255,0) solid;
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
@@ -946,7 +955,7 @@ nav form input:focus {
 }
 
 .flexWrap .storyById .storyByIdContent .iconic::before {
-	margin: 16px;
+	margin: 14px;
 }
 
 .flexWrap .storyById .storyByIdContent .iconic:hover{

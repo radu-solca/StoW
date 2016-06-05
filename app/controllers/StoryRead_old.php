@@ -1,5 +1,6 @@
 <?php
 
+
 	class StoryRead extends Controller{
 
 		public function index($storyId){
@@ -25,7 +26,7 @@
 				$bookmark = $this->model('Bookmark');
 
 				$result = $bookmark->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
-				// echo $_SESSION['userData']['ID'],$storyId;
+				echo $_SESSION['userData']['ID'],$storyId;
 				// print_r($result);
 				if(!empty($result)){
 					echo "mesaj2";
@@ -36,8 +37,6 @@
 
 
 			$this->view("storyRead",$data);
-
-			
 		}
 
 		public function addBookmark(){

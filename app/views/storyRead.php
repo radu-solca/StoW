@@ -51,7 +51,7 @@
 
 						<section id="right" class="flex column">
 							<a href="" class="iconic comment_alt2_stroke"></a>
-							<a href="" class="iconic heart_stroke"></a>
+							<span class="iconic heart_stroke clickable" onclick="addToFavourites()"></span>
 						</section>
 					</div>
 

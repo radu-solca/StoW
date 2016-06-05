@@ -67,8 +67,11 @@
 
 								<form action="" class="flex column center1" method="post">
 									<?php
-										foreach ($data['bookmark'] as $key => $value) {
-											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-> bookmark at page '.$value['bookmarkId'].'</a>'; 
+										if($data['bookmarks']){
+
+											foreach ($data['bookmarks'] as $key => $value) {
+												echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-> bookmark at page '.$value['bookmarkId'].'</a>'; 
+											}
 										}
 									?>
 								</form>
@@ -83,9 +86,11 @@
 
 							<form action="" class="flex column center1" method="post">
 								<?php
-									foreach ($data['favourites'] as $key => $value) {
-										echo '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'</a>';
-									}
+									if($data['favourites']){
+										foreach ($data['favourites'] as $key => $value) {
+											echo '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'</a>';
+										}
+								}
 								?>
 							</form>
 							</section>
@@ -97,23 +102,18 @@
 
 							<form action="" class="flex column center1" method="post">
 								<?php
-										foreach ($data['rating'] as $key => $value) {
-											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-><div id="'.$value['storyId'].'" ></div>
-											<script>setRatingStars('.$value['ratingValue'].','.$value['storyId'].')</script></a>'; 
-										}
+										if($data['ratings']){
+
+											foreach ($data['ratings'] as $key => $value) {
+												echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'->'.$value['ratingValue'].' stars </a>'; 
+											}
+									}
 								?>
 							</form>
 							</section>
 
 							<hr class="vertical">	
 
-							<section>
-							<h1 class="title">Comments</h1>
-
-							<form action="" class="flex column center1" method="post">
-								Alia nostrud tractatos eos et, no brute consul eam. Solet volumus senserit te eam, cu rebum doming quo. Graece suscipiantur pro id, mea id nihil facilisis, vocibus abhorreant sea ei. At putant aperiri est, vix lorem signiferumque in, has odio scribentur et.
-							</form>
-							</section>
 						</div>
 
 					</div>

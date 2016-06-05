@@ -66,7 +66,11 @@
 								<h1 class="title">Bookmarks</h1>
 
 								<form action="" class="flex column center1" method="post">
-									Lorem ipsum dolor sit amet, timeam oporteat duo ad, eum id audiam erroribus. Duo prima laoreet ei, ut has autem malorum. Ius eu prima etiam vocibus, cum dolore sapientem id. In dicit scaevola mel, mea epicurei erroribus instructior te.
+									<?php
+										foreach ($data as $key => $value) {
+											echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'->'.$value['bookmarkId'].'</a>'; 
+										}
+									?>
 								</form>
 							</section>	
 						</div>

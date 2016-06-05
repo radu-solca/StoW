@@ -54,19 +54,15 @@ function gotoPage(pageNo){
 }
 
  document.getElementById("next").addEventListener("click",function(){
- 	if(leftPage<numberOfPages-1){
 	 	leftPage += 2;
 
 	 	gotoPage(leftPage);
- 	}
  });
 
  document.getElementById("prev").addEventListener("click",function(){
- 	if(leftPage>=2){
 	 	leftPage -= 2;
 
 	 	gotoPage(leftPage);
- 	}
  });
 
  function createInteractiveButtons(pageNumber){

@@ -82,7 +82,11 @@
 							<h1 class="title">Favorites</h1>
 
 							<form action="" class="flex column center1" method="post">
-								Assum civibus at pri, te rebum persecuti eum, mel cu assentior consetetur disputationi. Detracto assentior eloquentiam ei vel, mea id nemore dolorem. An summo dicit eam, nostrum iracundia at per. Duo choro referrentur no. Ea sed denique conceptam, no eum lorem numquam utroque. His ad erant adolescens. Ornatus interpretaris ne est, facete eirmod te eos.
+								<?php
+									foreach ($data['favourites'] as $key => $value) {
+										echo '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'</a>';
+									}
+								?>
 							</form>
 							</section>
 

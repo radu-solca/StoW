@@ -11,6 +11,7 @@
 			$bookmarkModel = $this->model('Bookmark');
 			$storyModel = $this->model('Story');
 			$ratingModel = $this->model('Rating');
+			$favoriteModel = $this->model('Favorite');
 
 			$data = null;
 
@@ -23,7 +24,6 @@
 				$pageId = $value['PAGE_ID'];
 
 				$storyResult = $storyModel->withId($storyId)->find();
-
 				$storyTitle = $storyResult[0]['TITLE'];
 
 				$data['bookmark'][$key]['storyTitle'] = $storyTitle;
@@ -40,7 +40,6 @@
 				$storyId = $value['ST_ID'];
 
 				$storyResult = $storyModel->withId($storyId)->find();
-
 				$storyTitle = $storyResult[0]['TITLE'];
 
 				$data['rating'][$key]['storyTitle'] = $storyTitle;
@@ -48,6 +47,24 @@
 				$data['rating'][$key]['storyId'] = $storyId;
 
 			}
+
+			$favouritesResult = $favoriteModel->withUserId($_SESSION['userData']['ID'])->find();
+			$i = 0;
+
+			foreach ($favouritesResult as $value) {
+				$userId = $value['USR_ID'];
+				$storyId = $value['ST_ID'];
+
+				$storyResult = $storyModel->withId($storyId)->find();
+				$storyTitle = $storyResult[0]['TITLE'];
+
+				$data['favourites'][$i]['storyTitle'] = $storyTitle;
+				$data['favourites'][$i]['storyId'] = $storyId; 
+
+				$i++;
+
+			}
+
 
 			$this->view('profile',$data);
 

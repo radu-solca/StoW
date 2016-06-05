@@ -204,4 +204,22 @@ function submitComment(){
 				});
 }
 
+function addToFavourites(){
+	var params = "storyId=" + storyId;
+
+	ajaxPost("addFavourite", 
+			params, 
+			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+
+				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					redirect("notLoggedIn");
+				}
+				else{
+					alert("merge");
+					//colorate heart iconita
+				}
+			});
+}
+
 

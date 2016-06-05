@@ -40,6 +40,8 @@ class Upload extends Controller{
 
 					    }
 				}
+			} else{
+				return false;
 			}
 		   	
 
@@ -128,6 +130,7 @@ class Upload extends Controller{
 
 		   				//check if the directory with story's title allready exists
 		   				if (file_exists($dirPath)) {
+		   					echo "$dirPath";
 							$this->errorHandler->addError('Sorry, story already exists.');
 							unlink($target_file);
 

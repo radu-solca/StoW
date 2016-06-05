@@ -49,15 +49,17 @@
 						<hr class="vertical">
 
 						<section id="right" class="flex column">
+						
 							<a href="" class="iconic comment_alt2_stroke">
 								<div class="tooltip">comment</div>
 							</a>
-							<a href="" class="iconic heart_stroke">
+							<span class="iconic heart_stroke clickable" onclick="addToFavourites()"></span>
 								<div class="tooltip">favourite</div>
 							</a>
 							<a href="" id="bookmark" class="iconic book_alt2">
 								<div class="tooltip">bookmark</div>
 							</a>
+
 						</section>
 					</div>
 

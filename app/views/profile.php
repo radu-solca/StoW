@@ -13,7 +13,7 @@
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo App::makeAbsolute("assets/img/favicon.ico"); ?>">
-	
+
 </head>
 <body>
 
@@ -66,7 +66,14 @@
 								<h1 class="title">Bookmarks</h1>
 
 								<form action="" class="flex column center1" method="post">
-									Lorem ipsum dolor sit amet, timeam oporteat duo ad, eum id audiam erroribus. Duo prima laoreet ei, ut has autem malorum. Ius eu prima etiam vocibus, cum dolore sapientem id. In dicit scaevola mel, mea epicurei erroribus instructior te.
+									<?php
+										if($data['bookmarks']){
+
+											foreach ($data['bookmarks'] as $key => $value) {
+												echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'-> bookmark at page '.$value['bookmarkId'].'</a>'; 
+											}
+										}
+									?>
 								</form>
 							</section>	
 						</div>
@@ -78,7 +85,13 @@
 							<h1 class="title">Favorites</h1>
 
 							<form action="" class="flex column center1" method="post">
-								Assum civibus at pri, te rebum persecuti eum, mel cu assentior consetetur disputationi. Detracto assentior eloquentiam ei vel, mea id nemore dolorem. An summo dicit eam, nostrum iracundia at per. Duo choro referrentur no. Ea sed denique conceptam, no eum lorem numquam utroque. His ad erant adolescens. Ornatus interpretaris ne est, facete eirmod te eos.
+								<?php
+									if($data['favourites']){
+										foreach ($data['favourites'] as $key => $value) {
+											echo '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'</a>';
+										}
+								}
+								?>
 							</form>
 							</section>
 
@@ -88,19 +101,19 @@
 							<h1 class="title">Ratings</h1>
 
 							<form action="" class="flex column center1" method="post">
-								Omnis viderer constituto eum ad, ei omnium regione has, ea sed rebum harum. Nec vocibus delicatissimi ad, pro eu nisl accommodare interpretaris, tantas nostrud no nec. Mel ad zril tollit, mei an audiam neglegentur, mei ea viris vocibus explicari. Eos cu suas veri referrentur, ut scripta accumsan pri, ius in dicat partem intellegat.
+								<?php
+										if($data['ratings']){
+
+											foreach ($data['ratings'] as $key => $value) {
+												echo  '<a href="storyRead/'.$value['storyId'].'">'.$value['storyTitle'].'->'.$value['ratingValue'].' stars </a>'; 
+											}
+									}
+								?>
 							</form>
 							</section>
 
 							<hr class="vertical">	
 
-							<section>
-							<h1 class="title">Comments</h1>
-
-							<form action="" class="flex column center1" method="post">
-								Alia nostrud tractatos eos et, no brute consul eam. Solet volumus senserit te eam, cu rebum doming quo. Graece suscipiantur pro id, mea id nihil facilisis, vocibus abhorreant sea ei. At putant aperiri est, vix lorem signiferumque in, has odio scribentur et.
-							</form>
-							</section>
 						</div>
 
 					</div>
@@ -119,6 +132,8 @@
 
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/profile.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
+
 
 </body>
 </html>

@@ -25,3 +25,7 @@ function resizeProfileTiles() {
 }
 
 resizeProfileTiles();
+
+function setRatingStars(ratingValue,storyId){
+    document.getElementById(storyId).innerHTML = getRatingStars(ratingValue);
+}

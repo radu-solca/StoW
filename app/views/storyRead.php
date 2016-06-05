@@ -44,18 +44,18 @@
 
 					<div id="storyAndProgress" class="flex column">
 						
-						<div class="flex row">
-							<div id="leftPage">
+						<div id="bothStoryPages" class="flex row">
+							<div id="bookmark"></div>
+							<div id="leftPage" class="flex column spaceBetween">
 							</div>
+
+							<hr class="vertical" class="flex column spaceBetween">
 
 							<div id="rightPage">
 							</div>
 						</div>
 
-						<div class="flex row">
-							<span class="clickable" id="prev">Prev</span>
-							<span class="clickable" id="next">Next</span>
-							<span class="clickable" id="bookmark">Bookmark</span>
+						<div id="pageControlBottom" class="flex row">
 						</div>
 
 					</div>
@@ -76,12 +76,12 @@
 	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
 	<script>
-	assignColors("storyByIdContent");
+		assignColors("storyByIdContent");
 	</script>
 	<?php
-		$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
-		echo '<script src="../assets/js/storyRead.js"></script>'	
-		,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
+	$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
+	echo '<script src="../assets/js/storyRead.js"></script>'	
+	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
 
 	?>
 

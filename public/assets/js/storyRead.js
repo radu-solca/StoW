@@ -5,6 +5,7 @@ var storyPath;
 var leftPage = 0;
 var storyId;
 
+
 function loadPage(pageNumber){
 	var html = "";
 
@@ -21,8 +22,11 @@ function loadPage(pageNumber){
 			html += pages[pageNumber]['text'];
 		}
 
+
 		if(pages[pageNumber].hasOwnProperty("nextList")){
+			html += "<div class=\"flex row choice flexEnd\">";
 			html += createInteractiveButtons(pageNumber);
+			html += "</div>";
 		}
 	}
 	return html;
@@ -40,7 +44,55 @@ function init(jsonEncoded,path,Id,bookmarkId){
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);
 
+	updatePaginationControl()
+}
 
+function updatePaginationControl(){
+
+	console.log("im doing stuff");
+	var paginationControlHtml = "";
+
+	if(leftPage <= 0){
+		paginationControlHtml += "<span>&laquo; first</span> <span>&lsaquo; prev</span>  ";
+	}
+	else{
+		paginationControlHtml += "<span class=\"clickable\" onclick=\"gotoFirst()\">&laquo; first</span> <span class=\"clickable\" onclick=\"gotoPrev()\">&lsaquo; prev</span>  ";
+	}
+
+	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
+	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
+	paginationControlHtml += "<span>" +(leftPage/2+1);
+	paginationControlHtml += "/"+(((numberOfPages - numberOfPages%2)/2)+1) + "</span>";
+
+	if(leftPage >= (numberOfPages - numberOfPages % 2)){
+		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";
+	}
+	else{
+		paginationControlHtml += "  <span class=\"clickable\" onclick=\"gotoNext()\">next &rsaquo;</span> <span class=\"clickable\" onclick=\"gotoLast()\">last &raquo;</span>";
+	}
+
+	 // document.getElementById("pageControlTop").innerHTML = paginationControlHtml;
+	 document.getElementById("pageControlBottom").innerHTML = paginationControlHtml;
+}
+
+function gotoFirst(){
+	leftPage = 0;
+	gotoPage(leftPage);
+}
+
+function gotoPrev(){
+	leftPage -= 2;
+	gotoPage(leftPage);
+}
+
+function gotoNext(){
+	leftPage += 2;
+	gotoPage(leftPage);
+}
+
+function gotoLast(){
+	leftPage = numberOfPages - numberOfPages%2;
+	gotoPage(leftPage);
 }
 
 function gotoPage(pageNo){
@@ -49,36 +101,25 @@ function gotoPage(pageNo){
 			pageNo -= 1;
 		}
 
-		document.getElementById("leftPage").innerHTML = loadPage(pageNo);
-	 	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
+		
+	document.getElementById("leftPage").innerHTML = loadPage(pageNo);
+ 	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
+ 	updatePaginationControl();
 }
 
- document.getElementById("next").addEventListener("click",function(){
- 	if(leftPage<numberOfPages-1){
-	 	leftPage += 2;
-
-	 	gotoPage(leftPage);
- 	}
- });
-
- document.getElementById("prev").addEventListener("click",function(){
- 	if(leftPage>=2){
-	 	leftPage -= 2;
-
-	 	gotoPage(leftPage);
- 	}
- });
 
  function createInteractiveButtons(pageNumber){
  	var html = "";
 
  	pages[pageNumber].nextList.forEach(function(nextItem){
- 		html += "<span class=\"clickable\" onclick=\"leftPage = "+(nextItem.index - (nextItem.index % 2))+"; gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span>";
+ 		html += "<a class=\"overlay\"><span class=\"clickable\" onclick=\"leftPage = "+(nextItem.index - (nextItem.index % 2))+"; gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span></a>";
  		//leftPage = nextItem.index;
  	}); 
 
  	return html;
  }
+
+
 
  document.getElementById("bookmark").addEventListener("click",function(){
 
@@ -92,4 +133,25 @@ function gotoPage(pageNo){
 
  });
 
+
+
+window.addEventListener("resize", resizeStoryPages);
+var bothPages = document.querySelector('#bothStoryPages');
+
+
+function resizeStoryPages() {
+    if (window.innerWidth < 500) {
+
+        bothPages.classList.remove("row");
+        bothPages.classList.add("column");
+
+    } else {
+
+    	bothPages.classList.remove("column");
+        bothPages.classList.add("row");
+
+    }
+}
+
+resizeStoryPages();
 

@@ -44,24 +44,29 @@ function init(jsonEncoded,path,Id,bookmarkId){
 }
 
 function gotoPage(pageNo){
-	if (pageNo % 2 != 0) {
-		pageNo -= 1;
-	}
 
-	document.getElementById("leftPage").innerHTML = loadPage(pageNo);
- 	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
+		if (pageNo % 2 != 0) {
+			pageNo -= 1;
+		}
+
+		document.getElementById("leftPage").innerHTML = loadPage(pageNo);
+	 	document.getElementById("rightPage").innerHTML = loadPage(pageNo+1);
 }
 
  document.getElementById("next").addEventListener("click",function(){
- 	leftPage += 2;
+ 	if(leftPage<numberOfPages-1){
+	 	leftPage += 2;
 
- 	gotoPage(leftPage);
+	 	gotoPage(leftPage);
+ 	}
  });
 
  document.getElementById("prev").addEventListener("click",function(){
- 	leftPage -= 2;
+ 	if(leftPage>=2){
+	 	leftPage -= 2;
 
- 	gotoPage(leftPage);
+	 	gotoPage(leftPage);
+ 	}
  });
 
  function createInteractiveButtons(pageNumber){

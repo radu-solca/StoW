@@ -1043,6 +1043,12 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
+#commentSectionWrap{
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 3px;
+	margin-top: 40px;
+}
+
 /***************************************** 
 **************** BROWSE ******************
 *****************************************/

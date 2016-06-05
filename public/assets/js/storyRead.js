@@ -21,8 +21,11 @@ function loadPage(pageNumber){
 			html += pages[pageNumber]['text'];
 		}
 
+
 		if(pages[pageNumber].hasOwnProperty("nextList")){
+			html += "<div class=\"flex row choice flexEnd\">";
 			html += createInteractiveButtons(pageNumber);
+			html += "</div>";
 		}
 	}
 	return html;
@@ -68,7 +71,7 @@ function gotoPage(pageNo){
  	var html = "";
 
  	pages[pageNumber].nextList.forEach(function(nextItem){
- 		html += "<span class=\"clickable\" onclick=\"leftPage = "+(nextItem.index - (nextItem.index % 2))+"; gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span>";
+ 		html += "<a class=\"overlay\"><span class=\"clickable\" onclick=\"leftPage = "+(nextItem.index - (nextItem.index % 2))+"; gotoPage(" + nextItem.index + ")\">" + nextItem.msg + "</span></a>";
  		//leftPage = nextItem.index;
  	}); 
 
@@ -87,5 +90,28 @@ function gotoPage(pageNo){
 			});
 
  });
+
+
+
+
+window.addEventListener("resize", resizeStoryPages);
+var bothPages = document.querySelector('#bothStoryPages');
+
+ /*========================================================*/
+function resizeStoryPages() {
+    if (window.innerWidth < 500) {
+
+        bothPages.classList.remove("row");
+        bothPages.classList.add("column");
+
+    } else {
+
+    	bothPages.classList.remove("column");
+        bothPages.classList.add("row");
+
+    }
+}
+
+resizeStoryPages();
 
 

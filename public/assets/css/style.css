@@ -91,6 +91,7 @@ dark_blue			#4dbdbc
 
 .presetColorRed .overlay {
 	background-color: #E66464;
+	color: #E66464;
 }
 
 .presetColorOrange .container,
@@ -100,6 +101,7 @@ dark_blue			#4dbdbc
 
 .presetColorOrange .overlay {
 	background-color: #ea8100;
+	color: #ea8100;
 }
 
 .presetColorYellow .container,
@@ -109,6 +111,7 @@ dark_blue			#4dbdbc
 
 .presetColorYellow .overlay {
 	background-color: #ebae02;
+	color: #ebae02;
 }
 
 .presetColorGreen .container,
@@ -118,6 +121,7 @@ dark_blue			#4dbdbc
 
 .presetColorGreen .overlay {
 	background-color: #8dc225;
+	color: #8dc225;
 }
 
 .presetColorBlue .container,
@@ -127,6 +131,7 @@ dark_blue			#4dbdbc
 
 .presetColorBlue .overlay {
 	background-color: #4dbdbc;
+	color: #4dbdbc;
 }
 
 /*****************************************
@@ -660,7 +665,6 @@ nav form input:focus {
 }
 
 .storyThumbnail .container {
-	color: white;
 	width: 150px;
 	height: 224px;
 	overflow: hidden;
@@ -670,7 +674,7 @@ nav form input:focus {
 	margin-top: 2px;
 }
 
-.storyThumbnail .container a{;
+.storyThumbnail .container a{
 	overflow: hidden;
 	width: 150px;
 	height: 224px;
@@ -708,12 +712,14 @@ nav form input:focus {
 }
 
 .overlay .title {
+	color: white;
 	font-family: 'Amatic SC', cursive;
 	padding: 0 8px;
 	font-size: 32px;
 }
 
 .overlay .authors {
+	color: white;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	padding: 0 30px;
 	font-size: 15px;
@@ -931,17 +937,21 @@ nav form input:focus {
 }
 
 #storyAndProgress #leftPage{
-	background-color: yellow;
-		flex: 1;
+	flex: 1;
 }
 
 #storyAndProgress #rightPage{
-	background-color: violet;
-		flex: 1;
+	flex: 1;
+}
+
+#storyAndProgress .choice span{
+	text-transform: uppercase;
+	background: white;
+	font-weight: 700;
 }
 
 #storyAndProgress img {
-	width: 100px;
+	width: 100%;
 	height: auto;
 }
 
@@ -1218,8 +1228,10 @@ nav form input:focus {
 
 .clickable{
 	cursor: pointer;
-	color: #7A6453;
+}
 
+.brownText{
+	color: rgba(122,100,83,1);
 }
 
 /***************************************** 

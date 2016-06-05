@@ -182,6 +182,8 @@ function submitComment(){
 
 	var content = document.getElementById("comment").value;
 
+	document.getElementById("comment").value = "";
+
 	console.log(content);
 
 	var params = "storyId="+storyId

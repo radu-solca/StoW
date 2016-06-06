@@ -85,7 +85,7 @@ function updatePaginationControl(){
 	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
 	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
 	paginationControlHtml += "<span>" +(leftPage/2+1);
-	paginationControlHtml += "/"+(((numberOfPages - numberOfPages%2)/2)+1) + "</span>";
+	paginationControlHtml += "/"+((numberOfPages + numberOfPages%2)/2) + "</span>";
 
 	if(leftPage >= (numberOfPages - numberOfPages % 2)){
 		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";

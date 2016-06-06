@@ -59,7 +59,7 @@
                     "text": "Lorem ipsum dolor sit amet, timeam oporteat duo ad, eum id audiam erroribus. Duo prima laoreet ei, ut has autem malorum. Ius eu prima etiam vocibus, cum dolore sapientem id. In dicit scaevola mel, mea epicurei erroribus instructior te.",
                     "nextList": [
                     	{
-	                        "index": 2,
+	                        "index": 13,
 	                        "msg": "Alladin wins"
 	                    },
 	                    {
@@ -68,18 +68,10 @@
 	                    }
                     ]
                 },
-                    {
-                    "img":  "images/Alladin1.jpg",
-                    "nextList": [
-                        {
-                            "index": 3,
-                            "msg": "TheGenie wins!!"
-
-                        }
-                    ]
-
+                {
+                    "img":  "images/Alladin1.jpg"
                 },
-                  {
+                {
                     "subtitle": "Capitol2",
                     "text": "Assum civibus at pri, te rebum persecuti eum, mel cu assentior consetetur disputationi. Detracto assentior eloquentiam ei vel, mea id nemore dolorem. An summo dicit eam, nostrum iracundia at per. Duo choro referrentur no. Ea sed denique conceptam, no eum lorem numquam utroque. His ad erant adolescens. Ornatus interpretaris ne est, facete eirmod te eos."
                  
@@ -88,18 +80,70 @@
                     "img":  "images/Alladin2.jpg",
                     "nextList": [
                         {
-	                        "index": 5,
+	                        "index": 9,
                             "msg": "TheGenie dies!!!"
 
 	                    }
                     ]
 
                 },
-		{
+		        {
                     "subtitle": "Capitol3",
                     "text": "In laoreet ultricies nulla, aliquet consequat risus auctor quis. In sed orci convallis leo molestie mattis bibendum ut tellus. Suspendisse aliquam enim vitae ullamcorper facilisis. Mauris consectetur id ex at suscipit. Nam auctor lobortis felis, at gravida nulla mattis id."
                  
+                },
+                {
+                    "img":  "images/Alladin3.jpg"
+                },
+                {
+                    "subtitle": "Capitol3",
+                    "text": "Praesent lacinia ex non dapibus finibus. Praesent malesuada eros ligula, a semper purus mattis sit amet. Ut varius metus lobortis dolor efficitur pellentesque. Curabitur id neque sed turpis volutpat placerat. Praesent libero urna, dictum nec velit non, bibendum congue tellus. Proin placerat lobortis auctor. Nunc eu nunc arcu."
+                 
+                },
+                {
+                    "img":  "images/Alladin4.jpg",
+                     "nextList": [
+                        {
+                            "index": 9,
+                            "msg": "Alladin keeps the lamp"
+                        },
+                        {
+                            "index": 13,
+                            "msg": "Alladin throws the lamp"
+                        }
+                    ]                   
+                },
+                {
+                    "subtitle": "Capitol3",
+                    "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ullamcorper vehicula ipsum id tincidunt. Proin facilisis dui ornare dictum tristique. Integer volutpat lectus in varius fermentum."
+                 
+                },
+                {
+                    "img":  "images/Alladin5.jpg",
+                     "nextList": [
+                        {
+                            "index": 1,
+                            "msg": "Alladin ressurects"
+                        }
+                    ]                   
+                },
+                {
+                    "subtitle": "Capitol3",
+                    "text": "Nunc pretium lectus vel purus aliquet dictum. Donec at leo ullamcorper, molestie turpis ac, lobortis odio."
+                 
+                },
+                {
+                    "img":  "images/Alladin6.jpg"
+                },
+                {
+                    "subtitle": "Capitol3",
+                    "text": "Phasellus eu aliquam magna.THE END! "
+                 
+                },
+                {
+                    "img":  "images/Alladin7.gif"
                 }
+             
             ]
         }
     }

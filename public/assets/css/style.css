@@ -1,42 +1,17 @@
 /*****************************************
 ****************** ICONS *****************
 *****************************************/
-@font-face {
-	font-family: 'IconicStroke';
-	src: url(../font/iconic_stroke.eot);
-	src: url(../font/iconic_stroke.eot?#iefix) format("embedded-opentype"), url(../font/iconic_stroke.ttf) format("truetype"), url(../font/iconic_stroke.svg#iconic) format("svg");
-	font-weight: 400;
-	font-style: normal;
-}
 
-.iconic {
-	font-family: 'IconicStroke';
-}
 
 .iconic:before {
 	padding-right: 7px;
 }
 
-/*icons:*/
-.home:before {
-	content: '\2302';
-}
-
-.book:before {
-	content: '\e069';
-}
-
 .upload:before {
-	content: '\e043';
 	padding-left: 2px;
 }
 
-.magnifying_glass:before {
-	content: '\e074';
-}
-
 .user:before {
-	content: '\e062';
 	padding-left: 2px;
 }
 
@@ -46,18 +21,6 @@
 	margin-left: 5px;
 	font-size: 12px;
 	vertical-align: 1px;
-}
-
-.comment_alt2_stroke:before {
-	content: '\e004';
-}
-
-.heart_stroke:before {
-	content: '\2764';
-}
-
-.book_alt2:before {
-	content: '\e06a';
 }
 
 /*****************************************

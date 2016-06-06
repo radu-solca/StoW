@@ -10,18 +10,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/style.css"); ?>">
+	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/iconic_fill.css"); ?>">
+	<link rel="stylesheet" href="<?php echo App::makeAbsolute("assets/css/iconic_stroke.css"); ?>">
 	<link rel="stylesheet" media="screen and (max-width:500px)" href="<?php echo App::makeAbsolute("assets/css/style_mobile.css"); ?>" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo App::makeAbsolute("assets/img/favicon.ico"); ?>">
 
 </head>
 <body>
-
-
-	<!-- MAKE PATH ABSOLUTE (LOCALHOST) 
-	<?php echo App::makeAbsolute("something"); ?>
-	-->
-
 
 	<?php 
 	require "../app/views/menu.php";

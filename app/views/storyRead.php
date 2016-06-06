@@ -44,19 +44,21 @@
 									
 								?>
 							</p>
+							<div id="rating"></div>
 						</section>
 
 						<hr class="vertical">
 
 						<section id="right" class="flex column">
 						
-							<a href="" class="iconic comment_alt2_stroke">
+							<a class="iconic comment_alt2_stroke">
 								<div class="tooltip">comment</div>
 							</a>
-							<span class="iconic heart_stroke clickable" onclick="addToFavourites()"></span>
+							<a class="iconic heart_stroke clickable" onclick="addToFavourites()">
 								<div class="tooltip">favourite</div>
+							</a>	
 							</a>
-							<a href="" id="bookmark" class="iconic book_alt2">
+							<a id="bookmark" class="iconic book_alt2">
 								<div class="tooltip">bookmark</div>
 							</a>
 
@@ -105,15 +107,17 @@
 
 	<script src="<?php echo App::makeAbsolute("assets/js/ajax.js"); ?>"></script>
 	<script src="<?php echo App::makeAbsolute("assets/js/global.js"); ?>"></script>
+	<script src="<?php echo App::makeAbsolute("assets/js/storyThumbnail.js"); ?>"></script>
 	<script>
 		assignColors("storyByIdContent");
 	</script>
 	<?php
 	$bookmarkPage = isset($data['bookmarkedPage']) ? $data['bookmarkedPage'] : 0;
 	echo '<script src="../assets/js/storyRead.js"></script>'	
-	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .' ) </script>';
+	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .','.$data['isFavourite'].' ) </script>';
 
 	?>
+	<script type="text/javascript">document.getElementById('rating').innerHTML = getRatingStars(<?php echo $data['rating'] ?>);</script>
 
 </body>
 </html>

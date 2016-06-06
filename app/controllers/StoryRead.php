@@ -5,6 +5,7 @@
 		public function index($storyId){
 
 			$storyModel = $this->model('Story');
+			$favouriteModel = $this->model('Favorite');
 
 
 			$result = $storyModel->withId($storyId)->find();
@@ -14,12 +15,21 @@
 
 			$indexJsonContents = file_get_contents($storyPath.'/index.json');
 
-			$json = json_decode($indexJsonContents);
+			//$json = json_decode($indexJsonContents);
+			$ratingResult = $favouriteModel->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
+			$isFavourite = null;
+
+			if($ratingResult!=null){
+				$isFavourite = 1;
+			} else{
+				$isFavourite = 0;
+			}
 
 			$data['json'] = $indexJsonContents;
 			$data['rating'] = $rating;
 			$data['path'] = $storyPath;
 			$data['storyId'] = $storyId;
+			$data['isFavourite'] = $isFavourite;
 
 
 			
@@ -31,7 +41,7 @@
 				// echo $_SESSION['userData']['ID'],$storyId;
 				// print_r($result);
 				if(!empty($result)){
-					echo "mesaj2";
+					//echo "mesaj2";
 					$data['bookmarkedPage'] = $result[0]['PAGE_ID'];
 				}
 
@@ -77,18 +87,27 @@
 		}
 
 		public function addFavourite(){
+			$favouriteModel = $this->model('Favorite');
 
-			if(App::userSignedIn()){
-				$favouriteModel = $this->model('Favorite');
 
-				$favouriteModel->withStoryId($_POST['storyId'])
-								->withUserId($_SESSION['userData']['ID'])
-								->insert();
-				echo json_encode([]);
+				if(App::userSignedIn()){
+					$result = $favouriteModel->withStoryId($_POST['storyId'])->withUserId($_SESSION['userData']['ID'])->find();
 
-			} else{
-				echo json_encode(["notLoggedIn"=>"true"]);
-			}
-		}
+					if(!$result){
+						$favouriteModel->withStoryId($_POST['storyId'])
+										->withUserId($_SESSION['userData']['ID'])
+										->insert();
+						echo json_encode(["inserted"=>"true"]);
+					} else{
+						$favouriteModel->withStoryId($_POST['storyId'])
+										->withUserId($_SESSION['userData']['ID'])
+										->remove();
+						echo json_encode(["removed"=>"true"]);
+					}
+
+				} else{
+					echo json_encode(["notLoggedIn"=>"true"]);
+				}
+	}
 	}
 ?>

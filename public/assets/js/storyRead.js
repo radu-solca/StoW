@@ -4,7 +4,7 @@ var numberOfPages;
 var storyPath;
 var leftPage = 0;
 var storyId;
-
+var isAddedToFavourite;
 
 function loadPage(pageNumber){
 	var html = "";
@@ -33,12 +33,13 @@ function loadPage(pageNumber){
 
 }
 
-function init(jsonEncoded,path,Id,bookmarkId){
+function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	json = JSON.parse(jsonEncoded);
 	numberOfPages = json['story']['content']['pages'].length;
 	pages = json['story']['content']['pages'];
 	storyPath = path;
 	storyId = Id;
+	isAddedToFavourite = isFavourite == 1 ? true:false;
 	//storyPath = storyPath.replace(/\./g,'');
 
 	leftPage = bookmarkId - bookmarkId % 2;
@@ -215,12 +216,19 @@ function addToFavourites(){
 				var responseJSON = JSON.parse(responseText);
 
 				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					console.log(responseJSON);
 					redirect("notLoggedIn");
 				}
 				else{
-					alert("merge");
-					//colorate heart iconita
+						if(responseJSON.hasOwnProperty('inserted')){
+							isAddedToFavourite = true;
+						} else{
+							if(responseJSON.hasOwnProperty('removed')){
+								isAddedToFavourite = false;
+							}
+						}
 				}
+
 			});
 }
 

@@ -227,6 +227,7 @@ function validateComment(textArea){
 
 function addToFavourites(){
 	var params = "storyId=" + storyId;
+	//console.log(storyId);
 
 	ajaxPost("addFavourite", 
 			params, 
@@ -234,7 +235,7 @@ function addToFavourites(){
 				var responseJSON = JSON.parse(responseText);
 
 				if(responseJSON.hasOwnProperty('notLoggedIn')){
-					console.log(responseJSON);
+					//console.log(responseText);
 					redirect("notLoggedIn");
 				}
 				else{

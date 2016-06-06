@@ -5,7 +5,6 @@
 		public function index($storyId){
 
 			$storyModel = $this->model('Story');
-			$favouriteModel = $this->model('Favorite');
 
 
 			$result = $storyModel->withId($storyId)->find();
@@ -16,37 +15,46 @@
 			$indexJsonContents = file_get_contents($storyPath.'/index.json');
 
 			//$json = json_decode($indexJsonContents);
-			$ratingResult = $favouriteModel->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
-			$isFavourite = null;
 
-			if($ratingResult!=null){
-				$isFavourite = 1;
-			} else{
-				$isFavourite = 0;
-			}
+		
 
 			$data['json'] = $indexJsonContents;
 			$data['rating'] = $rating;
 			$data['path'] = $storyPath;
 			$data['storyId'] = $storyId;
-			$data['isFavourite'] = $isFavourite;
+
 
 
 			
-
+			$isFavourite = 0;
 			if(App::userSignedIn()){
+
 				$bookmark = $this->model('Bookmark');
+				$favouriteModel = $this->model('Favorite');
+
+				$favouriteResult = $favouriteModel->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
+				
+
+				if(isset($favouriteResult)){
+					$isFavourite = 1;
+
+				} else{
+					$isFavourite = 0;
+
+				}
+
+				
 
 				$result = $bookmark->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
 				// echo $_SESSION['userData']['ID'],$storyId;
 				// print_r($result);
 				if(!empty($result)){
 					//echo "mesaj2";
-					$data['bookmarkedPage'] = $result[0]['PAGE_ID'];
+					$data['bookmarkedPage'] = $result[0]['PAGE_ID'];			
 				}
 
 			}
-
+			$data['isFavourite'] = $isFavourite;
 
 			$this->view("storyRead",$data);
 
@@ -80,7 +88,8 @@
 				echo json_encode([]);
 			}
 			else{
-				echo json_encode(["notLoggedIn"=>"true"]);
+				$_SESSION["storyRedirect"] = $_POST["storyId"];
+				echo json_encode(["notLoggedIn"=>"true","storyRedirect"=>$_SESSION["storyRedirect"]]);
 			}
 			
 
@@ -106,7 +115,8 @@
 					}
 
 				} else{
-					echo json_encode(["notLoggedIn"=>"true"]);
+					$_SESSION["storyRedirect"] = $_POST["storyId"];
+					echo json_encode(["notLoggedIn"=>"true","storyRedirect"=>$_SESSION["storyRedirect"]]);
 				}
 		}
 

@@ -9,7 +9,6 @@
 	font-style: normal;
 }
 
-
 .iconic {
 	font-family: 'IconicStroke';
 }
@@ -60,7 +59,6 @@
 .book_alt2:before {
 	content: '\e06a';
 }
-
 
 /*****************************************
 ************** COLOR CHART ***************
@@ -679,7 +677,7 @@ nav form input:focus {
 	margin-top: 2px;
 }
 
-.storyThumbnail .container a{
+.storyThumbnail .container a {
 	overflow: hidden;
 	width: 150px;
 	height: 224px;
@@ -882,12 +880,12 @@ nav form input:focus {
 	padding-right: 10px;
 }
 
-.flexWrap .profile a{
+.flexWrap .profile a {
 	color: #7A6453;
 	opacity: 0.9;
 }
 
-.flexWrap .profile a:hover{
+.flexWrap .profile a:hover {
 	opacity: 0.7;
 }
 
@@ -921,6 +919,10 @@ nav form input:focus {
 	padding: 20px 40px;
 }
 
+#storyDetails section p {
+	padding-left: 3px;
+}
+
 #storyDetails #left {
 	flex: 7;
 }
@@ -931,7 +933,14 @@ nav form input:focus {
 
 #storyDetails #right {
 	text-align: right;
-	
+}
+
+#storyDetails #rating {
+	margin-top: 10px;
+}
+
+#storyDetails #rating *{
+	margin: 0 2px;
 }
 
 #storyAndProgress {
@@ -944,17 +953,15 @@ nav form input:focus {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
-#storyAndProgress #bothStoryPages{
+#storyAndProgress #bothStoryPages {
 	font-size: 22px;
-	margin-bottom: 40px;
 }
 
-#storyAndProgress #leftPage{
+#storyAndProgress #leftPage {
 	flex: 1;
 }
 
-#storyAndProgress #rightPage{
+#storyAndProgress #rightPage {
 	flex: 1;
 }
 
@@ -964,24 +971,23 @@ nav form input:focus {
 }
 
 #storyAndProgress .choice .overlay {
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0, 0, 0, 0);
 }
 
-
-#storyAndProgress .choice span{
+#storyAndProgress .choice span {
 	text-transform: uppercase;
 	font-weight: 700;
 	padding: 2px 7px;
 }
 
-#storyAndProgress .choice span:hover{
-	background-color: rgba(0,0,0,0.05)
+#storyAndProgress .choice span:hover {
+	background-color: rgba(0, 0, 0, 0.05)
 }
-
 
 #storyAndProgress img {
 	width: 100%;
 	height: auto;
+	overflow: hidden;
 }
 
 .flexWrap .storyById .storyByIdContent hr {
@@ -999,7 +1005,7 @@ nav form input:focus {
 	padding-right: 10px;
 }
 
-.flexWrap .storyById .storyByIdContent .iconic{
+.flexWrap .storyById .storyByIdContent .iconic {
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
@@ -1008,8 +1014,8 @@ nav form input:focus {
 	width: 40px;
 	height: 40px;
 	line-height: 43px;
-	background: rgba(0,0,0,0.1);
-	border: 2px rgba(255,255,255,0) solid;
+	background: rgba(0, 0, 0, 0.1);
+	border: 2px rgba(255, 255, 255, 0) solid;
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
@@ -1018,19 +1024,19 @@ nav form input:focus {
 	margin: 14px;
 }
 
-.flexWrap .storyById .storyByIdContent .iconic:hover{
+.flexWrap .storyById .storyByIdContent .iconic:hover {
 	background: none;
-	border: 2px rgba(0,0,0,0.1) solid;
+	border: 2px rgba(0, 0, 0, 0.1) solid;
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-.tooltip{
+.tooltip {
 	font-family: 'Roboto Condensed', sans-serif;
 	position: absolute;
 	right: 30px;
 	bottom: 5px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
 	padding: 5px 7px;
 	opacity: 0;
@@ -1040,7 +1046,7 @@ nav form input:focus {
 	line-height: 20px;
 }
 
-.flexWrap .storyById .storyByIdContent .iconic:hover .tooltip{
+.flexWrap .storyById .storyByIdContent .iconic:hover .tooltip {
 	visibility: visible;
 	opacity: 1;
 	right: 50px;
@@ -1048,14 +1054,63 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-
 .flexWrap .storyById .storyByIdContent .formContent {
 	margin-top: 40px;
 	width: 100%;
 	max-width: none;
 	color: #7A6453;
 	box-shadow: none;
-	background-color: rgba(0,0,0,0.05); 
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.flexWrap .storyById .storyByIdContent .formContent textarea {
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	resize: vertical;
+	margin-bottom: 15px;
+	font-family: 'Roboto Condensed', sans-serif;
+	padding: 5px 7px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent input[type="submit"] {
+}
+
+.flexWrap .storyById .storyByIdContent .formContent textarea:focus {
+	border: 2px solid #76cace;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent ul {
+	margin-top: 20px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .username {
+	color: #7A6453;
+	font-weight: 700;
+	margin-right: 10px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .date {
+	color: rgba(0, 0, 0, 0.3);
+	font-size: 14px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .content {
+	color: #7A6453;
+	background-color: white;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	margin: 5px 0;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;  /* This is the dangerous one in WebKit, as it breaks things wherever */
+	word-break: break-all;  /* Instead use this non-standard one: */
+	word-break: break-word;  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 
 /***************************************** 
@@ -1111,7 +1166,7 @@ nav form input:focus {
 
 #filteredResults #filterView li,
 #filterPanel li,
-#filteredResults select{
+#filteredResults select {
 	color: #7A6453;
 	text-transform: uppercase;
 	font-size: 16px;
@@ -1211,11 +1266,9 @@ nav form input:focus {
 	background-color: #76cace;
 }
 
-
 /***************************************** 
 ***************** ADMIN ******************
 *****************************************/
-
 .storyThumbnail .adminOverlay {
 	padding: 5px 0;
 	position: absolute;
@@ -1245,9 +1298,8 @@ nav form input:focus {
 	padding: 9px;
 	font-weight: 700;
 	cursor: pointer;
-	color: rgba(122,100,83,0.8);
+	color: rgba(122, 100, 83, 0.8);
 }
-
 
 .storyThumbnail .adminOverlay .approve:hover {
 	color: #8dc225;
@@ -1262,7 +1314,7 @@ nav form input:focus {
 	opacity: 0;
 }
 
-.filler .container{
+.filler .container {
 	height: 0;
 	margin-top: 5px;
 }
@@ -1271,8 +1323,9 @@ nav form input:focus {
 *************** PAGINATION ***************
 *****************************************/
 #pageControlBottom {
+	margin-top: 20px;
 	text-align: center;
-	color: rgba(122,100,83,0.5);
+	color: rgba(122, 100, 83, 0.5);
 }
 
 #pageControlBottom span {
@@ -1288,12 +1341,12 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
-.clickable{
+.clickable {
 	cursor: pointer;
 }
 
-.brownText{
-	color: rgba(122,100,83,1);
+.brownText {
+	color: rgba(122, 100, 83, 1);
 }
 
 /***************************************** 

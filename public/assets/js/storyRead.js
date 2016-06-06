@@ -40,7 +40,8 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	storyPath = path;
 	storyId = Id;
 	isAddedToFavourite = isFavourite == 1 ? true:false;
-	//storyPath = storyPath.replace(/\./g,'');
+	//Aici colorare in functie de flagul isAddedToFavourite
+
 
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);
@@ -169,11 +170,12 @@ function updateCommentSection(){
 					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
-						html += "<li>"
-									+"<span class=\"username\">"+comment.USERNAME+"</span>"
-									+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
-									+"</br>"
-									+"<span class=\"content\">"+comment.CONTENT+"</span>"
+						html += "<li class=\"flex column\">"
+									+"<div class=\"flex row center1\">"
+										+"<span class=\"username\">"+comment.USERNAME+"</span>"
+										+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"</div>"
+									+"<span class=\"content\">"+comment.CONTENT+"</span><hr>"
 								+"</li>";
 					});
 					document.getElementById("commentSection").innerHTML = html;
@@ -221,9 +223,11 @@ function addToFavourites(){
 				else{
 						if(responseJSON.hasOwnProperty('inserted')){
 							isAddedToFavourite = true;
+							//aici colorare
 						} else{
 							if(responseJSON.hasOwnProperty('removed')){
 								isAddedToFavourite = false;
+								//aici decolorare
 							}
 						}
 				}

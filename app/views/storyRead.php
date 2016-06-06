@@ -58,14 +58,15 @@
 
 						<section id="right" class="flex column">
 						
-							<a class="iconic comment_alt2_stroke">
+							<a href="#pageControlBottom" class="iconic comment_alt2_stroke clickable">
+								<!-- duce la commenturi da oleaca mai sus -->
 								<div class="tooltip">comment</div>
 							</a>
 							<a class="iconic heart_stroke clickable" onclick="addToFavourites()">
 								<div class="tooltip">favourite</div>
 							</a>	
 							</a>
-							<a id="bookmark" class="iconic book_alt2">
+							<a id="bookmark" class="iconic book_alt2 clickable">
 								<div class="tooltip">bookmark</div>
 							</a>
 
@@ -92,7 +93,7 @@
 					
 					<div class="flex column formContent">
 						<form onsubmit="return false;">
-							<input id="comment" type="text" name="comment">
+							<textarea placeholder="Write your thoughts on this story..." id="comment" name="comment"></textarea>
 							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
 						<ul id="commentSection" class="flex column">

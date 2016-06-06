@@ -313,7 +313,7 @@ function updateBookmark(){
 
 	if(isBookmarked){
 		theBookmark.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
-		tooltip.innerHTML ="un-bookmark";
+		tooltip.innerHTML ="bookmarked";
 	}
 	else
 	{

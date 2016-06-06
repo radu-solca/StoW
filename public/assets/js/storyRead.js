@@ -170,11 +170,12 @@ function updateCommentSection(){
 					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
-						html += "<li>"
-									+"<span class=\"username\">"+comment.USERNAME+"</span>"
-									+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
-									+"</br>"
-									+"<span class=\"content\">"+comment.CONTENT+"</span>"
+						html += "<li class=\"flex column\">"
+									+"<div class=\"flex row center1\">"
+										+"<span class=\"username\">"+comment.USERNAME+"</span>"
+										+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"</div>"
+									+"<span class=\"content\">"+comment.CONTENT+"</span><hr>"
 								+"</li>";
 					});
 					document.getElementById("commentSection").innerHTML = html;

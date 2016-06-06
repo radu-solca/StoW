@@ -338,3 +338,23 @@ function updateRating(value){
 					}
 			});
 }
+
+
+/********HOTKEYS*******/
+
+window.addEventListener('keypress',check);
+
+function check(e) {
+    var code = e.which;
+
+    if(code == 44){ // comma
+		if(leftPage > 0)
+			gotoPrev();
+    }
+    else{
+    	if(code == 46){ // full stop
+    		if(leftPage < (numberOfPages - numberOfPages % 2))
+				gotoNext();
+    	}
+    }
+}

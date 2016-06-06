@@ -33,15 +33,23 @@
 						<section id="left">
 							<h1>
 								<?php
+								if($json){
 									print_r( $json->story->meta->title);
+								}else{
+									print_r("No title");
+								}
 								?>
 							</h1>
 							<p>
 								<?php
-								
-								$authors = $json->story->meta->authors;
-								echo implode($authors, ', ');
-									
+
+								if($json){
+									$authors = $json->story->meta->authors;
+									echo implode($authors, ', ');
+								} else{
+									echo "Sorry,there was a problem loading your storry";
+								}
+										
 								?>
 							</p>
 							<div id="rating"></div>

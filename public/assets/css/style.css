@@ -937,7 +937,10 @@ nav form input:focus {
 
 #storyDetails #rating {
 	margin-top: 10px;
-	padding-left: 3px;
+}
+
+#storyDetails #rating *{
+	margin: 0 2px;
 }
 
 #storyAndProgress {
@@ -952,7 +955,6 @@ nav form input:focus {
 
 #storyAndProgress #bothStoryPages {
 	font-size: 22px;
-	margin-bottom: 40px;
 }
 
 #storyAndProgress #leftPage {
@@ -985,6 +987,7 @@ nav form input:focus {
 #storyAndProgress img {
 	width: 100%;
 	height: auto;
+	overflow: hidden;
 }
 
 .flexWrap .storyById .storyByIdContent hr {
@@ -1320,6 +1323,7 @@ nav form input:focus {
 *************** PAGINATION ***************
 *****************************************/
 #pageControlBottom {
+	margin-top: 20px;
 	text-align: center;
 	color: rgba(122, 100, 83, 0.5);
 }

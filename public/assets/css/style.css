@@ -1151,6 +1151,16 @@ nav form input:focus {
 
 }
 
+.flexWrap .storyById .storyByIdContent .storyCharacters #bothStoryPages{
+	width: 100%
+}
+
+.flexWrap .storyById .storyByIdContent .storyCharacters #bothStoryPages img{
+	width: 100%;
+    height: auto;
+    display: block;
+}
+
 /***************************************** 
 **************** BROWSE ******************
 *****************************************/

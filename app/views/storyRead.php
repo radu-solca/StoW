@@ -45,8 +45,6 @@
 								}
 								?>
 							</h1>
-
-							<a style="height:100px;width:1000px;color:red;" href="<?php echo App::makeAbsolute('characters/'.$data['storyId']) ?>">PSST! KIDS! WANNA BUY SOME CHARACTERS?</a>
 							
 							<p>
 								<?php
@@ -55,12 +53,14 @@
 									$authors = $json->story->meta->authors;
 									echo implode($authors, ', ');
 								} else{
-									echo "Sorry,there was a problem loading your storry";
+									echo "Sorry,there was a problem loading your story";
 								}
 										
 								?>
 							</p>
+							<p id="linkToChars"><a target='_blank' href="<?php echo App::makeAbsolute('characters/'.$data['storyId']) ?>">&#9715; CHARACTER LIST</a></p>							
 							<div id="rating"></div>
+
 						</section>
 
 						<hr class="vertical">

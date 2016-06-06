@@ -895,6 +895,28 @@ nav form input:focus {
 	margin: 0;
 }
 
+#storyDetails  #left #linkToChars{
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-top: 10px;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0);
+	padding: 3px;
+	border-radius: 3px;
+	width: 120px;
+	min-width: none;
+	text-align: center;
+}
+
+#storyDetails  #left #linkToChars:hover{
+	background-color: rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.05);
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+
 #storyDetails #right {
 	text-align: right;
 }

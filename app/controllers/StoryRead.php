@@ -35,7 +35,7 @@
 				$favouriteResult = $favouriteModel->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
 				
 
-				if(isset($favouriteResult)){
+				if($favouriteResult != null){
 					$isFavourite = 1;
 
 				} else{
@@ -43,7 +43,6 @@
 
 				}
 
-				
 
 				$result = $bookmark->withUserId($_SESSION['userData']['ID'])->withStoryId($storyId)->find();
 				// echo $_SESSION['userData']['ID'],$storyId;

@@ -1,7 +1,7 @@
 {
     "story": {
         "meta": {
-            "title": "LittleRedRidingHood",
+            "title": "TheLittleMermaid",
             "authors": ["Momita","Alin"],
             "cover": "images/cover.jpg"
         },
@@ -12,11 +12,11 @@
             },
             {
                 "type": "genre",
-                "name": "mystery"
+                "name": "classic"
             },
             {
                 "type": "genre",
-                "name": "autobiography"
+                "name": "fable"
             },
             {
                 "type": "genre",
@@ -28,11 +28,11 @@
             },
             {
                 "type": "age_group",
-                "name": "3+"
+                "name": "5+"
             },
             {
                 "type": "age_group",
-                "name": "15+"
+                "name": "12+"
             },
             {
                 "type": "age_group",
@@ -42,14 +42,14 @@
 
         "characters": [
     		{
-                "name": "LittleRed",
+                "name": "TheMermaid",
                 "description": "Aenean sollicitudin erat at orci pretium finibus",
-                "img": "images/LittleRed.jpg"
+                "img": "images/TheMermaid.jpg"
             },
             {
-                "name": "RidingHood",
+                "name": "TheFriends",
                 "description": "Proin interdum sit amet nulla eu semper",
-                "img": "images/RidingHood.jpg"
+                "img": "images/TheFriends.jpg"
             }
         ],
         "content":{
@@ -60,20 +60,20 @@
                     "nextList": [
                     	{
 	                        "index": 2,
-	                        "msg": "LittleRed wins"
+	                        "msg": "TheMermaid wins"
 	                    },
 	                    {
 	                        "index": 4,
-	                        "msg": "LittleRed dies"
+	                        "msg": "TheMermaid dies"
 	                    }
                     ]
                 },
                     {
-                    "img":  "images/LittleRed1.jpg",
+                    "img":  "images/TheMermaid1.jpg",
                     "nextList": [
                         {
                             "index": 3,
-                            "msg": "RidingHood wins!!"
+                            "msg": "TheFriends wins!!"
 
                         }
                     ]
@@ -85,11 +85,11 @@
                  
                 },
                 {
-                    "img":  "images/LittleRed2.jpg",
+                    "img":  "images/TheMermaid2.jpg",
                     "nextList": [
                         {
 	                        "index": 5,
-                            "msg": "RidingHood dies!!!"
+                            "msg": "TheFriends dies!!!"
 
 	                    }
                     ]
@@ -101,7 +101,7 @@
                  
                 },
                 {
-                    "img":  "images/LittleRed3.jpg"
+                    "img":  "images/TheMermaid3.jpg"
                 }
              
             ]

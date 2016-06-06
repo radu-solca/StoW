@@ -309,12 +309,12 @@ function updateBookmark(){
 
 	if(isBookmarked){
 		theBookmark.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
-		tooltip.innerHTML ="un-favorite";
+		tooltip.innerHTML ="un-bookmark";
 	}
 	else
 	{
 		theBookmark.style.boxShadow = 'none'; 
-		tooltip.innerHTML ="favorite";
+		tooltip.innerHTML ="bookmark";
 	}
 }
 

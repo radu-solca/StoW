@@ -118,7 +118,7 @@
 	,'<script> init(' . json_encode($data['json']) . ',' . "\"" . $data['path'] . "\"" .  ' , ' . $data['storyId'] . ' , '. $bookmarkPage  .','.$data['isFavourite'].' ) </script>';
 
 	?>
-	<script type="text/javascript">document.getElementById('rating').innerHTML = getRatingStars(<?php echo $data['rating'] ?>);</script>
+	<script type="text/javascript">document.getElementById('rating').innerHTML = getRatingStars(<?php echo $data['rating'] ?>, true);</script>
 
 </body>
 </html>

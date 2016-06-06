@@ -1055,6 +1055,10 @@ nav form input:focus {
 	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
+.flexWrap .storyById .storyByIdContent form{
+	margin: 0;
+}
+
 .flexWrap .storyById .storyByIdContent .formContent {
 	margin-top: 40px;
 	width: 100%;
@@ -1067,7 +1071,6 @@ nav form input:focus {
 .flexWrap .storyById .storyByIdContent .formContent textarea {
 	border: 2px solid rgba(0, 0, 0, 0.1);
 	resize: vertical;
-	margin-bottom: 15px;
 	font-family: 'Roboto Condensed', sans-serif;
 	padding: 5px 7px;
 	box-sizing: border-box;
@@ -1081,8 +1084,15 @@ nav form input:focus {
 	border: 2px solid #76cace;
 }
 
-.flexWrap .storyById .storyByIdContent .formContent ul {
+
+.flexWrap .storyById .storyByIdContent .formContent li{
 	margin-top: 20px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent .error{
+	height: 20px;
+	margin-bottom: 5px;
+	background-color: rgba(0,0,0,0);
 }
 
 .flexWrap .storyById .storyByIdContent .formContent ul li:last-child hr{

@@ -739,6 +739,7 @@ nav form input:focus {
 	margin: 0 2px;
 }
 
+
 /***************************************** 
 ****************** FORM ******************
 *****************************************/
@@ -1109,13 +1110,50 @@ nav form input:focus {
 	margin: 5px 0;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
-	-ms-word-break: break-all;  /* This is the dangerous one in WebKit, as it breaks things wherever */
-	word-break: break-all;  /* Instead use this non-standard one: */
+	-ms-word-break: break-all; 
+	word-break: break-all; 
 	word-break: break-word;  /* Adds a hyphen where the word breaks, if supported (No Blink) */
 	-ms-hyphens: auto;
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;
 	hyphens: auto;
+}
+
+
+.flexWrap .storyById .storyByIdContent #storyDetails #left #rating span{
+	position: relative;
+	margin: 0;
+	cursor: pointer;
+}
+
+.flexWrap .storyById .storyByIdContent #storyDetails #left #rating span:hover > img{
+	opacity: 0;
+}
+
+.flexWrap .storyById .storyByIdContent #storyDetails #left #rating span::after {
+	position: absolute;
+	left: -2px;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 9999px;
+	padding: 2px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	font-weight: 700;
+	font-size: 14px;
+
+	opacity: 0;
+	visibility: hidden;
+	content: attr(data-attr);
+}
+
+.flexWrap .storyById .storyByIdContent #storyDetails #left #rating span:hover::after{
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+	transition: all .2s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
 }
 
 /***************************************** 

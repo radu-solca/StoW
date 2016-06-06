@@ -177,8 +177,6 @@ function updateCommentSection(){
 				params, 
 				function(responseText){
 					var html = "";
-
-					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
 						html += "<li class=\"flex column\">"
@@ -200,8 +198,6 @@ function submitComment(){
 	var content = document.getElementById("comment").value;
 
 	document.getElementById("comment").value = "";
-
-	console.log(content);
 
 	var params = "storyId="+storyId
 				+"&content="+content;
@@ -246,4 +242,22 @@ function addToFavourites(){
 			});
 }
 
+/********RATINGS*******/
 
+function updateRating(value){
+	var params = "ratingValue=" + value
+				+"&storyId=" + storyId;
+
+	ajaxPost("updateRating", 
+			params, 
+			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+					if(responseJSON.hasOwnProperty('notLoggedIn')){
+						redirect("notLoggedIn");
+					}
+					else{
+						console.log("AYAYAY");
+						document.getElementById('rating').innerHTML = getRatingStars(value, true);
+					}
+			});
+}

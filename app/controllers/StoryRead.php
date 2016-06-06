@@ -11,7 +11,7 @@
 			$result = $storyModel->withId($storyId)->find();
 
 			$storyPath = $result[0]['CONTENT'];
-			$rating = $storyModel->getStoryRating($storyId);
+			$rating = $result[0]['RATING'];
 
 			$indexJsonContents = file_get_contents($storyPath.'/index.json');
 
@@ -108,6 +108,23 @@
 				} else{
 					echo json_encode(["notLoggedIn"=>"true"]);
 				}
-	}
+		}
+
+		public function updateRating(){
+			if(App::userSignedIn()){
+
+				$rating = $this->model('Rating');
+
+				$rating->withStoryId($_POST["storyId"])
+						->withUserId($_SESSION['userData']['ID'])
+						->withRatingValue($_POST["ratingValue"])
+						->insert();
+
+				echo json_encode([]);
+
+			} else{
+				echo json_encode(["notLoggedIn"=>"true"]);
+			}
+		}
 	}
 ?>

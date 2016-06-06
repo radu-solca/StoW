@@ -16,7 +16,9 @@ function loadPage(pageNumber){
 	if (pages[pageNumber]) {
 
 		if(leftPage == bookmarkPageId){
-			isBookmarked = true;
+			if(leftPage!=0 && bookmarkPageId!=0){
+				isBookmarked = true;
+			}
 			updateBookmark();
 		} else{
 			isBookmarked = false;
@@ -55,13 +57,8 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	storyId = Id;
 	bookmarkPageId = bookmarkId;
 	isAddedToFavourite = isFavourite == 1 ? true:false;
+	isBookmarked = bookmarkId == 0 ? false:true;
 	leftPage = bookmarkId - bookmarkId % 2;
-
-	if(bookmarkId!=0){
-		isBookmarked = true;
-	} else{
-		isBookmarked = false;
-	}
 
 
 	gotoPage(bookmarkId);

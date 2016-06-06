@@ -56,7 +56,7 @@
 								<div class="tooltip">comment</div>
 							</a>
 							<a class="iconic heart_stroke clickable" onclick="addToFavourites()">
-								<div class="tooltip">favourite</div>
+								<div class="tooltip">favorite</div>
 							</a>	
 							</a>
 							<a id="bookmark" class="iconic book_alt2 clickable">

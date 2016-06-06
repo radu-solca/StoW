@@ -42,6 +42,17 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	isAddedToFavourite = isFavourite == 1 ? true:false;
 	//Aici colorare in functie de flagul isAddedToFavourite
 
+	var theHeart = document.querySelector('#storyDetails #right .heart_stroke');
+	var tooltip = document.querySelector('#storyDetails #right .heart_stroke .tooltip');
+
+	if(isFavourite==true){
+		theHeart.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
+		tooltip.innerHTML ="un-favorite";
+	}
+	else
+	{
+		theHeart.style.boxShadow = 'none'; 
+	}
 
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);

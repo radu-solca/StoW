@@ -1084,6 +1084,11 @@ nav form input:focus {
 	margin-top: 20px;
 }
 
+.flexWrap .storyById .storyByIdContent .formContent ul li:last-child hr{
+	height: 0;
+	padding: 0;
+}
+
 .flexWrap .storyById .storyByIdContent .formContent li .username {
 	color: #7A6453;
 	font-weight: 700;

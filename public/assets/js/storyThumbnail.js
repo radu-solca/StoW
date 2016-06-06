@@ -65,7 +65,7 @@ function getAdminStoryThumbnail(story, storyID){
 	"			<span class=\"approve\" onclick=\"approveStory("+storyID+")\">APPROVE</span>"+
 	"			<span class=\"remove\" onclick=\"removeStory("+storyID+", \'"+story['TITLE']+"\')\">REMOVE</span>"+
 	"		</div>"+
-	"		<a href=\"storyView/"+story['ID']+"\">"+
+	"		<a href=\"storyRead/"+story['ID']+"\">"+
 	"			<div class=\"overlay\">"+
 	"				<div class=\"title\">"+story['TITLE']+"</div>"+
 					authors+

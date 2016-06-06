@@ -357,7 +357,7 @@ function check(e) {
     }
     else{
     	if(code == 46){ // full stop
-    		if(leftPage < (numberOfPages - numberOfPages % 2))
+    		if(leftPage < (numberOfPages - numberOfPages % 2-1))
 				gotoNext();
     	}
     }

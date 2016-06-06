@@ -11,7 +11,7 @@ function getRatingStars(rating, withOnClick = false){
 	while (i <= stars - 1) {
 		var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
 
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_f.png")+"\" "+onclick+" />";
+	    resultHTML += "<span "+onclick+" data-attr=\""+nextRatingValue+"\"><img src=\""+makeAbsolute("assets/img/star_f.png")+"\"/></span>";
 
 	    nextRatingValue++;
 	    i += 2;
@@ -20,7 +20,7 @@ function getRatingStars(rating, withOnClick = false){
 	if ( stars % 2 != 0 ) {
 		var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
 
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_h.png")+"\" "+onclick+" />";
+	    resultHTML += "<span "+onclick+" data-attr=\""+nextRatingValue+"\"><img src=\""+makeAbsolute("assets/img/star_h.png")+"\"/></span>";
 
 	    nextRatingValue++;
 		i += 2;
@@ -29,7 +29,7 @@ function getRatingStars(rating, withOnClick = false){
 	while (i <= 10){
 	    var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
 		
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_e.png")+"\" "+onclick+" />";
+	    resultHTML += "<span "+onclick+" data-attr=\""+nextRatingValue+"\"><img src=\""+makeAbsolute("assets/img/star_e.png")+"\"/></span>";
 
 	    nextRatingValue++;
 		i += 2;

@@ -19,9 +19,12 @@
 </head>
 <body>
 
+
 	<?php 
 	require "../app/views/menu.php";
 	?>
+
+
 
 	<div class="flexWrap flex column">
 
@@ -40,6 +43,9 @@
 								}
 								?>
 							</h1>
+
+							<a style="height:100px;width:1000px;color:red;" href="<?php echo App::makeAbsolute('characters/'.$data['storyId']) ?>">PSST! KIDS! WANNA BUY SOME CHARACTERS?</a>
+							
 							<p>
 								<?php
 

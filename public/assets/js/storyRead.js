@@ -5,6 +5,7 @@ var storyPath;
 var leftPage = 0;
 var storyId;
 var isAddedToFavourite;
+var isBookmarked = false;
 
 function loadPage(pageNumber){
 	var html = "";
@@ -42,17 +43,7 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	isAddedToFavourite = isFavourite == 1 ? true:false;
 	//Aici colorare in functie de flagul isAddedToFavourite
 
-	var theHeart = document.querySelector('#storyDetails #right .heart_stroke');
-	var tooltip = document.querySelector('#storyDetails #right .heart_stroke .tooltip');
-
-	if(isFavourite==true){
-		theHeart.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
-		tooltip.innerHTML ="un-favorite";
-	}
-	else
-	{
-		theHeart.style.boxShadow = 'none'; 
-	}
+	updateFavorite();
 
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);
@@ -60,6 +51,8 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	updatePaginationControl()
 	updateCommentSection();
 }
+
+
 
 function updatePaginationControl(){
 	var paginationControlHtml = "";
@@ -230,17 +223,54 @@ function addToFavourites(){
 				else{
 						if(responseJSON.hasOwnProperty('inserted')){
 							isAddedToFavourite = true;
-							//aici colorare
+							updateFavorite();
 						} else{
 							if(responseJSON.hasOwnProperty('removed')){
 								isAddedToFavourite = false;
-								//aici decolorare
+								updateFavorite();
 							}
 						}
 				}
 
 			});
 }
+
+
+/********UPDATES (f,b)*******/
+
+function updateFavorite(){
+
+	var theHeart = document.querySelector('#storyDetails #right .heart_stroke');
+	var tooltip = document.querySelector('#storyDetails #right .heart_stroke .tooltip');
+
+	if(isAddedToFavourite){
+		theHeart.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
+		tooltip.innerHTML ="un-favorite";
+	}
+	else
+	{
+		theHeart.style.boxShadow = 'none'; 
+		tooltip.innerHTML ="favorite";
+	}
+}
+
+function updateBookmark(){
+
+	var theBookmark = document.querySelector('#storyDetails #right .book_alt2');
+	var tooltip = document.querySelector('#storyDetails #right .book_alt2 .tooltip');
+
+	if(isBookmarked){
+		theBookmark.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
+		tooltip.innerHTML ="un-favorite";
+	}
+	else
+	{
+		theBookmark.style.boxShadow = 'none'; 
+		tooltip.innerHTML ="favorite";
+	}
+}
+
+
 
 /********RATINGS*******/
 
@@ -256,7 +286,6 @@ function updateRating(value){
 						redirect("notLoggedIn");
 					}
 					else{
-						console.log("AYAYAY");
 						document.getElementById('rating').innerHTML = getRatingStars(value, true);
 					}
 			});

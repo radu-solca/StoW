@@ -921,6 +921,10 @@ nav form input:focus {
 	padding: 20px 40px;
 }
 
+#storyDetails section p{
+	padding-left: 3px;
+}
+
 #storyDetails #left {
 	flex: 7;
 }
@@ -1057,6 +1061,50 @@ nav form input:focus {
 	box-shadow: none;
 	background-color: rgba(0,0,0,0.05); 
 }
+
+.flexWrap .storyById .storyByIdContent .formContent textarea{
+	border: 2px solid rgba(0,0,0,0.1);
+	resize:vertical;
+	margin-bottom: 15px;
+	font-family: 'Roboto Condensed', sans-serif;
+	padding: 5px 7px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent input[type="submit"]{
+
+}
+
+.flexWrap .storyById .storyByIdContent .formContent textarea:focus{
+	border: 2px solid #76cace;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent ul{
+	margin-top: 20px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .username{
+	color: #7A6453;
+	font-weight: 700;
+	margin-right: 10px; 
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .date{
+	color: rgba(0,0,0,0.3);
+	font-size: 14px;
+}
+
+.flexWrap .storyById .storyByIdContent .formContent li .content{
+	color: #7A6453;
+	background-color: white;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	margin: 5px 0;
+
+}
+
 
 /***************************************** 
 **************** BROWSE ******************

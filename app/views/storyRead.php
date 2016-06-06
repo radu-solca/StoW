@@ -83,7 +83,7 @@
 					
 					<div class="flex column formContent">
 						<form onsubmit="return false;">
-							<input id="comment" type="text" name="comment">
+							<textarea placeholder="Write your thoughts on this story..." id="comment" name="comment"></textarea>
 							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
 						<ul id="commentSection" class="flex column">

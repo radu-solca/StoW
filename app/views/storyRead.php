@@ -38,7 +38,7 @@
 							</h1>
 							<p>
 								<?php
-
+								
 								$authors = $json->story->meta->authors;
 								echo implode($authors, ', ');
 									

@@ -18,7 +18,7 @@
 
 		
 
-			$data['json'] = $indexJsonContents;
+			$data['json'] = strip_tags($indexJsonContents);
 			$data['rating'] = $rating;
 			$data['path'] = $storyPath;
 			$data['storyId'] = $storyId;

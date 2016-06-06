@@ -124,7 +124,11 @@ class Upload extends Controller{
 						
 						$dirPath = str_replace(' ', '', $this->storyTitle); // Replaces all spaces with hyphens.
 
+		   				$dirPath = strip_tags($dirPath);
+
 		   				$dirPath = preg_replace('/[^A-Za-z0-9\-]/', '', $dirPath); // Removes special chars.
+
+
 
 		   				$dirPath = "../stories/".$dirPath;
 

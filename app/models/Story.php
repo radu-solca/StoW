@@ -269,12 +269,17 @@ class Story{
 
 		$stringJSON = file_get_contents($storyContent);
 
+		$stringJSON = strip_tags($stringJSON);
+
 		$JSON = json_decode($stringJSON);
 		$storyMeta = $JSON->story->meta;
 
 		$story = new Story;
 
-		$story = $story->withTitle($storyMeta->title);
+		$storyTitle = $storyMeta->title;
+		//$storyTitle = strip_tags($storyTitle);
+
+		$story = $story->withTitle($storyTitle);
 
 		if(property_exists($storyMeta, 'authors')){
 			foreach($storyMeta->authors as $author){

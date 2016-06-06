@@ -51,7 +51,7 @@ function loadPage(pageNumber){
 
 function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	json = JSON.parse(jsonEncoded);
-	numberOfPages = json['story']['content']['pages'].length;
+	numberOfPages = json['story']['content']['pages'].length-1;
 	pages = json['story']['content']['pages'];
 	storyPath = path;
 	storyId = Id;
@@ -85,7 +85,14 @@ function updatePaginationControl(){
 	//paginationControlHtml += "<input style=\"width:20px\" type=\"number\" min=\"1\" max=\"totalPages\" value=\""+page+"\""
 	//							+"onkeydown=\"if (event.keyCode == 13) {gotoPage(this.value);}\">"
 	paginationControlHtml += "<span>" +(leftPage/2+1);
-	paginationControlHtml += "/"+((numberOfPages + numberOfPages%2)/2) + "</span>";
+
+	//fixuit bug-ul la numarul paginilor cu 3/4 si next te mai ducea o data....fixuit cat sa stam in viata...
+	if(numberOfPages % 2 != 0){
+		paginationControlHtml += "/"+((numberOfPages + numberOfPages%2)/2) + "</span>";
+	} else{
+		paginationControlHtml += "/"+((numberOfPages + numberOfPages%2 + 2)/2) + "</span>";
+
+	}
 
 	if(leftPage >= (numberOfPages - numberOfPages % 2)){
 		paginationControlHtml += "  <span>next &rsaquo;</span> <span>last &raquo;</span>";

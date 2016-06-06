@@ -89,6 +89,7 @@
 							<textarea placeholder="Write your thoughts on this story..." id="comment" name="comment"></textarea>
 							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
+						<p class="error"></p>
 						<ul id="commentSection" class="flex column">
 						</ul>
 					</div>

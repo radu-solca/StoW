@@ -7,6 +7,8 @@ var storyId;
 var isAddedToFavourite;
 var isBookmarked = false;
 
+var charactersLeft;
+
 function loadPage(pageNumber){
 	var html = "";
 
@@ -188,25 +190,40 @@ function updateCommentSection(){
 
 function submitComment(){
 
-	var content = document.getElementById("comment").value;
+	if(charactersLeft>=0){
 
-	document.getElementById("comment").value = "";
+		var content = document.getElementById("comment").value;
 
-	var params = "storyId="+storyId
-				+"&content="+content;
+		document.getElementById("comment").value = "";
 
-	ajaxPost(	"addComments", 
-				params, 
-				function(responseText){
-					var responseJSON = JSON.parse(responseText);
-					if(responseJSON.hasOwnProperty('notLoggedIn')){
-						redirect("notLoggedIn");
-					}
-					else{
-						updateCommentSection();
-					}
-				});
+		var params = "storyId="+storyId
+					+"&content="+content;
+
+		ajaxPost(	"addComments", 
+					params, 
+					function(responseText){
+						var responseJSON = JSON.parse(responseText);
+						if(responseJSON.hasOwnProperty('notLoggedIn')){
+							redirect("notLoggedIn");
+						}
+						else{
+							updateCommentSection();
+							document.querySelector("#commentContainer .error").innerHTML = "";
+						}
+					});
+	}
 }
+
+function validateComment(textArea){
+	var MAX_CHARS = 256;
+
+	charactersLeft = MAX_CHARS - textArea.value.length;
+
+	var msg = "You have "+charactersLeft+"characters left.";
+	document.querySelector("#commentContainer .error").innerHTML = msg;
+}
+
+/********FAVOURITES*******/
 
 function addToFavourites(){
 	var params = "storyId=" + storyId;
@@ -236,8 +253,6 @@ function addToFavourites(){
 }
 
 
-/********UPDATES (f,b)*******/
-
 function updateFavorite(){
 
 	var theHeart = document.querySelector('#storyDetails #right .heart_stroke');
@@ -253,6 +268,8 @@ function updateFavorite(){
 		tooltip.innerHTML ="favorite";
 	}
 }
+
+/********BOOKMARKS*******/
 
 function updateBookmark(){
 

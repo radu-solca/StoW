@@ -84,12 +84,13 @@
 
 					</div>
 					
-					<div class="flex column formContent">
+					<div id="commentContainer" class="flex column formContent">
 						<form onsubmit="return false;">
-							<textarea placeholder="Write your thoughts on this story..." id="comment" name="comment"></textarea>
+							<textarea placeholder="Write your thoughts on this story..." id="comment" name="comment" onkeyup="validateComment(this)"></textarea>
+							<p class="error"></p>
 							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
-						<p class="error"></p>
+						
 						<ul id="commentSection" class="flex column">
 						</ul>
 					</div>

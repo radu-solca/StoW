@@ -4,8 +4,9 @@ var numberOfPages;
 var storyPath;
 var leftPage = 0;
 var storyId;
+var bookmarkPageId;
 var isAddedToFavourite;
-var isBookmarked = false;
+var isBookmarked;
 
 var charactersLeft;
 
@@ -13,6 +14,16 @@ function loadPage(pageNumber){
 	var html = "";
 
 	if (pages[pageNumber]) {
+
+		if(leftPage == bookmarkPageId){
+			isBookmarked = true;
+			updateBookmark();
+		} else{
+			isBookmarked = false;
+			updateBookmark();
+
+		}
+
 
 		if(pages[pageNumber]['img']){
 		var img = makeAbsolute(storyPath + '/' +  pages[pageNumber]['img']);
@@ -42,14 +53,22 @@ function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	pages = json['story']['content']['pages'];
 	storyPath = path;
 	storyId = Id;
+	bookmarkPageId = bookmarkId;
 	isAddedToFavourite = isFavourite == 1 ? true:false;
-	//Aici colorare in functie de flagul isAddedToFavourite
-
-	updateFavorite();
-
 	leftPage = bookmarkId - bookmarkId % 2;
+
+	if(bookmarkId!=0){
+		isBookmarked = true;
+	} else{
+		isBookmarked = false;
+	}
+
+
 	gotoPage(bookmarkId);
 
+	updateFavorite();
+	updateBookmark();
+	
 	updatePaginationControl()
 	updateCommentSection();
 }
@@ -136,6 +155,17 @@ function gotoPage(pageNo){
  	ajaxPost("addBookmark", 
 			params, 
 			function(responseText){
+				var responseJSON = JSON.parse(responseText);
+
+				if(responseJSON.hasOwnProperty('notLoggedIn')){
+					//console.log(responseText);
+					redirect("notLoggedIn");
+				}
+				else{
+							isBookmarked = true;
+							bookmarkPageId = leftPage;
+							updateBookmark();
+				}			
 			});
 
  });

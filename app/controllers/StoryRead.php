@@ -63,12 +63,20 @@
 
 		public function addBookmark(){
 			//print_r($_POST);
-			$bookmark = $this->model('Bookmark');
 
-			$bookmark->withUserId($_SESSION['userData']['ID'])
-					->withStoryId($_POST['storyId'])
-					->withPageId($_POST['pageId'])
-					->insert();
+			if(App::userSignedIn()){
+				$bookmark = $this->model('Bookmark');
+
+				$bookmark->withUserId($_SESSION['userData']['ID'])
+						->withStoryId($_POST['storyId'])
+						->withPageId($_POST['pageId'])
+						->insert();
+				echo json_encode([]);
+
+				} else{
+					$_SESSION["storyRedirect"] = $_POST["storyId"];
+					echo json_encode(["notLoggedIn"=>"true","storyRedirect"=>$_SESSION["storyRedirect"]]);	
+				}
 
 		}
 

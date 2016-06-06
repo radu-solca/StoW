@@ -7,7 +7,7 @@
 			$story = $this->model('Story');
 
 			//get the newest 5 stories;
-			$result = $story->orderBy('ID','DESC')->limit(5)->find();
+			$result = $story->orderBy('DATE_ADDED','DESC')->withCategory('approval','approved')->limit(5)->find();
 
 			// $this->view('menu');
 			$this->view('home', ['latestStories'=>json_encode($result)]);

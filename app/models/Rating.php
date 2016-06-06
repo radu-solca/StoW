@@ -40,6 +40,20 @@
 			return $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
 
+		public function insert(){
+			$query = "DELETE FROM ratings WHERE st_id = ? AND usr_id = ?";
+
+			$db = Connection::getConnection();
+
+			$stmt = $db->prepare($query);
+			$stmt->execute([$this->storyId, $this->userId]);
+
+			$query = "INSERT into ratings values (?,?,?)";
+
+			$stmt = $db->prepare($query);
+			$stmt->execute([$this->userId, $this->storyId, $this->ratingValue]);
+		}
+
 		public function withStoryId($storyId){
 			$this->storyId = $storyId;
 			return $this;

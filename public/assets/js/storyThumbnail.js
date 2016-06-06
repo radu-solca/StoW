@@ -1,24 +1,38 @@
-function getRatingStars(rating){
+function getRatingStars(rating, withOnClick = false){
 	// Make it integer:
 	var stars = Math.round(rating * 2);
+
+	var nextRatingValue = 1;
 
 	var resultHTML = "";
 
 	// Add full stars:
 	var i = 1;
 	while (i <= stars - 1) {
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_f.png")+"\" />";
+		var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
+
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_f.png")+"\" "+onclick+" />";
+
+	    nextRatingValue++;
 	    i += 2;
 	}
 	// Add half star if needed:
 	if ( stars % 2 != 0 ) {
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_h.png")+"\" />";
+		var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
+
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_h.png")+"\" "+onclick+" />";
+
+	    nextRatingValue++;
 		i += 2;
 	}
 	// Add empty stars if needed
 	while (i <= 10){
-	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_e.png")+"\" />";
-	    i += 2;
+	    var onclick = withOnClick == true ? "onclick=\"updateRating("+nextRatingValue+")\"" : "";
+		
+	    resultHTML += "<img src=\""+makeAbsolute("assets/img/star_e.png")+"\" "+onclick+" />";
+
+	    nextRatingValue++;
+		i += 2;
 	}
 
 	return resultHTML;

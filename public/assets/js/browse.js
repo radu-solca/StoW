@@ -27,6 +27,7 @@ function updateOrdType(select){
 }
 
 function addCategoryFilter(type, name){
+
 	var filter = {type:type, name:name};
 	if(!containsFilter(filter,categories)){
 		categories.push(filter);
@@ -136,11 +137,11 @@ function gotoPage(pageNo){
 }
 
 function updateStories(){
-	var parameters = "categories="+JSON.stringify(categories)
-					+"&order="+JSON.stringify(order)
-					+"&searchBarInput="+JSON.stringify(searchBarInput)
-					+"&page="+JSON.stringify(page)
-					+"&rowsPerPage="+JSON.stringify(rowsPerPage);
+	var parameters = "categories="+encodeURIComponent(JSON.stringify(categories))
+					+"&order="+encodeURIComponent(JSON.stringify(order))
+					+"&searchBarInput="+encodeURIComponent(JSON.stringify(searchBarInput))
+					+"&page="+encodeURIComponent(JSON.stringify(page))
+					+"&rowsPerPage="+encodeURIComponent(JSON.stringify(rowsPerPage));
 
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 

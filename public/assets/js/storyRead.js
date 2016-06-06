@@ -4,7 +4,7 @@ var numberOfPages;
 var storyPath;
 var leftPage = 0;
 var storyId;
-var isAddedToFavourite = false;
+var isAddedToFavourite;
 
 function loadPage(pageNumber){
 	var html = "";
@@ -33,13 +33,15 @@ function loadPage(pageNumber){
 
 }
 
-function init(jsonEncoded,path,Id,bookmarkId){
+function init(jsonEncoded,path,Id,bookmarkId,isFavourite){
 	json = JSON.parse(jsonEncoded);
 	numberOfPages = json['story']['content']['pages'].length;
 	pages = json['story']['content']['pages'];
 	storyPath = path;
 	storyId = Id;
-	//storyPath = storyPath.replace(/\./g,'');
+	isAddedToFavourite = isFavourite == 1 ? true:false;
+	//Aici colorare in functie de flagul isAddedToFavourite
+
 
 	leftPage = bookmarkId - bookmarkId % 2;
 	gotoPage(bookmarkId);
@@ -168,11 +170,12 @@ function updateCommentSection(){
 					console.log(responseText);
 					var responseJSON = JSON.parse(responseText);
 					responseJSON.forEach(function(comment){
-						html += "<li>"
-									+"<span class=\"username\">"+comment.USERNAME+"</span>"
-									+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
-									+"</br>"
-									+"<span class=\"content\">"+comment.CONTENT+"</span>"
+						html += "<li class=\"flex column\">"
+									+"<div class=\"flex row center1\">"
+										+"<span class=\"username\">"+comment.USERNAME+"</span>"
+										+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+									+"</div>"
+									+"<span class=\"content\">"+comment.CONTENT+"</span><hr>"
 								+"</li>";
 					});
 					document.getElementById("commentSection").innerHTML = html;
@@ -220,9 +223,11 @@ function addToFavourites(){
 				else{
 						if(responseJSON.hasOwnProperty('inserted')){
 							isAddedToFavourite = true;
+							//aici colorare
 						} else{
 							if(responseJSON.hasOwnProperty('removed')){
 								isAddedToFavourite = false;
+								//aici decolorare
 							}
 						}
 				}

@@ -9,7 +9,6 @@ var totalPages = 1;
 document.getElementById("searchBar").addEventListener("submit", function(event){
 	event.preventDefault();
 	var value = document.getElementById("searchBarInput").value;
-	console.log("submitted "+value);
 	searchBarInput = value;
 	page = 1;
 	updateStories();
@@ -132,7 +131,6 @@ function gotoLast(){
 
 function gotoPage(pageNo){
 	page = parseInt(pageNo);
-	console.log(page);
 	updateStories();
 	updatePaginationControl();
 }
@@ -147,7 +145,6 @@ function updateStories(){
 	ajaxPost("browse/getFilteredStories", 
 		parameters, 
 		function(responseText){
-			console.log(responseText);
 			var responseJSON = JSON.parse(responseText);
 
 			totalPages = responseJSON.totalPages;

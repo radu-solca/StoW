@@ -85,11 +85,23 @@ BEGIN
 	   INTO categories (cat_type, cat_name) VALUES ('age_group', '15+')
 	   INTO categories (cat_type, cat_name) VALUES ('age_group', '18+')
 
-	   INTO categories (cat_type, cat_name) VALUES ('genre', 'horror')
-	   INTO categories (cat_type, cat_name) VALUES ('genre', 'fiction')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'drama')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'classic')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'comic')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'crime')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'fable')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'fairy tale')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'biography')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'autobiography')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'memoir')
 	   INTO categories (cat_type, cat_name) VALUES ('genre', 'fantasy')
-	   INTO categories (cat_type, cat_name) VALUES ('genre', 'fairy-tale')
-	   INTO categories (cat_type, cat_name) VALUES ('genre', 'porno')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'folklore')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'historical')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'poetry')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'horror')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'legend')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'mystery')
+	   INTO categories (cat_type, cat_name) VALUES ('genre', 'mythology')
 	SELECT 1 FROM DUAL;
 
 	
@@ -140,13 +152,13 @@ BEGIN
 	SELECT 1 FROM DUAL;
 
 
-	INSERT ALL
-	   INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, 'nice story')
-	   INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, '10/10')
-	   INTO comments (usr_id, st_id, cmt_content) VALUES (2, 1, 'Hitler brought people together')
-	   INTO comments (usr_id, st_id, cmt_content) VALUES (5, 1, 'Anusii sunt scumpi')
-	   INTO comments (usr_id, st_id, cmt_content) VALUES (6, 1, 'Whats up doc?')
-	SELECT 1 FROM DUAL;
+	-- INSERT ALL
+	--    INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, 'nice story')
+	--    INTO comments (usr_id, st_id, cmt_content) VALUES (1, 1, '10/10')
+	--    INTO comments (usr_id, st_id, cmt_content) VALUES (2, 1, 'Hitler brought people together')
+	--    INTO comments (usr_id, st_id, cmt_content) VALUES (5, 1, 'Anusii sunt scumpi')
+	--    INTO comments (usr_id, st_id, cmt_content) VALUES (6, 1, 'Whats up doc?')
+	-- SELECT 1 FROM DUAL;
 
 	COMMIT;
 END;

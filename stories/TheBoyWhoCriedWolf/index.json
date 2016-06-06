@@ -1,7 +1,7 @@
 {
     "story": {
         "meta": {
-            "title": "LittleRedRidingHood",
+            "title": "TheBoyWhoCriedWolf",
             "authors": ["Momita","Alin"],
             "cover": "images/cover.jpg"
         },
@@ -42,14 +42,14 @@
 
         "characters": [
     		{
-                "name": "LittleRed",
+                "name": "TheBoy",
                 "description": "Aenean sollicitudin erat at orci pretium finibus",
-                "img": "images/LittleRed.jpg"
+                "img": "images/TheBoy.jpg"
             },
             {
-                "name": "RidingHood",
+                "name": "CriedWolf",
                 "description": "Proin interdum sit amet nulla eu semper",
-                "img": "images/RidingHood.jpg"
+                "img": "images/CriedWolf.jpg"
             }
         ],
         "content":{
@@ -69,7 +69,7 @@
                     ]
                 },
                     {
-                    "img":  "images/LittleRed1.jpg",
+                    "img":  "images/TheBoy1.jpg",
                     "nextList": [
                         {
                             "index": 3,
@@ -85,7 +85,7 @@
                  
                 },
                 {
-                    "img":  "images/LittleRed2.jpg",
+                    "img":  "images/TheBoy2.jpg",
                     "nextList": [
                         {
 	                        "index": 5,
@@ -101,7 +101,7 @@
                  
                 },
                 {
-                    "img":  "images/LittleRed3.jpg"
+                    "img":  "images/TheBoy3.jpg"
                 }
              
             ]

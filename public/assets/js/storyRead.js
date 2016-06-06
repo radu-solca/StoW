@@ -177,7 +177,7 @@ function updateCommentSection(){
 						html += "<li class=\"flex column\">"
 									+"<div class=\"flex row center1\">"
 										+"<span class=\"username\">"+comment.USERNAME+"</span>"
-										+"<span class=\"date\">"+comment.DATE_ADDED+"</span>"
+										+"<span class=\"date\">"+comment.TIMESTAMP+"</span>"
 									+"</div>"
 									+"<span class=\"content\">"+comment.CONTENT+"</span><hr>"
 								+"</li>";

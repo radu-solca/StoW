@@ -15,7 +15,7 @@
 
 
 		public function find(){
-			$query = 'SELECT * FROM comments_view';
+			$query = 'SELECT ID, USER_ID, USERNAME, STORY_ID, TO_CHAR(DATE_ADDED,\'DD-MON-YYYY HH24:MI\') AS "TIMESTAMP", DATE_ADDED, CONTENT FROM comments_view';
 
 			$cond = array();
 			$params = array();

@@ -39,7 +39,11 @@
 						echo json_encode($user->errors()->all());
 					}
 					else{ // all is good
-						echo json_encode(['ok'=>true]);
+						if(isset($_SESSION["storyRedirect"])){
+							echo json_encode(['ok'=>true,'storyRedirect'=>$_SESSION['storyRedirect']]);
+						} else{
+							echo json_encode(['ok'=>true]);
+						}
 					}
 				}
 		}

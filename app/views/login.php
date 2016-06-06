@@ -73,7 +73,11 @@
 			function(responseText){
 				var responseJSON = JSON.parse(responseText);
 				if(responseJSON["ok"] == true){
-					redirect("");
+					if(responseJSON["storyRedirect"]){
+						redirect("storyRead/" + responseJSON["storyRedirect"]);
+					} else{
+						redirect("");
+					}
 				}
 				else{
 					document.querySelector("#username .error").innerHTML = responseJSON.hasOwnProperty('username') ? responseJSON["username"][0] : "";

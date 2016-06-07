@@ -81,7 +81,7 @@ class Story{
 			if(is_null($this->ordtype)){
 				$this->ordtype = 'ASC';
 			}
-		    $query .= " ORDER BY UPPER($this->ordby) $this->ordtype";
+		    $query .= " ORDER BY $this->ordby $this->ordtype";
 		}
 
 		if (!is_null($this->limit)) {

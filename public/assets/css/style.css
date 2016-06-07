@@ -911,7 +911,7 @@ nav form input:focus {
 	padding: 3px;
 	border-radius: 3px;
 	width: 120px;
-	min-width: none;
+	min-width: 0;
 	text-align: center;
 }
 
@@ -1113,7 +1113,7 @@ nav form input:focus {
 	word-wrap: break-word;
 	-ms-word-break: break-all; 
 	word-break: break-all; 
-	word-break: break-word;  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+	/*word-break: break-word;   Adds a hyphen where the word breaks, if supported (No Blink) */
 	-ms-hyphens: auto;
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;

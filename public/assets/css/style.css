@@ -976,10 +976,15 @@ nav form input:focus {
 	background-color: rgba(0, 0, 0, 0.05)
 }
 
-#storyAndProgress img {
+
+#storyAndProgress #bothStoryPages #leftPage img{
 	width: 100%;
 	height: auto;
-	overflow: hidden;
+}
+
+#storyAndProgress #bothStoryPages #rightPage img{
+	width: 100%;
+	height: auto;
 }
 
 .flexWrap .storyById .storyByIdContent hr {

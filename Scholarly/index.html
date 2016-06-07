@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>StoW — Stories on the Web</title>
+    <link rel="stylesheet" href="scholarly.css">
+
+      <link rel="stylesheet" href="node_modules/prismjs/themes/prism-coy.css">
+      <script src="node_modules/prismjs/prism.js" defer></script>
+
+  </head>
+  <body>
+    <header>
+      <p class="title">StoW</p>
+      <p class="subtitle">Interactive stories for children</p>
+    </header>
+    <article id="what">
+      <h1>Stories on the Web</h1>
+      <section>
+        <ol>
+          <li>
+            <a href="#">
+            Chiosa Teodora
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            Ciobanu-Mologhianu Bogdan
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            Ionesi Cristian
+            </a>
+          </li>
+          <li>
+            <a href="#">
+             &#350;olcã Radu
+            </a>
+          </li>
+        </ol>
+      </section>
+
+
+      <section id="rezumat">
+            <h2>Summary</h2>
+			 <p>
+				<strong>StoW (Stories on the Web)</strong> is a web application that offers children of all ages a friendly graphical interface
+				for reading their favourite stories. The users will be able to search for
+				their favorite story on the site (with or without login) and will be able to read and interact with the storyline in a nice way.<br>
+				By logging in, the users will be able to upload their own stories and use features such as: leaving a bookmark, adding the story to favourites, rating stories and discussing them with other users. The application will respect the principles of responsive design.
+            </p>
+        
+      </section>
+
+		<section id="introducere">
+            <h2>Introduction</h2>
+            <p><strong>Motivation</strong></p>
+			<ul>
+				<li>
+					Offering a pleasant and interactive narrative experience via an user-friendly interface.
+				</li>
+				<li>
+					Offering a way of storing and managing an ever-growing collection of stories.
+				</li>
+				<li>
+					Offering our users the possibility of adding new stories and expanding our universe.
+				</li>
+				<li>
+					Offering our users stories tailored to their own needs, based on their age and preferred genres.
+				</li>
+			</ul>
+			<p>
+			StoW is destined for children, making them our main demographic, but their parents are also a target audience of our application.
+			</p>
+			
+			<p>
+				<strong>How to use the application:</strong>
+				After entering the web page's URL in the browser's adress bar, there are multiple options:
+			</p>
+
+			<p><strong>The Menu</strong></p>
+			<ul>
+				<li>
+					The "Home" button in the upper left side will take you to the homepage of our app.
+				</li>
+				<li>
+					Right next to it, the "Browse" button will take you to the browse view.
+				</li>
+				<li>
+					The "Upload" button allows an user to upload new stories (in an XML format). This feature will require the user to log in.
+				</li>
+				<li>
+					You can search for a specific story by entering its name in the "Search" bar. This will also take you to the browse view.
+				</li>
+				<li>
+					The "Sign in" button on the upper right will take the user to a sign in/register view.
+				</li>
+			</ul>
+
+			<p><strong>The Homepage View:</strong></p>
+			<ul>
+				<li>
+					This is the view that the user will face when first starting the application.
+				</li>
+				<li>
+					The user will be greeted with a colourful banner, with two buttons - upload and browse.
+					Those buttons can also be found in the menu on the top, among other tools useful for navigating the website.
+				</li>
+				<li>
+					Below the banner are listed a few of the most recently added stories.
+				</li>
+			</ul>
+			<p><strong>The Browse View:</strong></p>
+			<ul>
+				<li>
+					This is the interface that allows the user to navigate through our stories, and find something worth a read.
+				</li>
+				<li>
+					The user can filter the stories by age or by genre. Or use the search function to find something specific.
+				</li>
+				<li>
+					The resulting array of stories can be navigated via the "next" and "previous" buttons.
+				</li>
+				<li>
+					On hovering, the covers of the displayed stories will reveal more information about them, such as title and user rating.
+				</li>
+				<li>
+					To open a story the user has to click on the cover of the prefered book.
+				</li>
+			</ul>
+			<p><strong>The Story View:</strong></p>
+			<ul>
+				<li>
+					Here, the user can read the story he/she wants. By clicking next, the next page of the story will be loaded.
+				</li>
+				<li>
+					If the story is interactive, instead of a next button, there will be a list of options. The reader then has to decide how the story continues.
+				</li>
+				<li>
+					At the bottom, the progress bar is shown, indicating how much the user has already read.
+				</li>
+				<li>
+					The "A+" and "A-" buttons will zoom the text in and out.
+				</li>
+				<li>
+					A bookmark can be placed on the page by clicking the icon on the left side, so that the next time the user logs in, he/she can continue from where he/she left off.
+				</li>
+				<li>
+					The story can be rated with 1 to 5 stars and can be added to favorites by clicking
+					the "heart" icon.
+				</li>
+
+			</ul>
+		</section>
+	  
+		<section id="metode">
+		<h2><strong>Progress</strong></h2>
+		<p id="centerIt"><em>This isn't even my final form!</em></p>
+
+		<hr>
+
+		<h2>The backend</h2>
+		<ul>
+			<li>
+				Compiled a list of features that the final product should have (use cases).	
+			</li>
+			<li>
+				Sketched the database architecture: The content of the stories will be structured in a linked list of "blocks" (where a block could have links to multiple other blocks - to support interaction with the reader) which will be stored in a separate table of the database.
+			</li>
+			<li>
+				Conceived the XML format that will be used to upload stories to the database (and perhaps in the future export stories from the database).
+			</li>
+			<li>
+				Changed the architecture so that the content will be kept in external XML files instead (the database will only hold links to those). We gave up on the concept of "blocks" because we deemed them to not be flexible enough (for example, adding images would be hard).
+			</li>
+			<li>
+				Created a DTD file to properly define the XML format.
+			</li>
+			<li>
+				Added support for special user types (for now only "admins" were added, but with the possibility to easily add more later on).
+			</li>
+			<li>
+				Overhauled the way story categories work: Previously they would be very limited; a story could only have one age group and one genre. Now it's possible for a story to fall into multiple categories, and it should also be easy to add new kinds of categories in teh future.
+			</li>
+			<li>
+				Slightly modified the XML format to accomodate new category system.
+			</li>
+			<li>
+				Added support for favourites, comments, ratings and bookmarks. All of those features will be modeled as associative tables between "Users" and "Stories".
+			</li>
+			<li>
+				Made UML diagrams for use cases and components.
+			</li>
+			
+		</ul>
+		
+		</section>
+		
+		<section id="Design">
+		    <h2>The frontend & design</h2>
+
+		    <figure typeof="sa:Image">
+		      <img src="img/home.png">
+		      <figcaption>
+		        Home page view of the website 
+		      </figcaption>
+		    </figure>
+		    <ul>
+		      <li>
+		        Chose the color scheme and the fonts to create a childish mood and a simple, clean look.
+		      </li>
+		      <li>
+		      	Browsed the web for "children's books" images. Credit goes to <a href="freepik.com">freepik.com</a> for all the beautifully designed, flat-style images that are free to use for personal or commercial purpose as long as credit is given.
+		      </li>
+		      <li>
+		        Wrote the website's description.
+		      </li>
+		      <li>
+		        Created the general layout of the website: menu, title, description, useful buttons, useful content (recently added) and footer. The menu contains the following pages: the home page, the browse page and the upload page for power-users on the left and sign in/register options + the search function on the right.
+		      </li>
+		    </ul>
+
+		    <figure typeof="sa:Image">
+		      <img src="img/home - mobile.png">
+		      <figcaption>
+		        Home page view of the website, but for a mobile device (smaller than 480px  in width).
+		      </figcaption>
+		    </figure>
+
+		    <p>
+		      Thought of a way to keep the deskop version's design while also making it look responsive by imitating the "flex" property. 
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="img/home - mobile - search.png">
+		      <figcaption>
+		        Home page view with the user typing a search key.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      Added a "user tries to search for something" view.
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="img/browse - filter.png">
+		      <figcaption>
+		        The "Browse" page in which the user can filter stories or order them.
+		      </figcaption>
+		    </figure>
+
+		    <p>
+		      Decided to place the filters on the left (age group, genre) and the ordering on top of the results. The user can deselect filters, not just add them. Anyone can have access to the "Browse" page, no account is necessary.
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="img/story - page1.png">
+		      <img src="img/story - page2.png">
+		      <figcaption>
+		        The "Story" page with 2 columns of text.
+		      </figcaption>
+		    </figure>
+
+		    <ul>
+			    <li>
+			      Decided to place the title, author, rating and comment + favourite buttons on the same section. Only registered users can rate, comment and favourite.
+			    </li>
+			    <li>
+			      Placed the bookmark on the "edge" of the book-page (that has 2 pages). Only registered users can bookmark their progress.
+			    </li>
+			    <li>
+			      Placed the dummy text in 2 pages (that can also be 2 images or an image and a page of text).
+			    </li>
+			    <li>
+			      Added accesibility function: text sise increase buttons.
+			    </li>
+			    <li>
+			      Added the option to go to the next page and to go back.
+			    </li>
+			    <li>
+			      Added the progress bar.
+			    </li>
+			    <li>
+			      Designed the "more than one next page" option for interactive storytelling. The user has to make a decision to continue the story.
+			    </li>
+			</ul>
+		</section>
+			
+			<section>
+				<h2>THE DATABASE</h2>
+				<figure typeof="sa:Image">
+				  <img src="img/database.png">
+				  <figcaption>
+					An UML diagram showing the relations between the tables. Right click -> View Image for larger size.
+				  </figcaption>
+				</figure>
+				<p>Structure of the database:</p>
+				<ul>
+					<li><code>Stories</code> (story_id (pk), title, author, content(<em>link to XML file</em>))</li>
+
+					<li><code>Categories</code> (category_id (pk), type, name)</li>
+				
+					<li><code>StoriesXCategories</code> ( story_id (pk, fk), category_id (pk,fk))</li>
+
+					<li><code>Characters</code> (character_id (pk), story_id(pk,fk), character(<em>link to XML file</em>))</li>
+
+					<hr/>
+
+					<li><code>Users</code> (user_id (pk), name, surname, username, password, e-mail, etc.)</li>
+					<em>Stores all users, regardless of type.</em>
+
+					<li><code>Roles</code> (role_id (pk), role_name <em>i.e. admin, or other special user types</em>)</li>
+
+					<li><code>User_Roles</code> (user_id (fk, pk), role_id (fk, pk))</li>
+					<em>Assigns roles to special users.</em>
+
+					<hr/>
+					<li><code>Bookmarks</code> (user_id (fk, pk), story_id (fk, pk), page_id) )</li>
+
+					<li><code>Favourites</code> (user_id (fk, pk), story_id (fk, pk))</li>
+
+					<li><code>Comments</code> (id (pk), user_id (fk), story_id (fk), comment)</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>USE-CASES</h2>
+				<figure typeof="sa:Image">
+					  <img src="img/client_fara_login.png">
+					  <figcaption>
+						An UML use-case diagram showing how a client interacts with the application
+						without login.
+					  </figcaption>
+				</figure>
+				<figure typeof="sa:Image">
+					  <img src="img/admin_usecase.png">
+					  <figcaption>
+						An UML use-case diagram showing how a power-user/admin interacts with the application.
+					  </figcaption>
+				</figure>
+				<figure typeof="sa:Image">
+					  <img src="img/diagrama_componente.png">
+					  <figcaption>
+						An UML deployment diagram for the application.
+					  </figcaption>
+				</figure>
+				
+				
+			</section>
+			
+			<section>
+				<h2>XML CONVENTION</h2>
+
+
+			<figure>
+	            <meta property="schema:name" content="xml">
+	            <pre property="schema:programmingLanguage" typeof="schema:Language">
+	            	<code class="language-xml">&lt;story>
+	&lt;meta> 
+		&lt;title/>
+		&lt;autor/>	
+		&lt;cover src="" />
+	&lt;/meta>
+	&lt;categories>
+		&lt;category>
+			&lt;type/>
+			&lt;name/>
+		&lt;/category>
+	&lt;/categories>
+	&lt;characters>
+		&lt;character>
+			&lt;name/>
+			&lt;description/>
+			&lt;img src=""/>
+		&lt;/character>
+	&lt;/characters>
+	&lt;content>
+		&lt;page type="text" id="">
+			&lt;subtitle/>
+			&lt;text/>
+			&lt;nextList>
+				&lt;next id="" />
+			&lt;/nextList>
+		&lt;/page>
+		&lt;page type="img" id="">
+			&lt;img src="" />
+			&lt;nextList>
+				&lt;next id="" />
+			&lt;/nextList>
+		&lt;/page>
+	&lt;/content>	
+&lt;/story>
+	           		</code></pre>
+	            <figcaption>
+	              An example of how an XML used for uploading stories should look like. 
+	            </figcaption>
+	         </figure>
+
+
+
+<!--
+
+				<figure typeof="sa:Image">
+					  <img src="img/xml_convention.png">
+					  <figcaption>
+						An example of how an xml used for uploading stories should look like.
+					  </figcaption>
+				</figure>
+-->
+				
+				<ul>
+					<li>
+						The attribute <code>src</code> for the <code>cover</code> tag will contain the source/URL of the image used for the 
+						cover of the story. The <code>src</code> attributes for the  <code>img</code> tags will contain pictures related to the storyline. 
+					</li>
+					<li>
+						The <code>nextList</code> tag can contain multiple "next" pages identified by a unique id (there may be more than one because of the interactive storyline).
+					</li>
+				
+				</ul>
+				
+
+			<h2>DTD CONVENTION</h2>
+			<figure>
+	            <meta property="schema:name" content="dtd">
+	            <pre property="schema:programmingLanguage" typeof="schema:Language">
+	            	<code class="language-html">&lt;!ELEMENT story (meta,characters,content)>
+
+&lt;!ELEMENT meta (title,autor+,cover?)>
+&lt;!ELEMENT title (#PCDATA)>
+&lt;!ELEMENT autor (#PCDATA)>
+&lt;!ELEMENT cover EMPTY>
+
+&lt;!ATTLIST cover src CDATA #REQUIRED>
+
+&lt;!ELEMENT categories (category+)>
+&lt;!ELEMENT category (type,name)>
+&lt;!ELEMENT type (#PCDATA)>
+&lt;!ELEMENT name (#PCDATA)>
+
+&lt;!ELEMENT characters (character+)>
+&lt;!ELEMENT character (name,description,img?)>
+&lt;!ELEMENT name (#PCDATA)>
+&lt;!ELEMENT description (#PCDATA)>
+&lt;!ELEMENT img EMPTY>
+
+&lt;!ATTLIST img src CDATA #REQUIRED>
+
+&lt;!ELEMENT content (textPage+,imgPage+)>
+&lt;!ELEMENT textPage (subtitle?,text,nextList)>
+&lt;!ELEMENT nextList (next*)>
+&lt;!ELEMENT subtitle (#PCDATA)>
+&lt;!ELEMENT text (#PCDATA)>
+&lt;!ELEMENT next EMPTY>
+
+&lt;!ATTLIST textPage type CDATA #FIXED "text">
+&lt;!ATTLIST textPage id ID #REQUIRED>
+&lt;!ATTLIST next id ID #REQUIRED>
+
+&lt;!ELEMENT imgPage (img,nextList)>
+&lt;!ELEMENT nextList (next*)>
+&lt;!ELEMENT img EMPTY>
+&lt;!ELEMENT next EMPTY>
+
+&lt;!ATTLIST imgPage type CDATA #FIXED "img">
+&lt;!ATTLIST imgPage id ID #REQUIRED>
+&lt;!ATTLIST img src CDATA #REQUIRED>
+&lt;!ATTLIST next id ID #REQUIRED>
+	           		</code></pre>
+	            <figcaption>
+	              The content of the DTD file used to validate the XML. 
+	            </figcaption>
+	         </figure>
+			
+			</section>
+
+			<section>
+
+			<h2>ACTUAL IMPLEMENTATION OF STOW</h2>
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/home.png">
+		      <figcaption>
+		        This is how the home page looks.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      On the home page you can see: "Browse", "Upload", "Search", "Account" buttons and the recently added stories.
+		    </p>
+
+		   <li>
+		   	Tehnical details:
+		   </li>
+
+		   <p>
+		   		In the home page, in order to populate the most recently added 5 stories we make a request to the server that will query the database and will return the title, rating, authors and the json in which every story keeps its content (paths to images and text), in order to populate the thumbnails for every story.
+
+		   </p>
+
+		   <li>Front-end:</li>
+		   <p>
+		   	The whole page has a maximum width of the content of 960px to ensure good reading on monitors of any size without straining the eyes. Resizing the window to a smaller size will not make the content unreadable. There is also a mobile version that "activates" when the browser window has a width of 500px or lower. In order to make this website flexible, flex-box was used. The menu is fixed and always will be present at the top of the page, no matter how far down you scroll.
+		   </p>
+
+		   <figure typeof="sa:Image">
+		      <img src="imgFinal/mobile_home.png">
+		      <figcaption>
+		        Mobile view: the home page.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		       The mobile version is very similar to the desktop version and it's easy to navigate through it.
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/browse.png">
+		      <figcaption>
+		        This is the Browse View.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Browse", you will be presented with a page with filters: "AGE GROUP", "GENRE". You can also order yoUr results after applying filters by seleting either "RATING", "DATE ADDED" or "ALPHABETIC" from the drop down lists. Ordering can be either ascending or descending. On the bottom of the page you can see the pagination section with the buttons: "FIRST", "PREV" ,"NEXT" and "LAST".
+		    </p>
+
+		    <li>
+		    Tehnical details:
+		    </li>
+		    <p>
+		    	In order to populate with the desired stories, a POST is made to the server with all the filters necessary, or none if the user intended so. When you choose a new filter or want a different ordering or press the next or prev button an AJAX request is made, in order not to reload the page and give a better user experience.You can choose as many filters as you like, they will never duplicate. The server will execute the "Browse.php" controller and give back the result returned by the find function from the "Story.php" model.
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/filters.png">
+		      <figcaption>
+		        This is the Filters  area.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you are in the Filters area and you select a category for example, that category will go in the Filtered results area. You may remove your filters by clicking on them (they have a small 'x' sign to indicate they can be removed).
+		    </p>
+
+			<figure typeof="sa:Image">
+		      <img src="imgFinal/upload.png">
+		      <figcaption>
+		        This is the notLoggedIn view.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press the “Upload”, button you will get an alert message  “You need to be signed in to access this feature. Please sign in or sign up below!”, and the you will see the “SIGN IN” “SIGN UP” buttons (only when yOu aren't logged in).
+		    </p>
+
+		     <li>
+		    	Tehnical details:
+		    </li>
+		    <p>
+		    	If the $_SESSION["userData"] variable is not set the user is redirected to this page in which he has to sign in or sign up.
+		    </p>
+
+
+			<figure typeof="sa:Image">
+		      <img src="imgFinal/signIN.png">
+		      <figcaption>
+		        This is the signIN view.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Sign In", you will see a form with the message "Welcome Back!:)", the "Username" and  "Password" fields and the "Submit" button.
+		    </p>
+
+		         <li>
+		    	Tehnical details:
+		    </li>
+		    <p>
+		    	After pressing the Submit button a query is sent to the database with the User Name and the Password (which is encoded in md5). If the result is not null then the user will be redirected to the Home page or, if the $_SESSION["redirectPage"] is set, to the latest story that he was reading.
+		    </p>
+
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/signUP.png">
+		      <figcaption>
+		        This is the signUP button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Sign Up", you will see a form with the message "Join the fun! With an account, you can add bookmarks, ratings, comments and more! ", the "Username", "Password", "Pepeat password", "Email", "Name", "Surname" fields and the "Submit" button. While you fill the required data, you will get feedback in real time.
+		    </p>
+
+		         <li>
+		    	Tehnical details:
+		    </li>
+		    <p>
+		    	Again, after pressing the Submit button the data from the form will be collected and an AJAX post will be made to the server. If all is ok, the server will insert the information of the user into the database, sign them in and redirect them to the home page.
+		    </p>
+
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Search.png">
+		      <figcaption>
+		        This is the Search filed + button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press on the "Search" button, you will see a field where you can type a story title. Hitting enter or clicking the search button will redirect you to the Browse page.
+		    </p>
+
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/mobile_search.png">
+		      <figcaption>
+		        This is the Search filed + button on the mobile version.
+		      </figcaption>
+		    </figure>
+
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Account.png">
+		      <figcaption>
+		        This is the Account button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you hover over "Account", you will see the messages "Sign In" and "Sign Up".
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Account-SignedIN.png">
+		      <figcaption>
+		        This is the Account - Signed In button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you hover over the "Account" button and you are logged in, you will see the following links: "Profile", "Sign out" and, for special users, "Admin".
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Upload-SignedIN.png">
+		      <figcaption>
+		        This is the Upload button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Upload", you will see the message "Select .zip file to be uploaded. " , the "Click here to select file",  and the "Submit" button. 
+		    </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Upload-ZIP.png">
+		      <figcaption>
+		        This is the Upload - ZIP button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Click here to select file." button, a window will appear from which you can select a ZIP file.
+            </p>
+
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/admin.png">
+		      <figcaption>
+		        These are the account links available to admins only.
+		      </figcaption>
+		    </figure>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/adminApprove-remove.png">
+		      <figcaption>
+		        This is the admin panel.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press the "Admin" link from the account link list, you will see the browse page but with some special buttons to approve or remove a new story.
+            </p>
+
+             <figure typeof="sa:Image">
+		      <img src="imgFinal/SignOut.png">
+		      <figcaption>
+		        This is the SignOut button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Sign Out", you will be redirected to the home page.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/Rating.png">
+		      <figcaption>
+		        These are the ordering options.
+		      </figcaption>
+		    </figure>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/ASC-DESC.png">
+		      <figcaption>
+		        You may order your results in ascending or descending order.
+		      </figcaption>
+		    </figure>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/SubmitWrong.png">
+		      <figcaption>
+		        User types in a wrong username.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		       After completing the form and hitting the submit button, you will either get username errors (username not in the database) or password errors (username is found in the database but the password does not match).
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/profile.png">
+		      <figcaption>
+		        This is the "Profile" page.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      In the profile page, you will find "Account" information, your "Favorite" stories, your "Bookmarks" and the "Ratings" you gave to stories. When you click on a story from one of your profile sections, you will be redirected to that story.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/selectStory.png">
+		      <figcaption>
+		        On the bottom of the page: story thumbnails.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you hover over a story thumbnail, you will see the story title, authors and the rating of the story. If you click on the story you will be redirected to that story page.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/story.png">
+		      <figcaption>
+		        This is the story reading view.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      At the top of the page you will see the title, authors and the rating of the story as well as the "Comment", "Favourites" and the "Bookmarks" buttons. In the middle there is the story content: text, images, alternative story line. You may use the pagination links at the bottom for story navigation or you may use the HOTKEYS: "," (comma) for the previous page, "." (full stop for the next page).
+            </p>
+
+           <figure typeof="sa:Image">
+		      <img src="imgFinal/mobile_story.png">
+		      <figcaption>
+		        Mobile view: the story view.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		       The mobile version is very similar to the desktop version and it's easy to navigate through it.
+		    </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/ratingStars.png">
+		      <figcaption>
+		        This is the rating system (5 stars).
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      You may give the story a rating that ranges from 1 to 5 by clicking on the stars.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/Comment.png">
+		      <figcaption>
+		        This is the Comment button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press on the "Comment" button, you will bee redirected to the bottom of the page (the comment section).
+            </p>
+		     
+		    <figure typeof="sa:Image">
+		      <img src="imgFinal/Favourites.png">
+		      <figcaption>
+		        This is the Favourites button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Favourites", the story will be marked as a favorite in your profile.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/unfavorite.png">
+		      <figcaption>
+		        This is the Un-favourites button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press "Un-favourite" button, the story will be removed from favorite in your profile.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/bookmark.png">
+		      <figcaption>
+		        This is the bookmark button.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press the "bookmark" button, the application will remember the page you are currently on, and the next time you load this story, it will take you there directly.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/next-prev.png">
+		      <figcaption>
+		        This are the next-prev buttons.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you click on the "Next" or "Previous" buttons, the page will change.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/interactivesButtons.png">
+		      <figcaption>
+		        These are the alternative story links.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      When you press one of the alternative links, the story will have the following page/ending that you want.
+            </p>
+
+            <figure typeof="sa:Image">
+		      <img src="imgFinal/commentBox.png">
+		      <figcaption>
+		        This is the comment section.
+		      </figcaption>
+		    </figure>
+		    
+		    <p>
+		      In the comment section, you can write comments for the story you have selected.
+            </p>
+
+			</section>
+		
+		</section>
+		
+		
+      
+    </article>
+
+<!--
+    <footer>
+      <p>Image credit: freepik.com
+      </p>
+</footer-->
+  </body>
+</html>

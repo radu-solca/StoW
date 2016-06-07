@@ -1,0 +1,110 @@
+{
+    "story": {
+        "meta": {
+            "title": "LittleRedRidingHood",
+            "authors": ["Momita","Alin"],
+            "cover": "images/cover.jpg"
+        },
+        "categories": [
+            {
+                "type": "genre",
+                "name": "fantasy"
+            },
+            {
+                "type": "genre",
+                "name": "mystery"
+            },
+            {
+                "type": "genre",
+                "name": "autobiography"
+            },
+            {
+                "type": "genre",
+                "name": "legend"
+            },
+            {
+                "type": "genre",
+                "name": "memoir"
+            },
+            {
+                "type": "age_group",
+                "name": "3+"
+            },
+            {
+                "type": "age_group",
+                "name": "15+"
+            },
+            {
+                "type": "age_group",
+                "name": "18+"
+            }
+        ],
+
+        "characters": [
+    		{
+                "name": "LittleRed",
+                "description": "Aenean sollicitudin erat at orci pretium finibus",
+                "img": "images/LittleRed.jpg"
+            },
+            {
+                "name": "RidingHood",
+                "description": "Proin interdum sit amet nulla eu semper",
+                "img": "images/RidingHood.jpg"
+            }
+        ],
+        "content":{
+            "pages": [
+                {
+                    "subtitle": "Capitol1",
+                    "text": "Lorem ipsum dolor sit amet, timeam oporteat duo ad, eum id audiam erroribus. Duo prima laoreet ei, ut has autem malorum. Ius eu prima etiam vocibus, cum dolore sapientem id. In dicit scaevola mel, mea epicurei erroribus instructior te.",
+                    "nextList": [
+                    	{
+	                        "index": 2,
+	                        "msg": "LittleRed wins"
+	                    },
+	                    {
+	                        "index": 4,
+	                        "msg": "LittleRed dies"
+	                    }
+                    ]
+                },
+                    {
+                    "img":  "images/LittleRed1.jpg",
+                    "nextList": [
+                        {
+                            "index": 3,
+                            "msg": "RidingHood wins!!"
+
+                        }
+                    ]
+
+                },
+                  {
+                    "subtitle": "Capitol2",
+                    "text": "Assum civibus at pri, te rebum persecuti eum, mel cu assentior consetetur disputationi. Detracto assentior eloquentiam ei vel, mea id nemore dolorem. An summo dicit eam, nostrum iracundia at per. Duo choro referrentur no. Ea sed denique conceptam, no eum lorem numquam utroque. His ad erant adolescens. Ornatus interpretaris ne est, facete eirmod te eos."
+                 
+                },
+                {
+                    "img":  "images/LittleRed2.jpg",
+                    "nextList": [
+                        {
+	                        "index": 5,
+                            "msg": "RidingHood dies!!!"
+
+	                    }
+                    ]
+
+                },
+		{
+                    "subtitle": "Capitol3",
+                    "text": "In laoreet ultricies nulla, aliquet consequat risus auctor quis. In sed orci convallis leo molestie mattis bibendum ut tellus. Suspendisse aliquam enim vitae ullamcorper facilisis. Mauris consectetur id ex at suscipit. Nam auctor lobortis felis, at gravida nulla mattis id."
+                 
+                },
+                {
+                    "img":  "images/LittleRed3.jpg"
+                }
+             
+            ]
+        }
+    }
+}

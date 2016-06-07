@@ -290,8 +290,8 @@ function addToFavourites(){
 
 function updateFavorite(){
 
-	var theHeart = document.querySelector('#storyDetails #right .heart_stroke');
-	var tooltip = document.querySelector('#storyDetails #right .heart_stroke .tooltip');
+	var theHeart = document.querySelector('#storyDetails #rightSide .heart_stroke');
+	var tooltip = document.querySelector('#storyDetails #rightSide .heart_stroke .tooltip');
 
 	if(isAddedToFavourite){
 		theHeart.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";
@@ -308,8 +308,8 @@ function updateFavorite(){
 
 function updateBookmark(){
 
-	var theBookmark = document.querySelector('#storyDetails #right .book_alt2');
-	var tooltip = document.querySelector('#storyDetails #right .book_alt2 .tooltip');
+	var theBookmark = document.querySelector('#storyDetails #rightSide .book_alt2');
+	var tooltip = document.querySelector('#storyDetails #rightSide .book_alt2 .tooltip');
 
 	if(isBookmarked){
 		theBookmark.style.boxShadow = "0 0 0 2px rgba(255,255,255,0.3)";

@@ -31,7 +31,7 @@
 			<div class="guide960">
 				<div class="browseContent margin20 flex flexStart center2 row topBottom40">
 
-					<section id="filterPanel" class="left-container">
+					<div id="filterPanel" class="left-container">
 						<p>Filter stories</p>
 							
 						<div class="ageGroupContainer">
@@ -64,11 +64,11 @@
 							</div>	
 						</div>
 
-					</section>	
+					</div>	
 
 					<hr class="vertical">	
 
-					<section id="filteredResults" class="right-container">	
+					<div id="filteredResults" class="right-container">	
 						<p>Filtered results</p>
 
 						<ul id="filterView" class="flex row"></ul>
@@ -94,7 +94,7 @@
 						<div id="pageControlBottom">
 						</div>
 
-					</section>	
+					</div>	
 				</div>
 
 			</div>

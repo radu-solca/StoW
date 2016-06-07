@@ -819,7 +819,7 @@ nav form input:focus {
 	width: 100%;
 }
 
-.flexWrap .profile .formContent section {
+.flexWrap .profile .formContent div {
 	flex: 1;
 }
 
@@ -883,25 +883,25 @@ nav form input:focus {
 	padding: 20px 40px;
 }
 
-#storyDetails section p {
+#storyDetails div p {
 	padding-left: 3px;
 }
 
-#storyDetails #left {
+#storyDetails #leftSide {
 	flex: 7;
 }
 
-#storyDetails #left p {
+#storyDetails #leftSide p {
 	margin: 0;
 }
 
-#storyDetails #left img {
+#storyDetails #leftSide img {
 	width: 20px;
 	height: 20px;
 	margin: 0 2px;
 }
 
-#storyDetails  #left #linkToChars{
+#storyDetails  #leftSide #linkToChars{
 	cursor: pointer;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -915,7 +915,7 @@ nav form input:focus {
 	text-align: center;
 }
 
-#storyDetails  #left #linkToChars:hover{
+#storyDetails #leftSide #linkToChars:hover{
 	background-color: rgba(0,0,0,0.05);
 	border: 1px solid rgba(0,0,0,0.05);
 	-webkit-transition: all .2s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
@@ -923,7 +923,7 @@ nav form input:focus {
 }
 
 
-#storyDetails #right {
+#storyDetails #rightSide {
 	text-align: right;
 }
 

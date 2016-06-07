@@ -35,7 +35,7 @@
 				<div id="story" class="margin20 storyByIdContent flex center1 center2 column topBottom40">
 
 					<div id="storyDetails" class="flex row overlay">
-						<section id="left">
+						<div id="leftSide">
 							<h1>
 								<?php
 								if($json){
@@ -61,11 +61,11 @@
 							<p id="linkToChars"><a target='_blank' href="<?php echo App::makeAbsolute('characters/'.$data['storyId']) ?>">&#9715; CHARACTER LIST</a></p>							
 							<div id="rating"></div>
 
-						</section>
+						</div>
 
 						<hr class="vertical">
 
-						<section id="right" class="flex column">
+						<div id="rightSide" class="flex column">
 						
 							<a href="#pageControlBottom" class="iconic comment_alt2_stroke clickable">
 								<!-- duce la commenturi da oleaca mai sus -->
@@ -79,7 +79,7 @@
 								<div class="tooltip">bookmark</div>
 							</a>
 
-						</section>
+						</div>
 					</div>
 
 					<div id="storyAndProgress" class="flex column">
@@ -107,7 +107,7 @@
 							<input type="submit" value="submit" onclick="submitComment()">
 						</form>
 						
-						<ul id="commentSection" class="flex column">
+						<ul id="commentdiv" class="flex column">
 						</ul>
 					</div>
 

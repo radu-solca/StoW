@@ -1,4 +1,6 @@
 # StoW
+A web application for children/teenagers that features: viewing and uploading of stories in a visually pleasing and user
+friendly way.
 
-O aplicatie web menita pentru copii, ce pune la dispozitia acestora diverse povesti faimoase in format electronic.
-
+#The Team
+Șolcă Radu, Chiosa Elena-Teodora, Ionesi Cristian, Ciobanu-Mologhianu Bogdan 

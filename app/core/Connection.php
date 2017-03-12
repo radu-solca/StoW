@@ -7,7 +7,7 @@ class Connection{
 	private function __construct() {
 
 		try {
-			self::$db = new PDO('oci:dbname=localhost/XE', 'stow', 'stow');
+			self::$db = new PDO('oci:dbname=localhost/XE', 'stow', 'stow1');
 			self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			self::$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}
